@@ -1,0 +1,261 @@
+<style>
+.bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+    transform: translateY(100%);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    /* See the matching note on .section-header in header.liquid. */
+    will-change: transform;
+    border-top: 0.5px solid #E8702C;
+    background: #fff;
+}
+
+.bottom-nav.is-visible{
+  transform: translateY(0);
+}
+
+.bottom-nav__item{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:6px 4px;
+  text-decoration:none;
+  color:#817676;
+  position:relative;
+  transition:.25s ease;
+}
+
+.bottom-nav__icon{
+  width:24px;
+  height:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.bottom-nav__icon svg{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.bottom-nav__label{
+  font-size:10px;
+  font-weight:400;
+  line-height:16px;
+  letter-spacing:.6px;
+  color:inherit;
+}
+
+.bottom-nav__item.active{
+  color:#F36958;
+}
+
+.bottom-nav__item.active .bottom-nav__label::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 3px;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background: #F36958;
+    border-radius: 10px;
+}
+
+.bottom-nav__item:hover{
+  color:#F36958;
+}
+
+.bottom-nav__item svg path{
+  transition:.25s ease;
+}
+
+@media (min-width:990px){
+  .bottom-nav{
+    display:none;
+  }
+}
+
+@media (max-width:989px){
+  body{
+    padding-bottom:72px;
+  }
+}
+
+@media (max-width:480px){
+  .bottom-nav{
+    padding-top:10px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom));
+  }
+
+  .bottom-nav__label{
+    font-size:10px;
+  }
+
+  .bottom-nav__icon{
+    width:22px;
+    height:22px;
+  }
+}
+</style>
+
+<nav class="bottom-nav" aria-label="Bottom Navigation">
+
+  <!-- Home -->
+  <a href="{{ routes.root_url }}"
+     class="bottom-nav__item{% if request.page_type == 'index' %} active{% endif %}">
+    <span class="bottom-nav__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+        <path d="M11.75 18.1667V10.8333C11.75 10.5902 11.6534 10.3571 11.4815 10.1852C11.3096 10.0132 11.0764 9.91667 10.8333 9.91667H7.16667C6.92355 9.91667 6.69039 10.0132 6.51849 10.1852C6.34658 10.3571 6.25 10.5902 6.25 10.8333V18.1667M0.75 8.08377C0.749936 7.81708 0.808056 7.55359 0.920305 7.31168C1.03255 7.06977 1.19623 6.85525 1.39992 6.68311L7.81658 1.18311C8.14749 0.903439 8.56674 0.75 9 0.75C9.43326 0.75 9.85251 0.903439 10.1834 1.18311L16.6001 6.68311C16.8038 6.85525 16.9674 7.06977 17.0797 7.31168C17.1919 7.55359 17.2501 7.81708 17.25 8.08377V16.3338C17.25 16.82 17.0568 17.2863 16.713 17.6301C16.3692 17.974 15.9029 18.1671 15.4167 18.1671H2.58333C2.0971 18.1671 1.63079 17.974 1.28697 17.6301C0.943154 17.2863 0.75 16.82 0.75 16.3338V8.08377Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </span>
+
+    <span class="bottom-nav__label">
+      Home
+    </span>
+  </a>
+
+  <!-- Category -->
+  <a href="/collections/all"
+     class="bottom-nav__item{% if request.page_type == 'collection' %} active{% endif %}">
+    <span class="bottom-nav__icon">
+     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M9.21534 3H5.08153C3.93379 3 3 3.93379 3 5.08153V9.21534C3 10.3631 3.93379 11.2969 5.08153 11.2969H9.21534C10.3631 11.2969 11.2969 10.3631 11.2969 9.21534V5.08153C11.2969 3.93379 10.3631 3 9.21534 3ZM9.89062 9.21534C9.89062 9.58768 9.58768 9.89062 9.21534 9.89062H5.08153C4.70919 9.89062 4.40625 9.58768 4.40625 9.21534V5.08153C4.40625 4.70919 4.70919 4.40625 5.08153 4.40625H9.21534C9.58768 4.40625 9.89062 4.70919 9.89062 5.08153V9.21534Z" fill="currentColor"/>
+        <path d="M18.8906 3H14.8125C13.6494 3 12.7031 3.94627 12.7031 5.10938V9.1875C12.7031 10.3506 13.6494 11.2969 14.8125 11.2969H18.8906C20.0537 11.2969 21 10.3506 21 9.1875V5.10938C21 3.94627 20.0537 3 18.8906 3ZM19.5938 9.1875C19.5938 9.5752 19.2783 9.89062 18.8906 9.89062H14.8125C14.4248 9.89062 14.1094 9.5752 14.1094 9.1875V5.10938C14.1094 4.72167 14.4248 4.40625 14.8125 4.40625H18.8906C19.2783 4.40625 19.5938 4.72167 19.5938 5.10938V9.1875Z" fill="currentColor"/>
+        <path d="M9.21534 12.7031H5.08153C3.93379 12.7031 3 13.6369 3 14.7847V18.9185C3 20.0662 3.93379 21 5.08153 21H9.21534C10.3631 21 11.2969 20.0662 11.2969 18.9185V14.7847C11.2969 13.6369 10.3631 12.7031 9.21534 12.7031ZM9.89062 18.9185C9.89062 19.2908 9.58768 19.5938 9.21534 19.5938H5.08153C4.70919 19.5938 4.40625 19.2908 4.40625 18.9185V14.7847C4.40625 14.4123 4.70919 14.1094 5.08153 14.1094H9.21534C9.58768 14.1094 9.89062 14.4123 9.89062 14.7847V18.9185Z" fill="currentColor"/>
+        <path d="M18.8906 12.7031H14.8125C13.6494 12.7031 12.7031 13.6494 12.7031 14.8125V18.8906C12.7031 20.0537 13.6494 21 14.8125 21H18.8906C20.0537 21 21 20.0537 21 18.8906V14.8125C21 13.6494 20.0537 12.7031 18.8906 12.7031ZM19.5938 18.8906C19.5938 19.2783 19.2783 19.5938 18.8906 19.5938H14.8125C14.4248 19.5938 14.1094 19.2783 14.1094 18.8906V14.8125C14.1094 14.4248 14.4248 14.1094 14.8125 14.1094H18.8906C19.2783 14.1094 19.5938 14.4248 19.5938 14.8125V18.8906Z" fill="currentColor"/>
+      </svg>
+    </span>
+
+    <span class="bottom-nav__label">
+      Category
+    </span>
+  </a>
+
+  <!-- Gold Rates -->
+  <a href="/pages/metal-rates"
+     class="bottom-nav__item{% if request.path == '/pages/metal-rates' %} active{% endif %}">
+    <span class="bottom-nav__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M20.1673 11.9166V6.41748H14.6669M20.1673 6.41748L12.375 14.2079L7.79133 9.6253L1.83252 15.5827" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </span>
+
+    <span class="bottom-nav__label">
+      Metal Rates
+    </span>
+  </a>
+
+  <!-- Account -->
+  <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
+     class="bottom-nav__item{% if request.page_type contains 'customers' %} active{% endif %}">
+    <span class="bottom-nav__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M19.0711 4.92892C17.1823 3.04019 14.6711 2 12 2C9.32895 2 6.81766 3.04019 4.92892 4.92892C3.04019 6.81766 2 9.32895 2 12C2 14.6711 3.04019 17.1823 4.92892 19.0711C6.81766 20.9598 9.32895 22 12 22C14.6711 22 17.1823 20.9598 19.0711 19.0711C20.9598 17.1823 22 14.6711 22 12C22 9.32895 20.9598 6.81766 19.0711 4.92892ZM6.34006 18.7694C6.67026 15.9282 9.11304 13.7346 12 13.7346C13.5219 13.7346 14.953 14.3276 16.0295 15.4039C16.939 16.3135 17.5125 17.5011 17.6601 18.7693C16.1266 20.0536 14.1521 20.8281 12 20.8281C9.8479 20.8281 7.87357 20.0537 6.34006 18.7694ZM12 12.5276C10.3253 12.5276 8.96274 11.165 8.96274 9.49039C8.96274 7.81558 10.3253 6.45312 12 6.45312C13.6747 6.45312 15.0373 7.81558 15.0373 9.49039C15.0373 11.165 13.6747 12.5276 12 12.5276ZM18.6687 17.7787C18.3701 16.5747 17.7474 15.4647 16.8581 14.5754C16.1379 13.8552 15.2858 13.3148 14.3566 12.9763C15.4737 12.2187 16.2091 10.9388 16.2091 9.49039C16.2091 7.16953 14.3209 5.28125 12 5.28125C9.67914 5.28125 7.79086 7.16953 7.79086 9.49039C7.79086 10.9395 8.52695 12.2199 9.64496 12.9773C8.79001 13.2889 7.99884 13.7706 7.31815 14.4048C6.33243 15.3228 5.64792 16.4933 5.33054 17.7777C3.98639 16.2282 3.17188 14.2075 3.17188 12C3.17188 7.13214 7.13214 3.17188 12 3.17188C16.8679 3.17188 20.8281 7.13214 20.8281 12C20.8281 14.2079 20.0133 16.2291 18.6687 17.7787Z" fill="currentColor"/>
+      </svg>
+    </span>
+
+    <span class="bottom-nav__label">
+      Account
+    </span>
+  </a>
+
+</nav>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  const nav = document.querySelector('.bottom-nav');
+
+  if (!nav) return;
+
+  /* Combines two independent conditions into one visibility state: the nav
+     stays hidden while the banner still covers the viewport (as before),
+     and now also hides mid scroll-down even once past the banner, revealing
+     again on scroll up — same behavior as the header/metal price bar. */
+  let bannerCovering = false;
+  let scrollingDown = false;
+
+  function updateVisibility() {
+    nav.classList.toggle('is-visible', !bannerCovering && !scrollingDown);
+  }
+
+  /* Show after banner */
+  const banner = document.querySelector('.custom-banner-section');
+
+  if (banner && typeof IntersectionObserver !== 'undefined') {
+    bannerCovering = true;
+
+    const observer = new IntersectionObserver(function(entries) {
+
+      entries.forEach(function(entry) {
+        bannerCovering = entry.intersectionRatio >= 0.9;
+        updateVisibility();
+      });
+
+    }, {
+      threshold: [0, 0.9, 1]
+    });
+
+    observer.observe(banner);
+  }
+
+  /* Hide on scroll down, reveal on scroll up */
+  let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  let ticking = false;
+
+  function onScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop && scrollTop > nav.offsetHeight) {
+      scrollingDown = true;
+    } else if (scrollTop < lastScrollTop) {
+      scrollingDown = false;
+    }
+
+    updateVisibility();
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateVisibility();
+
+  /* Search click */
+  const searchBtn = document.querySelector('[data-bottom-nav-search]');
+
+  if (searchBtn) {
+
+    searchBtn.addEventListener('click', function(e) {
+
+      const headerSearch = document.querySelector('.header__icon--search');
+
+      if (headerSearch) {
+        e.preventDefault();
+        headerSearch.click();
+      }
+
+    });
+
+  }
+
+});
+</script>

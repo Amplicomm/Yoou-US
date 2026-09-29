@@ -1,0 +1,585 @@
+{{ 'component-metal-price-bar.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign metal_blocks = section.blocks | where: 'type', 'metal_rate'
+  assign link_blocks = section.blocks | where: 'type', 'link'
+  assign announcement_blocks = section.blocks | where: 'type', 'announcement'
+
+  assign home_page = false
+  if request.page_type == 'index'
+    assign home_page = true
+  endif
+
+  if section.settings.updated_at != blank
+    assign updated_at_ist = section.settings.updated_at | date: '%s' | plus: 19800
+    assign popover_date = updated_at_ist | date: '%-d %b %Y'
+    assign popover_time = updated_at_ist | date: '%I:%M %p'
+  else
+    assign popover_date = 'now' | date: '%-d %b %Y'
+    assign popover_time = 'now' | date: '%I:%M %p'
+  endif
+-%}
+
+{%- style -%}
+  /* Scroll-direction hide/show (see the script below): slides the whole bar
+     up out of view on scroll down and back in on scroll up, on every page,
+     regardless of the position mode set below. */
+  .metal-price-bar-section {
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    /* See the matching note on .section-header in header.liquid. */
+    will-change: transform;
+  }
+
+  .metal-price-bar-section.metal-price-bar-section--hidden {
+    transform: translateY(-100%);
+  }
+
+  {%- if home_page -%}
+    /* Home page: fixed to the very top and starts semi-transparent so it
+       overlays the hero/first section, same treatment as the header. The
+       position lives on the section wrapper (like .section-header does for
+       the header) rather than the inner .metal-price-bar div. */
+    .metal-price-bar-section {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      /* One above .section-header's z-index (see base.css) so the
+         popover, which overflows below this bar's own height, isn't
+         hidden behind the main header row rendered right under it. */
+      z-index: 6;
+    }
+
+    .metal-price-bar {
+      background: linear-gradient(180deg, rgba(25, 8, 0, 0.69) 0%, rgba(25, 8, 0, 0.00) 100%);
+    }
+
+    body:has(.section-header.scrolled-past-header) .metal-price-bar {
+      background: rgb(var(--color-background));
+    }
+  {%- else -%}
+    /* Other pages: stays in normal flow (position: sticky, not fixed) so it
+       never overlays the page's first fold, and it's never transparent. */
+    .metal-price-bar-section {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .metal-price-bar {
+      background: rgb(var(--color-background));
+    }
+  {%- endif -%}
+{%- endstyle -%}
+
+<div class="metal-price-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} metal-price-bar--bottom-border{% endif %}">
+  <div class="page-width metal-price-bar__inner">
+    {%- if section.settings.logo_image != blank -%}
+      <div class="metal-price-bar__logo">
+        {%- if section.settings.logo_url != blank -%}
+          <a href="{{ section.settings.logo_url }}" class="metal-price-bar__logo-link" target="_blank">
+            {{ section.settings.logo_image | image_url: width: 300 | image_tag: loading: 'lazy', alt: section.settings.logo_image.alt }}
+          </a>
+        {%- else -%}
+          {{ section.settings.logo_image | image_url: width: 300 | image_tag: loading: 'lazy', alt: section.settings.logo_image.alt }}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if metal_blocks.size > 0 or link_blocks.size > 0 -%}
+      <div class="metal-price-bar__right-group">
+        {%- if metal_blocks.size > 0 -%}
+          <div class="metal-price-bar__prices">
+            <span
+              class="metal-price-bar__prices-label"
+              role="button"
+              tabindex="0"
+              aria-label="{{ 'sections.metal_price_bar.aria_label' | t }}"
+            >
+              <span>
+                {{ section.settings.prices_label }}
+              </span>
+            </span>
+            {%- if section.settings.show_live_badge -%}
+              <span class="metal-price-bar__live">
+                <span class="metal-price-bar__live-dot" aria-hidden="true"></span>
+                {{ section.settings.live_badge_text }}
+              </span>
+            {%- endif -%}
+
+            <div class="metal-price-bar__popover" role="tooltip">
+              <p class="metal-price-bar__popover-title">{{ 'sections.metal_price_bar.popover_title' | t }}</p>
+              <ul class="metal-price-bar__popover-list" role="list">
+                {%- for block in metal_blocks -%}
+                  <li class="metal-price-bar__popover-row">
+                    <span class="metal-price-bar__popover-label">{{ block.settings.label }}</span>
+                    <span class="metal-price-bar__popover-price">{{ block.settings.price }}</span>
+                  </li>
+                {%- endfor -%}
+              </ul>
+              <p class="metal-price-bar__popover-note">{{ 'sections.metal_price_bar.popover_note' | t }}</p>
+              <p class="metal-price-bar__popover-updated">
+                {{ 'sections.metal_price_bar.popover_updated_html' | t: date: popover_date, time: popover_time }}
+              </p>
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if link_blocks.size > 0 -%}
+          <ul class="metal-price-bar__links" role="list">
+            {%- for block in link_blocks -%}
+              <li class="metal-price-bar__links-item" {{ block.shopify_attributes }}>
+                {%- if block.settings.url != blank -%}
+                  <a href="{{ block.settings.url }}" class="metal-price-bar__links-link link link--text">{{ block.settings.label | escape }}</a>
+                {%- else -%}
+                  <span class="metal-price-bar__links-link">{{ block.settings.label | escape }}</span>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if metal_blocks.size > 0 -%}
+      <div class="metal-price-bar__marquee" style="--marquee-duration: {{ section.settings.marquee_speed }}s;">
+        <div class="metal-price-bar__marquee-track" aria-hidden="true">
+          {%- for i in (1..2) -%}
+            <div class="metal-price-bar__marquee-group">
+              {%- for block in metal_blocks -%}
+                <span class="metal-price-bar__marquee-item">
+                  <span>{{- block.settings.label }}</span> <span>{{ block.settings.price }} {{ block.settings.unit -}}</span>
+                </span>
+                <span class="metal-price-bar__marquee-sep">&bull;</span>
+              {%- endfor -%}
+              {%- if section.settings.show_live_badge -%}
+                <span class="metal-price-bar__marquee-item metal-price-bar__marquee-item--live">
+                  <span class="metal-price-bar__live-dot"></span>
+                  {{- section.settings.live_badge_text -}}
+                </span>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if announcement_blocks.size > 0 -%}
+      <div
+        class="metal-price-bar__announcement"
+        style="--announcement-marquee-duration: {{ section.settings.announcement_speed | times: announcement_blocks.size }}s;"
+        role="group"
+        aria-label="{{ 'sections.metal_price_bar.announcement_aria_label' | t }}"
+      >
+        <div class="metal-price-bar__announcement-track">
+          {%- for i in (1..6) -%}
+            <div class="metal-price-bar__announcement-group" {% if i != 1 %}aria-hidden="true"{% endif %}>
+              {%- for block in announcement_blocks -%}
+                <span class="metal-price-bar__announcement-item" {% if i == 1 %}{{ block.shopify_attributes }}{% endif %}>
+                  {%- if block.settings.url != blank -%}
+                    <a href="{{ block.settings.url }}" class="metal-price-bar__announcement-link">{{ block.settings.text | escape }}</a>
+                  {%- else -%}
+                    <span>{{ block.settings.text | escape }}</span>
+                  {%- endif -%}
+                </span>
+              {%- endfor -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var bar = document.querySelector('.metal-price-bar-section');
+  if (!bar) return;
+
+  /* Pins the mobile "Filter and sort" bar with position: fixed once it
+     scrolls up to meet the header, instead of native position: sticky —
+     sticky's stuck offset depended on --header-height/--metal-price-bar-
+     height (see component-facets.css), which kept landing wrong because
+     .section-header's own box collapses to 0 height on the collection
+     template (its content is position: absolute there). Fixed positioning
+     driven by a direct getBoundingClientRect() reading of the header's real
+     on-screen position sidesteps that entirely: no CSS variable, no
+     assumption about which position mode put the header where it is. */
+  var facetsContainer = document.querySelector('.facets-container');
+  var facetsPlaceholder = null;
+  var facetsPinned = false;
+
+  // Bounded window (ms) after any hide/show toggle during which the header
+  // is still mid-transition — used both to keep the sync burst running
+  // long enough to track it, and to defer unpin decisions until it settles
+  // (see the comments where each is used below).
+  var SYNC_BURST_MS = 600;
+  var lastHeaderToggleTime = 0;
+  var lastToggleWasHide = false;
+
+  if (facetsContainer) {
+    facetsPlaceholder = document.createElement('div');
+    facetsPlaceholder.className = 'facets-container-placeholder';
+    facetsContainer.parentNode.insertBefore(facetsPlaceholder, facetsContainer);
+  }
+
+  function pinFacetsContainer(top, left, width) {
+    facetsPinned = true;
+
+    /* Reading offsetHeight is free here (nothing has been written this
+       task yet, so no layout is pending) — used as an immediate estimate
+       so the placeholder is never briefly height: 0 while pinned styles
+       are still being applied below. .facets-container--pinned carries
+       different padding than the unpinned state, so this estimate is
+       slightly off; it gets corrected next frame, which is a much smaller
+       correction than the alternative (reading offsetHeight AFTER writing
+       the pinned styles, which forces a synchronous layout flush in the
+       middle of this transition — that forced reflow, not the transition
+       itself, is what read as a jerk right at the pin moment). */
+    var estimatedHeight = facetsContainer.offsetHeight;
+
+    facetsContainer.classList.add('facets-container--pinned');
+    facetsContainer.style.left = left + 'px';
+    facetsContainer.style.width = width + 'px';
+    facetsContainer.style.top = top + 'px';
+
+    facetsPlaceholder.style.height = estimatedHeight + 'px';
+    facetsPlaceholder.style.display = 'block';
+
+    window.requestAnimationFrame(function () {
+      if (facetsPinned) facetsPlaceholder.style.height = facetsContainer.offsetHeight + 'px';
+    });
+  }
+
+  function unpinFacetsContainer() {
+    facetsPinned = false;
+    facetsPlaceholder.style.display = 'none';
+    facetsContainer.classList.remove('facets-container--pinned');
+    facetsContainer.style.top = '';
+    facetsContainer.style.left = '';
+    facetsContainer.style.width = '';
+  }
+
+  function updateFacetsStickyTop() {
+    var headerWrapper = document.querySelector('.header-wrapper');
+    if (!headerWrapper || !facetsContainer) return;
+
+    // Only applies at the mobile width this bar is actually visible at
+    // (see the max-width: 749px block in component-facets.css) — larger
+    // viewports use the desktop vertical filter sidebar instead.
+    if (window.innerWidth >= 750) {
+      if (facetsPinned) unpinFacetsContainer();
+      return;
+    }
+
+    // Matches the header's own left/width exactly, rather than
+    // facetsContainer's own (narrower, page-width-padded) in-flow rect —
+    // requested so the pinned bar spans the same edges as the header above
+    // it instead of looking inset relative to it.
+    var headerRect = headerWrapper.getBoundingClientRect();
+    var headerBottom = Math.max(0, Math.round(headerRect.bottom));
+
+    if (!facetsPinned) {
+      // Placeholder is always hidden while unpinned, so facetsContainer is
+      // still in normal flow here and its own top is its natural position.
+      var rect = facetsContainer.getBoundingClientRect();
+      if (rect.top <= headerBottom) {
+        pinFacetsContainer(headerBottom, Math.round(headerRect.left), Math.round(headerRect.width));
+      }
+    } else {
+      /* Unpinning needs its own hysteresis buffer, same idea as
+         TOGGLE_THRESHOLD above but for a different reason: pinning/
+         unpinning isn't a cheap transform, it's a real position: static
+         <-> fixed switch plus a placeholder height change, which reflows
+         the placeholder and everything below it (the whole product grid).
+         Without a buffer, a "little scroll down and up" that wobbles by
+         even 1-2px across the exact threshold toggles that full reflow
+         back and forth repeatedly — a much heavier, more visible jerk than
+         anything transform-based. Requiring the natural position to clear
+         the header by a real margin before unpinning (while still pinning
+         immediately on the way down, which has no such cost) absorbs that
+         wobble. headerBottom also moves on its own for up to 0.45s after
+         a hide toggle specifically (the header's own CSS transition
+         shrinking it) — deferring the decision until that settles avoids
+         the header's own shrinking animation falsely triggering an unpin
+         with zero further scroll input. A show toggle (headerBottom
+         growing back) can't cause that same false trigger — a taller
+         headerBottom only makes this condition harder to satisfy, never
+         easier — so gating on it too would just needlessly delay a
+         legitimate scroll-up unpin right when the price bar reappears,
+         which is what showed up as the bar staying pinned (with the
+         product grid visibly gapped/overlapped beneath it) for up to 600ms
+         after scrolling up. */
+      var UNPIN_HYSTERESIS = 20;
+      var headerSettled = !lastToggleWasHide || performance.now() - lastHeaderToggleTime > SYNC_BURST_MS;
+      var placeholderRect = facetsPlaceholder.getBoundingClientRect();
+
+      if (headerSettled && placeholderRect.top > headerBottom + UNPIN_HYSTERESIS) {
+        unpinFacetsContainer();
+      } else {
+        facetsContainer.style.top = headerBottom + 'px';
+        facetsContainer.style.left = Math.round(headerRect.left) + 'px';
+        facetsContainer.style.width = Math.round(headerRect.width) + 'px';
+      }
+    }
+  }
+
+  var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var ticking = false;
+
+  /* Hysteresis for the hide/show toggle: touch-scroll momentum and rubber-
+     banding cause scrollTop to jitter back and forth by a few px even
+     during what feels like one continuous swipe. Toggling on every single
+     pixel of direction change (the old behavior) let that jitter restart
+     the 0.45s show/hide transition mid-flight, repeatedly reversing it —
+     which is what read as a jerk. Requiring a sustained scroll past a small
+     threshold before flipping state filters that jitter out. */
+  var directionStreakStart = lastScrollTop;
+  var directionStreakSign = 0;
+  var isHidden = false;
+  var TOGGLE_THRESHOLD = 12;
+
+  /* Bounded sync burst instead of an always-on per-frame loop: reading
+     getBoundingClientRect() forces a synchronous layout check, and doing
+     that on every single frame forever competes with the browser's own
+     compositor work for the header/price-bar's transform animations —
+     stealing frames from them, which is its own source of jerk. Running it
+     only for a bounded window right after something that could move the
+     header (a hide/show toggle, or scroll) keeps the common case — nothing
+     changing — completely idle. */
+  var syncing = false;
+  var syncUntil = 0;
+
+  function syncTick() {
+    updateFacetsStickyTop();
+    if (performance.now() < syncUntil) {
+      window.requestAnimationFrame(syncTick);
+    } else {
+      syncing = false;
+    }
+  }
+
+  function startSyncBurst() {
+    syncUntil = performance.now() + SYNC_BURST_MS;
+    if (!syncing) {
+      syncing = true;
+      window.requestAnimationFrame(syncTick);
+    }
+  }
+
+  function onScroll() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var sign = scrollTop > lastScrollTop ? 1 : scrollTop < lastScrollTop ? -1 : directionStreakSign;
+
+    if (sign !== directionStreakSign) {
+      directionStreakSign = sign;
+      directionStreakStart = lastScrollTop;
+    }
+
+    var traveled = Math.abs(scrollTop - directionStreakStart);
+
+    if (sign === 1 && !isHidden && scrollTop > bar.offsetHeight && traveled > TOGGLE_THRESHOLD) {
+      /* Scrolling down, past the bar's own height: hide it, and let the
+         header (see header.liquid) know it can move up to fill the space. */
+      isHidden = true;
+      lastHeaderToggleTime = performance.now();
+      lastToggleWasHide = true;
+      bar.classList.add('metal-price-bar-section--hidden');
+      document.documentElement.classList.add('metal-price-bar-hidden');
+    } else if (sign === -1 && isHidden && traveled > TOGGLE_THRESHOLD) {
+      isHidden = false;
+      lastHeaderToggleTime = performance.now();
+      lastToggleWasHide = false;
+      bar.classList.remove('metal-price-bar-section--hidden');
+      document.documentElement.classList.remove('metal-price-bar-hidden');
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    startSyncBurst();
+    ticking = false;
+  }
+
+  window.addEventListener('resize', updateFacetsStickyTop);
+  window.addEventListener('load', updateFacetsStickyTop);
+
+  window.addEventListener(
+    'scroll',
+    function () {
+      if (!ticking) {
+        window.requestAnimationFrame(onScroll);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+
+  updateFacetsStickyTop();
+});
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.metal_price_bar.name",
+  "class": "metal-price-bar-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "label": "t:sections.header.settings.show_line_separator.label",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.metal_price_bar.settings.header_logo.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "t:sections.metal_price_bar.settings.logo_image.label"
+    },
+    {
+      "type": "url",
+      "id": "logo_url",
+      "label": "t:sections.metal_price_bar.settings.logo_url.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.metal_price_bar.settings.header_prices.content"
+    },
+    {
+      "type": "text",
+      "id": "prices_label",
+      "label": "Prices label",
+      "default": "Metal Rates",
+      "info": "Shown in the bar. Hover or focus it to reveal the full rate list below."
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "label": "t:sections.metal_price_bar.settings.marquee_speed.label",
+      "default": 25
+    },
+    {
+      "type": "text",
+      "id": "updated_at",
+      "label": "Updated on",
+      "info": "e.g. Tuesday, July 15, 2026 at 06:08 PM. Leave blank to use today's date/time automatically."
+    },
+    {
+      "type": "header",
+      "content": "t:sections.metal_price_bar.settings.header_announcement.content"
+    },
+    {
+      "type": "range",
+      "id": "announcement_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "t:sections.metal_price_bar.settings.announcement_speed.label",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "t:sections.metal_price_bar.settings.header_live.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_live_badge",
+      "label": "t:sections.metal_price_bar.settings.show_live_badge.label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "live_badge_text",
+      "label": "t:sections.metal_price_bar.settings.live_badge_text.label",
+      "default": "Live"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "metal_rate",
+      "name": "t:sections.metal_price_bar.blocks.metal_rate.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.metal_price_bar.blocks.metal_rate.settings.label.label",
+          "default": "Silver 999"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "t:sections.metal_price_bar.blocks.metal_rate.settings.price.label",
+          "default": "₹94.20"
+        },
+        {
+          "type": "text",
+          "id": "unit",
+          "label": "t:sections.metal_price_bar.blocks.metal_rate.settings.unit.label",
+          "default": "/ g"
+        }
+      ]
+    },
+    {
+      "type": "announcement",
+      "name": "t:sections.metal_price_bar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.metal_price_bar.blocks.announcement.settings.text.label",
+          "default": "Flat 49% off on making charge"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "t:sections.metal_price_bar.blocks.announcement.settings.url.label"
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "name": "t:sections.metal_price_bar.blocks.link.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.metal_price_bar.blocks.link.settings.label.label",
+          "default": "Track Order"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "t:sections.metal_price_bar.blocks.link.settings.url.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.metal_price_bar.presets.name",
+      "blocks": [
+        { "type": "metal_rate", "settings": { "label": "Gold 24KT", "price": "₹7,842", "unit": "/ g" } },
+        { "type": "metal_rate", "settings": { "label": "Silver 999", "price": "₹94.20", "unit": "/ g" } },
+        { "type": "announcement", "settings": { "text": "Flat 49% off on making charge" } },
+        { "type": "link", "settings": { "label": "Track Order" } },
+        { "type": "link", "settings": { "label": "Store Locator" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

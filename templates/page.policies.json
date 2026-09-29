@@ -1,0 +1,611 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ring_separator_Wdcf6M": {
+      "type": "ring-separator",
+      "name": "Ring Separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "tabbed_featured_collections_HbyBBb": {
+      "type": "tabbed-featured-collections",
+      "blocks": {
+        "tab_bmBa4F": {
+          "type": "tab",
+          "settings": {
+            "title": "Return Policy",
+            "tab_type": "button",
+            "image_width": 100,
+            "image_height": 80,
+            "button_bg": "#ffffff",
+            "button_text": "#333333",
+            "button_border": "#dddddd",
+            "button_width": 120,
+            "target_element": ".return-refund"
+          }
+        },
+        "tab_phE9Jx": {
+          "type": "tab",
+          "settings": {
+            "title": "Refund Policy",
+            "tab_type": "button",
+            "image_width": 100,
+            "image_height": 80,
+            "button_bg": "#ffffff",
+            "button_text": "#333333",
+            "button_border": "#dddddd",
+            "button_width": 120,
+            "target_element": ".buy-back"
+          }
+        },
+        "tab_n8Dtb7": {
+          "type": "tab",
+          "settings": {
+            "title": "Exchange Policy",
+            "tab_type": "button",
+            "image_width": 100,
+            "image_height": 80,
+            "button_bg": "#ffffff",
+            "button_text": "#333333",
+            "button_border": "#dddddd",
+            "button_width": 120,
+            "target_element": ".exchane-policy"
+          }
+        },
+        "tab_tDh6Ur": {
+          "type": "tab",
+          "settings": {
+            "title": "Cancellation Policy",
+            "tab_type": "button",
+            "image_width": 100,
+            "image_height": 80,
+            "button_bg": "#ffffff",
+            "button_text": "#333333",
+            "button_border": "#dddddd",
+            "button_width": 120,
+            "target_element": ".cancelation-policy"
+          }
+        },
+        "tab_h7Gjc4": {
+          "type": "tab",
+          "settings": {
+            "title": "Schemes Policies",
+            "tab_type": "button",
+            "image_width": 100,
+            "image_height": 80,
+            "button_bg": "#ffffff",
+            "button_text": "#333333",
+            "button_border": "#dddddd",
+            "button_width": 120,
+            "target_element": ".gold-scheme"
+          }
+        },
+        "tab_zccHqQ": {
+          "type": "tab",
+          "settings": {
+            "title": "Buyback Policy",
+            "tab_type": "button",
+            "image_width": 100,
+            "image_height": 80,
+            "button_bg": "#ffffff",
+            "button_text": "#333333",
+            "button_border": "#dddddd",
+            "button_width": 120,
+            "target_element": ".buyback-policy"
+          }
+        },
+        "tab_gX9EVH": {
+          "type": "tab",
+          "settings": {
+            "title": "Disclaimer Policy",
+            "tab_type": "button",
+            "image_width": 100,
+            "image_height": 80,
+            "button_bg": "#ffffff",
+            "button_text": "#333333",
+            "button_border": "#dddddd",
+            "button_width": 120,
+            "target_element": ".disclaimer"
+          }
+        },
+        "tab_zzhTpy": {
+          "type": "tab",
+          "settings": {
+            "title": "Privacy Policy",
+            "tab_type": "button",
+            "image_width": 100,
+            "image_height": 80,
+            "button_bg": "#ffffff",
+            "button_text": "#333333",
+            "button_border": "#dddddd",
+            "button_width": 120,
+            "target_element": ".privacy-policy"
+          }
+        },
+        "tab_9xgwPW": {
+          "type": "tab",
+          "settings": {
+            "title": "Terms and Conditions",
+            "tab_type": "button",
+            "image_width": 100,
+            "image_height": 80,
+            "button_bg": "#ffffff",
+            "button_text": "#333333",
+            "button_border": "#dddddd",
+            "button_width": 120,
+            "target_element": ".terms-conditions-policy"
+          }
+        },
+        "tab_LMkbyU": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping Policies",
+            "tab_type": "button",
+            "image_width": 100,
+            "image_height": 80,
+            "button_bg": "#ffffff",
+            "button_text": "#333333",
+            "button_border": "#dddddd",
+            "button_width": 120,
+            "target_element": ".shipping-policies"
+          }
+        },
+        "tab_VhUjjM": {
+          "type": "tab",
+          "settings": {
+            "title": "Grievances",
+            "tab_type": "button",
+            "image_width": 100,
+            "image_height": 80,
+            "button_bg": "#ffffff",
+            "button_text": "#333333",
+            "button_border": "#dddddd",
+            "button_width": 120,
+            "target_element": ".grievances"
+          }
+        }
+      },
+      "block_order": [
+        "tab_bmBa4F",
+        "tab_phE9Jx",
+        "tab_n8Dtb7",
+        "tab_tDh6Ur",
+        "tab_h7Gjc4",
+        "tab_zccHqQ",
+        "tab_gX9EVH",
+        "tab_zzhTpy",
+        "tab_9xgwPW",
+        "tab_LMkbyU",
+        "tab_VhUjjM"
+      ],
+      "settings": {
+        "custom_id": "",
+        "custom_class": "",
+        "tab_alignment": "center",
+        "tab_gap": 5,
+        "mobile_tab_gap": 10,
+        "mobile_image_width": 70,
+        "mobile_image_height": 60,
+        "button_bg": "#ffffff",
+        "button_text": "#333333",
+        "button_border": "#e47a3b",
+        "button_active_bg": "#e47a3b",
+        "button_active_text": "#ffffff",
+        "button_active_border": "#e47a3b",
+        "button_border_width": 1,
+        "button_radius": 4,
+        "button_padding": 10
+      }
+    },
+    "custom_rich_text_dfJnqi": {
+      "type": "custom-rich-text",
+      "blocks": {
+        "heading_y33jgJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Return Policy",
+            "heading_size": "h0"
+          }
+        },
+        "text_UhYFDJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This return policy is applicable within 14 days of receiving a jewellery order from<a href=\"http://www.pngjewellers.com\"> </a><a href=\"https://yooubypng.com/\" target=\"_blank\" title=\"https://yooubypng.com/\">https://yooubypng.com/</a>. The entire amount will be refunded to the customer’s account within 10–15 working days of receiving the returned product.</p><p>To initiate a return for any jewellery purchased from<a href=\"http://www.pngjewellers.com\"> </a><a href=\"https://yooubypng.com/\" target=\"_blank\" title=\"https://yooubypng.com/\">https://yooubypng.com/</a>, email us at cs@yooubypng.com or contact us on +1800 233 5005 & +91 8669660639.</p><p>The policy applies to jewellery only, unless specified otherwise.</p><p></p><p></p><h2><strong>Eligibility for Returns</strong></h2><p>Customers can request a 100% return within 14 days of receiving the jewellery order.</p><p>Returns can be initiated via:</p><ul><li>My Orders section on<a href=\"http://www.pngjewellers.com\"> </a><a href=\"https://yooubypng.com/\" target=\"_blank\" title=\"https://yooubypng.com/\">https://yooubypng.com/</a></li><li>Customer Support: +1800 233 5005 & +91 8669660639</li></ul><p>Upon confirmation, the product can be returned at any YOOU by PNG store across India.</p><p></p><p></p><h2><strong>Conditions for Return Approval</strong></h2><p>Return acceptance is subject to the following mandatory checks:</p><ul><li>The product must pass Quality Assessment by our in-house Quality Assurance Team.</li><li>The item must be returned in its original condition, without signs of damage, tampering, wear, or alteration.</li><li>All original documents must be returned, including:</li><li>Original invoice</li><li>Product certificate(s)</li><li>Packaging, box, pouches, tags, etc.</li><li>Free items</li></ul><p></p><p></p><h2><strong>Non-Returnable Categories</strong></h2><p>The 14-day return policy does not apply to the following:</p><ul><li>Customised, engraved, personalised jewellery.</li><li>Products purchased under the Lifetime Exchange / Lifetime Buyback program.</li><li>Product purchased by exchanging Old Gold / Old Jewellery / Bullion.</li><li>Products earlier exchanged under the 14-day Exchange Policy.</li><li>Bullion, Coins, Chips, Vedhani, and Silver/Gold Articles – these are strictly non-returnable and non-cancellable once purchased. Please verify before purchase. Orders where the product shows signs of wear, usage, alteration, breakage, resizing, or tampering. (Refund will not be processed.) Deductions will be according to company policy.</li></ul><p></p><p></p><h2><strong>Packaging & Pickup Guidelines</strong></h2><ul><li>The customer must ensure safe and secure packaging during the return.</li><li>In case of receiving defective/missing/wrong product, return shipping costs will be covered by the company, and a label will be generated. But the customers will have to provide an unboxing video to claim a return & refund for the defective/missing/wrong product.</li><li>If required, a secure pickup may be arranged through an authorised logistics partner.</li></ul><p>In case of return pick-up:</p><ul><li>The shipment must be sealed in tamper-proof packaging provided by the courier.</li><li>Pickup will only be attempted after verification by the customer service team.</li><li>Returned items that are damaged or lost in transit due to improper packaging will not be covered under the return policy.</li><li>Customer shall hand over the package within 3 days of label creation. In case this timeline is not followed, kindly connect with our customer service team.</li></ul><p></p><p></p><h2><strong>Note</strong></h2><ul><li>For returns after 14 days, kindly check our Lifetime Buyback policy.</li><li>All returns are subjected to quality confirmation by our Quality Assurance Team and verification that the packaging is complete with all documents, like original invoice copy, verified product certificate, etc.</li><li>Any mismatch in product weight during returns, beyond permissible tolerance levels, will be adjusted as per store policies.</li><li>Return shipping is free for defective/wrong products. But customers will have to provide an unboxing video to claim a return & refund for defective/wrong product.</li></ul><p></p><p></p><p>YOOU By PNG Jewellers retains the right to modify the terms and conditions for individual customers. In such a case, the customer would always be notified of the decision before the purchase.</p><p>Our team is here to assist you at every step.</p><p>For any support, write to us at cs@yooubypng.com or call +1800 233 5005 & +91 8669660639.</p><p>GSTIN: 27AAHCP4162E1ZH</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_y33jgJ",
+        "text_UhYFDJ"
+      ],
+      "name": "custom rich text",
+      "settings": {
+        "custom_class": "return-refund",
+        "section_id": "return-refund",
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_rich_text_9U9ypn": {
+      "type": "custom-rich-text",
+      "blocks": {
+        "heading_hjVpqM": {
+          "type": "heading",
+          "settings": {
+            "heading": "Refund Policy",
+            "heading_size": "h0"
+          }
+        },
+        "text_JaGWxd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>On return approval and successful quality verification, the refund will be processed within 10–15 working days from receipt of the returned product.</p><p></p><p></p><h2><strong>Refund Method</strong></h2><ul><li><strong>Online payments (credit/debit card, net banking, UPI):</strong> Refund is processed via reversal of the original transaction. Bank timelines may vary.</li><li><strong>Cash on Delivery (COD) / Bank Transfer:</strong> Refund credited via NEFT/IMPS to the customer’s bank account. Bank timelines may vary.</li></ul><p>Alternatively, you can choose to get the amount credited directly to your PNG Jewellers customer wallet.</p><p></p><p></p><h2><strong>Refund Amount</strong></h2><ul><li>The refund amount will be 100% of the actual invoice amount paid, subject to quality check.</li><li>If any coupon, discount, or promo codes were used during the original purchase, the refund amount would be reduced by an amount equivalent to the coupon, discount, or promo codes, as applicable.</li><li>Any refund arising from a weight variation in Made-to-Order (MTO) products will be processed within 7–10 business days. In the event of an increase in product weight, the customer will be required to pay the applicable additional amount.</li><li>The weight difference tolerance for MTO products is typically ±0.01 grams, but may vary.</li><li>In case of receiving defective/missing/wrong Product, the customers will have to provide an unboxing video to claim a full refund for the defective/missing/wrong product.</li></ul><p></p><p></p><p>YOOU By PNG Jewellers retains the right to determine the final refund value after quality evaluation.</p><p>YOOU By PNG Jewellers retains the right to modify the terms and conditions for individual customers.</p><p>Our team is here to assist you at every step.</p><p>For any support, write to us at cs@yooubypng.com or call +1800 233 5005 & +91 8669660639.</p><p>GSTIN: 27AAHCP4162E1ZH</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_hjVpqM",
+        "text_JaGWxd"
+      ],
+      "name": "custom rich text",
+      "settings": {
+        "custom_class": "buy-back",
+        "section_id": "buy-back",
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_rich_text_3KFtpz": {
+      "type": "custom-rich-text",
+      "blocks": {
+        "heading_RgjRwY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Exchange Policy",
+            "heading_size": "h0"
+          }
+        },
+        "text_XMheRA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At YOOU By PNG Jewellers, we strive to ensure an exceptional customer experience through transparent and customer-friendly exchange policies. The exchange process and value depend on the time of exchange and the product category.</p><p>To initiate the exchange on any jewellery purchased from <a href=\"https://yooubypng.com/\" target=\"_blank\" title=\"https://yooubypng.com/\">https://yooubypng.com/</a> contact us at +1800 233 5005 & +91 8669660639. Upon confirmation, the product can be returned.</p><p></p><p></p><h2><strong>Product Eligibility</strong></h2><ul><li>Customised jewellery (personalised/engraved), pearls, and coral stone jewellery are not eligible for 14-day exchange but are eligible under Lifetime Exchange.</li><li>Products showing damage, alteration, tampering, cracks, breakage, or unauthorised repairs will not qualify for full-value exchange.</li><li>MTO (Made To Order) orders can be returned and refunded, but cannot be exchanged. And changes to MTO orders cannot be made after the order confirmation mail/message is sent to the customer.</li></ul><p></p><p></p><h2><strong>Mandatory Documentation</strong></h2><p>The following must be submitted:</p><ul><li>Original invoice</li><li>Original diamond certificate (where applicable)</li><li>Product packaging, certificates, and documents</li></ul><p>An additional deduction applies if the original invoice is not provided.</p><p></p><p></p><h2><strong>Quality Verification</strong></h2><ul><li>A basic quality check will be carried out at the store.</li><li>Products eligible for exchange will then undergo a final appraisal by the Quality Assurance Team.</li><li>The final exchange value is determined strictly after quality confirmation.</li></ul><p></p><p></p><h2><strong>Value Difference Handling</strong></h2><ul><li>If the new product value exceeds the exchange value, the customer must pay the difference. Additional payment for upgraded jewellery is subject to applicable GST at prevailing rates. Invoice will be issued accordingly.</li><li>If the exchange value exceeds the new purchase value:</li><li>For 14-day exchanges: the balance is refunded via the original payment method.</li><li>For Lifetime Exchange: the balance is retained as store credit for future purchases.</li></ul><p></p><p></p><h2><strong>Processing Timelines</strong></h2><p>Exchange approval and processing may take 7–10 working days.</p><p></p><p></p><h2><strong>Note</strong></h2><ul><li>Exchange rates are calculated as per prevailing policies at the time of exchange and are subject to change.</li><li>Products can be exchanged for full value only once within 14 days. Subsequent exchanges fall under the Lifetime Exchange Policy.</li></ul><p>YOOU By PNG Jewellers retains the right to determine the final exchange amount based on quality appraisal. YOOU By PNG Jewellers also reserves the right to modify these terms and conditions for individual customers.</p><p>GSTIN: 27AAHCP4162E1ZH</p>"
+          }
+        },
+        "button_VeCmMe": {
+          "type": "button",
+          "settings": {
+            "button_label": "url",
+            "button_link": "",
+            "button_style_1": "solid",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RgjRwY",
+        "text_XMheRA",
+        "button_VeCmMe"
+      ],
+      "name": "custom rich text",
+      "settings": {
+        "custom_class": "exchane-policy",
+        "section_id": "exchane-policy",
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_rich_text_KC7CKm": {
+      "type": "custom-rich-text",
+      "blocks": {
+        "heading_r4be3B": {
+          "type": "heading",
+          "settings": {
+            "heading": "Cancellation Policy",
+            "heading_size": "h0"
+          }
+        },
+        "text_gQWwKj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>In case of any dissonance, YOOU By PNG Jewellers has the right to cancel any orders. A few reasons for cancellation from our end usually include, but are not limited to:</p><ul><li>Limitation or unavailability of the product in the inventory.<br/><br/></li><li>Inadvertent error in pricing or promotional offers.<br/><br/></li><li>Incorrect or incomplete product information.<br/><br/></li><li>Logistical issues.<br/><br/></li><li>Suspected fraudulent transactions or verification failures.<br/><br/></li><li>No response from the customer with regard to order-related queries.<br/><br/></li></ul><p>We also have the right to request additional details from the customer before accepting certain orders.</p><p>If your order is cancelled wholly or partially, or if extra information is required to process your order, we will notify you accordingly.</p><p></p><p></p><h2><strong>Customer-Initiated Cancellations</strong></h2><p>Customers may request cancellation only before the order is dispatched from our facility. Orders may be cancelled within 24 hours of order placement by contacting the Customer Support team via email at cs@yooubypng.com, or contact us on +1800 233 5005 & +91 8669660639.</p><p>Customer-initiated cancellations of bullions, chips, vedhani and silver articles will incur a 3% cancellation fee on the total order value.</p><p>Once the product is dispatched, cancellation requests will not be accepted, and the order will be governed by the applicable Return / Exchange / Buyback Policy.</p><p></p><p></p><h2><strong>Non-Cancellable Products (Exceptions)</strong></h2><p>Due to the nature of precious jewellery and bullion, the following categories cannot be cancelled under any circumstances once the order is placed:</p><ul><li>Customised, engraved, or personalised jewellery<br/><br/></li><li>Products purchased under special offers, flash sales, or promotional campaigns (where specified)<br/><br/></li></ul><p>For these products, customers may refer to the applicable Exchange or Buyback Policy, subject to eligibility and quality verification.</p><p></p><p></p><p>Any payment received for cancelled orders will be refunded as per the Refund Policy.</p><p></p><p></p><h2><strong>Notes</strong></h2><p>YOOU By PNG Jewellers reserves the right to modify or withdraw cancellation terms for specific orders.</p><p>All cancellation decisions are final and binding.</p><p>This policy must be read in conjunction with our Return & Refund Policy and Buyback Policy.</p><p>GSTIN: 27AAHCP4162E1ZH</p>"
+          }
+        },
+        "button_qtcUTB": {
+          "type": "button",
+          "settings": {
+            "button_label": "url",
+            "button_link": "",
+            "button_style_1": "solid",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "heading_r4be3B",
+        "text_gQWwKj",
+        "button_qtcUTB"
+      ],
+      "name": "custom rich text",
+      "settings": {
+        "custom_class": "cancelation-policy",
+        "section_id": "cancelation-policy",
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_rich_text_634pHJ": {
+      "type": "custom-rich-text",
+      "blocks": {
+        "heading_bQaeeT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Schemes<strong> </strong>Policy",
+            "heading_size": "h0"
+          }
+        },
+        "text_XiecWt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Schemes Terms and Conditions</p><p>Kindly refer to the PDF file below for the terms and conditions of our schemes:</p><p><a href=\"https://pngadgil-my.sharepoint.com/:b:/p/avadhoot_joshi/IQCOf444hxo7RohGTWyYpt1NAb-ICCjiLgI_GQg6o9DSZXw?e=K3H7oO\" target=\"_blank\" title=\"PNG Jewellers Schemes\"><span style=\"text-decoration:underline\">Schemes</span></a><span style=\"text-decoration:underline\"><br/><br/></span>Payment Gateway Charges -<br/>No charges will apply to UPI payments.<br/>Payment gateway fee will be applicable on our app for all other payment methods.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bQaeeT",
+        "text_XiecWt"
+      ],
+      "name": "custom rich text",
+      "settings": {
+        "custom_class": "gold-scheme",
+        "section_id": "gold-scheme",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_rich_text_4z8Aek": {
+      "type": "custom-rich-text",
+      "blocks": {
+        "heading_gh4MKF": {
+          "type": "heading",
+          "settings": {
+            "heading": "Buyback<strong> </strong>Policy",
+            "heading_size": "h0"
+          }
+        },
+        "text_wkC4JR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This buyback policy is applicable to jewellery purchases from the website after 14 days of receiving it.</p><p>To initiate the buyback, send us an email to cs@yooubypng.com or contact us on +1800 233 5005 & +91 8669660639. Upon confirmation, the product can be returned at any YOOU By PNG Jewellers store across India.</p><p></p><p></p><h2><strong>Buyback Values</strong></h2><p>Buyback values of the following are calculated strictly on prevailing market/company rates, as displayed in store and policies at the time and place of buyback:</p><ul><li>Diamond</li><li>Gold Jewellery</li><li>Plain Platinum Jewellery</li><li>Solitaire</li><li>Precious Stone (Ruby, Emerald, Sapphire)</li><li>Bullion (Gold/Silver)</li></ul><p>Buyback value will exclude making charges, excise, GST, and other taxes.</p><p></p><p></p><h2><strong>Quality Check & Verification Process</strong></h2><p>All products submitted under the Buyback Policy must undergo:</p><ul><li>Initial Quality Check at the store to confirm eligibility.</li><li>Buyback value determination based on the final assessment.</li></ul><p>The final buyback amount is always subject to quality confirmation and purity/weight verification.</p><p></p><p></p><h2><strong>Mandatory Documentation</strong></h2><p>Customers must provide the following:</p><ul><li>Original invoice copy</li><li>Original product certificates (e.g., diamond certification, authenticity card)</li><li>Original packaging, wherever applicable</li></ul><p>Buyback cannot be processed in the absence of mandatory documents.</p><p></p><p></p><h2><strong>Note</strong></h2><ul><li>Customised jewellery (including personalised/engraved products) is eligible for buyback.</li><li>Buyback values are subject to change and are calculated strictly on prevailing market rates and policies at the time of buyback.</li><li>The store will perform a basic quality check after the product is received, and if eligible for buyback, you will be credited with the amount in cash up to a specified amount. The rest of the amount will be credited through cheque, RTS, or NEFT. It can also be credited to your PNG Jewellers account.</li><li>For buyback transactions exceeding ₹10,00,000, KYC documentation (PAN Card mandatory) will be required in compliance with applicable laws</li></ul><p>YOOU By PNG Jewellers retains the right to calculate the buyback amount of the product based on the Quality Assurance Team’s final appraisal. YOOU By PNG Jewellers also retains the right to modify the terms and conditions for individual customers.</p><p>GSTIN: 27AAHCP4162E1ZH</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_gh4MKF",
+        "text_wkC4JR"
+      ],
+      "name": "custom rich text",
+      "settings": {
+        "custom_class": "buyback-policy",
+        "section_id": "buyback-policy",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_rich_text_hirkrM": {
+      "type": "custom-rich-text",
+      "blocks": {
+        "heading_ULjbUi": {
+          "type": "heading",
+          "settings": {
+            "heading": "Disclaimer<strong> </strong>Policy",
+            "heading_size": "h0"
+          }
+        },
+        "text_Pr3mUN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>By accepting this privacy policy, you consent to <a href=\"http://www.pngadgil.com\">www.pngadgil.com</a> collecting and storing the information you provide on our website or mobile applications.</p><p>P N Gadgil Jewellers is committed to protecting your privacy and ensuring transparency in how your information is handled. By using the website or mobile applications, you agree to the collection and use of your personal information as described in this policy. All information will be handled in compliance with relevant data protection laws.</p><p><strong>Use of Collected Information:</strong></p><ol><li>The information collected by P N Gadgil Jewellers may be used for the following purposes:</li><li>To contact you regarding website or mobile application updates, services, and related news.</li><li>To improve the functionality and user experience of the website or mobile applications.</li><li>To analyze visitor data, including geographical locations, for better service optimization.</li><li>To inform you about special offers via email, which you can opt out of at any time.</li></ol><p>By contacting P N Gadgil Jewellers through email or mobile applications, you consent to receiving marketing communications. The company does not knowingly collect personal information from children or sell products to minors.</p><p><strong>Third-Party Services:</strong><br/><br/>P N Gadgil Jewellers may employ third-party service providers to assist with tasks such as product delivery, data analysis, and marketing. These parties will have access to personal information necessary for performing their duties but are prohibited from using it for other purposes.</p><p><strong>Legal Compliance:</strong><br/><br/>P N Gadgil Jewellers reserves the right to share personal information to comply with legal requirements, including court orders and subpoenas, without prior notice.</p><p><strong>Opt-Out Option:</strong><br/><br/>You have the option to unsubscribe from any communications at any time. Emails from P N Gadgil Jewellers will include an automated unsubscribe link. Alternatively, you can update your preferences or opt out of communications by emailing <a href=\"mailto:customerservice@pngadgil.com\"><strong>customerservice@pngadgil.com</strong></a>.</p><p><strong>Policy Updates:</strong><br/><br/>By using the website or mobile applications, you agree to this privacy policy. P N Gadgil Jewellers reserves the right to update, modify, or change this policy at any time. The company may also adjust the terms and conditions for individual customers as needed.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ULjbUi",
+        "text_Pr3mUN"
+      ],
+      "name": "custom rich text",
+      "settings": {
+        "custom_class": "disclaimer",
+        "section_id": "disclaimer",
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_rich_text_kF8fia": {
+      "type": "custom-rich-text",
+      "blocks": {
+        "heading_B9F4Ae": {
+          "type": "heading",
+          "settings": {
+            "heading": "Privacy Policy",
+            "heading_size": "h0"
+          }
+        },
+        "text_Rxdtzx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Accepting this privacy policy allows https://yooubypng.com/, to collect and store any information you provide on our website or mobile applications.</p><p>YOOU by PNG is committed to protecting your privacy and fully respects your desire to understand how your information will be handled and used. By accessing or using the website and native mobile applications, you expressly consent to our use and disclosure of your personal information in any manner described in this Privacy Policy. YOOU by PNG will ensure that all relevant legislation is complied with when handling your personal information.</p><p>The information collected by YOOU by PNG shall be used-</p><ol><li>To contact you about the Website or mobile applications and related news and Services available on the Website or mobile applications.</li><li>To monitor and improve the Website or mobile applications.</li><li>To calculate the number of visitors to the Website or mobile applications and to know the geographical locations of the visitors.</li><li>Update you on all the special offers available on the Website or mobile applications and provide you with a better shopping experience. This includes sending e-mails intimating the various offers. You may at any time choose to unsubscribe from such e-mail.</li></ol><p>On contacting YOOU by PNG through any means such as e-mails or mobile applications, YOOU by PNG reserves the right to use your contact details for marketing communications. YOOU by PNG does not knowingly collect Personal Information from children or sell its products to children.</p><p>SMS/RCS will be used as a communication channel.</p><p>We may employ other companies and individuals to perform functions on our behalf. Examples include delivering products, sending postal mail, analyzing data, and providing marketing assistance. They have access to personal information needed to perform their functions but may not use it for other purposes. Further, they must process the personal information in accordance with this Privacy Policy and as permitted by applicable data protection legislation. YOOU by PNG does not allow unauthorized persons or organizations to use any information that YOOU by PNG may collect from you through the Website and mobile applications.</p><p>YOOU by PNG reserves the right to share any of your personal information to comply with the court orders or other legal processes. Your personal information may be disclosed under such subpoenas, court orders, or legal processes, which shall be without notice.</p><p>We will always offer you the opportunity to unsubscribe from any service or update you have subscribed to if you choose to do so. Any e-mail we send you will contain an automated unsubscribe link so you can opt-out of that mailshot. Alternatively, you can change your preferences or opt-out of all e-mails or other communications by contacting YOOU by PNG by e-mail at cs@yooubypng.com.</p><p>By using the website or mobile applications, you signify your agreement to the terms of this privacy policy. YOOU by PNG reserves the right, in our sole discretion, to change, modify, add, or delete portions of the terms of this privacy policy at any time. YOOU by PNG Limited retains the right to modify the terms and conditions for individual customers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_B9F4Ae",
+        "text_Rxdtzx"
+      ],
+      "name": "custom rich text",
+      "settings": {
+        "custom_class": "privacy-policy",
+        "section_id": "privacy-policy",
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_rich_text_e4Gk4F": {
+      "type": "custom-rich-text",
+      "blocks": {
+        "heading_DUgkmq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Terms and Conditions",
+            "heading_size": "h0"
+          }
+        },
+        "text_reVam8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>1. Acceptance of Terms<br/>By using this website, you agree to these Terms of Use. If you do not agree, please do not use the website. SMS/RCS will be used as a communication channel.<br/><br/>2. Legal Agreement<br/>These Terms of Use constitute a legally binding agreement governing the services and usage of this website.<br/><br/>3. Website Content<br/>The content on this website is for general informational purposes and is subject to change without notice.<br/><br/>4. Accuracy & Liability<br/>Neither P N Gadgil Jewellers nor any third parties provide warranties regarding the accuracy, timeliness, performance, completeness, or suitability of the content. The company is not liable for any inaccuracies or errors to the fullest extent permitted by law.<br/><br/>5. Intellectual Property<br/>All content displayed, transmitted, or carried on this website is protected by copyright, trademark, and other intellectual property laws.<br/><br/>6. Restrictions on Reproduction<br/>This website contains proprietary material, including design, layout, graphics, and appearance. Reproduction is prohibited except in accordance with the copyright notice.<br/><br/>7. Service Suspension<br/>P N Gadgil Jewellers reserves the right to suspend or cancel services if technical issues such as viruses or system failures compromise security or administration.<br/></p><p>8. Prepaid Orders & Adjustments<br/>For prepaid orders, if a product’s weight differs from what is displayed on the website, the amount may be adjusted accordingly—either as a partial refund for lesser weight or an additional charge for higher weight.<br/><br/>9. Trademark Use<br/>All trademarks used on this website are acknowledged. Unauthorized use of trademarks is prohibited.<br/></p><p>10. Privacy & Information Handling<br/>The company respects user privacy and does not disclose personal information to third parties unless required by law or for delivery services.<br/><br/>11. Right to Refuse Service<br/>P N Gadgil Jewellers reserves the right to refuse service to any individual at any time.<br/><br/>12. Unauthorized Use<br/>Unauthorized use of this website may result in legal action and claims for damages.<br/><br/>13. Linking Policy<br/>Users may not create links to this website without prior written consent from P N Gadgil Jewellers Limited.<br/><br/>14. Governing Law<br/>Any dispute arising from the use of this website will be governed by the laws of India or other relevant regulatory authorities.<br/><br/>15. User Control Over Information<br/>Users will have control over the information they provide, and the company will address privacy concerns accordingly.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DUgkmq",
+        "text_reVam8"
+      ],
+      "name": "custom rich text",
+      "settings": {
+        "custom_class": "terms-conditions-policy",
+        "section_id": "terms-conditions-policy",
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_rich_text_4w6Dri": {
+      "type": "custom-rich-text",
+      "blocks": {
+        "heading_UqcxgR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Shipping Policies",
+            "heading_size": "h0"
+          }
+        },
+        "text_EBjQYW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At YOOU By PNG Jewellers, we ensure your order is shipped safely, securely, and hassle-free. All products are fully secured during transit by a reputable provider. Every order is carefully packaged in tamper-proof and durable packaging to reach your doorstep in perfect condition.</p><p>Once your order is dispatched, you will receive the tracking (AWB) number to monitor delivery progress. The courier partner is selected based on serviceability to the shipping address.</p><p></p><p><strong>Shipping Estimates</strong></p><p></p><p><strong>Estimated shipping timelines:</strong></p><ul><li><strong>RTS (Ready To Ship) products:</strong> 2 days<br/><br/></li><li><strong>MTO (Made To Order) products:</strong> 21 days<br/><br/></li></ul><p>Please note that these are indicative shipping timelines and not delivery timelines. Actual delivery timelines may vary depending on the delivery location and the courier partner’s schedule. </p><p></p><p></p><h2><strong>Shipping Charges</strong></h2><p><strong>Domestic (India):</strong> Shipping is free of cost across India except for COD orders.</p><p>Currently, shipping is only available across India. We do not ship internationally.</p><p></p><p></p><h2><strong>Cash on Delivery (COD)</strong></h2><p>Cash on Delivery orders will incur an additional prepaid, non-refundable charge of 5% of the total order value.</p><p>Cash on Delivery is not available in the following cases:</p><ul><li>Orders with a value below ₹1,000<br/><br/></li><li>Orders with a value above ₹25,000<br/><br/></li><li>Bullion, Coins, Chips, Vedhani, and Silver/Gold Articles</li></ul><p></p><p></p><h2><strong>Delivery to the Identified Recipient</strong></h2><p>For secure delivery, customers must provide the complete name (as per government-issued photo ID), full address, nearby landmark, pin code, and contact number.</p><p>At the time of delivery, the recipient must present one of the following original ID proofs:</p><ul><li>Passport</li><li>PAN Card</li><li>Driver's License</li><li>Voter ID</li><li>Aadhaar Card</li></ul><p>The courier agent will verify the ID and note the details for record purposes. Recipient cooperation is essential for successful verification and delivery.</p><p></p><p></p><h2><strong>Delivery Locations</strong></h2><p>Orders are delivered only to:</p><ul><li>Residential or office addresses</li><li>Store Pick-up</li></ul><p>Delivery to public places such as malls, hotels, restaurants, hostels, or streets is not available.</p><p>If the recipient is unavailable, the courier will attempt delivery up to three additional times. If still undelivered, the item will be returned to our facility.</p><p></p><p></p><h2><strong>Change of Shipping Address</strong></h2><p>Shipping details can be modified before dispatch. Once the product is shipped, no changes can be made.</p><p>Customers may also track their orders via the <em>My Account</em> section on our website.</p><p><strong>Note:</strong> Successful delivery is subject to the courier partner's terms. Incorrect or incomplete recipient details may lead to non-delivery.</p><p></p><p></p><h2><strong>Shipment Discrepancies</strong></h2><p>Please do not accept tampered packages.</p><p>On receiving the parcel, inspect it carefully. Report any of the following within 7 days:</p><ul><li>Damaged product or packaging</li><li>Missing items</li><li>Extra items</li><li>Suspected tampering</li></ul><p>To report, contact us at 1800-233-5005.</p><p></p><p></p><h2><strong>Damaged Products</strong></h2><p>If your order arrives damaged:</p><ul><li>Do not discard the parcel or product.</li><li>Contact us within 7 days of receipt.</li><li>Our investigation team will assess and take appropriate action.</li></ul><p>We cannot accept responsibility or process claims if damage is reported after 7 days.</p><p></p><p></p><h2><strong>Missing Products</strong></h2><p>Please inspect the package before accepting delivery. Report any missing items within 7 days by contacting our customer service. Investigations will be resolved within the next 7 working days.</p><p>Failure to report within the timeframe may result in the claim being void.</p><p></p><p></p><h2><strong>Non-Receipt of Order</strong></h2><p>Once shipped, customers receive a tracking ID via registered email. A delivery confirmation is also sent post-delivery.</p><p>If the parcel is not received despite the delivery notification:</p><ul><li>Contact us within 7 days.</li><li>Call: 1800-233-5005 or +91 8669660639</li><li>Email: cs@yooubypng.com</li></ul><p>We will investigate and resolve the matter within the next 7 working days. Delays in reporting may result in an inability to process refunds or complaints. Chargebacks raised without following due process will not be honoured.</p><p></p><p></p><h2><strong>Note</strong></h2><p>If the order value is above ₹2,00,000 or multiple orders are placed on the same day, the customer will have to provide PAN Card details for order confirmation & dispatch.</p><p>In case of transit damage, the customer will be required to provide photos and a written statement of loss.</p><p>YOOU By PNG Jewellers reserves the right to revise this shipping policy at any time without prior notice. Updated policies will be posted on our website.</p><p>Please note that these are the shipping policies of YOOU By PNG Jewellers. Shipments are also subject to the terms and conditions of our shipping partners.</p><p>GSTIN: 27AAHCP4162E1ZH</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UqcxgR",
+        "text_EBjQYW"
+      ],
+      "name": "custom rich text",
+      "settings": {
+        "custom_class": "shipping-policies",
+        "section_id": "shipping-policies",
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_rich_text_PKEeDM": {
+      "type": "custom-rich-text",
+      "blocks": {
+        "heading_dEp7Ni": {
+          "type": "heading",
+          "settings": {
+            "heading": "Grievances",
+            "heading_size": "h0"
+          }
+        },
+        "text_NYwq4X": {
+          "type": "text",
+          "settings": {
+            "text": "<p>In accordance with the Information Technology Act 2000 and rules made thereunder and the Consumer Protection (E-Commerce) Rules, 2020, the name and contact details of the Grievance Officer are provided below:<br/><br/>Mr Ajay Jadhav<br/><br/>Address: PNG Classic, Kapil Residency, Survey No. 15/01A, Baner Balewadi Road, Opposite Fatcook, Pune, Maharashtra – 411045<br/><br/>Email: cs@yooubypng.com</p><p>Phone: 1800-233-5005<br/><br/>Time: Mon-Fri(10:00-18:00)</p><p>-------------------------------------------------------------------</p><p><strong>Nodal Officer</strong></p><p>Name: Prakhar Gupta</p><p>Designation: Nodal Officer</p><p>Email Address: <a href=\"mailto:nodal.officer@pngadgil.com\">nodal.officer@pngadgil.com</a></p><p>-------------------------------------------------------------------</p><h3>BIS Hallmarking</h3><p>All our Gold & Diamond jewellery is BIS Hallmarked.</p><p>As per the guidelines issued by the Bureau of Indian Standards (BIS) and the Government of India, BIS hallmarking is mandatory only for gold jewellery and artefacts intended for retail sale.</p><p>Gold bullion (coins/bars) and vedhani (raw gold forms) are currently exempt from mandatory BIS hallmarking regulations. Therefore, hallmarking is not a legal requirement for these categories.</p><p>However, please be assured that all our bullion and vedhani products undergo strict quality checks to ensure purity and authenticity as per industry standards.</p><p>GSTIN: 27AAHCP4162E1ZH</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dEp7Ni",
+        "text_NYwq4X"
+      ],
+      "name": "custom rich text",
+      "settings": {
+        "custom_class": "grievances",
+        "section_id": "grievances",
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ring_separator_Wdcf6M",
+    "tabbed_featured_collections_HbyBBb",
+    "custom_rich_text_dfJnqi",
+    "custom_rich_text_9U9ypn",
+    "custom_rich_text_3KFtpz",
+    "custom_rich_text_KC7CKm",
+    "custom_rich_text_634pHJ",
+    "custom_rich_text_4z8Aek",
+    "custom_rich_text_hirkrM",
+    "custom_rich_text_kF8fia",
+    "custom_rich_text_e4Gk4F",
+    "custom_rich_text_4w6Dri",
+    "custom_rich_text_PKEeDM"
+  ]
+}

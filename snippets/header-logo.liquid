@@ -1,0 +1,30 @@
+{% comment %}
+  Renders a single header logo <img>.
+
+  Accepts:
+  - logo: {Object} image
+  - logo_width: {Number}
+  - sizes: {String} the `sizes` attribute value
+  - extra_class: {String} appended to the logo's class, e.g. for show/hide state toggling
+  - preload: {Boolean}
+{% endcomment %}
+{%- if logo != blank -%}
+  {%- liquid
+    assign logo_alt = logo.alt | default: shop.name | escape
+    assign logo_height = logo_width | divided_by: logo.aspect_ratio
+    assign logo_class = 'header__heading-logo motion-reduce ' | append: extra_class
+  -%}
+  {% capture widths %}{{ logo_width }}, {{ logo_width | times: 1.5 | round }}, {{ logo_width | times: 2 }}{% endcapture %}
+  {{
+    logo
+    | image_url: width: 600
+    | image_tag:
+      class: logo_class,
+      widths: widths,
+      height: logo_height,
+      width: logo_width,
+      alt: logo_alt,
+      sizes: sizes,
+      preload: preload
+  }}
+{%- endif -%}

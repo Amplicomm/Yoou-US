@@ -1,0 +1,38 @@
+{% comment %}
+  Renders a promotional banner (e.g. "Free ₹500 on completing your profile on
+  the app") with an install/CTA button, for the product page.
+
+  Accepts:
+  - block: {Object} block with eyebrow_text, amount_text, description, button_label, button_link settings
+
+  Usage:
+  {% render 'app-promo-banner', block: block %}
+{% endcomment %}
+<div class="quick-add-hidden app-promo-banner" {{ block.shopify_attributes }}>
+  <div class="app-promo-banner__amount">
+    {%- if block.settings.eyebrow_text != blank -%}
+      <span class="app-promo-banner__eyebrow">{{ block.settings.eyebrow_text }}</span>
+    {%- endif -%}
+    {%- if block.settings.amount_text != blank -%}
+      <span class="app-promo-banner__value">{{ block.settings.amount_text }}</span>
+    {%- endif -%}
+  </div>
+  {%- if block.settings.description != blank -%}
+    <p class="app-promo-banner__description">{{ block.settings.description }}</p>
+  {%- endif -%}
+  {%- if block.settings.button_label != blank -%}
+    <a
+      {% if block.settings.button_link != blank %}
+        href="{{ block.settings.button_link }}"
+      {% else %}
+        role="link" aria-disabled="true"
+      {% endif %}
+      class="app-promo-banner__button"
+    >
+      <span>{{ block.settings.button_label }}</span>
+      <span class="app-promo-banner__button-arrow" aria-hidden="true">
+        {{- 'icon-caret.svg' | inline_asset_content -}}
+      </span>
+    </a>
+  {%- endif -%}
+</div>

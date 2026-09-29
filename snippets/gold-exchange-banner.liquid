@@ -1,0 +1,47 @@
+{% comment %}
+  Renders a gold-exchange promo banner (e.g. "This product could be yours
+  for under Rs.16,000/- when you bring 3.87 grams of 22k gold...") with a
+  "Check Value" CTA and a terms link, for the product page.
+
+  Accepts:
+  - block: {Object} block with heading, description, button_label, button_link, terms_text, terms_link settings
+
+  Usage:
+  {% render 'gold-exchange-banner', block: block %}
+{% endcomment %}
+<div class="quick-add-hidden gold-exchange-banner" {{ block.shopify_attributes }}>
+  <div class="gold-exchange-banner__text">
+    {%- if block.settings.heading != blank -%}
+      <p class="gold-exchange-banner__heading">{{ block.settings.heading }}</p>
+    {%- endif -%}
+    {%- if block.settings.description != blank -%}
+      <p class="gold-exchange-banner__description">{{ block.settings.description }}</p>
+    {%- endif -%}
+  </div>
+  <div class="gold-exchange-banner__action">
+    {%- if block.settings.button_label != blank -%}
+      <a
+        {% if block.settings.button_link != blank %}
+          href="{{ block.settings.button_link }}"
+        {% else %}
+          role="link" aria-disabled="true"
+        {% endif %}
+        class="gold-exchange-banner__button"
+      >
+        {{ block.settings.button_label }}
+      </a>
+    {%- endif -%}
+    {%- if block.settings.terms_text != blank -%}
+      <a
+        {% if block.settings.terms_link != blank %}
+          href="{{ block.settings.terms_link }}"
+        {% else %}
+          role="link" aria-disabled="true"
+        {% endif %}
+        class="gold-exchange-banner__terms"
+      >
+        {{ block.settings.terms_text }}
+      </a>
+    {%- endif -%}
+  </div>
+</div>

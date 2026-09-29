@@ -1,0 +1,53 @@
+{% comment %}
+  Renders a "Flat X% off on making charge" badge for the product page, where
+  X is read from the selected variant's discount_percentage_on_making_charge
+  metafield. Hides itself entirely when that metafield is blank.
+
+  Accepts:
+  - block: {Object} block with icon, prefix_text, suffix_text settings
+  - section: {Object} the section this block belongs to (for a unique element id)
+
+  Usage:
+  {% render 'making-charge-discount', block: block, section: section %}
+{% endcomment %}
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign discount_percent = variant.metafields.custom.discount_percentage_on_making_charge.value
+  assign stone_discount_percent = variant.metafields.custom.discount_percentage_or_amount_on_stone.value
+-%}
+<div id="MakingChargeDiscount-{{ section.id }}" {{ block.shopify_attributes }}>
+  {%- if discount_percent != blank and discount_percent != '0'-%}
+    <div class="making-charge-discount">
+      {%- if block.settings.icon != blank -%}
+        <span class="making-charge-discount__icon">
+          {{ block.settings.icon | image_url: width: 40 | image_tag: loading: 'lazy', widths: '20, 40' }}
+        </span>
+      {%- endif -%}
+      <p class="making-charge-discount__text">
+        {%- if block.settings.prefix_text != blank -%}
+          <strong>{{ block.settings.prefix_text }} {{ discount_percent }} off</strong>
+        {%- else -%}
+          <strong>{{ discount_percent }} off</strong>
+        {%- endif -%}
+        {%- if block.settings.suffix_text != blank %} {{ block.settings.suffix_text }}{% endif -%}
+      </p>
+    </div>
+  {%- endif -%}
+  {%- if stone_discount_percent != blank and stone_discount_percent != '0'-%}
+    <div class="making-charge-discount">
+      {%- if block.settings.icon != blank -%}
+        <span class="making-charge-discount__icon">
+          {{ block.settings.icon | image_url: width: 40 | image_tag: loading: 'lazy', widths: '20, 40' }}
+        </span>
+      {%- endif -%}
+      <p class="making-charge-discount__text">
+        {%- if block.settings.prefix_text_2 != blank -%}
+          <strong>{{ block.settings.prefix_text_2 }} {{ stone_discount_percent }} off</strong>
+        {%- else -%}
+          <strong>{{ stone_discount_percent }} off</strong>
+        {%- endif -%}
+        {%- if block.settings.suffix_text_2 != blank %} {{ block.settings.suffix_text_2 }}{% endif -%}
+      </p>
+    </div>
+  {%- endif -%}
+</div>

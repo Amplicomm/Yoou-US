@@ -1,0 +1,223 @@
+{% comment %}
+  Dynamic Breadcrumb
+{% endcomment %}
+
+{%- liquid
+  assign breadcrumb_collection = collection
+
+  if template.name == 'product' and breadcrumb_collection == blank
+    assign breadcrumb_collection = product.collections.first
+  endif
+-%}
+
+<breadcrumb-trail
+  class="breadcrumb"
+  aria-label="{{ 'accessibility.breadcrumbs' | t }}"
+  data-template="{{ template.name }}"
+  data-collection-title="{{ breadcrumb_collection.title | escape }}"
+  data-collection-url="{{ breadcrumb_collection.url }}"
+>
+  <ol
+    class="breadcrumb__list"
+    itemscope
+    itemtype="https://schema.org/BreadcrumbList"
+  >
+    <!-- Home -->
+    <li
+      class="breadcrumb__item"
+      itemprop="itemListElement"
+      itemscope
+      itemtype="https://schema.org/ListItem"
+    >
+      <a
+        href="{{ routes.root_url }}"
+        class="breadcrumb__link"
+        itemprop="item"
+      >
+        <span itemprop="name">
+          {{ 'general.breadcrumbs.home' | t }}
+        </span>
+      </a>
+
+      <meta itemprop="position" content="1">
+    </li>
+
+    {% if template.name == 'product' %}
+
+      <!-- Collection Placeholder -->
+      <li
+        class="breadcrumb__item breadcrumb__collection"
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/ListItem"
+        hidden
+      >
+        <span class="breadcrumb__separator">
+          {% render 'icons', icon: 'arrow-right' %}
+        </span>
+
+        <a
+          href="#"
+          class="breadcrumb__link"
+          itemprop="item"
+        >
+          <span itemprop="name"></span>
+        </a>
+
+        <meta itemprop="position" content="2">
+      </li>
+
+      <!-- Product -->
+      <li
+        class="breadcrumb__item breadcrumb__item--current"
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/ListItem"
+        aria-current="page"
+      >
+        <span class="breadcrumb__separator">
+          {% render 'icons', icon: 'arrow-right' %}
+        </span>
+
+        <span itemprop="name">
+          {{ product.title }}
+        </span>
+
+        <meta itemprop="position" content="3">
+      </li>
+
+    {% elsif template.name == 'collection' %}
+
+      <li
+        class="breadcrumb__item breadcrumb__item--current"
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/ListItem"
+        aria-current="page"
+      >
+        <span class="breadcrumb__separator">
+          {% render 'icons', icon: 'arrow-right' %}
+        </span>
+
+        <span itemprop="name">
+          {{ collection.title }}
+        </span>
+
+        <meta itemprop="position" content="2">
+      </li>
+
+    {% elsif template.name == 'page' %}
+
+      <li
+        class="breadcrumb__item breadcrumb__item--current"
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/ListItem"
+        aria-current="page"
+      >
+        <span class="breadcrumb__separator">
+          {% render 'icons', icon: 'arrow-right' %}
+        </span>
+
+        <span itemprop="name">
+          {{ page.title }}
+        </span>
+
+        <meta itemprop="position" content="2">
+      </li>
+
+    {% endif %}
+  </ol>
+</breadcrumb-trail>
+
+<script>
+  class BreadcrumbTrail extends HTMLElement {
+    constructor() {
+      super();
+    }
+
+    connectedCallback() {
+      this.storageKey = "breadcrumb_collection";
+
+      this.template = this.dataset.template;
+      this.collectionTitle = this.dataset.collectionTitle;
+      this.collectionUrl = this.dataset.collectionUrl;
+
+      switch (this.template) {
+        case "collection":
+          this.storeCollection();
+          break;
+
+        case "product":
+          this.renderCollection();
+          break;
+      }
+    }
+
+    storeCollection() {
+      if (!this.collectionTitle || !this.collectionUrl) return;
+
+      sessionStorage.setItem(
+        this.storageKey,
+        JSON.stringify({
+          title: this.collectionTitle,
+          url: this.collectionUrl,
+        })
+      );
+    }
+
+    renderCollection() {
+      const placeholder = this.querySelector(".breadcrumb__collection");
+
+      if (!placeholder) return;
+
+      const referrer = document.referrer;
+      const currentOrigin = window.location.origin;
+
+      const cameFromCollection =
+        referrer.startsWith(currentOrigin) &&
+        referrer.includes("/collections/");
+
+      // User didn't come from a collection page
+      if (!cameFromCollection) {
+        sessionStorage.removeItem(this.storageKey);
+        placeholder.remove();
+        this.updateProductPosition(2);
+        return;
+      }
+
+      const stored = sessionStorage.getItem(this.storageKey);
+
+      if (!stored) {
+        placeholder.remove();
+        this.updateProductPosition(2);
+        return;
+      }
+
+      const collection = JSON.parse(stored);
+
+      const link = placeholder.querySelector(".breadcrumb__link");
+      const text = placeholder.querySelector("[itemprop='name']");
+
+      link.href = collection.url;
+      text.textContent = collection.title;
+
+      placeholder.hidden = false;
+
+      this.updateProductPosition(3);
+    }
+
+    updateProductPosition(position) {
+      const productMeta = this.querySelector(
+        ".breadcrumb__item--current meta[itemprop='position']"
+      );
+
+      if (productMeta) {
+        productMeta.setAttribute("content", position);
+      }
+    }
+  }
+
+  customElements.define("breadcrumb-trail", BreadcrumbTrail);
+
+</script>

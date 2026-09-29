@@ -1,0 +1,404 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "custom_liquid_rqXDRh": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "scheme-77f10f6b-8da7-4200-9128-74b2e00ec75d",
+        "padding_top": 40,
+        "padding_bottom": 36
+      }
+    },
+    "related_categories": {
+      "type": "collection-related-categories",
+      "settings": {
+        "heading": "{{ collection.title }}",
+        "heading_size": "h1",
+        "heading_color": "#121212",
+        "subheading": "Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis",
+        "subheading_color": "#696061",
+        "image_ratio": "square",
+        "cards_desktop": 7,
+        "cards_mobile": 2.3,
+        "card_background": "#ffffff",
+        "card_text_color": "#7a3717",
+        "color_scheme": "scheme-77f10f6b-8da7-4200-9128-74b2e00ec75d",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "padding_top": 52,
+        "padding_bottom": 36
+      }
+    },
+    "shop_by_category_KXCKpy": {
+      "type": "shop-by-category",
+      "blocks": {
+        "category_MXrGgz": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147223591.png",
+            "caption_prefix": "",
+            "title": "Rings",
+            "link": ""
+          }
+        },
+        "category_WfGk8j": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147223592_1.png",
+            "caption_prefix": "",
+            "title": "Earrings",
+            "link": ""
+          }
+        },
+        "category_Ktep7x": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147223593.png",
+            "caption_prefix": "",
+            "title": "Bracelets",
+            "link": ""
+          }
+        },
+        "category_XEjkeR": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147223594.png",
+            "caption_prefix": "",
+            "title": "Necklaces",
+            "link": ""
+          }
+        },
+        "category_afGqix": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147223595.png",
+            "caption_prefix": "",
+            "title": "Solitaires",
+            "link": ""
+          }
+        },
+        "category_fJthfn": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147223596_2.png",
+            "caption_prefix": "",
+            "title": "Gifting",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_MXrGgz",
+        "category_WfGk8j",
+        "category_Ktep7x",
+        "category_XEjkeR",
+        "category_afGqix",
+        "category_fJthfn"
+      ],
+      "disabled": true,
+      "name": "Shop by category",
+      "settings": {
+        "heading": "Shop By Category",
+        "subheading": "Lorem ipsum dolor sit amet",
+        "layout_style": "overlay",
+        "image_ratio": "portrait",
+        "columns_desktop": 6,
+        "columns_mobile": 3,
+        "color_scheme": "scheme-ea10b67f-9ce3-47a9-814f-19f843254853",
+        "block_text_color": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 20
+      }
+    },
+    "featured_collection_grid_BfFAM8": {
+      "type": "featured-collection-grid",
+      "blocks": {
+        "collection_card_akXfYk": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Container_6.png",
+            "title": "For Her",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          }
+        },
+        "collection_card_hP9JqN": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Container_8.png",
+            "title": "For Him",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          }
+        },
+        "collection_card_itaTDh": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Container_7.png",
+            "title": "For Kids",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          }
+        }
+      },
+      "block_order": [
+        "collection_card_akXfYk",
+        "collection_card_hP9JqN",
+        "collection_card_itaTDh"
+      ],
+      "disabled": true,
+      "name": "Featured collection grid",
+      "settings": {
+        "heading": "",
+        "heading_size": "h0",
+        "columns_desktop": 3,
+        "columns_mobile": 3,
+        "color_scheme": "scheme-ea10b67f-9ce3-47a9-814f-19f843254853",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "usp_pTdtgL": {
+      "type": "usp",
+      "blocks": {
+        "usp_3wJxBH": {
+          "type": "usp",
+          "settings": {
+            "icon": "shopify://shop_images/Free_delivery_icon_8b9b7f22-3168-4a56-aa6c-213dae436097.svg",
+            "label": "Free Shipping"
+          }
+        },
+        "usp_tHyeBJ": {
+          "type": "usp",
+          "settings": {
+            "icon": "shopify://shop_images/Container_6.svg",
+            "label": "6 Lakh+  Buyers"
+          }
+        },
+        "usp_CGNPRY": {
+          "type": "usp",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_Container.svg",
+            "label": "1 Year Warranty"
+          }
+        },
+        "usp_app4QQ": {
+          "type": "usp",
+          "settings": {
+            "icon": "shopify://shop_images/Product_Image.svg",
+            "label": "Product by    PNG Jewellers"
+          }
+        },
+        "usp_3xipxw": {
+          "type": "usp",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_12.svg",
+            "label": "Lifetime Exchangein 100+ YOOU Stores"
+          }
+        }
+      },
+      "block_order": [
+        "usp_3wJxBH",
+        "usp_tHyeBJ",
+        "usp_CGNPRY",
+        "usp_app4QQ",
+        "usp_3xipxw"
+      ],
+      "disabled": true,
+      "name": "USP",
+      "settings": {
+        "image": "shopify://shop_images/Frame_2147223556_ef3cade1-d3fd-4136-a652-25c447d53614.png",
+        "eyebrow": "The PNG Promise",
+        "heading": "Why YOOU Is Different",
+        "speed": 25,
+        "pause_on_hover": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "product_slider_nUdi4m": {
+      "type": "product-slider",
+      "name": "Product slider",
+      "settings": {
+        "collection": "made-for-yoou",
+        "products_to_show": 10,
+        "heading": "Curated for YOOU",
+        "subheading": "",
+        "button_label": "Explore all",
+        "button_link": "",
+        "cards_desktop": 5,
+        "peek_width": 190,
+        "loop": true,
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "show_navigation": true,
+        "show_pagination": false,
+        "color_scheme": "scheme-ea10b67f-9ce3-47a9-814f-19f843254853",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_slider_a4PFTx": {
+      "type": "featured-collection-slider",
+      "blocks": {
+        "collection_X9MPDm": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/image_4.png",
+            "title": ""
+          }
+        },
+        "collection_Me7GBp": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/image_6_28c217b9-3595-4b60-9055-e521a8d0c26d.png",
+            "title": ""
+          }
+        },
+        "collection_8VCheP": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/image_3.png",
+            "title": ""
+          }
+        },
+        "collection_VgRNdT": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/image_6_28c217b9-3595-4b60-9055-e521a8d0c26d.png",
+            "title": ""
+          }
+        },
+        "collection_cPimka": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/image_3.png",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_X9MPDm",
+        "collection_Me7GBp",
+        "collection_8VCheP",
+        "collection_VgRNdT",
+        "collection_cPimka"
+      ],
+      "disabled": true,
+      "name": "Collection slider",
+      "settings": {
+        "heading": "Our Curated Collection",
+        "heading_size": "h1",
+        "subheading": "Lorem ipsum dolor sit amet",
+        "button_label": "Explore all Collection",
+        "button_link": "",
+        "cards_desktop": 2.5,
+        "peek_width": 190,
+        "loop": true,
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "show_navigation": true,
+        "show_pagination": false,
+        "color_scheme": "scheme-ea10b67f-9ce3-47a9-814f-19f843254853",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "newsletter_Ykmpag": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_784MmN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join the YOOU Community Today",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_abiqre": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Get early access to jewelry drops, care tips, and exclusive offers, straight to your inbox.</p>"
+          }
+        },
+        "email_form_A4B9tf": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_784MmN",
+        "paragraph_abiqre",
+        "email_form_A4B9tf"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Clip_path_group.png",
+        "disclaimer_text": "You can unsubscribe anytime. For more details read our",
+        "color_scheme": "scheme-9deb5abd-45b6-4ecf-80bf-ed358be93e71",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "footer_overlap": 0
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "custom_liquid_rqXDRh",
+    "related_categories",
+    "product-grid",
+    "shop_by_category_KXCKpy",
+    "featured_collection_grid_BfFAM8",
+    "usp_pTdtgL",
+    "product_slider_nUdi4m",
+    "featured_collection_slider_a4PFTx",
+    "newsletter_Ykmpag"
+  ]
+}

@@ -1,0 +1,1181 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  :root {
+    --theme-color: #E0652A; /* Litestyle color */
+  }
+
+  body {
+    font-family: "Inter", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+  }
+
+  /* --- Header Wrapper --- */
+  .store-header {
+      background: #fcfaf9;
+      padding: 10px 35px;
+      text-align: center;
+      position: sticky;
+      /* Was a hardcoded 68px, hand-tuned to sit right below the site
+         header + metal price bar combo — but that combo now hides itself
+         on scroll down (see metal-price-bar.liquid), shrinking without
+         this value following it, which left a gap here equal to however
+         much shorter the header/bar got. --header-height/
+         --metal-price-bar-height are the same variables that combo
+         already publishes, so this always matches its current height. */
+      top: calc(var(--header-height, 68px) + var(--metal-price-bar-height, 0px));
+      /* Matches the site header's own hide/show transition (see
+         .section-header in header.liquid) so this follows it in lockstep
+         instead of snapping. */
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1;
+  }
+
+  /* Shifts up in sync with the site header when the price bar hides on
+     scroll down — same trigger class, same mechanism, as header.liquid. */
+  html.metal-price-bar-hidden .store-header {
+    transform: translateY(calc(-1 * var(--metal-price-bar-height, 0px)));
+  }
+  .store-header-content ,.searchLocationWrap{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items:center;
+    gap:10px;
+  }
+  .searchLocationWrap{
+    width:43%
+  }
+
+  /* --- Filter Section --- */
+  .filters {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    {% comment %} overflow-x: auto;     
+    overflow-y: hidden;   {% endcomment %}
+    white-space: nowrap;
+    scrollbar-width: thin;
+    {% comment %} width:25% {% endcomment %}
+
+  }
+  .filters button {
+    flex: 0 0 auto; 
+  }
+
+  /* Optional: hide scrollbar in Webkit browsers */
+  .filters::-webkit-scrollbar {
+    height: 6px;
+  }
+  .filters::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+    border-radius: 4px;
+  }
+
+  /* --- Search Box --- */
+  .search-box {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    width: 100%;
+    height: 40px;
+    background: white;
+    border: 2px solid #E2E2E2;
+    border-radius: 14px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    overflow:hidden
+  }
+
+  #search-btn {
+    {% comment %} background: var(--theme-color);
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center; {% endcomment %}
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:50px;
+    height: 40px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, var(--theme-color) 0%, #1C0E2B 142.55%);
+  }
+
+  #search-location {
+    width: 90%;
+    padding: 10px 14px 12px 25px;
+    font-size: 14px;
+    outline: none;
+    border:0px
+  }
+
+  #search-location:focus {
+    border-color: transparent;
+  } 
+
+  /* --- Location Button --- */
+  #use-location-btn, #use-location-btn-mobile {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 10px;
+    height: 40px;
+    background: #FAFAFA;
+    border: 1px solid var(--theme-color);
+    border-radius: 14px;
+    flex: none;
+    width: max-content;
+  }
+
+  #topCityBtn{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10.8513px 14.4684px;
+    gap: 9.04px;
+    width: 71.94px;
+    height: 40px;
+    background: #FAFAFA;
+    border: 0.904273px solid var(--theme-color);
+    border-radius: 90.4273px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    color: var(--theme-color);
+    cursor:pointer
+  }
+  .city-filter-btn.active {
+    background: var(--theme-color) !important;
+    color: #fff !important;
+  }
+
+  #use-location-btn-mobile{
+    display:none
+  }
+
+
+  #use-location-btn .location-icon {
+    margin-top:2px
+  }
+
+  @media (max-width: 768px) {
+    .store-header {
+    padding: 10px 15px;
+    /* Same fix as the desktop rule above — was a hardcoded 12rem that
+       didn't follow the header/price-bar combo shrinking on scroll. */
+    top: calc(var(--header-height, 0px) + var(--metal-price-bar-height, 0px));
+    }
+    .hide-header-footer .store-header {
+      top: 0;
+    }
+
+    .store-header-content ,.searchLocationWrap{
+      display: flex;
+      flex-direction:column !important;
+      justify-content: space-between;
+      align-items:center;
+      gap:10px;
+    }
+
+
+    .searchLocationWrap{
+      width:100%;
+      justify-content:start
+    }
+
+    .filters {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin-top:20px
+    }
+    .filters {
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 10px;
+    margin-top: 10px;
+    }
+    .search-box {
+    width: 100%;
+    margin-right:10px;
+    position:relative
+    }
+
+    #search-location {
+    width: 90%;
+    padding: 6px 10px;
+    }
+    #search-btn{
+    width:36px;
+    position:absolute;
+    right:0
+    }
+    #topCityBtn{
+    height:26px
+    }
+    .store-header-content button {
+    width: 100%;
+
+    } 
+    {% comment %} #use-location-btn-mobile {
+      display: flex;
+      width: 56px;
+      height: 35px;
+    } {% endcomment %}
+
+    #use-location-btn{
+      display:none
+    }
+  }
+
+  /* ---- Layout ---- */
+  .content {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 70px);
+  }
+
+  #store-details {
+    width: 60%;
+    overflow-y: auto;
+    padding: 20px;
+    background: #fff;
+    border-right: 1px solid #eee;
+  }
+
+  #map {
+    width: 35%;
+  }
+
+  /* ---- Store Card ---- */
+  .store-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+  }
+
+  .store-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .cardImageWrap{
+    width: 150px;
+    height: 180px;
+  }
+
+  .store-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .store-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .store-info h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .store-info p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .store-info a.phone-link {
+    color: var(--theme-color);
+    text-decoration: none;
+  }
+
+  .store-info a.phone-link:hover {
+    text-decoration: underline;
+  }
+
+  .store-error {
+    color: red;
+    font-weight: bold;
+  }
+  .store-card.highlight {
+    background-color: #e7e7e7;
+    transition: all 0.3s ease;
+  }
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+      height:auto
+    }
+    #store-list,#storeSelector
+    {
+      width: 100% !important;
+    }
+    #store-details{
+      width:100% !important;
+    }
+    #map{
+      display:none !important
+    }
+    .store-card {
+      flex-direction: column;
+    }
+    .cardImageWrap{
+      width: 100%;
+      height: 150px;
+    }
+
+    .wrapper-for-three-features{
+      display:flex;
+      flex-direction:column !important;
+    }
+    .flex-search-and-switchwrapper{
+      display:flex;
+      flex-direction:column !important;
+      gap:10px;
+    }
+    
+  }
+  .storeSwitcherWrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    overflow:hidden;
+    width:30%;
+    cursor:pointer;
+    background:white;
+    height:40px;
+    border-radius: 10px;
+
+  }
+  .storeSwitcherBtn{
+    display:flex; 
+    align-items:center; 
+    justify-content:center;
+    color:black;
+    width:50%;
+    height:100%;
+    border: 2px solid #E2E2E2;
+    border-right:1px solid #E2E2E2;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+  }
+  .storeSwitcherBtn.litestyle{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left:1px solid #E2E2E2;
+    border-right:2px solid #E2E2E2;
+  }
+
+    .wrapper-for-three-features{
+      display:flex;
+      flex-direction:row;
+      width:100%;
+    }
+    .flex-search-and-switchwrapper{
+      display:flex;
+      flex-direction:row;
+      gap:10px;
+      width:100%;
+    }
+</style>
+
+<div id="store-locator-section" class="store-locator-wrapper">
+  <header class="store-header">
+    <div class="store-header-content">
+        <div>
+          <button id="use-location-btn">
+            <span class="location-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C11 0.44772 10.5523 0 10 0C9.4477 0 9 0.44772 9 1V2.06189C5.38128 2.51314 2.51314 5.38128 2.06189 9H1C0.44772 9 0 9.4477 0 10C0 10.5523 0.44772 11 1 11H2.06189C2.51314 14.6187 5.38128 17.4869 9 17.9381V19C9 19.5523 9.4477 20 10 20C10.5523 20 11 19.5523 11 19V17.9381C14.6187 17.4869 17.4869 14.6187 17.9381 11H19C19.5523 11 20 10.5523 20 10C20 9.4477 19.5523 9 19 9H17.9381C17.4869 5.38128 14.6187 2.51314 11 2.06189V1ZM8 10C8 8.8954 8.8954 8 10 8C11.1046 8 12 8.8954 12 10C12 11.1046 11.1046 12 10 12C8.8954 12 8 11.1046 8 10ZM10 6C7.79086 6 6 7.79086 6 10C6 12.2091 7.79086 14 10 14C12.2091 14 14 12.2091 14 10C14 7.79086 12.2091 6 10 6Z" fill="var(--theme-color)"/>
+              </svg>
+            </span>Your Location
+          </button>
+          <button id="use-location-btn-mobile">
+            <span class="location-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C11 0.44772 10.5523 0 10 0C9.4477 0 9 0.44772 9 1V2.06189C5.38128 2.51314 2.51314 5.38128 2.06189 9H1C0.44772 9 0 9.4477 0 10C0 10.5523 0.44772 11 1 11H2.06189C2.51314 14.6187 5.38128 17.4869 9 17.9381V19C9 19.5523 9.4477 20 10 20C10.5523 20 11 19.5523 11 19V17.9381C14.6187 17.4869 17.4869 14.6187 17.9381 11H19C19.5523 11 20 10.5523 20 10C20 9.4477 19.5523 9 19 9H17.9381C17.4869 5.38128 14.6187 2.51314 11 2.06189V1ZM8 10C8 8.8954 8.8954 8 10 8C11.1046 8 12 8.8954 12 10C12 11.1046 11.1046 12 10 12C8.8954 12 8 11.1046 8 10ZM10 6C7.79086 6 6 7.79086 6 10C6 12.2091 7.79086 14 10 14C12.2091 14 14 12.2091 14 10C14 7.79086 12.2091 6 10 6Z" fill="var(--theme-color)"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div class="wrapper-for-three-features">
+          <div class="flex-search-and-switchwrapper">
+            <div class= "searchLocationWrap">
+              <div class="search-box">
+                <input
+                  type="text"
+                  id="search-location"
+                  placeholder="Search by State/Pincode/Locality"
+                />
+                <!-- <button >Search</button>  -->
+                <div id="search-btn" class="search-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="15"
+                    height="15"
+                    stroke="white"
+                    fill="none"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="11" cy="11" r="8" style="fill:transparent"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="filters litestyle" >
+          <button class="city-filter-btn" data-city="pune" id="topCityBtn">
+            Pune
+          </button>
+          <button class="city-filter-btn" data-city="mumbai" id="topCityBtn">
+            Mumbai
+          </button>
+          <button class="city-filter-btn" data-city="goa" id="topCityBtn">
+            Goa
+          </button>
+        </div>
+    </div>
+ 
+  </header>
+    <div class="content">
+    <div id="store-details" style=" width: 60%">
+      <div id="noStoreData" style="width:100%; height:300px;display:flex;justify-content:center;align-items:center">
+        <div class="no-store-wrap" style="display:flex;justify-content:center;align-items:center;width:100%;height:200px;flex-direction:column;text-align:center">
+          <div style="width:100px;height:100px" }}>
+            <img width="80" height="80" src="https://img.icons8.com/carbon-copy/100/shop.png" alt="shop"/>
+          </div>
+            <div class="no-store-texts">
+              <div class="no-store-title">Loading Stores ...</div>
+              <div class="no-store-sub">Please wait while we fetch stores</div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div id="map" style="width:35%"></div>
+  </div> 
+</div>
+<!-- ✅ Load XLSX and Google Maps -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key={{ section.settings.google_api_key }}&libraries=places,geometry"
+  async
+  defer
+></script>
+
+
+<script>
+  let map, service, infoWindow;
+  let storeDetailsArray = []; // ✅ Final merged store data
+  let markers = [];
+  let activeBrand = "all";
+
+  // 🗺️ Initialize Map
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: 16.5, lng: 75.8 },
+      zoom: 6,
+    });
+    infoWindow = new google.maps.InfoWindow();
+    service = new google.maps.places.PlacesService(map);
+  }
+
+  // 📊 Load Excel → JSON
+  async function loadExcelAsJSON(excelUrl) {
+    if (!excelUrl) {
+      console.warn("⚠️ No Excel file URL provided!");
+      return [];
+    }
+
+    try {
+      const response = await fetch(excelUrl);
+      if (!response.ok) throw new Error(`Failed to fetch Excel file: ${response.status}`);
+
+      const arrayBuffer = await response.arrayBuffer();
+      const workbook = XLSX.read(arrayBuffer, { type: "array" });
+      const sheet = workbook.Sheets[workbook.SheetNames[0]];
+      // Read with column-letter keys so column I is always accessible as "I"
+      const rawByLetter = XLSX.utils.sheet_to_json(sheet, { header: "A", defval: "" });
+      if (rawByLetter.length > 1) {
+        const headerRow = rawByLetter[0];
+        const dataRows = rawByLetter.slice(1);
+        const jsonData = dataRows.map(row => {
+          const obj = {};
+          Object.entries(headerRow).forEach(([col, headerName]) => {
+            const key = String(headerName).trim();
+            if (key) obj[key] = row[col];
+          });
+          // Column I is explicitly the phone column — override whatever the header says
+          const colIValue = row["I"];
+          obj.phone = (colIValue != null && colIValue !== "") ? String(colIValue).trim() : "";
+          return obj;
+        });
+        await getStoreDetails(jsonData);
+      }
+
+      return jsonData;
+    } catch (err) {
+      console.error("❌ Error loading Excel:", err);
+      return [];
+    }
+  }
+
+  // 🧭 Extract city, state, zip
+  function extractLocationParts(address) {
+    const parts = address.split(",").map(p => p.trim());
+    let city = "", state = "", zipCode = "";
+
+    const zipMatch = address.match(/\b\d{5,6}\b/);
+    if (zipMatch) zipCode = zipMatch[0];
+
+    for (let i = parts.length - 1; i >= 0; i--) {
+      const part = parts[i];
+      if (part.includes("India")) continue;
+      if (/\d{5,6}/.test(part)) {
+        const stateMatch = part.match(/([A-Za-z\s]+)\s*\d{5,6}/);
+        state = stateMatch ? stateMatch[1].trim() : "";
+        city = parts[i - 1]?.trim() || "";
+        break;
+      }
+    }
+    return { city, state, zipCode };
+  }
+
+  // 🔍 Fetch Google Maps details for each store
+  async function getStoreDetails(stores) {
+    if (!service) {
+      console.error("⚠️ PlacesService not initialized!");
+      return;
+    }
+
+    const dropped = { noResult: [], detailsFailed: [], sonFilter: [], dupeRemoved: [] };
+    console.log(`📋 Excel total rows: ${stores.length}`);
+
+    const fetchPromises = stores.map((store) => {
+      return new Promise((resolve) => {
+        const request = {
+          query: store.name,
+          fields: ["place_id"],
+        };
+
+        // Step 1️⃣ Find the place ID
+        service.textSearch(request, (results, status) => {
+          if (status === google.maps.places.PlacesServiceStatus.OK && results?.length) {
+            const wantsSons = (store.name || '').toLowerCase().includes('son');
+            const best = wantsSons
+              ? results[0]
+              : (results.find(r => !r.name?.toLowerCase().includes('sons')) || results[0]);
+            const placeId = best.place_id;
+
+            // Step 2️⃣ Get full place details using place_id
+            const detailRequest = {
+              placeId: placeId,
+              fields: [
+                "name",
+                "formatted_address",
+                "geometry",
+                "rating",
+                "user_ratings_total",
+                "formatted_phone_number",
+                "opening_hours",
+                "photos",
+              ],
+            };
+
+            service.getDetails(detailRequest, (place, status2) => {
+              if (status2 === google.maps.places.PlacesServiceStatus.OK && place) {
+                const { city, state, zipCode } = extractLocationParts(place.formatted_address);
+
+                const excelPhone = (store.phone != null && store.phone !== '' ? String(store.phone).trim() : '');
+                const merged = {
+                  name: place.name,
+                  excelName: store.name,
+                  store_list_dropdown_banner_url: store.store_list_dropdown_banner_url || "",
+                  store_list_dropdown_banner_url_collection_link: store.store_list_dropdown_banner_url_collection_link || "",
+                  store_image: store.store_image || "",
+                  place_id: placeId,
+                  formatted_address: place.formatted_address,
+                  location: place.geometry?.location?.toJSON() || null,
+                  rating: place.rating || "N/A",
+                  user_ratings_total: place.user_ratings_total || 0,
+                  excelPhone: excelPhone,
+                  phone: excelPhone || place.formatted_phone_number || "",
+                  opening_hours: place.opening_hours?.weekday_text || [],
+                  photos:place.photos || [],
+                  city,
+                  state,
+                  zipCode,
+                };
+                if (!store.name?.toLowerCase().includes("son")) {
+                  storeDetailsArray.push(merged);
+                } else {
+                  dropped.sonFilter.push(store.name);
+                }
+
+                // 🧭 Add marker to map
+                if (place.geometry?.location) {
+                  const marker = new google.maps.Marker({
+                    map,
+                    position: place.geometry.location,
+                    title: place.name,
+                  });
+                  markers.push({ marker, storeName: place.name });
+
+                  marker.addListener("click", () => {
+                    infoWindow.setContent(`
+                      <strong>${merged.name}</strong><br>
+                      ${merged.formatted_address || ""}
+                    `);
+                    infoWindow.open(map, marker);
+                    scrollToStoreCard(merged.name);
+                    map.panTo(marker.getPosition());
+                    map.setZoom(10);
+                  });
+                }
+              } else {
+                console.warn(`⚠️ getDetails failed for: ${store.name}`);
+                dropped.detailsFailed.push(store.name);
+              }
+              resolve();
+            });
+          } else {
+            console.warn(`⚠️ textSearch no result for: ${store.name}`);
+            dropped.noResult.push(store.name);
+            resolve();
+          }
+        });
+      });
+    });
+
+    await Promise.all(fetchPromises);
+
+    // Deduplicate by Google place_id; when the same store appears twice (one with Excel
+    // phone, one without), merge into a single card and keep the non-empty phone.
+    const placeMap = new Map();
+    storeDetailsArray.forEach(s => {
+      const key = s.place_id;
+      if (!placeMap.has(key)) {
+        placeMap.set(key, { ...s });
+      } else {
+        dropped.dupeRemoved.push(s.excelName || s.name);
+        const existing = placeMap.get(key);
+        // Excel phone always beats Google phone — update if incoming entry has it\
+        console.log(`🔁 Dedup: Merging ${s.phone} ,== ${s.excelName || s.name} into ${existing.excelName || existing.name}`);
+        if (s.phone) {
+          existing.phone = s.phone;
+          existing.phone = s.phone;
+        } else if (!existing.phone) {
+          existing.phone = s.phone;
+        }
+      }
+    });
+    // Only Yoou (Litestyle) stores are shown on this locator — PNG stores are excluded
+    // here so they never appear in search, "use my location", or city filter results either.
+    storeDetailsArray = Array.from(placeMap.values()).filter((store) =>
+      `${store.name}`.toLowerCase().trim().startsWith('yoou')
+    );
+
+    console.log(`✅ Final stores shown: ${storeDetailsArray.length}`);
+    console.log(`❌ textSearch no result (${dropped.noResult.length}):`, dropped.noResult);
+    console.log(`❌ getDetails failed (${dropped.detailsFailed.length}):`, dropped.detailsFailed);
+    console.log(`🚫 Filtered (son) (${dropped.sonFilter.length}):`, dropped.sonFilter);
+    console.log(`🔁 Dedup removed (${dropped.dupeRemoved.length}):`, dropped.dupeRemoved);
+
+    if (storeDetailsArray.length > 0) {
+      displayStores(storeDetailsArray);
+      updateMapMarkers(storeDetailsArray);
+    }
+  }
+  function scrollToStoreCard(storeName) {
+    const container = document.getElementById("store-details");
+    const allCards = container.querySelectorAll(".store-card");
+    console.log(storeName)
+    allCards.forEach((card) => {
+      const title = card.querySelector("h3")?.textContent?.trim();
+
+      if (title === storeName) {
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+        card.classList.add("highlight");
+
+      } else {
+        card.classList.remove("highlight");
+      }
+    });
+  }
+
+  function updateMapMarkers(filteredStores) {
+    // Hide all markers first
+    markers.forEach(({ marker }) => marker.setMap(null));
+
+    // Show only markers for filtered stores
+    filteredStores.forEach((store) => {
+      const markerObj = markers.find((m) => m.storeName === store.name);
+      if (markerObj) {
+        markerObj.marker.setMap(map);
+      }
+    });
+
+    // Optional: Adjust map bounds to show only filtered stores
+    const bounds = new google.maps.LatLngBounds();
+    filteredStores.forEach((store) => {
+      const markerObj = markers.find((m) => m.storeName === store.name);
+      if (markerObj) bounds.extend(markerObj.marker.getPosition());
+    });
+    if (!bounds.isEmpty()) map.fitBounds(bounds);
+
+  }
+  // 🏪 Display all stores below map
+  let selectedMarker = null; // track the currently selected marker
+
+  function displayStores(stores) {
+    const container = document.getElementById("store-details");
+
+    if(stores.length===0){
+       container.innerHTML = `
+        <div class="no-store-wrap" style="display:flex;justify-content:center;align-items:center;width:100%;height:200px;flex-direction:column;text-align:center">
+          <div style="width:100px;height:100px" }}>
+            <img width="80" height="80" src="https://img.icons8.com/carbon-copy/100/shop.png" alt="shop"/>
+          </div>
+          <div class="no-store-texts">
+            <div class="no-store-title">No store found</div>
+            <div class="no-store-sub">Try a different area or refine your search</div>
+          </div>
+        </div>
+      `;
+     return;
+    }
+    container.innerHTML = ""; // clear previous cards
+
+    const countLine = document.createElement("p");
+    countLine.style.color = "gray";
+    countLine.style.fontStyle = "italic";
+    countLine.style.fontSize = "12px";
+    countLine.style.margin = "0 0 10px 0";
+    countLine.textContent = `${stores.length} store${stores.length !== 1 ? "s" : ""} available`;
+    container.appendChild(countLine);
+    
+    stores.forEach((place, index) => {
+      // Create the store card
+      const card = document.createElement("div");
+
+      const adDiv = document.createElement("div");
+      card.classList.add("store-card");
+      adDiv.classList.add("ad-Banner");
+      const adContent = place.store_list_dropdown_banner_url
+        ? `<a href="${place.store_list_dropdown_banner_url_collection_link}"><img src="${place.store_list_dropdown_banner_url}" alt="Advertisement" style="width:100%;height:auto;border-radius:12px;object-fit:cover;margin-bottom:15px"/></a>`
+        : "";
+
+      const photoUrl = "https://cdn.shopify.com/s/files/1/0773/3057/9503/files/Clip_path_group.png?v=1783402331";
+
+      const phone = place.phone
+        ? `<a href="tel:${place.phone}" style="color:var(--theme-color);text-decoration:none;font-weight:500;">${place.phone}</a>`
+        : "N/A";
+
+            const baseUrl = "https://yooubypng.myshopify.com/pages/";
+        const detailsUrl =
+        baseUrl +
+        place.excelName
+          .toLowerCase()
+          .replace(/by\s+/g, "by-")       
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/-+/g, "-")
+          .replace(/^-|-$/g, "");  
+          {% comment %} const detailsUrl = `https://yooubypng.myshopify.com/pages/${place.excelName}` {% endcomment %}
+
+      card.innerHTML = `
+          <div class="cardImageWrap">
+            <img src="${photoUrl}" alt="${
+              place.name
+            }" style="width:160px;height:180px;border-radius:12px;object-fit:cover;">
+          </div>
+
+          <div style="flex:1;margin-top:5px">
+            <div style="display:flex;justify-content:space-between;align-items:start;">
+              <h3 style="margin:0;font-size:14px;color:#111;font-weight:600;width:70%">${
+                place.name
+              }</h3>
+              <div style="display:flex;align-items:center;gap:5px;color:#14b8a6;font-size:14px;">
+              ★ <span style="color:black;font-size:14px;">${place.rating}(${place.user_ratings_total})<span></div>
+            </div>
+
+            <p style="margin:6px 0 0;color:#555;font-size:12px;line-height:1.4;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;">
+              ${place.formatted_address || "Address not available"}
+            </p>
+            ${
+              place.opening_hours && place.opening_hours.weekday_text
+                ? `<p style="color:#777;font-size:13px;margin:4px 0 8px;">Hours: ${
+                    place.opening_hours.weekday_text[new Date().getDay() - 1].split(
+                      "y:"
+                    )[1] || "N/A"
+                  }</p>`
+                : ""
+            }
+
+            <div style="display:flex;align-items:center;gap:16px;margin:6px 0;">
+              <div style="display:flex;align-items:center;gap:5px;color:var(--theme-color);">
+                📞 ${phone}
+              </div>
+              <div style="display:flex;align-items:center;gap:5px;color:var(--theme-color);">
+              📍<a href="https://www.google.com/maps/dir/?api=1&destination=${place.location?.lat},${place.location?.lng}" target="_blank" style="color:var(--theme-color);text-decoration:none;">Direction</a>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:12px;margin-top:12px;">
+              <a href="${detailsUrl}" target="_blank" style="flex:1;text-align:center;padding:10px 0;border:1px solid var(--theme-color);border-radius:8px;color:var(--theme-color);text-decoration:none;font-weight:500;font-size:12px">
+                Store Details
+              </a>
+              <a href="https://yooubypng.myshopify.com/pages/book-appointment" target="_blank" style="background:var(--theme-color);flex:1;text-align:center;padding:10px 0;border-radius:8px;color:#FFF;text-decoration:none;font-weight:500;font-size:12px">
+                Book Appointment
+              </a>
+            </div>
+
+        </div>
+      `;
+      adDiv.innerHTML = `${adContent}`
+
+
+      container.appendChild(card);
+      container.appendChild(adDiv);
+
+
+      // Create or find marker
+      let markerObj = markers.find((m) => m.storeName === place.name);
+      let marker;
+      if (markerObj) {
+        marker = markerObj.marker;
+      } else {
+        marker = new google.maps.Marker({
+          map,
+          position: place.location,
+          title: place.name,
+        });
+        markers.push({ storeName: place.name, marker });
+      }
+
+      // Card click event
+      card.addEventListener("click", () => {
+        // Center map & zoom
+        const allCards = document.querySelectorAll(".store-card");
+        allCards.forEach((c) => c.classList.remove("highlight"));
+        card.classList.add("highlight");
+
+        map.panTo(marker.getPosition());
+        map.setZoom(10);
+
+        // Close previous infoWindow if any
+        infoWindow.close();
+
+        // Unique ID for close button
+        const infoId = `closeInfoWindow-${index}`;
+
+        infoWindow.setContent(`
+          <div style="min-width:200px;position:relative;padding:5px;">
+            <h4 style="margin:0;font-size:14px">${place.name}</h4>
+            <p style="margin:2px 0;font-size:12px;color:#555">${place.formatted_address}</p>
+          </div>
+        `);
+
+        infoWindow.open(map, marker);
+
+        // Close button listener
+        google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
+          document.getElementById(infoId)?.addEventListener("click", () => {
+            infoWindow.close();
+            // Reset marker style on close
+            if (selectedMarker) {
+              selectedMarker.setAnimation(null);
+              selectedMarker.setIcon(null);
+            }
+          });
+        });
+
+        // Reset previous selected marker
+        if (selectedMarker && selectedMarker !== marker) {
+          selectedMarker.setAnimation(null);
+          selectedMarker.setIcon(null);
+        }
+
+        // Highlight selected marker
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        marker.setIcon({
+          scaledSize: new google.maps.Size(30, 30)
+        });
+
+        selectedMarker = marker;
+      });
+    });
+  }
+
+
+  function searchStores() {
+    const query = document.getElementById("search-location").value.trim().toLowerCase();
+
+    // 1️⃣ If search is empty → show all stores for current brand
+    if (!query) {
+      let baseList = storeDetailsArray;
+
+      // Apply brand filter first
+      if (activeBrand === "png") {
+        baseList = baseList.filter(store =>
+          store.name?.toLowerCase().startsWith("png")
+        );
+      } 
+      else if (activeBrand === "litestyle") {
+        baseList = baseList.filter(store =>
+          store.name?.toLowerCase().startsWith("litestyle")
+        );
+      }
+
+      displayStores(baseList);
+      updateMapMarkers(baseList);
+      return;
+    }
+
+    // 2️⃣ BRAND FILTER FIRST
+    let brandFiltered = [];
+
+    if (activeBrand === "png") {
+      brandFiltered = storeDetailsArray.filter(store =>
+        store.name?.toLowerCase().startsWith("png")
+      );
+    }
+    else if (activeBrand === "litestyle") {
+      brandFiltered = storeDetailsArray.filter(store =>
+        store.name?.toLowerCase().startsWith("litestyle")
+      );
+    }
+    else {
+      brandFiltered = storeDetailsArray; // default: all
+    }
+
+    // 3️⃣ APPLY SEARCH FILTER ON TOP OF BRAND FILTER
+    const searchFiltered = brandFiltered.filter(store => {
+      const city = store.city?.toLowerCase() || "";
+      const state = store.state?.toLowerCase() || "";
+      const zip = store.zipCode?.toString() || "";
+      const name = store.name?.toLowerCase() || "";
+
+      return (
+        city.includes(query) ||
+        state.includes(query) ||
+        zip.includes(query) ||
+        name.includes(query)
+      );
+    });
+
+    // 4️⃣ FINAL OUTPUT
+    displayStores(searchFiltered);
+    updateMapMarkers(searchFiltered);
+  }
+
+
+  // 📍 Find nearby stores within 5 km of user’s current location
+  function useCurrentLocation() {
+    if (!navigator.geolocation) {
+      alert("Geolocation is not supported by your browser.");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const userLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        const nearbyStores = [];
+
+        storeDetailsArray.forEach(store => {
+          if (store.location) {
+            const storeLatLng = new google.maps.LatLng(store.location.lat, store.location.lng);
+            const distance = google.maps.geometry.spherical.computeDistanceBetween(userLatLng, storeLatLng); // in meters
+
+            if (distance <= 5000) { // within 5 km
+              nearbyStores.push({ ...store, distance: (distance / 1000).toFixed(2) });
+            }
+          }
+        });
+
+        // Center map on user
+        map.setCenter(userLatLng);
+        new google.maps.Marker({
+          map,
+          position: userLatLng,
+          icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 8,
+            fillColor: "#14b8a6",
+            fillOpacity: 1,
+            strokeWeight: 2,
+            strokeColor: "#fff",
+          },
+          title: "You are here",
+        });
+
+        if (nearbyStores.length > 0) {
+          displayStores(nearbyStores);
+          updateMapMarkers(nearbyStores);
+        } else {
+          document.getElementById("store-details").innerHTML =
+            `
+            <div class="no-store-wrap" style="display:flex;justify-content:center;align-items:center;width:100%;height:200px;flex-direction:column;text-align:center">
+          <div style="width:100px;height:100px" }}>
+            <img width="80" height="80" src="https://img.icons8.com/carbon-copy/100/shop.png" alt="shop"/>
+          </div>
+          <div class="no-store-texts">
+            <div class="no-store-title">No stores found within 5 km of your location.</div>
+            <div class="no-store-sub">Try a different area or refine your search</div>
+          </div>
+        </div>`;
+        }
+      },
+      (error) => {
+        console.error("Geolocation error:", error);
+        alert("Unable to get your location. Please allow location access.");
+      }
+    );
+  }
+  function filterByCity(city) {
+    let brandFiltered = [];
+
+    if (activeBrand === "png") {
+      brandFiltered = storeDetailsArray.filter(store =>
+        store.name?.toLowerCase().startsWith("png")
+      );
+    } 
+    else if (activeBrand === "litestyle") {
+      brandFiltered = storeDetailsArray.filter(store =>
+        store.name?.toLowerCase().startsWith("litestyle")
+      );
+    } 
+    else {
+      brandFiltered = storeDetailsArray;  // default: all stores
+    }
+
+    // Now apply city filter only on that brand
+    const finalFiltered = brandFiltered.filter(store =>
+      store.city?.toLowerCase() === city.toLowerCase() ||
+      store.state?.toLowerCase() === city.toLowerCase()
+    );
+
+    if (finalFiltered.length > 0) {
+      displayStores(finalFiltered);
+      updateMapMarkers(finalFiltered);
+    }
+  }
+
+
+  // Attach click events
+  document.querySelectorAll(".city-filter-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll('.city-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const city = btn.dataset.city;
+      filterByCity(city);
+    });
+  });
+
+  // 🚀 Init
+  window.addEventListener("load", async () => {
+    // 1️⃣ Initialize Google Map
+    initMap();
+
+    // 2️⃣ Load Excel and populate storeDetailsArray
+    const excelUrl = "{{ section.settings.excel_file_url | default: '' }}";
+    await loadExcelAsJSON(excelUrl);
+
+    // 3️⃣ Attach UI event listeners
+    const searchInput = document.getElementById("search-location");
+    const searchBtn = document.getElementById("search-btn");
+    const useLocationBtn = document.getElementById("use-location-btn");
+    const useLocationBtnMobile = document.getElementById("use-location-btn-mobile");
+    
+    if (searchBtn) searchBtn.addEventListener("click", searchStores);
+    if (searchInput) searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") searchStores();
+    });
+    if (useLocationBtn) useLocationBtn.addEventListener("click", useCurrentLocation);
+    if (useLocationBtnMobile) useLocationBtnMobile.addEventListener("click", useCurrentLocation);
+
+  });
+
+</script>
+
+
+{% schema %}
+  {
+    "name": "Store Locator",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Title",
+        "default": "PNG Jewellers Store Locator"
+      },
+      {
+        "type": "text",
+        "id": "google_api_key",
+        "label": "Google Maps API Key"
+      },
+      {
+        "type": "url",
+        "id": "excel_file_url",
+        "label": "Excel File URL",
+        "info": "Upload your .xlsx file under Content → Files → Upload file → paste the link here."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "store",
+        "name": "Store",
+        "settings": [
+          { "type": "text", "id": "name", "label": "Store Name" },
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Store Locator"
+      }
+    ]
+  }
+{% endschema %}
+ 

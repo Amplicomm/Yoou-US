@@ -1,0 +1,1044 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- unless section.settings.quick_add == 'none' -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endunless -%}
+
+{%- if section.settings.quick_add == 'standard' -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- liquid
+  if section.settings.tab_image_shape == 'wide'
+    assign tabs_slides_mobile = 2.2
+    assign tabs_slides_tablet = 3.2
+    assign tabs_slides_desktop = 5
+  else
+    assign tabs_slides_mobile = 3.5
+    assign tabs_slides_tablet = 4.5
+    assign tabs_slides_desktop = 5.5
+  endif
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  {%- if section.settings.overlap_top > 0 -%}
+    .section-{{ section.id }}-padding {
+      position: relative;
+      z-index: 2;
+      margin-top: -{{ section.settings.overlap_top | times: 0.5 | round: 0 }}px;
+      border-radius:3.2rem;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        margin-top: -{{ section.settings.overlap_top }}px;
+      }
+    }
+  {%- endif -%}
+
+  #CollectionTab-{{ section.id }} {
+    margin: 0 auto;
+    border-radius: 3.2rem;
+    padding: 4.8rem 7.5rem;
+    overflow: hidden;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__banner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 3.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__banner-text {
+    max-width: 52rem;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__banner-heading {
+    margin: 0;
+    font-family: "Lovan";
+    color: #7A3717;
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__banner-subheading {
+    margin-top: 1.6rem;
+    font-family: "Helvetica Neue";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.64px;
+    color:#696061;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__banner-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 2.4rem;
+    padding: 1.8rem 4rem;
+    border-radius: 10rem;
+    background: #E8702C;
+    text-decoration: none;
+    font-family: "Helvetica Neue";
+    font-size: 1.4rem;
+    color:  #FFF;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.64px;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__banner-button::after {
+    display: none;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__banner-button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+  #CollectionTab-{{ section.id }} .collection-tab__banner-button-icon svg path {
+    fill:#fff;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__banner-button-icon .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__banner-image {
+    flex-shrink: 0;
+    width: 40%;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__banner-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tabs-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 3.2rem;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tabs-slider {
+    flex: 1;
+    min-width: 0;
+    margin:0 5rem;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tabs-slider .swiper {
+    overflow: visible;
+  }
+
+  /* .swiper's overflow:hidden is required for the carousel (it hides slides
+     that scroll out of view) and also clips anything painted beyond its own
+     box — including the active tab's box-shadow, on every side. Since the
+     shadow can't escape that clipping, give the swiper box extra room on
+     all sides to paint into instead (padding is included in the clientWidth
+     Swiper measures, so this doesn't skew its slide-width math — it just
+     insets where the first/last slide start relative to the clip edge,
+     the same way the top/bottom padding already did for the vertical case). */
+  #CollectionTab-{{ section.id }}.collection-tab--tab-shape-wide .collection-tab__tabs-slider .swiper {
+    padding: 3.2rem;
+    margin: -3.2rem;
+  }
+
+  /* Swiper only sets each .swiper-slide's real width once its (deferred)
+     JS runs and measures the container; before that it falls back to the
+     base swiper.css rule (width: 100%), so the first tab briefly renders
+     at ~full slider width before shrinking to its real fractional width.
+     Pre-sizing here with the same slide-count/spacing values passed to
+     Swiper's init approximates the post-JS layout so there's no visible
+     jump. */
+  #CollectionTab-{{ section.id }} .collection-tab__tabs-slider .swiper-slide {
+    width: calc((100% - {{ tabs_slides_mobile | minus: 1 }} * {{ section.settings.tabs_space_between }}px) / {{ tabs_slides_mobile }});
+  }
+
+  @media screen and (min-width: 750px) {
+    #CollectionTab-{{ section.id }} .collection-tab__tabs-slider .swiper-slide {
+      width: calc((100% - {{ tabs_slides_tablet | minus: 1 }} * {{ section.settings.tabs_space_between }}px) / {{ tabs_slides_tablet }});
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    #CollectionTab-{{ section.id }} .collection-tab__tabs-slider .swiper-slide {
+      width: calc((100% - {{ tabs_slides_desktop | minus: 1 }} * {{ section.settings.tabs_space_between_desktop }}px) / {{ tabs_slides_desktop }});
+    }
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tab {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tab.is-active,
+  #CollectionTab-{{ section.id }} .collection-tab__tab:hover {
+    opacity: 1;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tab-icon {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 14rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  /* tab_image_shape == 'wide': flat top/bottom, fully rounded left/right
+     sides (a "pill" shape) — this needs a fixed length large enough to
+     clamp to half the box's height, not a 50% percentage (which always
+     traces a full ellipse regardless of aspect ratio, leaving no flat
+     edges at all). */
+  #CollectionTab-{{ section.id }}.collection-tab--tab-shape-wide .collection-tab__tab-icon {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 3 / 2;
+    border-radius: 999px;
+    border: 4px solid transparent;
+    box-sizing: border-box;
+  }
+  #CollectionTab-{{ section.id }}.collection-tab--tab-shape-wide .collection-tab__tab.is-active .collection-tab__tab-icon,
+  #CollectionTab-{{ section.id }}.collection-tab--tab-shape-wide .collection-tab__tab:hover .collection-tab__tab-icon {
+    border-color: #fff;
+  }
+  /* The shadow can't live on .collection-tab__tab-icon itself — that element
+     has overflow:hidden (to clip the image to the pill shape), which also
+     clips its own box-shadow to inside its bounds instead of letting it
+     project outward behind the shape. Applying it to the button (which
+     doesn't clip) with the same border-radius lets it show correctly. */
+  #CollectionTab-{{ section.id }}.collection-tab--tab-shape-wide .collection-tab__tab.is-active,
+  #CollectionTab-{{ section.id }}.collection-tab--tab-shape-wide .collection-tab__tab:hover {
+    border-radius: 999px;
+    box-shadow: 0 124.688px 34.761px 0 rgba(110, 48, 33, 0.00), 0 80.102px 31.739px 0 rgba(110, 48, 33, 0.04), 0 44.585px 27.205px 0 rgba(110, 48, 33, 0.12), 0 19.648px 19.648px 0 rgba(110, 48, 33, 0.21), 0 5.29px 11.335px 0 rgba(110, 48, 33, 0.24);
+  }
+  #CollectionTab-{{ section.id }}.collection-tab--tab-shape-wide .collection-tab__tabs-slider {
+    margin: 0 1rem;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tab-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Default: label overlaid on the bottom of the icon. */
+    #CollectionTab-{{ section.id }}.collection-tab--tab-shape-wide .collection-tab__tab-label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1.6rem 0.4rem 1.5rem;
+    color: #FAF7F2;
+    text-align: center;
+    font-family: "Lovan";
+    font-size: 21.159px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  /* tab_label_position == 'outside': label sits below the icon as plain text. */
+  #CollectionTab-{{ section.id }}.collection-tab--label-outside .collection-tab__tab {
+    gap: 1.6rem;
+    padding: 0 0 0.8rem;
+  }
+
+  #CollectionTab-{{ section.id }}.collection-tab--label-outside .collection-tab__tab-label {
+    position: static;
+    padding: 0;
+    background: none;
+    color: #1A120B;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.56px;
+  }
+
+  {%- if section.settings.tab_label_color != blank -%}
+    #CollectionTab-{{ section.id }} .collection-tab__tab-label,
+    #CollectionTab-{{ section.id }}.collection-tab--tab-shape-wide .collection-tab__tab-label,
+    #CollectionTab-{{ section.id }}.collection-tab--label-outside .collection-tab__tab-label {
+      color: {{ section.settings.tab_label_color }};
+    }
+  {%- endif -%}
+
+  #CollectionTab-{{ section.id }} .collection-tab__tab-icon-overlay {
+    position: absolute;
+    inset: 0;
+    background: {{ section.settings.tab_image_overlay_color | default: 'transparent' }};
+    pointer-events: none;
+  }
+
+  #CollectionTab-{{ section.id }}.collection-tab--label-outside .collection-tab__tabs-nav {
+    /* .collection-tab__tab-icon's own vertical center sits above the row's
+       overall center once the label + gap + padding below it are counted,
+       by exactly half that fixed extra height (1.6rem gap + 1.6rem label
+       line-height + 0.8rem padding-bottom = 4rem). Shifting the nav buttons
+       up by half of that re-centers them on the icon instead of the whole
+       tab (icon + label) box. */
+    margin-top: -2rem;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tabs-progress {
+    position: relative;
+    margin-top: 1.6rem;
+    height: 2px;
+    border-radius: 100rem;
+    background: #fff;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tabs-progress-fill {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: var(--active-tab-left, 0px);
+    width: var(--active-tab-width, 0px);
+    border-radius: 100rem;
+    background: #E8702C;
+    transition: left 0.3s ease, width 0.3s ease;
+    display: block;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tabs-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-shrink: 0;
+    /* .collection-tab__tab-icon's own vertical center sits above the row's
+       overall center once the label + gap + padding below it are counted,
+       by exactly half that fixed extra height (1.6rem gap + 1.6rem label
+       line-height + 0.8rem padding-bottom = 4rem). Shifting the nav buttons
+       up by half of that re-centers them on the icon instead of the whole
+       tab (icon + label) box. */
+    margin-top: -2rem;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tabs-nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    color: #7A3717;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tabs-nav-button:after {
+    content: none;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tabs-nav-button .svg-wrapper {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tabs-nav-button.swiper-button-prev {
+    transform: rotate(90deg) translatex(-125%);
+
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tabs-nav-button.swiper-button-next {
+    transform: rotate(-90deg) translateX(125%);
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__tabs-nav-button.swiper-button-disabled {
+    opacity: 0.4;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__panel {
+    position: relative;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__explore-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.2rem;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__explore-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.4rem 3rem;
+    border-radius: 10rem;
+    background: #E8702C;
+    text-decoration: none;
+    font-family: "Helvetica Neue";
+    font-size: 18px;
+    color: #FFF;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0.64px;
+  }
+  #CollectionTab-{{ section.id }} .collection-tab__explore-button span:first-of-type {
+    margin-top: 0.2rem;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__explore-button::after {
+    display: none;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__explore-button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__explore-button-icon svg path {
+    fill: #fff;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__product-slider .swiper {
+    overflow: hidden;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__product-slider .swiper-slide {
+    height: auto;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__nav-button {
+    position: absolute;
+    top: 40%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.4rem;
+    height: 3.4rem;
+    border-radius: 50%;
+    background: #FCF2F2;
+    color: #240F03;
+    border: none;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__nav-button.swiper-button-prev {
+    left: -4.5rem;
+    transform: rotate(90deg);
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__nav-button.swiper-button-next {
+    right: -4.5rem;
+    transform: rotate(-90deg);
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__nav-button:after {
+    content: none;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__nav-button .svg-wrapper {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  #CollectionTab-{{ section.id }} .collection-tab__nav-button.swiper-button-disabled {
+    opacity: 0.4;
+  }
+
+  @media screen and (max-width: 749px) {
+    #CollectionTab-{{ section.id }} {
+      padding: 2.4rem;
+      border-radius: 2.4rem;
+    }
+    #CollectionTab-{{ section.id }} .collection-tab__banner {
+      flex-direction: column;
+      text-align: center;
+    }
+    #CollectionTab-{{ section.id }} .collection-tab__banner-text {
+      max-width: 100%;
+    }
+    #CollectionTab-{{ section.id }} .collection-tab__banner-button {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #CollectionTab-{{ section.id }} .collection-tab__banner-image {
+      width: 100%;
+    }
+    #CollectionTab-{{ section.id }} .collection-tab__nav-button {
+      display: none;
+    }
+    #CollectionTab-{{ section.id }} .collection-tab__tabs-slider {
+      margin:0;
+    }
+    #CollectionTab-{{ section.id }} .collection-tab__tabs-nav-button {
+      display:none;
+    }
+    .section-{{ section.id }}-padding .page-width {
+      padding:0;
+    }
+    #CollectionTab-{{ section.id }} .collection-tab__banner-heading {
+      font-size: 48px;
+    }
+    #CollectionTab-{{ section.id }} .collection-tab__banner-subheading {
+      font-size: 12px;
+    }
+    #CollectionTab-{{ section.id }} .collection-tab__explore-wrapper {
+      margin-top: 2.4rem;
+    }
+  }
+{%- endstyle -%}
+
+<div class=" gradient section-{{ section.id }}-padding">
+  <div class="{% if section.settings.enable_page_width %} page-width{% endif %}">
+    <div
+      id="CollectionTab-{{ section.id }}"
+      class="collection-tab color-{{ section.settings.color_scheme }}{% if section.settings.tab_label_position == 'outside' %} collection-tab--label-outside{% endif %}{% if section.settings.tab_image_shape == 'wide' %} collection-tab--tab-shape-wide{% endif %}"
+    >
+      {%- if section.settings.banner_heading != blank or section.settings.banner_subheading != blank or section.settings.banner_button_label != blank or section.settings.banner_image != blank -%}
+        <div class="collection-tab__banner">
+          <div class="collection-tab__banner-text">
+            {%- if section.settings.banner_heading != blank -%}
+              <h2 class="collection-tab__banner-heading inline-richtext">
+                {{ section.settings.banner_heading }}
+              </h2>
+            {%- endif -%}
+            {%- if section.settings.banner_subheading != blank -%}
+              <div class="collection-tab__banner-subheading rte">
+                {{ section.settings.banner_subheading }}
+              </div>
+            {%- endif -%}
+            {%- if section.settings.banner_button_label != blank -%}
+              <a
+                href="{{ section.settings.banner_button_link | default: '#' }}"
+                class="collection-tab__banner-button"
+              >
+                {{- section.settings.banner_button_label | escape -}}
+                <span class="collection-tab__banner-button-icon svg-wrapper">
+                  {% render 'icons' icon:"arrow" %}
+                </span>
+              </a>
+            {%- endif -%}
+          </div>
+          {%- if section.settings.banner_image != blank -%}
+            <div class="collection-tab__banner-image">
+              {{
+                section.settings.banner_image
+                | image_url: width: 700
+                | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 32rem, 22rem', widths: '300, 450, 600, 700'
+              }}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <collection-tabs>
+          <div class="collection-tab__tabs-row">
+            <swiper-component
+              class="collection-tab__tabs-slider"
+              data-nav-root="#CollectionTabsNav-{{ section.id }}"
+              data-loop="false"
+              data-autoplay="false"
+              data-slides-mobile="{{ tabs_slides_mobile }}"
+              data-slides-tablet="{{ tabs_slides_tablet }}"
+              data-slides-desktop="{{ tabs_slides_desktop }}"
+              data-space-between="{{ section.settings.tabs_space_between }}"
+              data-space-between-desktop="{{ section.settings.tabs_space_between_desktop }}"
+            >
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  {%- for block in section.blocks -%}
+                    <div class="swiper-slide collection-tab__tab-slide">
+                      <button
+                        type="button"
+                        class="collection-tab__tab{% if forloop.first %} is-active{% endif %}"
+                        data-tab-target="CollectionTabPanel-{{ block.id }}"
+                        role="tab"
+                        aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                        {{ block.shopify_attributes }}
+                      >
+                        <span class="collection-tab__tab-icon">
+                          {%- if block.settings.image != blank -%}
+                            {{
+                              block.settings.image
+                              | image_url: width: 280
+                              | image_tag: loading: 'lazy', sizes: '140px', widths: '64, 96, 128, 160, 200, 280'
+                            }}
+                          {%- else -%}
+                            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                          {%- endif -%}
+                          {%- if section.settings.tab_image_overlay_color != blank -%}
+                            <span class="collection-tab__tab-icon-overlay"></span>
+                          {%- endif -%}
+                        </span>
+                        <span class="collection-tab__tab-label">{{ block.settings.label | escape }}</span>
+                      </button>
+                    </div>
+                  {%- endfor -%}
+                </div>
+              </div>
+              {%- if section.settings.show_tabs_pagination -%}
+                <div class="collection-tab__tabs-progress">
+                  <div class="collection-tab__tabs-progress-fill"></div>
+                </div>
+              {%- endif -%}
+            </swiper-component>
+            {%- if section.settings.show_tabs_navigation -%}
+              <div id="CollectionTabsNav-{{ section.id }}" class="collection-tab__tabs-nav">
+                <button type="button" class="swiper-button-prev collection-tab__tabs-nav-button" aria-label="Previous tab">
+                  <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+                </button>
+                <button type="button" class="swiper-button-next collection-tab__tabs-nav-button" aria-label="Next tab">
+                  <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+                </button>
+              </div>
+            {%- endif -%}
+          </div>
+
+          {%- liquid
+            assign skip_card_product_styles = false
+          -%}
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign tab_collection = block.settings.collection
+              assign tab_products_to_display = tab_collection.all_products_count
+              if tab_collection.all_products_count > section.settings.products_to_show
+                assign tab_products_to_display = section.settings.products_to_show
+              endif
+            -%}
+            <div
+              class="collection-tab__panel{% if forloop.first %} is-active{% endif %}"
+              id="CollectionTabPanel-{{ block.id }}"
+              data-tab-panel
+              role="tabpanel"
+              {% unless forloop.first %}
+                hidden
+              {% endunless %}
+            >
+              <swiper-component
+                class="collection-tab__product-slider"
+                data-nav-root="#CollectionTabPanel-{{ block.id }}"
+                data-loop="{{ section.settings.loop }}"
+                data-autoplay="{{ section.settings.autoplay }}"
+                data-autoplay-speed="{{ section.settings.autoplay_speed | times: 1000 }}"
+                data-slides-mobile="2"
+                data-slides-tablet="2.6"
+                data-slides-desktop="{{ section.settings.cards_desktop}}"
+                data-space-between="16"
+              >
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    {%- if tab_collection.products.size > 0 -%}
+                      {%- for product in tab_collection.products limit: section.settings.products_to_show -%}
+                        {%- render 'product-slider-card', product: product, section: section, skip_styles: skip_card_product_styles -%}
+                        {%- assign skip_card_product_styles = true -%}
+                      {%- endfor -%}
+                    {%- endif -%}
+                  </div>
+                </div>
+
+                {%- if tab_products_to_display > 1 and section.settings.show_navigation -%}
+                  <button type="button" class="swiper-button-prev collection-tab__nav-button" aria-label="Previous product">
+                    <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+                  </button>
+                  <button type="button" class="swiper-button-next collection-tab__nav-button" aria-label="Next product">
+                    <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+                  </button>
+                {%- endif -%}
+
+                {%- if tab_products_to_display > 1 and section.settings.show_pagination -%}
+                  <div class="swiper-pagination"></div>
+                {%- endif -%}
+              </swiper-component>
+
+              {%- if section.settings.show_explore_button and section.settings.explore_button_label != blank -%}
+                <div class="collection-tab__explore-wrapper">
+                  <a href="{{ tab_collection.url | default: '#' }}" class="collection-tab__explore-button">
+                    <span>{{- section.settings.explore_button_label | escape -}}</span>
+                    <span class="collection-tab__explore-button-icon svg-wrapper">
+                      {% render 'icons' icon: 'arrow' %}
+                    </span>
+                  </a>
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </collection-tabs>
+      {%- endif -%}
+    </div>
+  </div >
+</div>
+
+{% schema %}
+{
+  "name": "Collection tab",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 10,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_page_width",
+      "label": "Enable Page Width",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Banner"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "banner_heading",
+      "default": "Gifting Made Effortless",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "banner_subheading",
+      "default": "<p>Find jewellery they'll love in just a few steps. Choose an occasion, add a personal note, and send a gift they'll remember.</p>",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "banner_button_label",
+      "default": "Want us to help you find the Perfect Jewellery ?",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "banner_button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Tabs"
+    },
+    {
+      "type": "select",
+      "id": "tab_label_position",
+      "options": [
+        { "value": "inside", "label": "Inside circle" },
+        { "value": "outside", "label": "Below circle" }
+      ],
+      "default": "inside",
+      "label": "Tab label position"
+    },
+    {
+      "type": "color",
+      "id": "tab_label_color",
+      "label": "Tab label color",
+      "info": "Leave blank to use the default color for the selected label position"
+    },
+    {
+      "type": "select",
+      "id": "tab_image_shape",
+      "options": [
+        { "value": "circle", "label": "Circle" },
+        { "value": "wide", "label": "Wide" }
+      ],
+      "default": "circle",
+      "label": "Tab image shape",
+      "info": "Wide shows 4 tabs per row on desktop instead of 5.5."
+    },
+    {
+      "type": "color_background",
+      "id": "tab_image_overlay_color",
+      "label": "Tab image overlay color",
+      "info": "Use the color picker's opacity slider to adjust overlay strength. Leave blank for no overlay."
+    },
+    {
+      "type": "range",
+      "id": "tabs_space_between",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 20,
+      "label": "Space between tabs (mobile/tablet)"
+    },
+    {
+      "type": "range",
+      "id": "tabs_space_between_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48,
+      "label": "Space between tabs (desktop)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tabs_navigation",
+      "label": "Show tab navigation arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tabs_pagination",
+      "label": "Show tab progress bar",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 25,
+      "step": 1,
+      "default": 8,
+      "label": "Products to show per tab"
+    },
+    {
+      "type": "range",
+      "id": "cards_desktop",
+      "min": 2,
+      "max": 5,
+      "step": 0.2,
+      "default": 4,
+      "label": "Cards on desktop"
+    },
+    {
+      "type": "range",
+      "id": "peek_width",
+      "min": 40,
+      "max": 240,
+      "step": 10,
+      "unit": "px",
+      "default": 100,
+      "label": "Peek width (desktop)",
+      "info": "How much of the previous card peeks in at the start, on desktop only"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop slides",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 3,
+      "max": 9,
+      "step": 2,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show product navigation arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show pagination dots",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_explore_button",
+      "label": "Show explore button",
+      "info": "Links to the active tab's collection",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "explore_button_label",
+      "label": "Explore button label",
+      "default": "Explore"
+    },
+    {
+      "type": "header",
+      "content": "Product card"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" }
+      ],
+      "default": "square",
+      "label": "Image ratio"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "arch", "label": "Arch" },
+        { "value": "blob", "label": "Blob" },
+        { "value": "chevronleft", "label": "Chevron left" },
+        { "value": "chevronright", "label": "Chevron right" },
+        { "value": "diamond", "label": "Diamond" },
+        { "value": "parallelogram", "label": "Parallelogram" },
+        { "value": "round", "label": "Round" }
+      ],
+      "default": "default",
+      "label": "Image shape"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "Show second image on hover"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "Show vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": true,
+      "label": "Show product rating",
+      "info": "To display a rating, add a product rating app."
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "default": "standard",
+      "label": "Add a quick-add button",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "standard", "label": "Standard" },
+        { "value": "bulk", "label": "Bulk" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "overlap_top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 0,
+      "label": "Overlap section above",
+      "info": "Pulls this section up to overlap whatever is above it (e.g. a hero banner)."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "default": "Tab label",
+          "label": "Label"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection",
+          "info": "Products shown for this tab"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection tab",
+      "blocks": [
+        { "type": "tab", "settings": { "label": "Festive Jewellery" } },
+        { "type": "tab", "settings": { "label": "Anniversary" } },
+        { "type": "tab", "settings": { "label": "Birthday" } },
+        { "type": "tab", "settings": { "label": "For Mother" } },
+        { "type": "tab", "settings": { "label": "For Father" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

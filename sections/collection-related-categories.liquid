@@ -1,0 +1,364 @@
+{% comment %}
+  Renders a row of "shop by category" style cards on a collection page, driven entirely
+  by metafields on the collection itself instead of section blocks. This lets each
+  collection opt in/out and control its own list of cards from the Shopify admin without
+  a merchant having to edit the section in the theme editor.
+
+  Required metafield definitions (Settings > Custom data > Collections):
+  - custom.show_related_categories  → Boolean
+      Turns this section on/off for a specific collection.
+  - custom.related_categories       → List of collection references
+      The collections rendered as cards, in the order selected.
+
+  If either metafield is missing/blank/false, the section renders nothing.
+{% endcomment %}
+
+{%- liquid
+  assign crc_enabled = false
+  if collection != blank and collection.metafields.custom.show_related_categories.value
+    assign crc_enabled = true
+  endif
+  assign crc_categories = collection.metafields.custom.related_categories.value
+-%}
+
+{%- if crc_enabled and crc_categories.size > 0 -%}
+  {%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+
+    #CollectionRelatedCategories-{{ section.id }} {
+      --crc-columns: {{ section.settings.cards_mobile }};
+      --crc-gap: 1.2rem;
+      --crc-card-bg: {{ section.settings.card_background }};
+      --crc-card-text: {{ section.settings.card_text_color }};
+    }
+
+    @media screen and (min-width: 750px) {
+      #CollectionRelatedCategories-{{ section.id }} {
+        --crc-columns: {{ section.settings.cards_desktop }};
+        --crc-gap: 2rem;
+      }
+    }
+    @media screen and (max-width: 750px) {
+      #CollectionRelatedCategories-{{ section.id }} {
+        padding-right: 0rem;
+      }
+    }
+    #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__header {
+      text-align: center;
+      margin-bottom: 3.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__header .title {
+      margin-bottom: 0;
+      {%- if section.settings.heading_color != blank -%}
+        color: {{ section.settings.heading_color }};
+      {%- endif -%}
+      font-size: 2.4rem;
+    }
+
+    #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__header .subtitle {
+      margin: 0.8rem 0 0 0;
+      max-width: 63.8rem;
+      {%- if section.settings.subheading_color != blank -%}
+        color: {{ section.settings.subheading_color }};
+      {%- else -%}
+        color: rgba(var(--color-foreground), 0.75);
+      {%- endif -%}
+      font-size: 1.2rem;
+    }
+
+    #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__grid {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      gap: var(--crc-gap);
+      margin: 0;
+      padding: 0 0 0.4rem;
+      list-style: none;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__item {
+      flex: 0 0 calc((100% - (var(--crc-columns) - 1) * var(--crc-gap)) / var(--crc-columns));
+      scroll-snap-align: start;
+      border-radius: 15px;
+      background: #ffff;
+      /* padding-bottom: 1.rem; */
+    }
+
+    #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__card {
+      display: block;
+      position: relative;
+      text-decoration: none;
+    }
+
+    #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__media {
+      display: block;
+      position: relative;
+      width: 100%;
+      aspect-ratio: {% if section.settings.image_ratio == 'portrait' %}4 / 5{% else %}1 / 1{% endif %};
+      border-radius: 1.6rem;
+      overflow: hidden;
+      background: rgba(var(--color-foreground), 0.04);
+    }
+
+    #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__image,
+    #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__media > svg.placeholder-svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease;
+    }
+
+    #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__card:hover .collection-related-categories__image {
+      transform: scale(1.04);
+    }
+
+ 
+
+    #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__label {
+      color: var(--crc-card-text); 
+      padding: 0.8rem 1.2rem;
+      text-align: center;
+      width: 100%;
+      text-align: center;
+      leading-trim: both;
+      text-edge: cap;
+      font-family: var(--Font-Paragraph, "Helvetica Neue");
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.48px;
+    }
+    .collection-related-categories__label-wrap {
+      display: flex;
+    }
+
+    @media screen and (max-width: 749px) {
+      #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__header {
+        margin-bottom: 2rem;
+      }
+
+      #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__label {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.1rem;
+      }
+      #CollectionRelatedCategories-{{ section.id }} .collection-related-categories__header .subtitle {
+        display: none;
+      }
+    }
+  {%- endstyle -%}
+
+  <div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+    <div id="CollectionRelatedCategories-{{ section.id }}" class="collection-related-categories page-width">
+      {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+        <div class="collection-related-categories__header title-wrapper title-wrapper--no-top-margin">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+          {%- if section.settings.subheading != blank -%}
+            <p class="subtitle">{{ section.settings.subheading | escape }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <ul class="collection-related-categories__grid" role="list">
+        {%- for category in crc_categories -%}
+          <li class="collection-related-categories__item">
+            <a
+              {% if category != blank %}
+                href="{{ category.url }}"
+              {% else %}
+                role="link" aria-disabled="true"
+              {% endif %}
+              class="collection-related-categories__card"
+            >
+              <span class="collection-related-categories__media">
+                {%- if category.featured_image != blank -%}
+                  {{
+                    category.featured_image
+                    | image_url: width: 700
+                    | image_tag:
+                      loading: 'lazy',
+                      sizes: '(min-width: 990px) 20vw, (min-width: 750px) 25vw, 40vw',
+                      widths: '165, 330, 535, 700',
+                      class: 'collection-related-categories__image'
+                  }}
+                {%- else -%}
+                  {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+                  {{ 'collection-apparel-' | append: placeholder_image_index | placeholder_svg_tag: 'placeholder-svg collection-related-categories__image' }}
+                {%- endif -%}
+              </span>
+              <span class="collection-related-categories__label-wrap">
+                <span class="collection-related-categories__label">
+                  {{- category.title | default: 'Category' | escape -}}
+                </span>
+              </span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Coll related categories",
+  "tag": "section",
+  "class": "section collection-related-categories",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Visibility and the cards shown are controlled per collection via the metafields custom.show_related_categories (boolean) and custom.related_categories (list of collections), set on each collection in Shopify admin."
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Optional. Leave blank to rely on the collection banner's own title."
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "info": "Leave blank to use the color scheme's default text color."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading color",
+      "info": "Leave blank to use the color scheme's default text color."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        { "value": "square", "label": "Square" },
+        { "value": "portrait", "label": "Portrait" }
+      ],
+      "default": "square",
+      "label": "Image ratio"
+    },
+    {
+      "type": "range",
+      "id": "cards_desktop",
+      "min": 2,
+      "max": 8,
+      "step": 0.1,
+      "default": 6.5,
+      "label": "Cards visible on desktop",
+      "info": "Use a decimal (e.g. 6.5) to peek the next card at the edge."
+    },
+    {
+      "type": "range",
+      "id": "cards_mobile",
+      "min": 1,
+      "max": 4,
+      "step": 0.1,
+      "default": 2.3,
+      "label": "Cards visible on mobile",
+      "info": "Use a decimal (e.g. 2.3) to peek the next card at the edge."
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Label background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Label text color",
+      "default": "#2b2b2b"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Coll Related categories"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,114 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_CNrkB9": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_d4GVnD": {
+          "type": "heading",
+          "settings": {
+            "heading": "We'd Love to Hear from you!",
+            "heading_size": "h1"
+          }
+        },
+        "text_JDpRzY": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From choosing an engagement ring or gift to providing in-store appointments and suggestions, our PNG client experts are pleased to assist you in any way.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_d4GVnD",
+        "text_JDpRzY"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 12
+      }
+    },
+    "ring_separator_8hjpDN": {
+      "type": "ring-separator",
+      "name": "Ring Separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "two_column_content_rj8cmb": {
+      "type": "two-column-content",
+      "custom_css": [
+        "@media screen and (max-width: 600px) {.form-container {height: 730px !important; } .form-container iframe {height: 730px !important; }}",
+        "@media screen and (max-width: 749px) {.form-container {height: 690px !important; } .form-container iframe {height: 690px !important; }}"
+      ],
+      "name": "Premium Contact Form",
+      "settings": {
+        "color_scheme": "background-1",
+        "show_left_column": true,
+        "left_column_width": 50,
+        "right_column_width": 50,
+        "image_position": "middle",
+        "image_vertical_align": "center",
+        "image_size": "medium",
+        "left_column_heading": "Office Address",
+        "heading_size": "x-large",
+        "left_column_text": "",
+        "text_size": "medium",
+        "block_1_heading": "Corporate - Office Address",
+        "block_1_text": "P N Gadgil Jewellers Ltd, PNG House, 694, Narayan Peth, Laxmi Road, Pune 411030, Maharashtra, India",
+        "block_1_icon": "shopify://shop_images/contact-lay-3-location-icon.svg",
+        "block_1_icon_size": "large",
+        "block_2_heading": "Marketing / e-Commerce / HR – Office",
+        "block_2_text": "PNG Classic, Kapil Residency, Survey No. 15/01A, Baner Balewadi Road, Opposite Fatcook, Pune, Maharashtra – 411045",
+        "block_2_icon": "shopify://shop_images/1356471.png",
+        "block_2_icon_size": "large",
+        "block_3_heading": "Call Us",
+        "block_3_text": "<p>18002335005, 8669660639</p>",
+        "block_3_icon": "shopify://shop_images/contact-lay-3-phone-icon.svg",
+        "block_3_icon_size": "large",
+        "block_4_heading": "Business Hours",
+        "block_4_text": "<p>Monday - Sunday : 10:00 AM to 7:00 PM</p>",
+        "block_4_icon": "shopify://shop_images/contact-lay-3-time-icon.svg",
+        "block_4_icon_size": "large",
+        "block_5_heading": "Write Us",
+        "block_5_text": "<p><a href=\"mailto:customerservice@pngadgil.com\" title=\"mailto:customerservice@pngadgil.com\"><span style=\"text-decoration:underline\">CS@yooubypng.com</span></a></p>",
+        "block_5_icon": "shopify://shop_images/contact-lay-3-mail-icon.svg",
+        "block_5_icon_size": "large",
+        "block_6_heading": "",
+        "block_6_text": "",
+        "block_6_icon_size": "medium",
+        "form_heading": "",
+        "form_id": "hcUCD9dOtGp9leTn02Furg",
+        "form_height": 750,
+        "form_color_scheme": "background-1"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_CNrkB9",
+    "ring_separator_8hjpDN",
+    "two_column_content_rj8cmb"
+  ]
+}

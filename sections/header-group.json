@@ -1,0 +1,179 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "metal-price-bar": {
+      "type": "metal-price-bar",
+      "blocks": {
+        "metal-price-bar-0": {
+          "type": "metal_rate",
+          "settings": {
+            "label": "24K Gold",
+            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_24k.value }}",
+            "unit": "/ g"
+          }
+        },
+        "metal-price-bar-1": {
+          "type": "metal_rate",
+          "settings": {
+            "label": "22K Gold",
+            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_22k.value }}",
+            "unit": "/ g"
+          }
+        },
+        "metal_rate_iK68AN": {
+          "type": "metal_rate",
+          "settings": {
+            "label": "18K Gold",
+            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_18k.value }}",
+            "unit": "/ g"
+          }
+        },
+        "metal_rate_3GQgLq": {
+          "type": "metal_rate",
+          "settings": {
+            "label": "14K Gold",
+            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_14k.value }}",
+            "unit": "/ g"
+          }
+        },
+        "metal_rate_NnACyz": {
+          "type": "metal_rate",
+          "settings": {
+            "label": "9K Gold",
+            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_9k.value }}",
+            "unit": "/ g"
+          }
+        },
+        "metal_rate_kxkwMc": {
+          "type": "metal_rate",
+          "settings": {
+            "label": "Platinum",
+            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].platinum.value }}",
+            "unit": "/ g"
+          }
+        },
+        "metal_rate_FdWRWX": {
+          "type": "metal_rate",
+          "settings": {
+            "label": "Silver",
+            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].silver.value }}",
+            "unit": "/ g"
+          }
+        },
+        "metal-price-bar-3": {
+          "type": "link",
+          "settings": {
+            "label": "Store Locator",
+            "url": "shopify://pages/store-list"
+          }
+        },
+        "announcement_4DaxCe": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "",
+            "url": ""
+          }
+        },
+        "announcement_8z3RKU": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "FREE GOLD COIN ON ₹50K+ GOLD OR DIAMOND PURCHASE*",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "metal-price-bar-0",
+        "metal-price-bar-1",
+        "metal_rate_iK68AN",
+        "metal_rate_3GQgLq",
+        "metal_rate_NnACyz",
+        "metal_rate_kxkwMc",
+        "metal_rate_FdWRWX",
+        "metal-price-bar-3",
+        "announcement_4DaxCe",
+        "announcement_8z3RKU"
+      ],
+      "settings": {
+        "color_scheme": "scheme-10d2c5f8-7f85-4f13-9cae-f9976f533afa",
+        "show_line_separator": true,
+        "logo_image": "shopify://shop_images/PNG_logo_50x_3.png",
+        "logo_url": "https://www.pngjewellers.com/",
+        "prices_label": "Metal Rates",
+        "marquee_speed": 25,
+        "updated_at": "{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].updated_date_with_time.value }}",
+        "announcement_speed": 8,
+        "show_live_badge": false,
+        "live_badge_text": "Live"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "wishlist_hero_header_icon_nJRf3p": {
+          "type": "shopify://apps/wishlist-hero/blocks/header-icon/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
+          "settings": {
+            "customThemeName": "~",
+            "useCustomHeaderColor": false,
+            "customHeaderColor": "",
+            "useCustomHeaderSize": true,
+            "customHeaderIconSize": 17,
+            "additionalIconCssClassNames": "",
+            "additionalIconStyle": "",
+            "additionalContainerClasses": "",
+            "additionalContainerStyle": "",
+            "replaceExistingClasses": false
+          }
+        },
+        "mobile_menu_settings_niFNLV": {
+          "type": "mobile_menu_settings",
+          "settings": {
+            "mobile_menu": "new-main-menu",
+            "store_locator_url": "",
+            "franchise_url": "",
+            "metal_rates_url": "",
+            "contact_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "wishlist_hero_header_icon_nJRf3p",
+        "mobile_menu_settings_niFNLV"
+      ],
+      "settings": {
+        "logo_position": "middle-left",
+        "mobile_logo_position": "center",
+        "transparent_logo": "shopify://shop_images/LOGO_1.png",
+        "footer_logo": "shopify://shop_images/image32.jpg",
+        "menu": "new-main-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "always",
+        "show_line_separator": false,
+        "color_scheme": "scheme-5177fc18-4ab6-4c3f-9044-522ad7f140d9",
+        "menu_color_scheme": "scheme-ea10b67f-9ce3-47a9-814f-19f843254853",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_customer_avatar": true,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "metal-price-bar",
+    "header"
+  ]
+}

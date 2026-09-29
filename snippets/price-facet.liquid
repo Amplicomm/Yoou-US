@@ -1,0 +1,96 @@
+{%- liquid
+  assign range_max_value = filter.range_max | money_without_currency | remove: ',' | remove: ' '
+  assign current_min = filter.min_value.value | money_without_currency | remove: ',' | remove: ' ' | default: 0
+  assign current_max = filter.max_value.value | money_without_currency | remove: ',' | remove: ' ' | default: range_max_value
+-%}
+
+<div class="price-range-slider">
+  <div class="price-range-slider__values">
+    <span class="price-range-slider__value price-range-slider__value--min">
+      <span class="price-range-slider__currency">{{ cart.currency.symbol }}</span><span
+        class="price-range-slider__amount"
+        data-price-range-amount="min"
+      >{{ filter.min_value.value | default: 0 | money_without_currency }}</span>
+    </span>
+    <span class="price-range-slider__value price-range-slider__value--max">
+      <span class="price-range-slider__currency">{{ cart.currency.symbol }}</span><span
+        class="price-range-slider__amount"
+        data-price-range-amount="max"
+      >{{ filter.max_value.value | default: filter.range_max | money_without_currency }}</span>
+    </span>
+  </div>
+  <div class="price-range-slider__track">
+    <span class="price-range-slider__track-base"></span>
+    <span class="price-range-slider__track-progress" data-price-range-progress></span>
+    <input
+      type="range"
+      class="price-range-slider__input price-range-slider__input--min"
+      min="0"
+      max="{{ range_max_value }}"
+      value="{{ current_min }}"
+      step="1"
+      aria-label="{{ 'products.facets.from' | t }}"
+      data-price-range-input="min"
+    >
+    <input
+      type="range"
+      class="price-range-slider__input price-range-slider__input--max"
+      min="0"
+      max="{{ range_max_value }}"
+      value="{{ current_max }}"
+      step="1"
+      aria-label="{{ 'products.facets.to' | t }}"
+      data-price-range-input="max"
+    >
+  </div>
+</div>
+
+<div class="price-range-slider__fields">
+  <span class="field-currency">{{ cart.currency.symbol }}</span>
+
+  <div class="field">
+    <input
+      class="field__input"
+      name="{{ filter.min_value.param_name }}"
+      id="{{ id_prefix }}{{ filter.label | escape }}-GTE"
+      {%- if filter.min_value.value -%}
+        value="{{ filter.min_value.value | money_without_currency }}"
+      {%- endif -%}
+      type="text"
+      inputmode="decimal"
+      placeholder="0"
+      data-pattern="\d| |,|\."
+      data-min="0"
+      data-max="{{ filter.range_max | money_without_currency }}"
+      data-price-range-text="min"
+    >
+    <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-GTE">
+      {{- 'products.facets.from' | t -}}
+    </label>
+  </div>
+
+  {%- if filter_type != 'vertical' -%}
+    <span class="field-currency">{{ cart.currency.symbol }}</span>
+  {%- endif -%}
+
+  <div class="field">
+    <input
+      class="field__input"
+      name="{{ filter.max_value.param_name }}"
+      id="{{ id_prefix }}{{ filter.label | escape }}-LTE"
+      {%- if filter.max_value.value -%}
+        value="{{ filter.max_value.value | money_without_currency }}"
+      {%- endif -%}
+      type="text"
+      inputmode="decimal"
+      placeholder="{{ filter.range_max | money_without_currency }}"
+      data-pattern="\d| |,|\."
+      data-min="0"
+      data-max="{{ filter.range_max | money_without_currency }}"
+      data-price-range-text="max"
+    >
+    <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-LTE">
+      {{- 'products.facets.to' | t -}}
+    </label>
+  </div>
+</div>

@@ -1,0 +1,214 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "promotion_banner_EUXbw3": {
+      "type": "promotion-banner",
+      "name": "t:sections.promotion-banner.name",
+      "settings": {
+        "heading": "",
+        "image": "shopify://shop_images/sizeguide.jpg",
+        "image_mobile": "shopify://shop_images/sizeguide.jpg",
+        "image_link": "",
+        "open_new_window": false,
+        "image_overlay_opacity": 0,
+        "content_position": "center",
+        "content_horizontal": 50,
+        "content_vertical": 50,
+        "position_content_mobile": "center",
+        "content_alignment": "center",
+        "show_hero": false,
+        "full_width": true,
+        "padding_full_width": false,
+        "adapt_corners_desktop": true,
+        "rounded_corner_image": false,
+        "desktop_height": "natural",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "full_width_mobile": true,
+        "adapt_corners_mobile": true,
+        "rounded_corner_image_mobile": false,
+        "mobile_height": "natural",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "size_guide_tabs": {
+      "type": "size-guide-tab-switcher",
+      "blocks": {
+        "tab_QyeEcG": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "ring",
+            "tab_title": "Ring Size",
+            "image": "shopify://shop_images/variety_300x_c4a8cf16-86c2-4fb3-a553-7ab85c291555.avif"
+          }
+        },
+        "section_heading_pBfNpy": {
+          "type": "section_heading",
+          "settings": {
+            "parent_tab": "ring",
+            "heading": "Ring Size Guide",
+            "subheading": "How to measuring your finger size",
+            "para": "This is a chart that will be extremely helpful for you to determine the ring size that you need. You can either make use of a tape or a small piece of string to measure the area that will be occupied by the ring. When it becomes a complete circle, make a mark on such string. This will be helpful for you to compare with the chart that is mentioned below. For extra width, you can add another size to accommodate."
+          }
+        },
+        "steps_CimpW9": {
+          "type": "steps",
+          "settings": {
+            "parent_tab": "ring",
+            "step_title": "Procedure #1",
+            "step_image1": "shopify://shop_images/Procedure_1.webp",
+            "step_description1": "<h6>Step 1</h6><ul><li>Cut a thin strip of paper or thread</li><li>Wrap the paper/thread around your finger.</li><li>Mark the spot where the paper/thread meets</li></ul>",
+            "step_image2": "shopify://shop_images/Procedure_1_step_2.webp",
+            "step_description2": "<h6>Step 2</h6><ul><li>Measure the length of the thread with your ruler.</li><li> Use the following chart to determine your ring size.</li></ul>"
+          }
+        },
+        "section_heading_NBzyAd": {
+          "type": "section_heading",
+          "settings": {
+            "parent_tab": "ring",
+            "heading": "Ring Size Chart",
+            "subheading": "",
+            "para": "The chart below will be extremely helpful for you to determine the ring size that you need. You can either make use of a tape or a small piece of thread to measure the area that will be occupied by the ring. When it becomes a complete circle, make a mark on such string. This will be helpful for you to compare with the chart that is mentioned below. For extra width, you can add another size to accommodate."
+          }
+        },
+        "size_chart_xDndNU": {
+          "type": "size_chart",
+          "settings": {
+            "parent_tab": "ring",
+            "table_title1": "Ring Size (Indian)",
+            "table_html1": "<table>\n<tbody>\n<tr>\n      <th>Size</th>\n      <th>Inches</th>\n      <th>MM</th>\n   </tr>\n   <tr>\n      <td>1</td>\n      <td>1.61</td>\n      <td>40.8</td>\n   </tr>\n   <tr>\n      <td>2</td>\n      <td>1.66</td>\n      <td>42.1</td>\n   </tr>\n   <tr>\n      <td>3</td>\n      <td>1.69</td>\n      <td>43.0</td>\n   </tr>\n   <tr>\n      <td>4</td>\n      <td>1.73</td>\n      <td>44.0</td>\n   </tr>\n   <tr>\n      <td>5</td>\n      <td>1.77</td>\n      <td>44.9</td>\n   </tr>\n   <tr>\n      <td>6</td>\n      <td>1.81</td>\n      <td>45.9</td>\n   </tr>\n   <tr>\n      <td>7</td>\n      <td>1.86</td>\n      <td>47.1</td>\n   </tr>\n   <tr>\n      <td>8</td>\n      <td>1.89</td>\n      <td>48.1</td>\n   </tr>\n   <tr>\n      <td>9</td>\n      <td>1.93</td>\n      <td>49.0</td>\n   </tr>\n   <tr>\n      <td>10</td>\n      <td>1.97</td>\n      <td>50.0</td>\n   </tr>\n   <tr>\n      <td>11</td>\n      <td>2.00</td>\n      <td>50.9</td>\n   </tr>\n   <tr>\n      <td>12</td>\n      <td>2.04</td>\n      <td>51.8</td>\n   </tr>\n   <tr>\n      <td>13</td>\n      <td>2.08</td>\n      <td>52.8</td>\n   </tr>\n   <tr>\n      <td>14</td>\n      <td>2.13</td>\n      <td>54.0</td>\n   </tr>\n   <tr>\n      <td>15</td>\n      <td>2.16</td>\n      <td>55.0</td>\n   </tr>\n</tbody>\n</table>",
+            "table_title2": "Ring Size (Indian)",
+            "table_html2": "<table>\n   <tbody>\n<tr>\n      <th>Size</th>\n      <th>Inches</th>\n      <th>MM</th>\n   </tr>\n   <tr>\n      <td>16</td>\n      <td>2.20</td>\n      <td>55.9</td>\n   </tr>\n   <tr>\n      <td>17</td>\n      <td>2.24</td>\n      <td>56.9</td>\n   </tr>\n   <tr>\n      <td>18</td>\n      <td>2.28</td>\n      <td>57.8</td>\n   </tr>\n   <tr>\n      <td>19</td>\n      <td>2.33</td>\n      <td>59.1</td>\n   </tr>\n   <tr>\n      <td>20</td>\n      <td>2.36</td>\n      <td>60.0</td>\n   </tr>\n   <tr>\n      <td>21</td>\n      <td>2.40</td>\n      <td>60.9</td>\n   </tr>\n   <tr>\n      <td>22</td>\n      <td>2.44</td>\n      <td>61.9</td>\n   </tr>\n   <tr>\n      <td>23</td>\n      <td>2.47</td>\n      <td>62.8</td>\n   </tr>\n   <tr>\n      <td>24</td>\n      <td>2.51</td>\n      <td>63.8</td>\n   </tr>\n   <tr>\n      <td>25</td>\n      <td>2.55</td>\n      <td>64.7</td>\n   </tr>\n   <tr>\n      <td>26</td>\n      <td>2.60</td>\n      <td>66.0</td>\n   </tr>\n   <tr>\n      <td>27</td>\n      <td>2.63</td>\n      <td>66.9</td>\n   </tr>\n   <tr>\n      <td>28</td>\n      <td>2.67</td>\n      <td>67.9</td>\n   </tr>\n   <tr>\n      <td>29</td>\n      <td>2.72</td>\n      <td>68.1</td>\n   </tr>\n   <tr>\n      <td>30</td>\n      <td>2.76</td>\n      <td>70.1</td>\n   </tr>\n</tbody>\n</table>"
+          }
+        },
+        "image_text_xmtRwC": {
+          "type": "image_text",
+          "settings": {
+            "parent_tab": "ring",
+            "step_title": "Procedure #2",
+            "step_image": "shopify://shop_images/Step_1.webp",
+            "step_description": "<h3><strong>Step 1</strong></h3><ul><li>Take a ring you already own. Make sure that you are choosing the correct finger.<br/></li><li>Keep it on the ruler, and measure its inner diameter.<br/></li><li>Use the following chart to determine your ring size.</li></ul>"
+          }
+        },
+        "section_heading_RPfJHb": {
+          "type": "section_heading",
+          "settings": {
+            "parent_tab": "ring",
+            "heading": "Ring Size Chart",
+            "subheading": "",
+            "para": ""
+          }
+        },
+        "size_chart_cE4afJ": {
+          "type": "size_chart",
+          "settings": {
+            "parent_tab": "ring",
+            "table_title1": "Ring Size (Indian) 1-15",
+            "table_html1": "<table>\n   <tbody>\n<tr>\n      <th>Size</th>\n      <th>Inches</th>\n      <th>MM</th>\n   </tr>\n   </tbody>\n<tbody>\n      <tr>\n         <td>1</td>\n         <td>0.51</td>\n         <td>13.0</td>\n      </tr>\n      <tr>\n         <td>2</td>\n         <td>0.53</td>\n         <td>13.4</td>\n      </tr>\n      <tr>\n         <td>3</td>\n         <td>0.54</td>\n         <td>13.7</td>\n      </tr>\n      <tr>\n         <td>4</td>\n         <td>0.55</td>\n         <td>14.0</td>\n      </tr>\n      <tr>\n         <td>5</td>\n         <td>0.56</td>\n         <td>14.3</td>\n      </tr>\n      <tr>\n         <td>6</td>\n         <td>0.57</td>\n         <td>14.6</td>\n      </tr>\n      <tr>\n         <td>7</td>\n         <td>0.59</td>\n         <td>15.0</td>\n      </tr>\n      <tr>\n         <td>8</td>\n         <td>0.60</td>\n         <td>15.3</td>\n      </tr>\n      <tr>\n         <td>9</td>\n         <td>0.61</td>\n         <td>15.6</td>\n      </tr>\n      <tr>\n         <td>10</td>\n         <td>0.63</td>\n         <td>15.9</td>\n      </tr>\n      <tr>\n         <td>11</td>\n         <td>0.64</td>\n         <td>16.2</td>\n      </tr>\n      <tr>\n         <td>12</td>\n         <td>0.65</td>\n         <td>16.5</td>\n      </tr>\n      <tr>\n         <td>13</td>\n         <td>0.66</td>\n         <td>16.8</td>\n      </tr>\n      <tr>\n         <td>14</td>\n         <td>0.68</td>\n         <td>17.2</td>\n      </tr>\n      <tr>\n         <td>15</td>\n         <td>0.69</td>\n         <td>17.5</td>\n      </tr>\n   </tbody>\n</table>",
+            "table_title2": "Ring Size (Indian) 16-30",
+            "table_html2": "<table>\n   <tbody>\n<tr>\n      <th>Size</th>\n      <th>Inches</th>\n      <th>MM</th>\n   </tr>\n   </tbody>\n<tbody>\n      <tr>\n         <td>16</td>\n         <td>0.70</td>\n         <td>17.8</td>\n      </tr>\n      <tr>\n         <td>17</td>\n         <td>0.71</td>\n         <td>18.1</td>\n      </tr>\n      <tr>\n         <td>18</td>\n         <td>0.72</td>\n         <td>18.4</td>\n      </tr>\n      <tr>\n         <td>19</td>\n         <td>0.74</td>\n         <td>18.8</td>\n      </tr>\n      <tr>\n         <td>20</td>\n         <td>0.75</td>\n         <td>19.1</td>\n      </tr>\n      <tr>\n         <td>21</td>\n         <td>0.76</td>\n         <td>19.4</td>\n      </tr>\n      <tr>\n         <td>22</td>\n         <td>0.78</td>\n         <td>19.7</td>\n      </tr>\n      <tr>\n         <td>23</td>\n         <td>0.79</td>\n         <td>20.0</td>\n      </tr>\n      <tr>\n         <td>24</td>\n         <td>0.80</td>\n         <td>20.3</td>\n      </tr>\n      <tr>\n         <td>25</td>\n         <td>0.81</td>\n         <td>20.6</td>\n      </tr>\n      <tr>\n         <td>26</td>\n         <td>0.83</td>\n         <td>21.0</td>\n      </tr>\n      <tr>\n         <td>27</td>\n         <td>0.84</td>\n         <td>21.3</td>\n      </tr>\n      <tr>\n         <td>28</td>\n         <td>0.85</td>\n         <td>21.6</td>\n      </tr>\n      <tr>\n         <td>29</td>\n         <td>0.87</td>\n         <td>22.0</td>\n      </tr>\n      <tr>\n         <td>30</td>\n         <td>0.88</td>\n         <td>22.3</td>\n      </tr>\n   </tbody>\n</table>"
+          }
+        },
+        "tab_xyWWiq": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "bangle",
+            "tab_title": "Bangles Size",
+            "image": "shopify://shop_images/pngtrust-1_300x_ce46f4da-cc55-4d18-b2db-e05374df772f.avif"
+          }
+        },
+        "section_heading_Brd3VD": {
+          "type": "section_heading",
+          "settings": {
+            "parent_tab": "bangle",
+            "heading": "Bangle Size Guide",
+            "subheading": "How to measuring your hand size",
+            "para": "This is a chart that will be extremely helpful for you to determine the bangle size that you need. Measure your hand, you will need a measuring tape or a piece of paper and a ruler. Bring your thumb and little finger together and measure were your hand is the widest as shown in the picture."
+          }
+        },
+        "steps_MUPaUh": {
+          "type": "steps",
+          "settings": {
+            "parent_tab": "bangle",
+            "step_title": "Procedure #1",
+            "step_image1": "shopify://shop_images/Step_1_cdbbbca67c.webp",
+            "step_description1": "<h6>Step 1</h6><p>Cut a thin strip of paper or thread - Bring your thumb and little finger together and measure where your hand is the widest. - Mark the spot where the thread meets.</p>",
+            "step_image2": "shopify://shop_images/Step_1_cdbbbca67c.webp",
+            "step_description2": "<h6>Step 2</h6><p>Measure the length of the thread with your ruler. - Use the following chart to determine your bangle size.</p>"
+          }
+        },
+        "section_heading_AzUywD": {
+          "type": "section_heading",
+          "settings": {
+            "parent_tab": "bangle",
+            "heading": "Bangle Size Chart",
+            "subheading": "",
+            "para": "The chart below will be extremely helpful for you to determine the bangle size that you need. You can either make use of a tape or a small piece of thread to measure the area that will be occupied by the ring. When it becomes a complete circle, make a mark on such string. This will be helpful for you to compare with the chart that is mentioned below. For extra width, you can add another size to accommodate."
+          }
+        },
+        "size_chart_3RNY44": {
+          "type": "size_chart",
+          "settings": {
+            "parent_tab": "bangle",
+            "table_title1": "Bangle Size (Indian)",
+            "table_html1": "<table>\n   <tbody>\n<tr>\n      <th>Size</th>\n      <th>Inches</th>\n      <th>MM</th>\n   </tr>\n   </tbody>\n<tbody>\n      <tr>\n         <td>2-2</td>\n         <td>6.67</td>\n         <td>169.4</td>\n      </tr>\n      <tr>\n         <td>2-4</td>\n         <td>7.06</td>\n         <td>179.6</td>\n      </tr>\n      <tr>\n         <td>2-6</td>\n         <td>7.46</td>\n         <td>189.5</td>\n      </tr>\n      <tr>\n         <td>2-8</td>\n         <td>7.85</td>\n         <td>199.4</td>\n      </tr>\n      <tr>\n         <td>2-10</td>\n         <td>8.24</td>\n         <td>209.3</td>\n      </tr>\n      <tr>\n         <td>2-12</td>\n         <td>8.64</td>\n         <td>219.5</td>\n      </tr>\n      <tr>\n         <td>2-14</td>\n         <td>9.03</td>\n         <td>229.4</td>\n      </tr>\n      <tr>\n         <td>3</td>\n         <td>9.42</td>\n         <td>239.3</td>\n      </tr>\n   </tbody>\n</table>",
+            "table_title2": "",
+            "table_html2": ""
+          }
+        },
+        "image_text_XUDP6c": {
+          "type": "image_text",
+          "settings": {
+            "parent_tab": "bangle",
+            "step_title": "Procedure #2",
+            "step_image": "shopify://shop_images/Step_1.webp",
+            "step_description": "<h2>Step 1</h2><ul><li>Take a Bangle you already own. Make sure that you are choosing the correct hand.<br/></li><li> Keep it on the ruler, and measure its inner diameter.<br/></li><li> Use the following chart to determine your bangle size.</li></ul>"
+          }
+        },
+        "size_chart_BfnPqB": {
+          "type": "size_chart",
+          "settings": {
+            "parent_tab": "bangle",
+            "table_title1": "Bangle Size Chart",
+            "table_html1": "<table>\n   <tbody>\n<tr>\n      <th>Size</th>\n      <th>Inches</th>\n      <th>MM</th>\n   </tr>\n   </tbody>\n<tbody>\n      <tr>\n         <td>2-2</td>\n         <td>2.125</td>\n         <td>54.0</td>\n      </tr>\n      <tr>\n         <td>2-4</td>\n         <td>2.25</td>\n         <td>57.2</td>\n      </tr>\n      <tr>\n         <td>2-6</td>\n         <td>2.375</td>\n         <td>60.3</td>\n      </tr>\n      <!-- Corrected MM value -->\n      <tr>\n         <td>2-8</td>\n         <td>2.5</td>\n         <td>63.5</td>\n      </tr>\n      <tr>\n         <td>2-10</td>\n         <td>2.625</td>\n         <td>66.7</td>\n      </tr>\n      <tr>\n         <td>2-12</td>\n         <td>2.75</td>\n         <td>69.9</td>\n      </tr>\n      <tr>\n         <td>2-14</td>\n         <td>2.875</td>\n         <td>73.0</td>\n      </tr>\n      <tr>\n         <td>3</td>\n         <td>3.0</td>\n         <td>76.3</td>\n      </tr>\n   </tbody>\n</table>",
+            "table_title2": "",
+            "table_html2": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_QyeEcG",
+        "section_heading_pBfNpy",
+        "steps_CimpW9",
+        "section_heading_NBzyAd",
+        "size_chart_xDndNU",
+        "image_text_xmtRwC",
+        "section_heading_RPfJHb",
+        "size_chart_cE4afJ",
+        "tab_xyWWiq",
+        "section_heading_Brd3VD",
+        "steps_MUPaUh",
+        "section_heading_AzUywD",
+        "size_chart_3RNY44",
+        "image_text_XUDP6c",
+        "size_chart_BfnPqB"
+      ],
+      "settings": {
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "promotion_banner_EUXbw3",
+    "size_guide_tabs"
+  ]
+}

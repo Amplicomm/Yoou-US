@@ -1,0 +1,59 @@
+{% schema %}
+{
+  "name": "Ring Separator",
+  "tag": "section",
+  "class": "ring-separator-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom ID",
+      "info": "Add a custom ID for this section (optional)"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Add additional custom classes for this section (optional)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ring Separator",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .ring-separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .ring-separator::before,
+  .ring-separator::after {
+    content: '';
+    flex: 1;
+    height: 1.25px;
+    background: linear-gradient(to right, #dfae26, #925924, #fbe284);
+  }
+
+  .ring-separator svg {
+    margin: 10px 10px;
+  }
+</style>
+
+<div
+  class="ring-separator {{ section.settings.custom_class }}"
+  {% if section.settings.custom_id != blank %}
+    id="{{ section.settings.custom_id }}"
+  {% endif %}
+>
+  {% render 'icons' icon:"separator-ring" %}
+</div>

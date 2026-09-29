@@ -1,0 +1,295 @@
+{% comment %}
+  Renders a variant-specific "Product Details" spec card (SKU, a summary
+  sentence, and a Gold / Dimensions / Diamond card grid) for the product page.
+
+  Data sources (all read from the selected variant):
+  - Gold card: the "Metal Purity" option value, taken as-is (not parsed);
+    net weight from the metafields.custom.net_weight metafield. The info
+    icon's tooltip shows the live rate for this variant's karat only,
+    matched by looking for "24"/"22"/"18"/"14" in the Metal Purity value,
+    read from the same "metal_rates" metaobject entry the metal-price-bar
+    section's blocks pull from (see sections/header-group.json).
+  - Silver card: weight from the metafields.custom.silver_weight metafield;
+    the info icon's tooltip shows the live silver rate from the same
+    "metal_rates" metaobject entry.
+  - Platinum card: weight from the metafields.custom.platinum_weight
+    metafield; the info icon's tooltip shows the live platinum rate from
+    the same "metal_rates" metaobject entry.
+  - Dimensions card: width/height are merchant-set block settings (not
+    variant data); gross weight is metafields.custom.net_weight +
+    metafields.custom.silver_weight + metafields.custom.platinum_weight.
+  - Diamond card: diamond count, total weight, and size from the
+    metafields.custom.dia_type_1_dia_pc_1, metafields.custom.dia_type_1_dia_wt_1,
+    and metafields.custom.dia_type_1_dsizeid_1 metafields (the card only shows
+    when at least one of these is a real, non-zero value). The "Stone" option
+    value is shown separately in the summary sentence above the card grid, but
+    doesn't affect this card's visibility.
+
+  Accepts:
+  - block: {Object} block with heading, gold_icon, silver_icon, platinum_icon, dimensions_icon, diamond_icon settings
+  - section: {Object} the section this block belongs to (for a unique element id)
+
+  Usage:
+  {% render 'product-details-spec', block: block, section: section %}
+{% endcomment %}
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+
+  assign metal_value = blank
+  assign stone_value = blank
+  for option in product.options_with_values
+    assign option_index = option.position | minus: 1
+    case option.name
+      when 'Metal Purity'
+        assign metal_value = variant.options[option_index]
+      when 'Stone'
+        assign stone_value = variant.options[option_index]
+    endcase
+  endfor
+
+  assign net_weight = variant.metafields.custom.net_weight.value
+  assign silver_weight = variant.metafields.custom.silver_weight.value | default: 0
+  assign platinum_weight = variant.metafields.custom.platinum_weight.value | default: 0
+  assign gross_weight = blank
+  if net_weight != blank
+    assign gross_weight = net_weight | plus: silver_weight | plus: platinum_weight
+  endif
+
+  assign gold_rates = metaobjects.metal_rates["metal-rates-suugdmps"]
+  assign gold_rate_karat = blank
+  assign gold_rate_value = blank
+  if metal_value contains '24'
+    assign gold_rate_karat = '24KT'
+    assign gold_rate_value = gold_rates.gold_24k.value
+  elsif metal_value contains '22'
+    assign gold_rate_karat = '22KT'
+    assign gold_rate_value = gold_rates.gold_22k.value
+  elsif metal_value contains '18'
+    assign gold_rate_karat = '18KT'
+    assign gold_rate_value = gold_rates.gold_18k.value
+  elsif metal_value contains '14'
+    assign gold_rate_karat = '14KT'
+    assign gold_rate_value = gold_rates.gold_14k.value
+  endif
+
+  assign silver_weight_value = variant.metafields.custom.silver_weight.value
+  assign silver_rate_value = gold_rates.silver.value
+
+  assign show_silver_card = false
+  if silver_weight_value != blank and silver_weight_value > 0
+    assign show_silver_card = true
+  endif
+
+  assign platinum_weight_value = variant.metafields.custom.platinum_weight.value
+  assign platinum_rate_value = gold_rates.platinum.value
+
+  assign show_platinum_card = false
+  if platinum_weight_value != blank and platinum_weight_value > 0
+    assign show_platinum_card = true
+  endif
+
+  assign stone_count = variant.metafields.custom.dia_type_1_dia_pc_1.value
+  assign stone_weight = variant.metafields.custom.dia_type_1_dia_wt_1.value
+  assign stone_size = variant.metafields.custom.dia_type_1_dsizeid_1.value
+
+  assign has_stone_count = false
+  if stone_count != blank and stone_count > 0
+    assign has_stone_count = true
+  endif
+
+  assign has_stone_weight = false
+  if stone_weight != blank and stone_weight > 0
+    assign has_stone_weight = true
+  endif
+
+  assign has_stone_size = false
+  if stone_size != blank and stone_size != '0'
+    assign has_stone_size = true
+  endif
+
+  assign show_gold_card = false
+  if metal_value != blank or net_weight != blank
+    assign show_gold_card = true
+  endif
+
+  assign show_diamond_card = false
+  if has_stone_count or has_stone_weight or has_stone_size
+    assign show_diamond_card = true
+  endif
+-%}
+<div id="ProductDetailsSpec-{{ section.id }}" class="quick-add-hidden product-details-spec" {{ block.shopify_attributes }}>
+  {%- if block.settings.heading != blank -%}
+    <h2 class="product-details-spec__heading">{{ block.settings.heading }}</h2>
+  {%- endif -%}
+
+  {%- if variant.sku != blank -%}
+    <div class="product-details-spec__sku">
+      <span>SKU {{ variant.sku }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if show_gold_card -%}
+    <p class="product-details-spec__summary">
+      Set in {{ metal_value }}{% if net_weight != blank %} ({{ net_weight }} g){% endif -%}
+      {%- if stone_value != blank %} with diamonds ({{ stone_value }}){% endif %}
+    </p>
+  {%- endif -%}
+
+  <div class="product-details-spec__grid">
+    {%- if show_gold_card -%}
+      <div class="product-details-spec__card">
+        <div class="product-details-spec__card-title">
+          {%- if block.settings.gold_icon != blank -%}
+            <span class="product-details-spec__icon">
+              {{ block.settings.gold_icon | image_url: width: 64 | image_tag: loading: 'lazy', widths: '32, 64' }}
+            </span>
+          {%- endif -%}
+          <span>Gold</span>
+          <span class="product-details-spec__info-wrapper">
+            <span
+              class="product-details-spec__info"
+              tabindex="0"
+              role="button"
+              aria-label="More about gold"
+              aria-describedby="ProductDetailsSpec-GoldRate-{{ section.id }}"
+            >{% render 'icons' icon:'info' %}</span>
+            {%- if gold_rate_value != blank -%}
+              <div class="product-details-spec__tooltip" id="ProductDetailsSpec-GoldRate-{{ section.id }}" role="tooltip">
+                <p class="product-details-spec__tooltip-title">Today's Gold Rate</p>
+                <ul class="product-details-spec__tooltip-list">
+                  <li><span>{{ gold_rate_karat }}</span><span>₹{{ gold_rate_value }}</span></li>
+                </ul>
+              </div>
+            {%- endif -%}
+          </span>
+        </div>
+        <ul class="product-details-spec__list">
+          {%- if metal_value != blank -%}
+            <li>{{ metal_value }}</li>
+          {%- endif -%}
+          {%- if net_weight != blank -%}
+            <li>{{ net_weight }} g (Net wt)</li>
+          {%- endif -%}
+        </ul>
+      </div>
+    {%- endif -%}
+
+    {%- if show_silver_card -%}
+      <div class="product-details-spec__card">
+        <div class="product-details-spec__card-title">
+          {%- if block.settings.silver_icon != blank -%}
+            <span class="product-details-spec__icon">
+              {{ block.settings.silver_icon | image_url: width: 64 | image_tag: loading: 'lazy', widths: '32, 64' }}
+            </span>
+          {%- endif -%}
+          <span>Silver</span>
+          <span class="product-details-spec__info-wrapper">
+            <span
+              class="product-details-spec__info"
+              tabindex="0"
+              role="button"
+              aria-label="More about silver"
+              aria-describedby="ProductDetailsSpec-SilverRate-{{ section.id }}"
+            >{% render 'icons' icon:'info' %}</span>
+            {%- if silver_rate_value != blank -%}
+              <div class="product-details-spec__tooltip" id="ProductDetailsSpec-SilverRate-{{ section.id }}" role="tooltip">
+                <p class="product-details-spec__tooltip-title">Today's Silver Rate</p>
+                <ul class="product-details-spec__tooltip-list">
+                  <li><span>Silver</span><span>₹{{ silver_rate_value }}</span></li>
+                </ul>
+              </div>
+            {%- endif -%}
+          </span>
+        </div>
+        <ul class="product-details-spec__list">
+          {%- if silver_weight_value != blank -%}
+            <li>{{ silver_weight_value }} g (Silver Weight)</li>
+          {%- endif -%}
+        </ul>
+      </div>
+    {%- endif -%}
+
+    {%- if show_platinum_card -%}
+      <div class="product-details-spec__card">
+        <div class="product-details-spec__card-title">
+          {%- if block.settings.platinum_icon != blank -%}
+            <span class="product-details-spec__icon">
+              {{ block.settings.platinum_icon | image_url: width: 64 | image_tag: loading: 'lazy', widths: '32, 64' }}
+            </span>
+          {%- endif -%} 
+          <span>Platinum</span>
+          <span class="product-details-spec__info-wrapper">
+            <span
+              class="product-details-spec__info"
+              tabindex="0"
+              role="button"
+              aria-label="More about platinum"
+              aria-describedby="ProductDetailsSpec-PlatinumRate-{{ section.id }}"
+            >{% render 'icons' icon:'info' %}</span>
+            {%- if platinum_rate_value != blank -%}
+              <div class="product-details-spec__tooltip" id="ProductDetailsSpec-PlatinumRate-{{ section.id }}" role="tooltip">
+                <p class="product-details-spec__tooltip-title">Today's Platinum Rate</p>
+                <ul class="product-details-spec__tooltip-list">
+                  <li><span>Platinum</span><span>₹{{ platinum_rate_value }}</span></li>
+                </ul>
+              </div>
+            {%- endif -%}
+          </span>
+        </div>
+        <ul class="product-details-spec__list">
+          {%- if platinum_weight_value != blank -%}
+            <li>{{ platinum_weight_value }} g (Platinum Weight)</li>
+          {%- endif -%}
+        </ul>
+      </div>
+    {%- endif -%}
+
+    <div class="product-details-spec__card">
+      <div class="product-details-spec__card-title">
+        {%- if block.settings.dimensions_icon != blank -%}
+          <span class="product-details-spec__icon">
+            {{
+              block.settings.dimensions_icon
+              | image_url: width: 64
+              | image_tag: loading: 'lazy', widths: '32, 64'
+            }}
+          </span>
+        {%- endif -%}
+        <span>Dimensions</span>
+      </div>
+      <ul class="product-details-spec__list">
+        {%- if gross_weight != blank -%}
+          <li>{{ gross_weight }} g (Gross wt)</li>
+        {%- endif -%}
+      </ul>
+    </div>
+
+    {%- if show_diamond_card -%}
+      <div class="product-details-spec__card">
+        <div class="product-details-spec__card-title">
+          {%- if block.settings.diamond_icon != blank -%}
+            <span class="product-details-spec__icon">
+              {{
+                block.settings.diamond_icon
+                | image_url: width: 64
+                | image_tag: loading: 'lazy', widths: '32, 64'
+              }}
+            </span>
+          {%- endif -%}
+          <span>Diamond</span>
+        </div>
+        <ul class="product-details-spec__list">
+          {%- if has_stone_count -%}
+            <li>{{ stone_count }} diamonds</li>
+          {%- endif -%}
+          {%- if has_stone_weight -%}
+            <li>Total Weight - {{ stone_weight }} ct</li>
+          {%- endif -%}
+          {%- if has_stone_size -%}
+            <li>Size - {{ stone_size }}</li>
+          {%- endif -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  </div>
+</div>

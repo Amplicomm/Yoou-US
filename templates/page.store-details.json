@@ -1,0 +1,23 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "store-details",
+      "settings": {
+        "api_key": "AIzaSyBloWSY3qTYdtEegtOjysPQHBCtYuZ6dDM",
+        "excel_file_url": "https://cdn.shopify.com/s/files/1/0730/2578/1979/files/newPngStores_new_2_b0e53b4f-e99a-4b9e-b625-97ca63107891.xlsx?v=1782388456"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

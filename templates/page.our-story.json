@@ -1,0 +1,295 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_aqiAty": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_aD3yAP": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Story",
+            "heading_size": "h1"
+          }
+        },
+        "text_yCVyFd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From a single store in a small town to a chain of stores with a global footprint, the journey of PNG Jewellers is truly fascinating. It all started way back in the 18th century; the group got its name from the late Purshottam Narayan Gadgil, a doyen of the family and the chief architect who captured the hearts and imagination of the people with his ethics and his jewellery.</p><p>The past two centuries have taught us that specific values like trust, commitment, and purity are far more precious than any jewel known to humankind. At PNG Jewellers, we constantly strive to honor these values by integrating them into our lives and creating a tradition remembered for ages to come.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_aD3yAP",
+        "text_yCVyFd"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "text_column_with_image_gNt9Md": {
+      "type": "text-column-with-image",
+      "blocks": {
+        "column_J6CKmU": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/our-story_values_1.webp",
+            "image_link": "",
+            "open_new_window_image": false,
+            "sub_title": "",
+            "title": "Values",
+            "highlight_type": "underline",
+            "heading_size": 100,
+            "text": "<p>Our story unfolds over eighteen decades – inspired by the values of trust, purity, and transparency. Generations of the Gadgil family have employed their experience and expertise to abide by being a global hallmark of traditional designs while bringing a fresh twist to contemporary designs. A journey adorned with the values of goodness, creativity, and evolution!</p>",
+            "button_label": "",
+            "button_link": "",
+            "open_new_window": false,
+            "show_button_style": "primary"
+          }
+        },
+        "column_8ExJAK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/our-story-values_2.webp",
+            "image_link": "",
+            "open_new_window_image": false,
+            "sub_title": "",
+            "title": "Vision",
+            "highlight_type": "underline",
+            "heading_size": 100,
+            "text": "<p>Building from our rich heritage and design expertise, we commit to being a preferred, global jewellery company delighting our customers and stakeholders.</p>",
+            "button_label": "",
+            "button_link": "",
+            "open_new_window": false,
+            "show_button_style": "primary"
+          }
+        },
+        "column_7YjQX7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/our-story-values-3.webp",
+            "image_link": "",
+            "open_new_window_image": false,
+            "sub_title": "",
+            "title": "Mission",
+            "highlight_type": "underline",
+            "heading_size": 100,
+            "text": "<p>Over the years, PNG Jewellers has been incredibly successful in enduring the beauty of traditions with a comprehensive product range of classic and contemporary jewellery collections across the globe. With a user-friendly shopping experience, we aim to fulfill our customers' shopping desires with the best services offline and make online shopping much more convenient and delightful from the comfort of a couch.</p>",
+            "button_label": "",
+            "button_link": "",
+            "open_new_window": false,
+            "show_button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "column_J6CKmU",
+        "column_8ExJAK",
+        "column_7YjQX7"
+      ],
+      "name": "t:sections.text-column-image.name",
+      "settings": {
+        "class_name": "",
+        "title": "Our Core Values",
+        "heading": "",
+        "highlight_type": "underline",
+        "heading_size": 120,
+        "heading_tag": "h2",
+        "secondary_background": "column",
+        "image_ratio": "75%",
+        "adapt_corners": false,
+        "rounded_corner_image": true,
+        "column_content_alignment": "start",
+        "background_color_light": "rgba(0,0,0,0)",
+        "heading_light": "rgba(0,0,0,0)",
+        "text_light": "rgba(0,0,0,0)",
+        "color_heading_highlight_light": "rgba(0,0,0,0)",
+        "background_color_dark": "rgba(0,0,0,0)",
+        "heading_dark": "rgba(0,0,0,0)",
+        "text_dark": "rgba(0,0,0,0)",
+        "color_heading_highlight_dark": "rgba(0,0,0,0)",
+        "enable_desktop_slider": false,
+        "swiper_on_mobile": true,
+        "enable_arrow_mobile": false,
+        "auto_play": false,
+        "change_bar_every": 5,
+        "image_position_desktop": "top",
+        "column_layout_desktop": "lg:w-1/3",
+        "spacing_desktop": 48,
+        "full_width": false,
+        "padding_full_width": false,
+        "show_section_divider": false,
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "image_position_mobile": "top",
+        "column_layout_mobile": "w-full",
+        "spacing_mobile": 16,
+        "full_width_mobile": false,
+        "show_section_divider_mobile": false,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "view_all_link": "",
+        "view_all_label": "View All"
+      }
+    },
+    "ring_separator_pdxxej": {
+      "type": "ring-separator",
+      "name": "Ring Separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "rich_text_gX4tGT": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ycBWxt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Founder",
+            "heading_size": "h1"
+          }
+        },
+        "text_67jHAC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A man of society and the godfather of the jewellers association in the State of Maharashtra, Shri Dajikaka Gadgil, has been a blessed persona for the new-age entrepreneurs and associates of this field.</p>"
+          }
+        },
+        "caption_xwznkX": {
+          "type": "caption",
+          "settings": {
+            "caption": "The P N GADGIL JEWELLERS LIMITED beginning",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ycBWxt",
+        "text_67jHAC",
+        "caption_xwznkX"
+      ],
+      "custom_css": [
+        ".custom-heading-font-style {-webkit-text-fill-color: #efd279 !important;}"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5177fc18-4ab6-4c3f-9044-522ad7f140d9",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ring_separator_NgTrYc": {
+      "type": "ring-separator",
+      "name": "Ring Separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "multirow_CPb7p8": {
+      "type": "multirow",
+      "blocks": {
+        "row_xpBGUt": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/aboutpng.png",
+            "caption": "Founder",
+            "heading": "Dajikaka Gadgil",
+            "text": "<p>Born in Sangli on the 11th of Sept 1915, Shri Dajikaka has been known for his relentless efforts and dedication for the last 75 years to his ancestral business initiated by his great grandfather Shri Ganesh Narayan Gadgil in the year 1832.</p><p>Since 1935, Shri Dajikaka has been zealously looking into the firm establishment and expansion of the family business. Even at 97, he made it a point to visit at least one of the PNG Jewellers branches as a routine and continued to lead the business as a mentor and guide. The succeeding generations are following in his footsteps to take the business forward, with a chain of beautiful jewellery stores with a reputation for quality and service, which is now poised to spread overseas.</p><p>Dajikaka has ably carried forward the tradition of trust that is the hallmark of his business who stuck to the tenets of honesty in dealings, thought, and deed. Think Pure was the ruling principle he lived by.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_3JpGyi": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/our-story-team_1.jpg",
+            "caption": "Chairman and Managing Director",
+            "heading": "Saurabh Gadgil",
+            "text": "<p>Creatively blending the age-old tradition with technology in a surging and booming Indian economy, the dynamic scion of the powerful, established business house, Saurabh Vidyadhar Gadgil, holds the spirit and modern vision for PNG Jewellers. </p><p>A sixth-generation successor of the distinguished Gadgil family – pioneers in Maharashtra's gold and jewellery industry, Saurabh has been instrumental in transforming the image of PNG Jewellers into a professionally run corporate entity with global ambitions. An ardent sports enthusiast, he has been a champion in many chess competitions and is good enough to finish second in the national championship. Besides being a movie and travel buff, Saurabh is a passionate, voracious reader with eclectic tastes.</p><p>From a single traditional store to a rapidly growing chain of outlets today, PNG Jewellers today boasts of 35 swanky classy stores across India, U.S.A & Dubai. Remarkably, over 1000 employees and 500 craftsmen are under its umbrella. Over the years, the business diversified under his ever-advancing intellect and flourished through Gadgil Holdings Pvt Ltd, established in 2008.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_jraATM": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/our-story-team2.jpg",
+            "caption": "Executive Director",
+            "heading": "Parag Yashwant Gadgil",
+            "text": "<p>Parag Yashwant Gadgil is the Executive Director of PN Gadgil Jewellers Ltd. He has been active in the family business since 1981. Born on 27th July 1959 & brought up and educated in the city of Sangli. He has acquired a diploma in Mechanical Engineering. </p><p>He is competent in every facet of the business. He has extensive expertise working with clients and solid grasp of psyche of those he serves. As executive director, he overseas all the customer relationships, Corporate engagements and CSR activity of the company. He is also responsible for ensuring that all the management policies and best practices at branch level operations are met for a company with over thousand employees.</p><p>He strongly believes in a collective effort in business expansion. He is a hard worker and readily receptive to any change. He prefers working with a low profile.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_EzCqfM": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "caption": "Group CFO & Executive Director",
+            "heading": "Kiran Prakash Firodiya",
+            "text": "<p>Kiran Prakash Firodiya is the Group CFO & Executive Director of P N Gadgil Jewellers Ltd. Born on 24th Nov 1980 & brought up and educated in the city of Pune. He is Chartered Accountant by profession. He has also completed Masters in Commerce, MBA Finance & MBA International Business Management from IIBM. He is certified Forensic Auditor from ICAI and GDCA from Pune University.  </p><p>He is competent in every facet of the business. He has extensive expertise working in the areas of Finance, Budgets & Accounts, Domestic & International Expansion, Treasury Management, Taxation & Compliances and Legal & Commercials. As a KMP, he oversees all the branches technical and operational aspects.  He is also responsible for ensuring that all legal requirements are met regarding inventory, sales logistics, accounting, and human resources for a company. </p><p>He strongly believes in system building and implementing good practices & policies.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_xpBGUt",
+        "row_3JpGyi",
+        "row_jraATM",
+        "row_EzCqfM"
+      ],
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "small",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "subtitle",
+        "button_style": "solid",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 76,
+        "padding_bottom": 76
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_aqiAty",
+    "text_column_with_image_gNt9Md",
+    "ring_separator_pdxxej",
+    "rich_text_gX4tGT",
+    "ring_separator_NgTrYc",
+    "multirow_CPb7p8"
+  ]
+}

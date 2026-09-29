@@ -1,0 +1,1106 @@
+{% schema %}
+{
+  "name": "Premium Contact Form",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "options": [
+        {
+          "value": "background-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "background-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "background-1",
+          "label": "Background 1"
+        },
+        {
+          "value": "background-2",
+          "label": "Background 2"
+        },
+        {
+          "value": "inverse",
+          "label": "Inverse"
+        }
+      ],
+      "default": "background-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_left_column",
+      "label": "Show Left Column",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "left_column_width",
+      "label": "Left Column Width",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "default": 40,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "right_column_width",
+      "label": "Right Column Width",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "default": 60,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Left Column Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_column_image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image Position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "middle",
+          "label": "Middle"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "select",
+      "id": "image_vertical_align",
+      "label": "Image Vertical Align",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Middle"
+        },
+        {
+          "value": "flex-end",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "image_size",
+      "label": "Image Size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "full",
+          "label": "Full Width"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "header",
+      "content": "Left Column Content"
+    },
+    {
+      "type": "text",
+      "id": "left_column_heading",
+      "label": "Heading",
+      "default": "Contact Information"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "x-large",
+          "label": "Extra Large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "richtext",
+      "id": "left_column_text",
+      "label": "Description",
+      "default": "<p>We'd love to hear from you!</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Text Size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "header",
+      "content": "Content Blocks"
+    },
+    {
+      "type": "text",
+      "id": "block_1_heading",
+      "label": "Block 1 Heading",
+      "default": "Email Us"
+    },
+    {
+      "type": "text",
+      "id": "block_1_text",
+      "label": "Block 1 Text",
+      "default": "support@yourstore.com"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_1_icon",
+      "label": "Block 1 Icon"
+    },
+    {
+      "type": "select",
+      "id": "block_1_icon_size",
+      "label": "Block 1 Icon Size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small (24px)"
+        },
+        {
+          "value": "medium",
+          "label": "Medium (32px)"
+        },
+        {
+          "value": "large",
+          "label": "Large (48px)"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "block_2_heading",
+      "label": "Block 2 Heading",
+      "default": "Call Us"
+    },
+    {
+      "type": "text",
+      "id": "block_2_text",
+      "label": "Block 2 Text",
+      "default": "+1 (555) 123-4567"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_2_icon",
+      "label": "Block 2 Icon"
+    },
+    {
+      "type": "select",
+      "id": "block_2_icon_size",
+      "label": "Block 2 Icon Size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small (24px)"
+        },
+        {
+          "value": "medium",
+          "label": "Medium (32px)"
+        },
+        {
+          "value": "large",
+          "label": "Large (48px)"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "block_3_heading",
+      "label": "Block 3 Heading",
+      "default": "Business Hours"
+    },
+    {
+      "type": "richtext",
+      "id": "block_3_text",
+      "label": "Block 3 Text",
+      "default": "<p>Monday-Friday: 9AM-5PM</p><p>Saturday: 10AM-2PM</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_3_icon",
+      "label": "Block 3 Icon"
+    },
+    {
+      "type": "select",
+      "id": "block_3_icon_size",
+      "label": "Block 3 Icon Size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small (24px)"
+        },
+        {
+          "value": "medium",
+          "label": "Medium (32px)"
+        },
+        {
+          "value": "large",
+          "label": "Large (48px)"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "block_4_heading",
+      "label": "Block 4 Heading",
+      "default": "Location"
+    },
+    {
+      "type": "richtext",
+      "id": "block_4_text",
+      "label": "Block 4 Text",
+      "default": "<p>123 Main Street</p><p>Your City, ST 12345</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_4_icon",
+      "label": "Block 4 Icon"
+    },
+    {
+      "type": "select",
+      "id": "block_4_icon_size",
+      "label": "Block 4 Icon Size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small (24px)"
+        },
+        {
+          "value": "medium",
+          "label": "Medium (32px)"
+        },
+        {
+          "value": "large",
+          "label": "Large (48px)"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "block_5_heading",
+      "label": "Block 5 Heading",
+      "default": "Social Media"
+    },
+    {
+      "type": "richtext",
+      "id": "block_5_text",
+      "label": "Block 5 Text",
+      "default": "<p>Follow us on social media</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_5_icon",
+      "label": "Block 5 Icon"
+    },
+    {
+      "type": "select",
+      "id": "block_5_icon_size",
+      "label": "Block 5 Icon Size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small (24px)"
+        },
+        {
+          "value": "medium",
+          "label": "Medium (32px)"
+        },
+        {
+          "value": "large",
+          "label": "Large (48px)"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "block_6_heading",
+      "label": "Block 6 Heading",
+      "default": "Support"
+    },
+    {
+      "type": "richtext",
+      "id": "block_6_text",
+      "label": "Block 6 Text",
+      "default": "<p>24/7 customer support</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_6_icon",
+      "label": "Block 6 Icon"
+    },
+    {
+      "type": "select",
+      "id": "block_6_icon_size",
+      "label": "Block 6 Icon Size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small (24px)"
+        },
+        {
+          "value": "medium",
+          "label": "Medium (32px)"
+        },
+        {
+          "value": "large",
+          "label": "Large (48px)"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "header",
+      "content": "Form Settings"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Form Heading",
+      "default": "Send Us a Message"
+    },
+    {
+      "type": "text",
+      "id": "form_id",
+      "label": "Hulk Form ID",
+      "info": "Enter the form ID from Hulk Apps"
+    },
+    {
+      "type": "range",
+      "id": "form_height",
+      "label": "Form Height",
+      "min": 500,
+      "max": 1200,
+      "step": 50,
+      "default": 800,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "form_color_scheme",
+      "label": "Form Color Scheme",
+      "options": [
+        {
+          "value": "background-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "background-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "background-1",
+          "label": "Background 1"
+        },
+        {
+          "value": "background-2",
+          "label": "Background 2"
+        },
+        {
+          "value": "inverse",
+          "label": "Inverse"
+        }
+      ],
+      "default": "background-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Contact Form",
+      "category": "Contact"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .premium-contact-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 20px;
+    display: flex;
+    gap: 60px;
+    width: 100%;
+    min-height: 100vh; 
+    justify-content: center;
+  }
+
+  /* Shopify Color Scheme Classes */
+  .color-{{ settings.colors_accent_1 }};
+  .color-{{ settings.colors_accent_2 }};
+  .bg-{{ settings.colors_accent_1 }};
+  .bg-{{ settings.colors_accent_2 }};
+
+  .left-column {
+    flex: 0 0 {{ section.settings.left_column_width }}%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .form-column {
+    flex: 0 0 {{ section.settings.right_column_width }}%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left-column-image-container {
+    display: flex;
+    align-items: {{ section.settings.image_vertical_align }};
+    justify-content: center;
+    margin-bottom: 30px;
+    {% if section.settings.image_position == 'top' %}
+    order: 1;
+    {% elsif section.settings.image_position == 'middle' %}
+    order: 2;
+    {% else %}
+    order: 3;
+    {% endif %}
+  }
+
+  .left-column-image {
+    border-radius: 12px;
+    {% if section.settings.image_size == 'small' %}
+    width: 50%;
+    {% elsif section.settings.image_size == 'medium' %}
+    width: 75%;
+    {% elsif section.settings.image_size == 'large' %}
+    width: 90%;
+    {% else %}
+    width: 100%;
+    {% endif %}
+    height: auto;
+    object-fit: cover;
+  }
+
+  .left-column-content {
+    {% if section.settings.image_position == 'top' %}
+    order: 2;
+    {% elsif section.settings.image_position == 'middle' %}
+    order: 1;
+    {% else %}
+    order: 1;
+    {% endif %}
+  }
+
+  /* Text size classes */
+  .left-column-heading {
+    {% if section.settings.heading_size == 'small' %}
+    font-size: 1.5rem;
+    {% elsif section.settings.heading_size == 'medium' %}
+    font-size: 3.6rem;
+    {% elsif section.settings.heading_size == 'large' %}
+    font-size: 4rem;
+    {% else %}
+    font-size: 3rem;
+    {% endif %}
+    margin-bottom: 20px;
+    font-family:"lovan";
+    margin:0;
+  }
+
+  .left-column-text {
+    {% if section.settings.text_size == 'small' %}
+    font-size: 0.9rem;
+    {% elsif section.settings.text_size == 'medium' %}
+    font-size: 1rem;
+    {% else %}
+    font-size: 1.1rem;
+    {% endif %}
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .content-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .rich-text__blocks .rich-text__text p {
+    text-align:center;
+  }
+
+  .block-icon {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .block-icon.block-1 {
+    {% if section.settings.block_1_icon_size == 'small' %}
+    width: 24px;
+    height: 24px;
+    {% elsif section.settings.block_1_icon_size == 'medium' %}
+    width: 32px;
+    height: 32px;
+    {% else %}
+    width: 48px;
+    height: 48px;
+    {% endif %}
+  }
+
+  .block-icon.block-2 {
+    {% if section.settings.block_2_icon_size == 'small' %}
+    width: 24px;
+    height: 24px;
+    {% elsif section.settings.block_2_icon_size == 'medium' %}
+    width: 32px;
+    height: 32px;
+    {% else %}
+    width: 48px;
+    height: 48px;
+    {% endif %}
+  }
+
+  .block-icon.block-3 {
+    {% if section.settings.block_3_icon_size == 'small' %}
+    width: 24px;
+    height: 24px;
+    {% elsif section.settings.block_3_icon_size == 'medium' %}
+    width: 32px;
+    height: 32px;
+    {% else %}
+    width: 48px;
+    height: 48px;
+    {% endif %}
+  }
+
+  .block-icon.block-4 {
+    {% if section.settings.block_4_icon_size == 'small' %}
+    width: 24px;
+    height: 24px;
+    {% elsif section.settings.block_4_icon_size == 'medium' %}
+    width: 32px;
+    height: 32px;
+    {% else %}
+    width: 48px;
+    height: 48px;
+    {% endif %}
+  }
+
+  .block-icon.block-5 {
+    {% if section.settings.block_5_icon_size == 'small' %}
+    width: 24px;
+    height: 24px;
+    {% elsif section.settings.block_5_icon_size == 'medium' %}
+    width: 32px;
+    height: 32px;
+    {% else %}
+    width: 48px;
+    height: 48px;
+    {% endif %}
+  }
+
+  .block-icon.block-6 {
+    {% if section.settings.block_6_icon_size == 'small' %}
+    width: 24px;
+    height: 24px;
+    {% elsif section.settings.block_6_icon_size == 'medium' %}
+    width: 32px;
+    height: 32px;
+    {% else %}
+    width: 48px;
+    height: 48px;
+    {% endif %}
+  }
+
+   .block-content h3 {
+    margin: 0 0 8px 0;
+    /* font-size: 1.1rem; */
+  }
+  .block-content {
+    margin:1.6rem 0;
+  }
+  .block-content p {
+    margin:0;
+  }
+
+  .form-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    overflow: hidden; /* This prevents scrollbars on the container */
+  }
+
+  .form-container iframe {
+    border: none;
+    width: 100%;
+    height: {{ section.settings.form_height }}px; /* Use the setting for initial height */
+    display: block;
+    overflow: hidden; /* Hide any internal scrollbars */
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 749px) {
+
+    .ring-sperate-for-mobilehide{
+      display:none;
+    }
+    .form-container iframe {
+      height: 750px; /* Fixed height for mobile that works well */
+    }
+  }
+  .loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  .form-header {
+    padding: 40px 40px 20px;
+  }
+
+  @media (max-width: 749px) {
+    .premium-contact-section {
+      flex-direction: column;
+      padding: 40px 20px;
+      gap: 40px;
+      min-height: auto;
+    }
+
+    .left-column {
+      flex: 1 1 100%;
+      padding: 20px;
+      width: 100%;
+      order: 2;
+    }
+
+    .form-column {
+      flex: 1 1 100%;
+      width: 100%;
+      order: 1;
+    }
+
+    .left-column-image {
+      {% if section.settings.image_size == 'small' %}
+      width: 60%;
+      {% elsif section.settings.image_size == 'medium' %}
+      width: 80%;
+      {% elsif section.settings.image_size == 'large' %}
+      width: 95%;
+      {% else %}
+      width: 100%;
+      {% endif %}
+    }
+
+    .form-container {
+      height: 750px; /* Fixed height for mobile that works well */
+    }
+  }
+
+  .premium-contact-section-opt {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  {% comment %} max-width: 1440px; {% endcomment %}
+  justify-content: space-evenly;
+  padding:3.6rem 0;
+}
+
+.left-column-opt {
+  width: 40%;
+}
+
+.form-column-opt {
+  width: 50%;
+}
+
+.form-container-opt {
+  width: 100%;
+  height: 90vh;
+}
+@media (max-width: 768px) {
+  .premium-contact-section-opt {
+    flex-direction: column;       
+    align-items: center;
+  }
+  .form-column-opt,
+  .left-column-opt {
+    width: 90%;
+  }
+
+
+}
+@media (max-width: 358px) {
+  .form-column-opt{
+    height:{{ section.settings.form_height }}
+  }
+}
+
+.custom-style-ring-seperator {
+  display:none;
+}
+@media(max-width:768px){
+  .custom-style-ring-seperator {
+    display:block !important;
+  }
+}
+
+</style>
+
+
+{% comment %} <div class="premium-contact-section color-{{ section.settings.color_scheme }} bg-{{ section.settings.color_scheme }}">
+  {% if section.settings.show_left_column %}
+  <!-- Left Column - Custom Content -->
+  <div class="left-column">
+    {% if section.settings.left_column_image %}
+      <div class="left-column-image-container">
+        <img src="{{ section.settings.left_column_image | img_url: '800x' }}" 
+             alt="{{ section.settings.left_column_heading }}" 
+             class="left-column-image" 
+             loading="lazy"
+             width="800"
+             height="600">
+      </div>
+    {% endif %}
+
+
+    <div class="left-column-content">
+      <h2 class="left-column-heading">{{ section.settings.left_column_heading }}</h2>
+      <div class="left-column-text rte">{{ section.settings.left_column_text }}</div>
+
+      <!-- Content Block 1 -->
+      <div class="content-block">
+        {% if section.settings.block_1_icon %}
+          <img src="{{ section.settings.block_1_icon | img_url: '100x' }}" 
+               alt="{{ section.settings.block_1_heading }}" 
+               class="block-icon block-1" 
+               loading="lazy"
+               width="100"
+               height="100">
+        {% endif %}
+        <div class="block-content">
+          <h3>{{ section.settings.block_1_heading }}</h3>
+          <p>{{ section.settings.block_1_text }}</p>
+        </div>
+      </div>
+
+      <!-- Content Block 2 -->
+      <div class="content-block">
+        {% if section.settings.block_2_icon %}
+          <img src="{{ section.settings.block_2_icon | img_url: '100x' }}" 
+               alt="{{ section.settings.block_2_heading }}" 
+               class="block-icon block-2" 
+               loading="lazy"
+               width="100"
+               height="100">
+        {% endif %}
+        <div class="block-content">
+          <h3>{{ section.settings.block_2_heading }}</h3>
+          <p>{{ section.settings.block_2_text }}</p>
+        </div>
+      </div>
+
+      <!-- Content Block 3 -->
+      <div class="content-block">
+        {% if section.settings.block_3_icon %}
+          <img src="{{ section.settings.block_3_icon | img_url: '100x' }}" 
+               alt="{{ section.settings.block_3_heading }}" 
+               class="block-icon block-3" 
+               loading="lazy"
+               width="100"
+               height="100">
+        {% endif %}
+        <div class="block-content">
+          <h3>{{ section.settings.block_3_heading }}</h3>
+          <div class="rte">{{ section.settings.block_3_text }}</div>
+        </div>
+      </div>
+
+      <!-- Content Block 4 -->
+      <div class="content-block">
+        {% if section.settings.block_4_icon %}
+          <img src="{{ section.settings.block_4_icon | img_url: '100x' }}" 
+               alt="{{ section.settings.block_4_heading }}" 
+               class="block-icon block-4" 
+               loading="lazy"
+               width="100"
+               height="100">
+        {% endif %}
+        <div class="block-content">
+          <h3>{{ section.settings.block_4_heading }}</h3>
+          <div class="rte">{{ section.settings.block_4_text }}</div>
+        </div>
+      </div>
+
+      <!-- Content Block 5 -->
+      <div class="content-block">
+        {% if section.settings.block_5_icon %}
+          <img src="{{ section.settings.block_5_icon | img_url: '100x' }}" 
+               alt="{{ section.settings.block_5_heading }}" 
+               class="block-icon block-5" 
+               loading="lazy"
+               width="100"
+               height="100">
+        {% endif %}
+        <div class="block-content">
+          <h3>{{ section.settings.block_5_heading }}</h3>
+          <div class="rte">{{ section.settings.block_5_text }}</div>
+        </div>
+      </div>
+
+      <!-- Content Block 6 -->
+      <div class="content-block">
+        {% if section.settings.block_6_icon %}
+          <img src="{{ section.settings.block_6_icon | img_url: '100x' }}" 
+               alt="{{ section.settings.block_6_heading }}" 
+               class="block-icon block-6" 
+               loading="lazy"
+               width="100"
+               height="100">
+        {% endif %}
+        <div class="block-content">
+          <h3>{{ section.settings.block_6_heading }}</h3>
+          <div class="rte">{{ section.settings.block_6_text }}</div>
+        </div>
+      </div>
+      {% render 'ring-seperator' %}
+    </div>
+  </div>
+  {% endif %}
+  
+  <!-- Right Column - Hulk Form -->
+  <div class="form-column color-{{ section.settings.form_color_scheme }} bg-{{ section.settings.form_color_scheme }}">
+    <div class="form-container">
+      {% if section.settings.form_id != blank %}
+        <iframe 
+          src="https://formbuilder.hulkapps.com/corepage/customform?id={{ section.settings.form_id }}&referrer_url={{ shop.url | url_encode }}" 
+          id="frame_{{ section.settings.form_id }}" 
+          frameborder="0" 
+          width="100%" 
+          height="{{ section.settings.form_height }}"
+          scrolling="no" <!-- Explicitly disable scrolling -->
+          onload="
+            this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
+            this.closest('.form-container').querySelector('.loading-spinner').style.display='none';
+          ">
+        </iframe>
+      {% else %}
+        <p>Please configure a form ID in the section settings</p>
+      {% endif %}
+    </div>
+  </div>
+</div> {% endcomment %}
+
+
+<div class="premium-contact-section-opt color-{{ section.settings.color_scheme }} bg-{{ section.settings.color_scheme }}">
+  {% if section.settings.show_left_column %}
+  <!-- Left Column - Custom Content -->
+  <div class="left-column-opt">
+    {% if section.settings.left_column_image %}
+      <div class="left-column-image-container">
+        <img src="{{ section.settings.left_column_image | img_url: '800x' }}" 
+             alt="{{ section.settings.left_column_heading }}" 
+             class="left-column-image" 
+             loading="lazy"
+             width="800"
+             height="600">
+      </div>
+    {% endif %}
+
+
+    <div class="left-column-content">
+      <h2 class="left-column-heading">{{ section.settings.left_column_heading }}</h2>
+      <div class="left-column-text rte">{{ section.settings.left_column_text }}</div>
+
+      <!-- Content Block 1 -->
+      <div class="content-block">
+        {% if section.settings.block_1_icon %}
+          <img src="{{ section.settings.block_1_icon | img_url: '100x' }}" 
+               alt="{{ section.settings.block_1_heading }}" 
+               class="block-icon block-1" 
+               loading="lazy"
+               width="100"
+               height="100">
+        {% endif %}
+        <div class="block-content">
+          <h3>{{ section.settings.block_1_heading }}</h3>
+          <p>{{ section.settings.block_1_text }}</p>
+        </div>
+      </div>
+
+      <!-- Content Block 2 -->
+      <div class="content-block">
+        {% if section.settings.block_2_icon %}
+          <img src="{{ section.settings.block_2_icon | img_url: '100x' }}" 
+               alt="{{ section.settings.block_2_heading }}" 
+               class="block-icon block-2" 
+               loading="lazy"
+               width="100"
+               height="100">
+        {% endif %}
+        <div class="block-content">
+          <h3>{{ section.settings.block_2_heading }}</h3>
+          <p>{{ section.settings.block_2_text }}</p>
+        </div>
+      </div>
+
+      <!-- Content Block 3 -->
+      <div class="content-block">
+        {% if section.settings.block_3_icon %}
+          <img src="{{ section.settings.block_3_icon | img_url: '100x' }}" 
+               alt="{{ section.settings.block_3_heading }}" 
+               class="block-icon block-3" 
+               loading="lazy"
+               width="100"
+               height="100">
+        {% endif %}
+        <div class="block-content">
+          <h3>{{ section.settings.block_3_heading }}</h3>
+          <div class="rte">{{ section.settings.block_3_text }}</div>
+        </div>
+      </div>
+
+      <!-- Content Block 4 -->
+      <div class="content-block">
+        {% if section.settings.block_4_icon %}
+          <img src="{{ section.settings.block_4_icon | img_url: '100x' }}" 
+               alt="{{ section.settings.block_4_heading }}" 
+               class="block-icon block-4" 
+               loading="lazy"
+               width="100"
+               height="100">
+        {% endif %}
+        <div class="block-content">
+          <h3>{{ section.settings.block_4_heading }}</h3>
+          <div class="rte">{{ section.settings.block_4_text }}</div>
+        </div>
+      </div>
+
+      <!-- Content Block 5 -->
+      {% if section.settings.block_5_heading != blank or section.settings.block_5_text != blank or section.settings.block_5_icon %}
+        <div class="content-block">
+          {% if section.settings.block_5_icon %}
+            <img src="{{ section.settings.block_5_icon | img_url: '100x' }}" 
+                alt="{{ section.settings.block_5_heading }}" 
+                class="block-icon block-5" 
+                loading="lazy"
+                width="100"
+                height="100">
+          {% endif %}
+          <div class="block-content">
+            <h3>{{ section.settings.block_5_heading }}</h3>
+            <div class="rte">{{ section.settings.block_5_text }}</div>
+          </div>
+        </div>
+      {% endif %}
+
+      <!-- Content Block 6 -->
+      {% if section.settings.block_6_heading != blank or section.settings.block_6_text != blank or section.settings.block_6_icon %}
+        <div class="content-block">
+          {% if section.settings.block_6_icon %}
+            <img src="{{ section.settings.block_6_icon | img_url: '100x' }}" 
+                alt="{{ section.settings.block_6_heading }}" 
+                class="block-icon block-6" 
+                loading="lazy"
+                width="100"
+                height="100">
+          {% endif %}
+          <div class="block-content">
+            <h3>{{ section.settings.block_6_heading }}</h3>
+            <div class="rte">{{ section.settings.block_6_text }}</div>
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="custom-style-ring-seperator">
+        {% render "ring-seperator" %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  
+  <!-- Right Column - Hulk Form -->
+  <div class="form-column-opt color-{{ section.settings.form_color_scheme }} bg-{{ section.settings.form_color_scheme }}">
+    <div class="form-container-opt">
+      {% if section.settings.form_id != blank %}
+        <iframe 
+          src="https://formbuilder.hulkapps.com/corepage/customform?id={{ section.settings.form_id }}&referrer_url={{ shop.url | url_encode }}" 
+          id="frame_{{ section.settings.form_id }}" 
+          frameborder="0" 
+          width="100%" 
+          height="100%"
+          scrolling="yes" <!-- Explicitly disable scrolling -->
+          onload="
+            this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
+            this.closest('.form-container-opt').querySelector('.loading-spinner').style.display='none';
+          ">
+        </iframe>
+      {% else %}
+        <p>Please configure a form ID in the section settings</p>
+      {% endif %}
+    </div>
+  </div>
+</div>

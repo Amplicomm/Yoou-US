@@ -1,0 +1,24 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "store-locator",
+      "settings": {
+        "title": "PNG Jewellers Store Locator",
+        "google_api_key": "AIzaSyBloWSY3qTYdtEegtOjysPQHBCtYuZ6dDM",
+        "excel_file_url": "https://cdn.shopify.com/s/files/1/0773/3057/9503/files/newPngStores_new_2_1_32ccfdc0-7931-4606-a036-6e5313d6e423.xlsx?v=1785911088"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

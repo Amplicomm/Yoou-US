@@ -1,0 +1,48 @@
+.infinite-scroll-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  max-width: 32rem;
+  margin: 2.5rem auto 0;
+}
+
+.infinite-scroll-progress__track {
+  width: 100%;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: rgba(var(--color-foreground), 0.1);
+  overflow: hidden;
+}
+
+.infinite-scroll-progress__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: rgb(var(--color-foreground));
+  transition: width 0.3s ease;
+}
+
+.infinite-scroll-progress__label {
+  margin: 0;
+  text-align: center;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.infinite-scroll-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 3rem 0;
+  position: relative;
+}
+
+.infinite-scroll-loader .loading__spinner {
+  position: static;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.infinite-scroll-loader.loading .loading__spinner {
+  opacity: 1;
+}

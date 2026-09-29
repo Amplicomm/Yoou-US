@@ -1,0 +1,154 @@
+{%- comment -%}
+  Renders a "Dispatch in X days" message based on the selected variant's stock status,
+  and toggles the ClickPost EDD pincode-checker widget / COD note accordingly.
+  Ported from the Png-Jewellers theme (snippets/dispatchday.liquid) — minus the
+  "Bullions" tag branch, which doesn't apply on this store.
+
+  Behaviour:
+    - Variant in stock     -> dispatch message hidden, ClickPost pincode box shown
+    - Variant out of stock  -> dispatch message shown ("Made to order"), ClickPost pincode box hidden
+    - Variant price above `cod_hide_above_price` -> COD note hidden (regardless of stock)
+
+  Usage:
+    {% render 'dispatch-days', product: product, block: block, section: section %}
+{%- endcomment -%}
+{%- liquid
+  assign in_stock_text = block.settings.in_stock_text | default: 'Dispatch in 2 days'
+  assign out_of_stock_text = block.settings.out_of_stock_text | default: 'Dispatch in 21 days'
+  assign cod_hide_above_price = block.settings.cod_hide_above_price | default: 25000
+-%}
+<div
+  id="DispatchMessage-{{ section.id }}"
+  class="dispatch-message"
+  style="display:none;"
+  {{ block.shopify_attributes }}
+>
+  <span class="dispatch-message__icon">
+    <svg width="29" height="16" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21.76 4C16.352 4.4 15 10.1667 15 13H21.76L22.28 14L23.32 15H24.88L25.92 14L26.44 12.5L28 13V8.5L23.84 4H23.32H21.76Z" fill="#EED2E8"></path>
+    <path d="M20.7458 0.55957V12.7994H12.0519C12.0163 12.2471 11.7719 11.7291 11.3682 11.3506C10.9645 10.972 10.4318 10.7614 9.87844 10.7614C9.32503 10.7614 8.79237 10.972 8.38868 11.3506C7.98498 11.7291 7.74052 12.2471 7.70497 12.7994H5.5V0.55957H20.7458Z" stroke="#E87026" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M28 8.47961V12.7995H26.551C26.5155 12.2473 26.271 11.7293 25.8673 11.3507C25.4636 10.9722 24.931 10.7615 24.3775 10.7615C23.8241 10.7615 23.2915 10.9722 22.8878 11.3507C22.4841 11.7293 22.2396 12.2473 22.2041 12.7995H20.7461V4.15967H23.779L28 8.47961Z" stroke="#E87026" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M28 8.479V12.7989H26.551C26.5155 12.2467 26.271 11.7287 25.8673 11.3501C25.4636 10.9716 24.931 10.7609 24.3775 10.7609C23.8241 10.7609 23.2915 10.9716 22.8878 11.3501C22.4841 11.7287 22.2396 12.2467 22.2041 12.7989H20.7461V8.479H28Z" stroke="#E87026" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M9.87328 14.9596C11.0761 14.9596 12.0513 13.9925 12.0513 12.7996C12.0513 11.6067 11.0761 10.6396 9.87328 10.6396C8.67042 10.6396 7.69531 11.6067 7.69531 12.7996C7.69531 13.9925 8.67042 14.9596 9.87328 14.9596Z" stroke="#E87026" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M24.3733 14.9596C25.5761 14.9596 26.5513 13.9925 26.5513 12.7996C26.5513 11.6067 25.5761 10.6396 24.3733 10.6396C23.1704 10.6396 22.1953 11.6067 22.1953 12.7996C22.1953 13.9925 23.1704 14.9596 24.3733 14.9596Z" stroke="#E87026" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M1 1H3.34897" stroke="#E87026" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M1 3.87939H3.34897" stroke="#E87026" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M1 6.75977H3.34897" stroke="#E87026" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  </span>
+  <span
+    id="DispatchText-{{ section.id }}"
+    class="dispatch-message__text"
+    data-stock-status="{% if product.selected_or_first_available_variant.available %}in-stock{% else %}out-of-stock{% endif %}"
+  >
+    {%- if product.selected_or_first_available_variant.available -%}
+      {{ in_stock_text }}
+    {%- else -%}
+      {{ out_of_stock_text }}
+    {%- endif -%}
+  </span>
+</div>
+
+<script>
+  (function () {
+    var variantsStockData = {
+      {%- for variant in product.variants -%}
+        "{{ variant.id }}": {
+          inventory_quantity: {{ variant.inventory_quantity }},
+          available: {{ variant.available | json }},
+          price: {{ variant.price | divided_by: 100.0 }}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    };
+
+    var dispatchWrapper = document.getElementById('DispatchMessage-{{ section.id }}');
+    var dispatchText = document.getElementById('DispatchText-{{ section.id }}');
+    var inStockLabel = {{ in_stock_text | json }};
+    var outOfStockLabel = {{ out_of_stock_text | json }};
+    var codHideAbovePrice = {{ cod_hide_above_price | json }};
+    var currentVariantData = null;
+
+    function applyDeliveryWidgetState() {
+      if (!currentVariantData) return;
+
+      var clickpost = document.querySelector('.clickpost-edd__container');
+      var codBlock = document.querySelector('.response-cod');
+      var outOfStock = currentVariantData.inventory_quantity <= 0;
+
+      if (dispatchWrapper) {
+        dispatchWrapper.style.display = outOfStock ? 'flex' : 'none';
+      }
+      if (clickpost) {
+        clickpost.style.display = outOfStock ? 'none' : '';
+      }
+      if (codBlock) {
+        codBlock.style.display = currentVariantData.price > codHideAbovePrice ? 'none' : '';
+      }
+    }
+
+    function updateDispatchMessage(selectedVariantId) {
+      currentVariantData = variantsStockData[selectedVariantId] || null;
+
+      if (dispatchText) {
+        if (currentVariantData) {
+          if (currentVariantData.inventory_quantity > 0) {
+            dispatchText.textContent = inStockLabel;
+            dispatchText.setAttribute('data-stock-status', 'in-stock');
+          } else {
+            dispatchText.textContent = outOfStockLabel;
+            dispatchText.setAttribute('data-stock-status', 'out-of-stock');
+          }
+        } else {
+          dispatchText.textContent = 'Dispatch info not available';
+          dispatchText.setAttribute('data-stock-status', 'unknown');
+        }
+      }
+
+      applyDeliveryWidgetState();
+    }
+
+    document.addEventListener('change', function (event) {
+      if (event.target.name === 'id') {
+        updateDispatchMessage(parseInt(event.target.value, 10));
+      }
+    });
+
+    // The ClickPost widget is injected asynchronously by its app block, so keep
+    // re-applying the current state once it (or the COD note inside it) mounts.
+    var widgetObserver = new MutationObserver(function () {
+      applyDeliveryWidgetState();
+    });
+    widgetObserver.observe(document.body, { childList: true, subtree: true });
+
+    updateDispatchMessage({{ product.selected_or_first_available_variant.id | default: 'null' }});
+  })();
+</script>
+
+<style>
+  .dispatch-message {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fcf2f2;
+    border-radius: 6px;
+    margin-top: 15px;
+  }
+
+  .dispatch-message__icon {
+    display: flex;
+    margin-right: 8px;
+    width: 20px;
+    flex-shrink: 0;
+  }
+
+  .dispatch-message__icon svg {
+    width: 20px;
+    height: auto;
+    display: block;
+  }
+
+  .dispatch-message__text {
+    font-weight: 600;
+    font-size: 14px;
+    color: rgb(232 112 44);
+  }
+</style>

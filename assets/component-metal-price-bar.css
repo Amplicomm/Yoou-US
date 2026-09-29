@@ -1,0 +1,444 @@
+:root {
+  --metal-price-bar-height: 5rem;
+}
+
+.metal-price-bar {
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.metal-price-bar__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "logo announcement right";
+  align-items: center;
+  gap: 1.6rem;
+  font-size: 1.3rem;
+  min-height: var(--metal-price-bar-height);
+  box-sizing: border-box;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+.metal-price-bar__logo {
+  grid-area: logo;
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding: 0 0.4rem;
+  opacity: 0.8;
+}
+.metal-price-bar__logo:hover{
+  opacity: 1;
+}
+
+.metal-price-bar__logo-link {
+  display: inline-flex;
+  align-items: center;
+  max-width: 12rem;
+}
+
+.metal-price-bar__logo img,
+.metal-price-bar__logo svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.metal-price-bar__right-group {
+  grid-area: right;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.metal-price-bar__prices {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.metal-price-bar__prices:has(+ .metal-price-bar__links)::after {
+  content: '|';
+  margin-left: 0.8rem;
+  opacity: 0.5;
+  color: #F5F4F4;
+}
+
+.metal-price-bar__prices-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: default;
+  color: #f5f4f4;
+  font-family: Helvetica Neue;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: .4px;
+  white-space: nowrap;
+}
+
+/* Hover/focus card revealing every metal rate, shown below the ticker. */
+.metal-price-bar__popover {
+  position: absolute;
+  top: calc(100% + 1.2rem);
+  right: 0;
+  z-index: 20;
+  min-width: 30rem;
+  background: #fff;
+  border-radius: 1.6rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.18);
+  padding: 2rem 2.4rem 1.8rem;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.6rem);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+}
+
+.metal-price-bar__prices:hover .metal-price-bar__popover,
+.metal-price-bar__prices:focus-within .metal-price-bar__popover,
+.metal-price-bar__popover:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0s;
+}
+
+.metal-price-bar__popover-title {
+  margin: 0;
+  color: #1a1a1a;
+  font-family: "Helvetica Neue";
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.metal-price-bar__popover-divider {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0 1.6rem;
+}
+
+.metal-price-bar__popover-divider::before,
+.metal-price-bar__popover-divider::after {
+  content: '';
+  flex: 1;
+  height: 0.125rem;
+  background: linear-gradient(to right, #dfae26, #925924, #fbe284);
+}
+
+.metal-price-bar__popover-divider::after {
+  background: linear-gradient(to left, #dfae26, #925924, #fbe284);
+}
+
+.metal-price-bar__popover-divider svg {
+  flex-shrink: 0;
+  margin: 0 1rem;
+}
+
+.metal-price-bar__popover-list {
+  margin: 0 0 1.4rem;
+  padding: 0;
+  list-style: none;
+}
+
+.metal-price-bar__popover-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0.9rem 0;
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.08);
+  color: #1a1a1a;
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.metal-price-bar__popover-row:last-child {
+  border-bottom: none;
+}
+
+.metal-price-bar__popover-price {
+  font-weight: 600;
+}
+
+.metal-price-bar__popover-note,
+.metal-price-bar__popover-updated {
+  margin: 0;
+  color: #8a8a8a;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  text-align: center;
+}
+
+.metal-price-bar__popover-note {
+  margin-top: 0.4rem;
+  font-weight: 600;
+}
+
+.metal-price-bar__popover-updated {
+  margin-top: 0.4rem;
+}
+
+.metal-price-bar__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+  color: #F5F1EB;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.48px;
+}
+
+.metal-price-bar__live-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #2ecc71;
+  animation: metalPriceLivePulse 1.6s ease-in-out infinite;
+}
+
+@keyframes metalPriceLivePulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.6);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 0 0.4rem rgba(46, 204, 113, 0);
+  }
+}
+
+.metal-price-bar__marquee {
+  display: none;
+  overflow: hidden;
+  width: 100%;
+}
+
+.metal-price-bar__marquee-track {
+  display: flex;
+  width: max-content;
+  animation: metalPriceMarquee var(--marquee-duration, 25s) linear infinite;
+}
+
+.metal-price-bar__marquee-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-right: 2rem;
+}
+
+.metal-price-bar__marquee-item {
+  white-space: nowrap;
+  font-weight: 600;
+  display: flex;
+  gap: 1.2rem;
+}
+.metal-price-bar__marquee-item span:first-child {
+  color: #FECD5B;
+  font-family: "Helvetica Neue";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
+}
+.metal-price-bar__marquee-item span:last-child {
+  color:#CDB89B;
+  font-family: "Helvetica Neue";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.4px;
+}
+
+.metal-price-bar__marquee-sep {
+  margin: 0 1rem;
+  opacity: 0.6;
+}
+
+.metal-price-bar__marquee-item--live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+  color: #FCF2F2;
+  font-family: "Helvetica Neue";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.4px;
+}
+
+@keyframes metalPriceMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.metal-price-bar__announcement {
+  grid-area: announcement;
+  justify-self: stretch;
+  position: relative;
+  min-height: 2rem;
+  min-width: 30rem;
+  overflow: hidden;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.metal-price-bar__announcement-track {
+  display: flex;
+  width: max-content;
+  animation: metalPriceAnnouncementMarquee var(--announcement-marquee-duration, 16s) linear infinite;
+}
+
+.metal-price-bar__announcement:hover .metal-price-bar__announcement-track {
+  animation-play-state: paused;
+}
+
+.metal-price-bar__announcement-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.metal-price-bar__announcement-item {
+  white-space: nowrap;
+  color: #f5f1eb;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  font-family: "Helvetica Neue";
+  margin-right: 1.2rem;
+}
+
+.metal-price-bar__announcement-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+@keyframes metalPriceAnnouncementMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* The track renders 6 identical copies of the announcement list (see
+       metal-price-bar.liquid) so the scroll never runs out of content and
+       shows a gap before the loop repeats, even with just one short
+       announcement. Translating by exactly one copy's width (1/6) keeps the
+       loop seamless regardless of how many copies that ends up being. */
+    transform: translateX(calc(-100% / 6));
+  }
+}
+
+.metal-price-bar__links {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.metal-price-bar__links-item:not(:last-child)::after {
+  content: '|';
+  margin-left: 0.8rem;
+  opacity: 0.5;
+}
+
+.metal-price-bar__links-link {
+  color:#F5F4F4;
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  display: flex;
+}
+
+@media screen and (max-width: 749px) {
+  :root {
+    --metal-price-bar-height: 5rem;
+  }
+
+  .metal-price-bar__prices-label,
+  .metal-price-bar__live,
+  .metal-price-bar__popover {
+    display: none;
+  }
+
+  .metal-price-bar__marquee {
+    display: none;
+    flex: 1;
+    min-width: 0;
+  }
+  .metal-price-bar__inner {
+    padding: 0;
+    display: flex;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    gap:0;
+  }
+  
+
+  .metal-price-bar__links {
+    display: none;
+  }
+
+  .metal-price-bar__announcement {
+    /* min-width: 0; */
+    margin-top: 0.3rem;
+  }
+  .metal-price-bar__announcement-item {
+    font-size: 12px;
+  }
+  .shopify-section.metal-price-bar-section {
+    z-index: 4;
+  }
+  .metal-price-bar__prices:has(+.metal-price-bar__links):after {
+    display: none;
+  }
+  .metal-price-bar__logo-link {
+    max-width: 10rem;
+  }
+  .metal-price-bar__announcement {
+    min-width:60%;
+    margin:0;
+    max-width: 75%;
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metal-price-bar__marquee-track {
+    animation: none;
+  }
+
+  .metal-price-bar__announcement-track {
+    animation: none;
+  }
+}

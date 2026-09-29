@@ -1,0 +1,526 @@
+{% schema %}
+{
+  "name": "Enhanced Tab Controller",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom ID",
+      "info": "Add a unique ID for this section (without # prefix)"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Add custom CSS classes (separate with spaces)"
+    },
+    {
+      "type": "select",
+      "id": "tab_alignment",
+      "label": "Tab alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "tab_gap",
+      "label": "Space between tabs",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_tab_gap",
+      "label": "Mobile space between tabs",
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_width",
+      "label": "Mobile image width",
+      "min": 30,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 70,
+      "info": "Width for mobile devices"
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "label": "Mobile image height",
+      "min": 30,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 60,
+      "info": "Height for mobile devices"
+    },
+    {
+      "type": "header",
+      "content": "Button Style Defaults"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text",
+      "label": "Button text color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_border",
+      "label": "Button border color",
+      "default": "#dddddd"
+    },
+    {
+      "type": "color",
+      "id": "button_active_bg",
+      "label": "Active button background",
+      "default": "#5c2d91"
+    },
+    {
+      "type": "color",
+      "id": "button_active_text",
+      "label": "Active button text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_active_border",
+      "label": "Active button border",
+      "default": "#5c2d91"
+    },
+    {
+      "type": "range",
+      "id": "button_border_width",
+      "label": "Button border width",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Button corner radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "button_padding",
+      "label": "Button padding",
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab label",
+          "default": "Tab"
+        },
+        {
+          "type": "select",
+          "id": "tab_type",
+          "label": "Tab type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "button",
+              "label": "Button"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "header",
+          "content": "Image Settings",
+          "info": "Only applies if tab type is image"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_image",
+          "label": "Tab image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "label": "Image width (desktop)",
+          "min": 40,
+          "max": 400,
+          "step": 5,
+          "unit": "px",
+          "default": 100
+        },
+        {
+          "type": "range",
+          "id": "image_height",
+          "label": "Image height (desktop)",
+          "min": 40,
+          "max": 400,
+          "step": 5,
+          "unit": "px",
+          "default": 80,
+          "info": "Slightly less than width for elongated effect"
+        },
+        {
+          "type": "header",
+          "content": "Button Settings",
+          "info": "Only applies if tab type is button"
+        },
+        {
+          "type": "color",
+          "id": "button_bg",
+          "label": "Button background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_text",
+          "label": "Button text color",
+          "default": "#333333"
+        },
+        {
+          "type": "color",
+          "id": "button_border",
+          "label": "Button border color",
+          "default": "#dddddd"
+        },
+        {
+          "type": "range",
+          "id": "button_width",
+          "label": "Button width",
+          "min": 80,
+          "max": 300,
+          "step": 5,
+          "unit": "px",
+          "default": 120
+        },
+        {
+          "type": "text",
+          "id": "target_element",
+          "label": "Target element",
+          "info": "Enter ID (#section-id) or class (.section-class) of section to control"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Enhanced Tab Controller",
+      "blocks": [
+        {
+          "type": "tab"
+        },
+        {
+          "type": "tab"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{%- liquid
+  assign section_id = ''
+  if section.settings.custom_id != blank
+    assign section_id = 'id="' | append: section.settings.custom_id | append: '"'
+  endif
+
+  assign section_class = 'enhanced-tab-controller'
+  if section.settings.custom_class != blank
+    assign section_class = section_class | append: ' ' | append: section.settings.custom_class
+  endif
+-%}
+
+<div {{ section_id }} class="{{ section_class }}" data-section-id="{{ section.id }}">
+  <div class="enhanced-tabs" style="--tab-gap: {{ section.settings.tab_gap }}px; --mobile-tab-gap: {{ section.settings.mobile_tab_gap }}px; justify-content: {{ section.settings.tab_alignment }}">
+    {% for block in section.blocks %}
+      {%- assign button_bg = block.settings.button_bg | default: section.settings.button_bg -%}
+      {%- assign button_text = block.settings.button_text | default: section.settings.button_text -%}
+      {%- assign button_border = block.settings.button_border | default: section.settings.button_border -%}
+      
+      <button class="enhanced-tab {% if forloop.first %}active{% endif %} tab-type-{{ block.settings.tab_type }}"
+           data-target="{{ block.settings.target_element }}"
+           style="
+                  {% if block.settings.tab_type == 'image' %}
+                    --desktop-width: {{ block.settings.image_width }}px;
+                    --mobile-width: {{ section.settings.mobile_image_width }}px;
+                  {% else %}
+                    --button-bg: {{ button_bg }};
+                    --button-text: {{ button_text }};
+                    --button-border: {{ button_border }};
+                    --button-border-width: {{ section.settings.button_border_width }}px;
+                    --button-radius: {{ section.settings.button_radius }}px;
+                    --button-padding: {{ section.settings.button_padding }}px;
+                    --button-hover-bg: {{ button_bg | color_darken: 5 }};
+                    --button-active-bg: {{ section.settings.button_active_bg }};
+                  {% endif %}">
+        
+        {% if block.settings.tab_type == 'image' %}
+          <img src="{{ block.settings.tab_image | img_url: '300x' }}" 
+               alt="{{ block.settings.title | escape }}"
+               class="tab-image" 
+               style="--desktop-height: {{ block.settings.image_height }}px;
+                      --mobile-height: {{ section.settings.mobile_image_height }}px;">
+        {% endif %}
+        
+        <span class="tab-title">{{ block.settings.title }}</span>
+      </button>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .enhanced-tab-controller {
+    /* margin-bottom: 40px; */
+    padding: 20px;
+    background: transparent;
+    border-radius: 12px;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .enhanced-tabs {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    gap: var(--tab-gap);
+    flex-wrap: nowrap;
+    padding: 10px 0;
+    min-width: fit-content;
+  }
+
+  .enhanced-tab {
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    opacity: 0.85;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    margin: 0 calc(var(--tab-gap)/2);
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+
+  /* Image tab styles */
+  .tab-type-image {
+    width: var(--desktop-width);
+  }
+
+  .tab-type-image .tab-image {
+    display: block;
+    width: 100%;
+    height: var(--desktop-height);
+    border-radius: 3%;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    filter: grayscale(40%);
+    border: 2px solid transparent;
+  }
+
+  .tab-type-image:hover .tab-image,
+  .tab-type-image.active .tab-image {
+    filter: grayscale(0%) saturate(120%);
+  }
+
+  .tab-type-image.active .tab-image {
+    border: 3px solid #5c2d91;
+    box-shadow: 0 0 12px rgba(77, 39, 83, 0.4);
+    transform: scale(1.08);
+  }
+
+  /* Button tab styles */
+  .tab-type-button {
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: var(--button-border-width) solid var(--button-border);
+    border-radius: var(--button-radius);
+    padding: calc(var(--button-padding) * 0.8) calc(var(--button-padding) * 1.5);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    white-space: nowrap;
+    min-width: fit-content;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+
+  .tab-type-button:hover {
+    opacity: 1;
+    background: var(--button-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .tab-type-button.active {
+    background: var(--button-active-bg);
+    color: {{ section.settings.button_active_text }};
+    border-color: {{ section.settings.button_active_border }};
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .tab-title {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: inherit;
+    text-align: center;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+  }
+
+  .tab-type-button .tab-title {
+    margin-top: 0;
+  }
+
+  .tab-type-image.active .tab-title {
+    color: #5c2d91;
+    font-weight: 700;
+  }
+
+  .tab-content-section {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 0;
+    transform: translateY(10px);
+    display: none;
+  }
+
+  .tab-content-section.active-section {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+  }
+
+  /* Mobile styles */
+  @media (max-width: 767px) {
+    .enhanced-tabs {
+      padding: 10px 20px;
+      gap: var(--mobile-tab-gap);
+    }
+    
+    .tab-type-image {
+      width: var(--mobile-width) !important;
+      min-width: var(--mobile-width);
+    }
+    
+    .tab-type-image .tab-image {
+      height: var(--mobile-height) !important;
+      border-radius: 3%;
+    }
+    
+    .tab-type-button {
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+    
+    .tab-title {
+      font-size: 12px;
+    }
+  }
+
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tabControllers = document.querySelectorAll('.enhanced-tab-controller');
+
+  tabControllers.forEach(controller => {
+    const tabs = controller.querySelectorAll('.enhanced-tab');
+
+    // Initialize tabs and sections
+    tabs.forEach((tab, index) => {
+      const target = tab.getAttribute('data-target');
+      if (target) {
+        const targetElements = document.querySelectorAll(target);
+        targetElements.forEach(el => {
+          el.classList.add('tab-content-section');
+          if (index === 0) {
+            el.classList.add('active-section');
+          } else {
+            el.classList.remove('active-section');
+          }
+        });
+      }
+    });
+
+    // Tab click handler
+    controller.addEventListener('click', function(e) {
+      const clickedTab = e.target.closest('.enhanced-tab');
+      if (!clickedTab) return;
+
+      // Update active tab
+      tabs.forEach(tab => tab.classList.remove('active'));
+      clickedTab.classList.add('active');
+
+      // Update target sections
+      const currentTarget = clickedTab.getAttribute('data-target');
+      if (currentTarget) {
+        // Hide all target sections first
+        tabs.forEach(tab => {
+          const target = tab.getAttribute('data-target');
+          if (target) {
+            document.querySelectorAll(target).forEach(el => {
+              el.classList.remove('active-section');
+            });
+          }
+        });
+        
+        // Show current target section
+        document.querySelectorAll(currentTarget).forEach(el => {
+          el.classList.add('active-section');
+        });
+      }
+    });
+  });
+});
+</script>

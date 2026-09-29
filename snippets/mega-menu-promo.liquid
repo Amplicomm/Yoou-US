@@ -1,0 +1,55 @@
+{% comment %}
+  Renders the mega-menu promo block whose "Menu item title" setting matches the given link's title, if any.
+
+  Accepts:
+  - link: {Object} a top-level menu link
+
+  Usage:
+  {% render 'mega-menu-promo', link: link %}
+{% endcomment %}
+{%- liquid
+  assign mega_menu_promo = blank
+  assign link_title_key = link.title | strip | downcase
+  for block in section.blocks
+    if block.type == 'mega_menu_promo' and block.settings.menu_title != blank
+      assign promo_title_key = block.settings.menu_title | strip | downcase
+      if promo_title_key == link_title_key
+        assign mega_menu_promo = block
+      endif
+    endif
+  endfor
+-%}
+{%- if mega_menu_promo != blank -%}
+  <div class="mega-menu__promo">
+    {%- if mega_menu_promo.settings.image != blank -%}
+      {%- assign promo_image_alt = mega_menu_promo.settings.image.alt | escape -%}
+      <a
+        href="{{ mega_menu_promo.settings.button_link | default: '#' }}"
+        class="mega-menu__promo-image-link"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        {{
+          mega_menu_promo.settings.image
+          | image_url: width: 600
+          | image_tag:
+            loading: 'lazy',
+            alt: promo_image_alt,
+            class: 'mega-menu__promo-image',
+            sizes: '(min-width: 990px) 260px, 100vw',
+            widths: '260, 400, 600'
+        }}
+      </a>
+    {%- endif -%}
+    {%- if mega_menu_promo.settings.caption != blank -%}
+      <p class="mega-menu__promo-caption">{{ mega_menu_promo.settings.caption | escape }}</p>
+      {% render 'icons' icon:"stroke" %}
+    {%- endif -%}
+    {%- if mega_menu_promo.settings.button_link != blank -%}
+      <a href="{{ mega_menu_promo.settings.button_link }}" class="mega-menu__promo-button">
+        {{- mega_menu_promo.settings.button_label | escape -}}
+        <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+      </a>
+    {%- endif -%}
+  </div>
+{%- endif -%}

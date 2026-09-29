@@ -1,0 +1,344 @@
+.search__input.field__input {
+  padding-right: 9.8rem;
+  color: #000;
+  border: 0.889px solid #F0EEEE;
+  background: #fff;
+  padding: 0 2.2rem;
+}
+.search__input.field__input:focus-visible {
+  box-shadow: none;
+}
+.search-modal .field__input:not(:placeholder-shown)~.field__label {
+  display: none;
+}
+
+.search__button {
+  right: var(--inputs-border-width);
+  top: var(--inputs-border-width);
+}
+
+.reset__button {
+  right: calc(var(--inputs-border-width) + 4.4rem);
+  top: var(--inputs-border-width);
+}
+
+/* Pill-shaped search bar with a circular search button, header search modal only */
+.search-modal .field,
+.search-modal .field:before,
+.search-modal .field:after,
+.search-modal .field__input {
+  border-radius: 100rem !important;
+}
+
+.search-modal .field__input,
+.search-modal .field__input:focus,
+.search-modal .field__input:not(:placeholder-shown) {
+  padding-left: 2.4rem;
+}
+
+.search-modal .field__label {
+  left: 2.4rem;
+  color: #000;
+}
+
+.search-modal .field__input:focus ~ .field__label,
+.search-modal .field__input:not(:placeholder-shown) ~ .field__label {
+  left: 2.4rem;
+}
+
+.search-modal .search__button {
+  top: 50%;
+  right: 0.4rem;
+  transform: translateY(-50%);
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background-color: rgba(var(--color-foreground), 0.06);
+}
+
+.search-modal .search__button:not(:focus-visible):not(.focused) {
+  box-shadow: none;
+}
+
+.search-modal .search__button:hover {
+  background-color: rgba(var(--color-foreground), 0.1);
+}
+
+.search-modal .search__button .icon {
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
+.search-modal .search__button path {
+  fill: #000;
+}
+
+.search-modal .reset__button {
+  top: 50%;
+  right: calc(0.4rem + 3.6rem);
+  transform: translateY(-50%);
+}
+
+/* Pill-shaped search trigger button in the header (click opens the search overlay) */
+.header__search details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__search-trigger {
+  width: auto !important;
+  height: 3.2rem !important;
+  padding: 0 0.4rem 0 1.8rem !important;
+  border-radius: 100rem;
+  background:#fff;
+  border: 0.889px solid var(--Color-Supporting-Colour-Grey-100, #F0EEEE);
+}
+
+.header__search-trigger-inner {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.header__search-trigger-label {
+  color: #9B9B9B;
+  font-size: 1.4rem;
+  white-space: nowrap;
+  font-family: "Helvetica Neue";
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.header__search-trigger-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.header__search-trigger-icon-wrap .svg-wrapper {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.header__search-trigger:hover .header__search-trigger-icon-wrap {
+  background-color: rgba(var(--color-foreground), 0.1);
+}
+
+@media screen and (max-width: 749px) {
+  .header .header__search-trigger-label {
+    display: none;
+  }
+
+  .header .header__search-trigger {
+    width: 1.4rem !important;
+    height: 4.4rem !important;
+    padding: 0 !important;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .header__search-trigger-icon-wrap svg path {
+    fill: #fff;
+  }
+
+  .header .header__search-trigger-inner {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header .header__search-trigger-icon-wrap {
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+  }
+
+  .header .header__search-trigger-icon-wrap .svg-wrapper {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  .header__search-trigger {
+    border: none;
+  }
+}
+
+/* Header search: inline pill on desktop (no click-to-open popup - predictive
+   results render in the existing .predictive-search dropdown, anchored below
+   via this relative wrapper), original click-to-open search modal on mobile. */
+.header__search {
+  align-items: center;
+}
+
+.header__search-desktop {
+  display: none;
+  /* Positioning context for the predictive-search results dropdown - kept
+     off the outer .header__search so it doesn't become the (too-small)
+     containing block for the mobile search modal's full-width panel. */
+  position: relative;
+}
+
+.header__search-mobile {
+  display: inline-flex;
+}
+
+@media screen and (min-width: 990px) {
+  .header__search-desktop {
+    display: block;
+  }
+
+  .header__search-mobile {
+    display: none;
+  }
+}
+
+.header__search-live {
+  display: block;
+}
+
+.header__search-desktop .field {
+  width: 25rem;
+}
+
+.header__search-desktop .field,
+.header__search-desktop .field:before,
+.header__search-desktop .field:after,
+.header__search-desktop .field__input {
+  border-radius: 100rem !important;
+}
+
+.header__search-desktop .field__input {
+  height: 3.2rem;
+  padding-left: 1.8rem;
+  color: #000;
+  font-size: 1.2rem;
+  border: 0.889px solid var(--Color-Supporting-Colour-Grey-100, #F0EEEE);
+  background: #fff;
+  padding:0 2.2rem
+}
+
+.header__search-desktop .field__input:focus-visible {
+  box-shadow: none;
+}
+.header__search-live .field__input:not(:placeholder-shown)~.field__label,
+.field__input:focus~.field__label{
+  display: none;
+}
+.header__search-desktop .field__label {
+  top: 50%;
+  left: 1.8rem;
+  transform: translateY(-50%);
+  color: #9b9b9b;
+  font-size: 1.2rem;
+}
+
+.header__search-desktop .search__button {
+  top: 50%;
+  right: 0.2rem;
+  transform: translateY(-50%);
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.header__search-desktop .search__button:not(:focus-visible):not(.focused) {
+  box-shadow: none;
+}
+
+.header__search-desktop .search__button:hover {
+  background-color: rgba(var(--color-foreground), 0.06);
+}
+
+.header__search-desktop .search__button .icon {
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
+.header__search-desktop .search__button path {
+  fill: #000;
+}
+
+.header__search-desktop .reset__button {
+  top: 50%;
+  right: calc(0.2rem + 2.8rem);
+  transform: translateY(-50%);
+}
+
+/* The results dropdown otherwise inherits the compact pill's width, which
+   is too narrow for the products/collections/articles column layout - widen
+   it and anchor to the right edge so it expands leftward, staying on-screen
+   since the pill sits near the header's right edge. Only relevant at 990px+
+   now - below that the search popup (.header__search-mobile) is shown
+   instead of the inline dropdown. */
+@media screen and (min-width: 990px) {
+  .header__search .predictive-search--header {
+    width: 80rem;
+    max-width: calc(100vw - 2rem);
+    left: auto;
+    right: -0.1rem;
+  }
+}
+
+.reset__button:not(:focus-visible)::after {
+  border-right: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  display: block;
+  height: calc(100% - 1.6rem);
+  content: '';
+  position: absolute;
+  right: 0;
+}
+
+.reset__button:not(:focus)::after {
+  border-right: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  display: block;
+  height: calc(100% - 1.8rem);
+  content: '';
+  position: absolute;
+  right: 0;
+}
+
+.search__button:focus-visible,
+.reset__button:focus-visible {
+  background-color: rgb(var(--color-background));
+  z-index: 4;
+}
+
+.search__button:focus,
+.reset__button:focus {
+  background-color: rgb(var(--color-background));
+  z-index: 4;
+}
+
+.search__button:not(:focus-visible):not(.focused),
+.reset__button:not(:focus-visible):not(.focused) {
+  box-shadow: inherit;
+  background-color: inherit;
+}
+
+.search__button:hover .icon,
+.reset__button:hover .icon {
+  transform: scale(1.07);
+}
+
+.search__button .icon {
+  height: 1.8rem;
+  width: 1.8rem;
+}
+
+.reset__button .icon.icon-close {
+  height: 1.8rem;
+  width: 1.8rem;
+  stroke-width: 0.1rem;
+}
+
+/* Remove extra spacing for search inputs in Safari */
+input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.template-search__results {
+  position: relative;
+}

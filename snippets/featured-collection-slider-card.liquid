@@ -1,0 +1,63 @@
+{% comment %}
+  Renders one card for the "Collection slider" section.
+
+  Accepts:
+  - block: {Object} the block whose settings.collection/image/title to use (required)
+  - placeholder_index: {Number} used to vary the placeholder illustration (required)
+  - extra_class: {String} additional class on the swiper-slide wrapper (optional)
+  - is_decorative: {Boolean} when true, hides the slide from assistive tech and the
+    theme editor and keeps its link out of the tab order. Used for the desktop-only
+    "peek" duplicate of the last card. (optional)
+
+  Usage:
+  {% render 'featured-collection-slider-card', block: block, placeholder_index: 1 %}
+{% endcomment %}
+
+{%- liquid
+  assign card_collection = block.settings.collection
+  assign card_image = block.settings.image
+  if card_image == blank and card_collection != blank
+    assign card_image = card_collection.featured_image
+  endif
+
+  assign card_title = block.settings.title
+  if card_title == blank and card_collection != blank
+    assign card_title = card_collection.title
+  endif
+-%}
+<div
+  class="swiper-slide swiper-component__slide{% if extra_class %} {{ extra_class }}{% endif %}"
+  {% if is_decorative %}
+    aria-hidden="true"
+    data-peek-slide="true"
+  {% else %}
+    {{ block.shopify_attributes }}
+  {% endif %}
+>
+  <a
+    {% if card_collection != blank %}
+      href="{{ card_collection.url }}"
+    {% else %}
+      role="link" aria-disabled="true"
+    {% endif %}
+    class="featured-collection-slider__card"
+    aria-label="{{ card_title | default: 'Collection' | escape }}"
+    {% if is_decorative %}
+      tabindex="-1"
+    {% endif %}
+  >
+    {%- if card_image != blank -%}
+      {{
+        card_image
+        | image_url: width: 900
+        | image_tag:
+          loading: 'lazy',
+          sizes: '(min-width: 990px) 30vw, (min-width: 750px) 45vw, 80vw',
+          widths: '275, 400, 550, 750, 900',
+          class: 'featured-collection-slider__image'
+      }}
+    {%- else -%}
+      {{ 'collection-apparel-' | append: placeholder_index | placeholder_svg_tag: 'placeholder-svg featured-collection-slider__image' }}
+    {%- endif -%}
+  </a>
+</div>

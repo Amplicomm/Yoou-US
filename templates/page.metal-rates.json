@@ -1,0 +1,105 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "gold_rates_card_irDqXr": {
+      "type": "gold-rates-card",
+      "blocks": {
+        "metal_rate_LLTkKa": {
+          "type": "metal_rate",
+          "settings": {
+            "label": "24K Gold",
+            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_24k.value }}",
+            "unit": ""
+          }
+        },
+        "metal_rate_FWVC6K": {
+          "type": "metal_rate",
+          "settings": {
+            "label": "22K Gold",
+            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_22k.value }}",
+            "unit": ""
+          }
+        },
+        "metal_rate_dzh6dY": {
+          "type": "metal_rate",
+          "settings": {
+            "label": "18K Gold",
+            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_18k.value }}",
+            "unit": ""
+          }
+        },
+        "metal_rate_QYpbGD": {
+          "type": "metal_rate",
+          "settings": {
+            "label": "14K Gold",
+            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_14k.value }}",
+            "unit": ""
+          }
+        },
+        "metal_rate_74cHkL": {
+          "type": "metal_rate",
+          "settings": {
+            "label": "9K Gold",
+            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_9k.value }}",
+            "unit": ""
+          }
+        },
+        "metal_rate_33DBAq": {
+          "type": "metal_rate",
+          "settings": {
+            "label": "Platinum",
+            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].platinum.value }}",
+            "unit": ""
+          }
+        },
+        "metal_rate_gKVCBk": {
+          "type": "metal_rate",
+          "settings": {
+            "label": "Silver",
+            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].silver.value }}",
+            "unit": ""
+          }
+        }
+      },
+      "block_order": [
+        "metal_rate_LLTkKa",
+        "metal_rate_FWVC6K",
+        "metal_rate_dzh6dY",
+        "metal_rate_QYpbGD",
+        "metal_rate_74cHkL",
+        "metal_rate_33DBAq",
+        "metal_rate_gKVCBk"
+      ],
+      "name": "Gold rates card",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Today's Metal Rates",
+        "note": "Applicable for online purchase only",
+        "show_updated": true,
+        "updated_at": "{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].updated_date_with_time.value }}",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "gold_rates_card_irDqXr"
+  ]
+}

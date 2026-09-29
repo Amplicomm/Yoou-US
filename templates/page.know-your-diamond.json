@@ -1,0 +1,387 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "promotion_banner_hBEGft": {
+      "type": "promotion-banner",
+      "blocks": {
+        "image_banner_7HhnHC": {
+          "type": "image_banner",
+          "settings": {
+            "heading": "Diamond Guide",
+            "highlight_type": "underline",
+            "heading_size": 200,
+            "heading_tag": "h2",
+            "subheading": "",
+            "subheading_size": 100,
+            "text": "Find Your Diamond",
+            "text_size": 130,
+            "content_box_type": "square",
+            "add_frame": false,
+            "color_content_box_light": "rgba(0,0,0,0)",
+            "color_content_box_dark": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_banner_7HhnHC"
+      ],
+      "name": "Promotion Banner",
+      "settings": {
+        "heading": "Promotion Banner",
+        "image": "shopify://shop_images/diamond_banner.png",
+        "image_link": "",
+        "open_new_window": false,
+        "image_overlay_opacity": 0,
+        "content_position": "center",
+        "content_horizontal": 50,
+        "content_vertical": 50,
+        "position_content_mobile": "center",
+        "content_alignment": "center",
+        "overlay_content_on_image": true,
+        "show_hero": false,
+        "full_width": true,
+        "padding_full_width": false,
+        "adapt_corners_desktop": true,
+        "rounded_corner_image": false,
+        "desktop_height": "750px",
+        "padding_top": 0,
+        "padding_bottom": 28,
+        "full_width_mobile": true,
+        "adapt_corners_mobile": true,
+        "rounded_corner_image_mobile": false,
+        "mobile_height": "400px",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "image_with_text_nNWtJL": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_hn34eN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Diamonds",
+            "heading_size": "h1"
+          }
+        },
+        "text_aKbN7q": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A “King of Gems” known for its brilliance, beauty, and shine! Diamond is known as the king of jewels in the world of precious stones and this mineral is renowned for its grandeur since the ancient times and therefore, is a rare gemstone to be found on the mother earth.<br/>Selecting a diamond starts by recognizing the mystic characteristics of each stone. Where sparkle is the most important factor while buying, the right buying depends on the 4Cs of Diamond. So, here’s everything you need to know about the diamonds to help you make the right buying decision.<br/><br/></p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_hn34eN",
+        "text_aKbN7q"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/diamond_know_2.png",
+        "make_image_half_width": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_dbCme3": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_AHXpTB": {
+          "type": "heading",
+          "settings": {
+            "heading": "Cut",
+            "heading_size": "h1"
+          }
+        },
+        "text_YJqfrB": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Out of all the 4Cs, the diamond’s “Cut” has the biggest impact on a diamond's beauty and sparkle. A well-cut diamond is proportional, symmetrical, and finished typically being the most expensive ones.</li><li>The precision and workmanship of a diamond's cut may either enhance or reduce its brightness and sparkle, hence increasing or decreasing the diamond's value.</li><li>The grades for diamond cuts under the GIA standard are Excellent, Very Good, Good, Fair, and Poor. Even a brilliant clarity diamond (no deformities or inclusions) might appear glassy or dull if the cut is excessively shallow or deep. So, when selecting a diamond, select one with the highest cut grade.</li></ul>",
+            "text_style": "body"
+          }
+        },
+        "caption_Q99tPg": {
+          "type": "caption",
+          "settings": {
+            "caption": "Buying Tips:The most desirable for diamond to choose is round brilliant with 57 facets. For exceptional brilliance, keep your cut grade in the Excellent to Very Good range for a well-cut stone with accurate symmetry and polish.",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AHXpTB",
+        "text_YJqfrB",
+        "caption_Q99tPg"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/500x500_Diamond_Cut_f0ffa04c-4131-42df-9bbc-4b54c8b345d7.png",
+        "make_image_half_width": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ring_separator_XJUHhV": {
+      "type": "ring-separator",
+      "name": "Ring Separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "image_with_text_KRPYcw": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_tn9LzC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Clarity",
+            "heading_size": "h1"
+          }
+        },
+        "text_c7T7VU": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Like other minerals and gemstones, diamonds are found with several inclusions that arise throughout their development. So, diamonds have flaws, just like everything else in nature and clarity measures the diamond's purity and the presence (or absence) of minute imperfections.</li><li>The clarity of a diamond is another factor that has a significant influence on its value. Even if they have the same cut, carat value, and color, a diamond with high clarity is far more expensive than one with poor clarity. Practically imperceptible to the human eye, inclusions thus influence the price of a diamond.</li><li>The grading scale of a diamond is based on rarity. Jewelers and gemologists use a scale from FL (flawless) to VVS (very, very slightly included) to SI (slightly included) to I (included) to grade clarity, with numerical gradations for each category. Remember, lesser the flaws/imperfections better the clarity.</li></ul>",
+            "text_style": "body"
+          }
+        },
+        "caption_Kr3bjb": {
+          "type": "caption",
+          "settings": {
+            "caption": "Buying Tips:  Choose diamonds weighing 0.50 to 0.75 carats as they are quite desirable due to their size and value. Simply, your ideal carat depends on stone size, budget, and wearer’s finger.",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tn9LzC",
+        "text_c7T7VU",
+        "caption_Kr3bjb"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/1_b2e31edb-5895-48b5-bd87-27140a4084e5.jpg",
+        "make_image_half_width": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ring_separator_nNUTKx": {
+      "type": "ring-separator",
+      "name": "Ring Separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "image_with_text_nNGiNn": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_hk3ptk": {
+          "type": "heading",
+          "settings": {
+            "heading": "Color",
+            "heading_size": "h1"
+          }
+        },
+        "text_hBpgHR": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Color is another important factor that adds absolute sparkle and shine to diamonds. In the world of diamond and solitaire, the term \"color\" refers to the absence of it i.e., an ideal diamond is entirely colorless and the most expensive one.</li><li>Even though colorless diamonds are the most common, diamonds can be found in almost every shade of a rainbow. These diamonds are an exception to the norm of being ideally colorless and are available in a variety of popular colors, including a combination of pink, green, orange, blue, yellow, red, and brown. Yellow is the most common natural color of a diamond, while white, red, blue, and green diamonds are very rare.</li><li>The typical color grading of diamonds refers to the absence of colors. The lower the color, the higher the color grade. Fancy colored diamonds are valued and graded differently than colorless diamonds. As per the Gemological Institute of America (GIA), diamond hues are graded on a D-Z scale, with D being entirely colorless (most expensive) and Z having a heavy yellow tint.</li></ul>",
+            "text_style": "body"
+          }
+        },
+        "caption_rHbfzh": {
+          "type": "caption",
+          "settings": {
+            "caption": "Buying Tips:  Choose diamonds weighing 0.50 to 0.75 carats as they are quite desirable due to their size and value. Simply, your ideal carat depends on stone size, budget, and wearer’s finger.",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_hk3ptk",
+        "text_hBpgHR",
+        "caption_rHbfzh"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/2_2ca39475-8118-4d1d-904d-fbfd060c0e47.jpg",
+        "make_image_half_width": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ring_separator_MUUn8P": {
+      "type": "ring-separator",
+      "name": "Ring Separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "image_with_text_NYRxTn": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_ypX8xq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Carat",
+            "heading_size": "h1"
+          }
+        },
+        "text_ikQDWg": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Carat is a measurement of the diamond's real weight being the most visible factor that determines the diamond value. According to the GIA, one carat is 0.2 grammes or 100 points, which is about equivalent to the weight of a paper clip. A carat is further divided into 100 points, and this point system is used to weigh smaller diamonds. For instance, a diamond ring having a 50-point stone will weigh 0.50 carats. Provided, even a fraction of a carat may make a significant difference in the price of a diamond.<br/></li><li>Naturally, the greater the carat weight, the higher the price. However, two diamonds with the same carat will have different prices depending on the other 3 Cs. When sparkle is your top priority, start with the cut, color, clarity, and carat weight.</li></ul>",
+            "text_style": "body"
+          }
+        },
+        "caption_kAhF6P": {
+          "type": "caption",
+          "settings": {
+            "caption": "Buying Tips: Choose diamonds weighing 0.50 to 0.75 carats as they are quite desirable due to their size and value. Simply, your ideal carat depends on stone size, budget, and wearer’s finger.",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ypX8xq",
+        "text_ikQDWg",
+        "caption_kAhF6P"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/3_1b2e74fe-7ee7-44a2-b13d-726adf76963f.jpg",
+        "make_image_half_width": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "promotion_banner_TQKMTB": {
+      "type": "promotion-banner",
+      "name": "t:sections.promotion-banner.name",
+      "settings": {
+        "heading": "Promotion Banner",
+        "image": "shopify://shop_images/1800x300_everything-you-must-know-about-lab-diamond-carats.png",
+        "image_link": "",
+        "open_new_window": false,
+        "image_overlay_opacity": 0,
+        "content_position": "center",
+        "content_horizontal": 50,
+        "content_vertical": 50,
+        "position_content_mobile": "center",
+        "content_alignment": "center",
+        "overlay_content_on_image": false,
+        "show_hero": false,
+        "full_width": true,
+        "padding_full_width": false,
+        "adapt_corners_desktop": true,
+        "rounded_corner_image": false,
+        "desktop_height": "natural",
+        "padding_top": 20,
+        "padding_bottom": 28,
+        "full_width_mobile": true,
+        "adapt_corners_mobile": true,
+        "rounded_corner_image_mobile": false,
+        "mobile_height": "natural",
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "ring_separator_TNyY8a": {
+      "type": "ring-separator",
+      "name": "Ring Separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "promotion_banner_hBEGft",
+    "image_with_text_nNWtJL",
+    "image_with_text_dbCme3",
+    "ring_separator_XJUHhV",
+    "image_with_text_KRPYcw",
+    "ring_separator_nNUTKx",
+    "image_with_text_nNGiNn",
+    "ring_separator_MUUn8P",
+    "image_with_text_NYRxTn",
+    "promotion_banner_TQKMTB",
+    "ring_separator_TNyY8a"
+  ]
+}

@@ -1,0 +1,150 @@
+.mega-menu {
+  position: static;
+}
+
+.mega-menu__content {
+  background-color: rgb(var(--color-background));
+  border-left: 0;
+  border-radius: 0;
+  border-right: 0;
+  left: 0;
+  overflow-y: auto;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+
+.shopify-section-header-sticky .mega-menu__content {
+  max-height: calc(100vh - var(--header-bottom-position-desktop, 20rem) - 4rem);
+}
+
+.header-wrapper--border-bottom .mega-menu__content {
+  border-top: 0;
+}
+
+.js .mega-menu__content {
+  opacity: 0;
+  transform: translateY(-1.5rem);
+}
+
+.mega-menu[open] .mega-menu__content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mega-menu__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+  padding: 0 2.8rem;
+}
+
+.mega-menu__list {
+  display: grid;
+  flex: 1;
+  gap: 1.8rem 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  list-style: none;
+  padding: 0;
+}
+
+.mega-menu__list > li {
+  position: relative;
+}
+
+.mega-menu__link {
+  align-items: center;
+  display: flex;
+  gap: 0.8rem;
+  padding-bottom: 1.2rem;
+  padding-top: 1.2rem;
+  text-decoration: none;
+  transition: text-decoration var(--duration-short) ease;
+  word-wrap: break-word;
+  color: #817676;
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 114.286% */
+  letter-spacing: 0.56px;
+  white-space: nowrap;
+}
+
+.mega-menu__link--level-2 {
+  color: #000;
+}
+
+.mega-menu__promo {
+  flex: 0 0 26rem;
+  width: 26rem;
+}
+
+.mega-menu__promo-image-link {
+  display: block;
+}
+
+.mega-menu__promo-image {
+  border-radius: var(--inputs-radius, 0);
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.mega-menu__promo-caption {
+  margin: 1rem 0 -1rem 0;
+  color: #1A1A1A;
+  font-family: "Helvetica Neue";
+  font-size: 8px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.mega-menu__promo-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  color: #7A3717;
+  text-align: center;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 12px;
+  border: 1px solid #FBE284;
+  padding: 0.8rem 1.8rem;
+  background: none;
+  text-decoration: none;
+}
+
+.header--top-center .mega-menu__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 0;
+}
+
+.header--top-center .mega-menu__list > li {
+  width: 16%;
+  padding-right: 2.4rem;
+}
+
+.mega-menu__link:hover,
+.mega-menu__link--active {
+  text-decoration: underline;
+}
+
+.mega-menu__link--active:hover {
+  text-decoration-thickness: 0.2rem;
+}
+
+.mega-menu .mega-menu__list--condensed {
+  display: block;
+}
+
+.mega-menu__list--condensed .mega-menu__link {
+  font-weight: normal;
+}

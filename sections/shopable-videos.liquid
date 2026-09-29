@@ -1,0 +1,451 @@
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__heading {
+    color: rgb(var(--color-foreground));
+    font-family: "Lovan";
+    font-size: 58px;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    text-align:center;
+    margin:0 0 5.8rem 0;
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__slider {
+    position: relative;
+  }
+
+  #ShopableVideos-{{ section.id }} .swiper {
+    overflow: hidden;
+  }
+
+  #ShopableVideos-{{ section.id }} .swiper-slide {
+    height: auto;
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__card-wrapper {
+    position: relative;
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__card {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    background: rgba(var(--color-foreground), 0.06);
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__video,
+  #ShopableVideos-{{ section.id }} .shopable-videos__video video,
+  #ShopableVideos-{{ section.id }} .shopable-videos__video img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Overlays the video so the whole card is clickable. Sits below the
+     product card (z-index: 2), which is a sibling rendered after it, so
+     the product card's own link still takes priority over this one where
+     they overlap. */
+  #ShopableVideos-{{ section.id }} .shopable-videos__video-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display:block;
+  }
+
+  /* Default (product_card_position == 'inside'): product card overlaid
+     inside the video, bottom-left. .shopable-videos__product is a sibling
+     of .shopable-videos__card (not nested inside it), since .card clips
+     with overflow:hidden — absolute-positioning the product against the
+     shared .card-wrapper visually places it "inside" without being subject
+     to that clipping. */
+  #ShopableVideos-{{ section.id }} .shopable-videos__product {
+    position: absolute;
+    left: 1.2rem;
+    right: 1.2rem;
+    bottom: 1.2rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+    color: #1a1410;
+  }
+
+  /* product_card_position == 'outside': product sits below the video instead,
+     in normal flow (position:static removes it from the overlay context). */
+  #ShopableVideos-{{ section.id }}.shopable-videos--product-outside .shopable-videos__product {
+    position: static;
+    margin-top: 1.5rem;
+    padding: 0 1.2rem;
+    border-radius: 0;
+    background: none;
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__product-image {
+    flex-shrink: 0;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 1.6rem;
+    overflow: hidden;
+    background: rgba(var(--color-foreground), 0.06);
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__product-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__product-info {
+    min-width: 0;
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__product-title {
+    margin: 0;
+    font-family: "Helvetica Neue";
+    font-size: 1.2rem;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    color:#3F3B3C;
+  }
+
+  #ShopableVideos-{{ section.id }} .price--on-sale .price__sale {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #ShopableVideos-{{ section.id }} .shopable-videos__product-info .price {
+    color: #7A3717;
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.96px;
+  }
+
+  #ShopableVideos-{{ section.id }} .price--on-sale .price-item--regular {
+    color: #9B9B9B;
+    font-family:  "Helvetica Neue";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; 
+    letter-spacing: 0.56px;
+    text-decoration-line: line-through;
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+    background: #FCF2F2;
+    color: #7A3717;
+    border: none;
+    box-shadow: 0 2px 10px 0 rgba(26, 20, 16, 0.15);
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__nav-button.swiper-button-prev {
+    left: 3rem;
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__nav-button.swiper-button-next {
+    right: 3rem;
+    transform: translateY(-50%) rotate(-90deg);
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__nav-button:after {
+    content: none;
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__nav-button .svg-wrapper {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  #ShopableVideos-{{ section.id }} .shopable-videos__nav-button.swiper-button-disabled {
+    opacity: 0.4;
+  }
+
+  @media screen and (max-width: 749px) {
+    #ShopableVideos-{{ section.id }} .shopable-videos__heading {
+      font-size: 4.8rem;
+      margin:0 0 3.6rem 0;
+    }
+    #ShopableVideos-{{ section.id }} .shopable-videos__nav-button {
+      display: none;
+    }
+    #ShopableVideos-{{ section.id }} .shopable-videos__product-info .price {
+      font-size:18px;
+    }
+    #ShopableVideos-{{ section.id }} .price--on-sale .price-item--regular {
+      font-size:12px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div
+    id="ShopableVideos-{{ section.id }}"
+    class="page-width{% if section.settings.product_card_position == 'outside' %} shopable-videos--product-outside{% endif %}"
+  >
+    {%- if section.settings.heading != blank -%}
+      <h2 class="shopable-videos__heading inline-richtext">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="shopable-videos__slider">
+        <swiper-component
+          class="shopable-videos__swiper"
+          data-nav-root="#ShopableVideos-{{ section.id }}"
+          data-loop="{{ section.settings.loop }}"
+          data-autoplay="{{ section.settings.autoplay }}"
+          data-autoplay-speed="{{ section.settings.autoplay_speed | times: 1000 }}"
+          data-slides-mobile="1.4"
+          data-slides-tablet="2.4"
+          data-slides-desktop="{{ section.settings.cards_desktop }}"
+          data-space-between="16"
+        >
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                {%- liquid
+                  assign card_product = block.settings.product
+                -%}
+                <div class="swiper-slide" {{ block.shopify_attributes }}>
+                  <div class="shopable-videos__card-wrapper">
+                    <div class="shopable-videos__card">
+                      <div class="shopable-videos__video">
+                        {%- if block.settings.video != blank -%}
+                          {{
+                            block.settings.video
+                            | video_tag:
+                              image_size: '800x',
+                              autoplay: true,
+                              loop: true,
+                              controls: false,
+                              muted: true
+                          }}
+                        {%- elsif card_product.featured_image != blank -%}
+                          {{
+                            card_product.featured_image
+                            | image_url: width: 800
+                            | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 25vw, 70vw', widths: '375, 550, 750, 800'
+                          }}
+                        {%- else -%}
+                          {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                        {%- endif -%}
+                      </div>
+                      {%- if block.settings.video_link != blank -%}
+                        <a
+                          href="{{ block.settings.video_link }}"
+                          class="shopable-videos__video-link"
+                          aria-label="{{ card_product.title | default: 'View video' | escape }}"
+                        ></a>
+                      {%- endif -%}
+                    </div>
+
+                    {%- if card_product != blank -%}
+                      <a href="{{ card_product.url }}" class="shopable-videos__product" aria-label="{{ card_product.title | escape }}">
+                        <span class="shopable-videos__product-image">
+                          {%- if card_product.featured_image != blank -%}
+                            {{ card_product.featured_image | image_url: width: 120 | image_tag: loading: 'lazy', sizes: '40px', widths: '40, 80, 120' }}
+                          {%- else -%}
+                            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                          {%- endif -%}
+                        </span>
+                        <span class="shopable-videos__product-info">
+                          <p class="shopable-videos__product-title">{{ card_product.title | escape }}</p>
+                          {% render 'price', product: card_product, use_variant: true, show_compare_at_price: true, price_class: 'price--small' %}
+                        </span>
+                      </a>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+
+          {%- if section.blocks.size > 1 and section.settings.show_navigation -%}
+            <button type="button" class="swiper-button-prev shopable-videos__nav-button" aria-label="Previous video">
+              <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+            </button>
+            <button type="button" class="swiper-button-next shopable-videos__nav-button" aria-label="Next video">
+              <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+            </button>
+          {%- endif -%}
+        </swiper-component>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Shopable videos",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 12,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "We Value YOOU",
+      "label": "Heading"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "cards_desktop",
+      "min": 2,
+      "max": 5,
+      "step": 0.5,
+      "default": 4,
+      "label": "Cards on desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop slides",
+      "default": false,
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 3,
+      "max": 9,
+      "step": 2,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show navigation arrows",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "product_card_position",
+      "options": [
+        { "value": "inside", "label": "Inside video" },
+        { "value": "outside", "label": "Below video" }
+      ],
+      "default": "inside",
+      "label": "Product card position"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Falls back to the product's image if left blank."
+        },
+        {
+          "type": "url",
+          "id": "video_link",
+          "label": "Video link",
+          "info": "Makes the video itself clickable. Where it overlaps the product card below, the product card's link takes priority."
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product",
+          "info": "Shown as a tappable card over the video; links to the product page."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shopable videos",
+      "blocks": [
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" }
+      ]
+    }
+  ]
+}
+{% endschema %}

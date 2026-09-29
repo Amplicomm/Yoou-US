@@ -1,0 +1,47 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        ".page__container {display: flex; justify-content: center; align-items: center; flex-direction: column;}",
+        ".page__body-container {margin-bottom: 80px; max-width: var(--max-width-page-container); display: flex; flex-direction: column; justify-content: center; align-items: center;}",
+        ".anm-fade-paragraph .anm-fade-element {--fade-translate-y: 20px; display: flex; flex-direction: column;}"
+      ],
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ring_separator_x7WfnQ": {
+      "type": "ring-separator",
+      "name": "Ring Separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "custom_liquid_xXwmFX": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "<style>\n#address_search{\npadding: inherit;\nborder: none;\n}\n#submitBtn{\nbackground: #5c2d91;\n    color: white;\n    padding: inherit;\n    border: none;\n    border-radius: 7px;\ncursor: pointer;\n}\n#submitBtn:hover{\nbackground:black;\n}\n#store-locator-title {\n  text-align: center;\n}\n.store_website {\n  display: none;\n}\n.addresses li a {\n  margin-bottom: 0px !important;\n}\n.show-addresses .search_bar {\n  padding: 50px 20px;\n}\n.search_bar {\n  background: none;\n}\n.show-addresses {\n  background: #faf6ee;\n}\n#addresses_list {\n  background: white;\n}\n#within_distance,\n#limit,\n#address_search,\n#submitBtn {\n  flex-grow: 0.1 !important;\n}\n.distance_label,\n.search_limit_label,\n#limit,\n#within_distance {\n  display: none !important;\n}\n.main_search_label {\n  text-align: center;\n}\n.search_options {\n  justify-content: center;\n}\n</style>",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ring_separator_x7WfnQ",
+    "custom_liquid_xXwmFX"
+  ]
+}

@@ -1,0 +1,498 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "promotion_banner_ewR8Uf": {
+      "type": "promotion-banner",
+      "name": "Promotion Banner",
+      "settings": {
+        "heading": "Promotion Banner",
+        "image": "shopify://shop_images/gemstone_banner.jpg",
+        "image_mobile": "shopify://shop_images/gemstone_banner.jpg",
+        "image_link": "",
+        "open_new_window": false,
+        "image_overlay_opacity": 0,
+        "content_position": "center",
+        "content_horizontal": 50,
+        "content_vertical": 50,
+        "position_content_mobile": "center",
+        "content_alignment": "center",
+        "show_hero": false,
+        "full_width": true,
+        "padding_full_width": false,
+        "adapt_corners_desktop": true,
+        "rounded_corner_image": false,
+        "desktop_height": "750px",
+        "padding_top": 0,
+        "padding_bottom": 28,
+        "full_width_mobile": true,
+        "adapt_corners_mobile": true,
+        "rounded_corner_image_mobile": false,
+        "mobile_height": "400px",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "rich_text_bcFDhz": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WdzLTB": {
+          "type": "heading",
+          "settings": {
+            "heading": "What are Gemstones?",
+            "heading_size": "h1"
+          }
+        },
+        "text_pVVFG4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Gemstones are minerals, rocks, or organic materials that have been picked out for their appeal, toughness, and rarity before being faceted, polished, or carved into jewellery or other wearable accessories for humans. Most gemstones are hard, but some are too soft or fragile to be used in jewelry. Because of this, they are often shown in museums and sought after by people who are interested in them. The four most desired precious gemstones are diamonds, sapphires, emeralds, and rubies.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WdzLTB",
+        "text_pVVFG4"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_R4XFRE": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_G6rLJf": {
+          "type": "heading",
+          "settings": {
+            "heading": "How to Buy Gemstones?",
+            "heading_size": "h1"
+          }
+        },
+        "text_QnyMNc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Since antiquity, gemstones have been used for both astrological and ornamental reasons. Shopping for a gemstone may be an exhilarating experience because of its mysterious origins, unparalleled beauty, and array of colors. Generally, gemstones with clear, medium-tone, intense, and saturated primary colors are most preferred. When choosing a rare and expensive gemstone from a recognized origin, one should be extremely cautious and rely solely on certificates given by prominent gem labs such as IGI, GTL, GIA, GRS, etc. Color, clarity, cut, and carat weight are some of the additional conventional factors considered while purchasing a gemstone. All the gemstones present in the inventory of PNG Jewellers are carefully examined by our expert gemologist. We therefore guarantee the excellence and authenticity of the gemstones on our website.<br/><br/></p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_G6rLJf",
+        "text_QnyMNc"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/diamond_know_2.png",
+        "make_image_half_width": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ring_separator_QpnYJr": {
+      "type": "ring-separator",
+      "name": "Ring Separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "text_column_with_image_tXb7Hf": {
+      "type": "text-column-with-image",
+      "blocks": {
+        "column_4LcBGx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/variety.webp",
+            "image_link": "",
+            "open_new_window_image": false,
+            "sub_title": "",
+            "title": "Ruby – The Romantic Gem",
+            "highlight_type": "underline",
+            "heading_size": 100,
+            "text": "<p>Ruby is one of the top three gemstones, along with emeralds and sapphires. Historically, rubies have had a lofty position in the hearts of jewellery</p>",
+            "button_label": "",
+            "button_link": "",
+            "open_new_window": false,
+            "show_button_style": "primary"
+          }
+        },
+        "column_xxrg77": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/variety_3.webp",
+            "image_link": "",
+            "open_new_window_image": false,
+            "sub_title": "",
+            "title": "Emerald – The Original Royal",
+            "highlight_type": "underline",
+            "heading_size": 100,
+            "text": "<p>Emeralds are one of the three most coveted gemstones, along with rubies and sapphires, due to their versatile green hue.</p>",
+            "button_label": "",
+            "button_link": "",
+            "open_new_window": false,
+            "show_button_style": "primary"
+          }
+        },
+        "column_6fwrpD": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/variety_4.webp",
+            "image_link": "",
+            "open_new_window_image": false,
+            "sub_title": "",
+            "title": "Diamond – The Forever Gem",
+            "highlight_type": "underline",
+            "heading_size": 100,
+            "text": "<p>Possessing the highest shine of all transparent gemstones, a diamond is the hardest material on earth that can only be scratched with another</p>",
+            "button_label": "",
+            "button_link": "",
+            "open_new_window": false,
+            "show_button_style": "primary"
+          }
+        },
+        "column_DdYdBH": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/variety_2.webp",
+            "image_link": "",
+            "open_new_window_image": false,
+            "sub_title": "",
+            "title": "Sapphire - The Prosperity Gem",
+            "highlight_type": "underline",
+            "heading_size": 100,
+            "text": "<p>Sapphire is one of the \"big three\" gems, along with rubies and emeralds. Sapphire comes from the Sanskrit term 'Shanipriya,' which means \"beloved</p>",
+            "button_label": "",
+            "button_link": "",
+            "open_new_window": false,
+            "show_button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "column_4LcBGx",
+        "column_xxrg77",
+        "column_6fwrpD",
+        "column_DdYdBH"
+      ],
+      "name": "t:sections.text-column-image.name",
+      "settings": {
+        "class_name": "",
+        "title": "Precious Stones",
+        "heading": "",
+        "highlight_type": "underline",
+        "heading_size": 100,
+        "heading_tag": "h2",
+        "secondary_background": "column",
+        "image_ratio": "75%",
+        "adapt_corners": false,
+        "rounded_corner_image": true,
+        "column_content_alignment": "center",
+        "background_color_light": "rgba(0,0,0,0)",
+        "heading_light": "rgba(0,0,0,0)",
+        "text_light": "rgba(0,0,0,0)",
+        "color_heading_highlight_light": "rgba(0,0,0,0)",
+        "background_color_dark": "rgba(0,0,0,0)",
+        "heading_dark": "rgba(0,0,0,0)",
+        "text_dark": "rgba(0,0,0,0)",
+        "color_heading_highlight_dark": "rgba(0,0,0,0)",
+        "enable_desktop_slider": false,
+        "swiper_on_mobile": true,
+        "enable_arrow_mobile": false,
+        "auto_play": true,
+        "change_bar_every": 5,
+        "image_position_desktop": "top",
+        "column_layout_desktop": "lg:w-1/4",
+        "spacing_desktop": 28,
+        "full_width": false,
+        "padding_full_width": false,
+        "show_section_divider": false,
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "image_position_mobile": "top",
+        "column_layout_mobile": "w-full",
+        "spacing_mobile": 16,
+        "full_width_mobile": false,
+        "show_section_divider_mobile": false,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "view_all_link": "",
+        "view_all_label": "View All"
+      }
+    },
+    "ring_separator_Qd4f6y": {
+      "type": "ring-separator",
+      "name": "Ring Separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "video_with_text_9F3TeF": {
+      "type": "video-with-text",
+      "name": "t:sections.video_hero.name",
+      "settings": {
+        "sub_heading_video": "",
+        "heading": "",
+        "highlight_type": "underline",
+        "heading_size_video": 100,
+        "heading_tag": "h2",
+        "text": "",
+        "text_size": 100,
+        "overlay_opacity": 0,
+        "button_label": "",
+        "show_button_style": "primary",
+        "button_link": "",
+        "open_new_window": false,
+        "content_position": "center",
+        "content_horizontal": 50,
+        "content_vertical": 44,
+        "content_alignment": "center",
+        "show_sound_control": false,
+        "video_url": "https://youtu.be/9Yw5ZL8jcF8",
+        "video_alt_text": "",
+        "mobile_video_url": "",
+        "color_button": "rgba(0,0,0,0)",
+        "color_text_button": "rgba(0,0,0,0)",
+        "color_button_hover": "rgba(0,0,0,0)",
+        "color_text_button_hover": "rgba(0,0,0,0)",
+        "color_button_secondary": "rgba(0,0,0,0)",
+        "secondary_button_text": "rgba(0,0,0,0)",
+        "colors_text_link": "rgba(0,0,0,0)",
+        "full_width": true,
+        "adapt_corners_desktop": true,
+        "rounded_corners": true,
+        "video_desktop_height": "100",
+        "top_padding": 20,
+        "bottom_padding": 20,
+        "full_width_mobile": true,
+        "adapt_corners_mobile": true,
+        "rounded_corners_mobile": false,
+        "video_mobile_height": "100",
+        "top_padding_mobile": 12,
+        "bottom_padding_mobile": 12
+      }
+    },
+    "ring_separator_LiXHwE": {
+      "type": "ring-separator",
+      "name": "Ring Separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "rich_text_JKPpwL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_J3QUJb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Birthstones for your Birthmonths!",
+            "heading_size": "h1"
+          }
+        },
+        "text_TeyVUJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Birthstones are a fun, popular, and colorful introduction to the world of gemstones. They appeal to audiences around the world regardless of gender, age, nationality, or religion. Birthstones carry secrets, attributes, and lore that are unique to each gem</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_J3QUJb",
+        "text_TeyVUJ"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "birthstone_tabs_kRCTqw": {
+      "type": "birthstone-tabs",
+      "blocks": {
+        "month_cDbU3T": {
+          "type": "month",
+          "settings": {
+            "month_name": "january",
+            "gemstone_image": "shopify://shop_images/January-Garnet-Small-3.png",
+            "gemstone_name": "garnet",
+            "description": "<p>Birthstone Overview</p><p>Garnet, January’s birthstone, is one of the most diverse gemstones, as it comes in an extraordinary range of colors. The garnet birthstone is mined around the world and symbolizes many different positive emotions. Learn more about this unique birthstone.<a href=\"https://www.gia.edu/birthstones#gem-4\"><br/><br/></a></p>"
+          }
+        },
+        "month_Uc8KLx": {
+          "type": "month",
+          "settings": {
+            "month_name": "February",
+            "gemstone_image": "shopify://shop_images/February-Amethyst-Small.png",
+            "gemstone_name": "amethyst",
+            "description": "<p>Birthstone Overview</p><p>Amethyst, the February birthstone, is the purple variety of quartz and is said to cure drunkenness and make you quick-witted in business. You once had to be rich to own this birthstone for February, but new finds have made it more affordable. Learn more about this stunning birthstone and where it can be found.</p>"
+          }
+        },
+        "month_fPqFLy": {
+          "type": "month",
+          "settings": {
+            "month_name": "March",
+            "gemstone_image": "shopify://shop_images/March-Aquamarine-Bloodstone-Small.png",
+            "gemstone_name": "aquamarine and bloodstone",
+            "description": "<p>Birthstone Overview</p><p>Aquamarine and bloodstone are the two birthstones for March. One evokes blue skies and calming waters while the other represents health and strength. Learn more about these two March birthstones and where they can be found.</p>"
+          }
+        },
+        "month_NgQJCE": {
+          "type": "month",
+          "settings": {
+            "month_name": "April",
+            "gemstone_image": "shopify://shop_images/April-Diamond-Small.png",
+            "gemstone_name": "diamond",
+            "description": "<p>Birthstone Overview</p><p>Those born in the month of April are lucky enough to call the diamond, a scintillating stone, their birthstone. The April birthstone is also rich in history and can be found in many unique places. Learn more so that you can choose the perfect one yourself or a loved one.</p>"
+          }
+        },
+        "month_PiWyaD": {
+          "type": "month",
+          "settings": {
+            "month_name": "May",
+            "gemstone_image": "shopify://shop_images/May-Emerald-Small.png",
+            "gemstone_name": "emerald",
+            "description": "<p>Birthstone Overview</p><p>Emerald is the May birthstone – and it’s a perfect choice. Its enchanting greens mirror the splendor of spring. Few places on earth have the geological conditions needed to produce the coveted May birthstone. Learn about the history of emeralds and the exotic locations where emeralds can be fo</p>"
+          }
+        },
+        "month_nzMtkJ": {
+          "type": "month",
+          "settings": {
+            "month_name": "June",
+            "gemstone_image": "shopify://shop_images/June-Pearl-Moonstone-Alexandrite-Small.png",
+            "gemstone_name": "pearl, alexandrite and moonstone",
+            "description": "<p>Birthstone Overview</p><p>Pearl, alexandrite and moonstone are the three birthstones for June. Learn about their history and where these three June birthstones can be found, so that you can buy the perfect June birthstone for yourself or a loved one</p>"
+          }
+        },
+        "month_79UHdW": {
+          "type": "month",
+          "settings": {
+            "month_name": "July",
+            "gemstone_image": "shopify://shop_images/July-Ruby-Small.png",
+            "gemstone_name": "ruby",
+            "description": "<p>Birthstone Overview</p><p>Ruby, the king of precious gems represents passion, love and success. Shopping for ruby, the July birthstone? Learn about its history, origins, care and cleaning, and where they can be found in order to help you pick the right one for yourself or a loved one. </p>"
+          }
+        },
+        "month_4MD9aF": {
+          "type": "month",
+          "settings": {
+            "month_name": "August",
+            "gemstone_image": "shopify://shop_images/August-Peridot-Spinel-Small.png",
+            "gemstone_name": "peridot, spinel and sardonyx",
+            "description": "<p>Birthstone Overview</p><p>If you were born in August then you have a plethora of birthstones to choose from. Peridot, spinel and sardonyx are the three birthstones for August and they come in a variety of shapes and colors. Learn more about these three august birthstones and discover their meanings and where they can be found in the world.</p>"
+          }
+        },
+        "month_a6fLQB": {
+          "type": "month",
+          "settings": {
+            "month_name": "September",
+            "gemstone_image": "shopify://shop_images/September-Sapphire-Small.png",
+            "gemstone_name": "sapphire",
+            "description": "<p>Birthstone Overview</p><p>Sapphire, the September birthstone comes in all the colors of the rainbow – except red. Learn more about the birthstone of wisdom, loyalty and nobility and discover its history and where it can be foun</p>"
+          }
+        },
+        "month_J4yKj3": {
+          "type": "month",
+          "settings": {
+            "month_name": "October",
+            "gemstone_image": "shopify://shop_images/October-Opal-Tourmaline-Small.png",
+            "gemstone_name": "opal and tourmaline",
+            "description": "<p>Birthstone Overview</p><p>Opal and tourmaline are the two birthstones for October. Both of these gemstones are known for their endless color combinations and are believed to have been created from rainbows. Learn more about these two birthstones for October and discover their meanings and where they can be found.</p>"
+          }
+        },
+        "month_3geyDK": {
+          "type": "month",
+          "settings": {
+            "month_name": "November",
+            "gemstone_image": "shopify://shop_images/November-Topaz-Citrine-Small.png",
+            "gemstone_name": "topaz and citrine",
+            "description": "<p>Birthstone Overview</p><p>Topaz and citrine are the two birthstones for November. Both are fairly abundant making them affordably priced. These two November birthstones are known for their calming energies and can be found around the world. Learn more about these birthstones so that you can pick the perfect one for yourself or a loved one</p>"
+          }
+        },
+        "month_diVCkj": {
+          "type": "month",
+          "settings": {
+            "month_name": "December",
+            "gemstone_image": "shopify://shop_images/December-Turquoise-Tanzanite-Zircon-Small.png",
+            "gemstone_name": "tanzanite, turquoise and zircon",
+            "description": "<p>Birthstone Overview</p><p>Turquoise, tanzanite and zircon are the three birthstones for December. These December birthstones are mined around the world and all have their own unique take on the color blue, allowing you to choose the birthstone that best fits your style. Learn more about their history and where they can be found</p>"
+          }
+        }
+      },
+      "block_order": [
+        "month_cDbU3T",
+        "month_Uc8KLx",
+        "month_fPqFLy",
+        "month_NgQJCE",
+        "month_PiWyaD",
+        "month_nzMtkJ",
+        "month_79UHdW",
+        "month_4MD9aF",
+        "month_a6fLQB",
+        "month_J4yKj3",
+        "month_3geyDK",
+        "month_diVCkj"
+      ],
+      "settings": {
+        "title": "",
+        "color_scheme": "light",
+        "background_color": "rgba(0,0,0,0)",
+        "text_color": "#000000",
+        "active_tab_color": "#f5f5f5",
+        "content_background": "#f5f5f5",
+        "padding_top": 36,
+        "padding_bottom": 52,
+        "tab_image_size": 100,
+        "content_image_size": 200
+      }
+    }
+  },
+  "order": [
+    "main",
+    "promotion_banner_ewR8Uf",
+    "rich_text_bcFDhz",
+    "image_with_text_R4XFRE",
+    "ring_separator_QpnYJr",
+    "text_column_with_image_tXb7Hf",
+    "ring_separator_Qd4f6y",
+    "video_with_text_9F3TeF",
+    "ring_separator_LiXHwE",
+    "rich_text_JKPpwL",
+    "birthstone_tabs_kRCTqw"
+  ]
+}

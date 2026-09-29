@@ -1,0 +1,145 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "promotion_banner_dJLDDX": {
+      "type": "promotion-banner",
+      "custom_css": [],
+      "name": "t:sections.promotion-banner.name",
+      "settings": {
+        "heading": "Promotion Banner",
+        "image": "shopify://shop_images/book_appintment.jpg",
+        "image_mobile": "shopify://shop_images/book_appintment.jpg",
+        "image_link": "",
+        "open_new_window": false,
+        "image_overlay_opacity": 0,
+        "content_position": "center",
+        "content_horizontal": 50,
+        "content_vertical": 50,
+        "position_content_mobile": "center",
+        "content_alignment": "center",
+        "overlay_content_on_image": false,
+        "show_hero": false,
+        "full_width": true,
+        "padding_full_width": false,
+        "adapt_corners_desktop": false,
+        "rounded_corner_image": false,
+        "desktop_height": "natural",
+        "padding_top": 0,
+        "padding_bottom": 28,
+        "full_width_mobile": true,
+        "adapt_corners_mobile": false,
+        "rounded_corner_image_mobile": false,
+        "mobile_height": "natural",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "ring_separator_ima8KJ": {
+      "type": "ring-separator",
+      "name": "Ring Separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "two_column_content_kYmqaK": {
+      "type": "two-column-content",
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.form-container {height: 900px !important; } .form-container iframe {height: 900px !important; }}"
+      ],
+      "settings": {
+        "color_scheme": "background-primary",
+        "show_left_column": true,
+        "left_column_width": 50,
+        "right_column_width": 50,
+        "image_position": "middle",
+        "image_vertical_align": "center",
+        "image_size": "small",
+        "left_column_heading": "How does it works",
+        "heading_size": "medium",
+        "left_column_text": "",
+        "text_size": "large",
+        "block_1_heading": "",
+        "block_1_text": "Fill out the form and choose the desired shop with the date and time you intend to visit for your appointment.",
+        "block_1_icon": "shopify://shop_images/svgviewer-png-output.png",
+        "block_1_icon_size": "large",
+        "block_2_heading": "",
+        "block_2_text": "Our store manager will call you to confirm your visit and direct you to the store address.",
+        "block_2_icon": "shopify://shop_images/svgviewer-png-output_1.png",
+        "block_2_icon_size": "large",
+        "block_3_heading": "",
+        "block_3_text": "<p>Our Jewellery Expert will individually guide you through the jewellery you wish to purchase in the store. It's free, and there's no pressure to buy!</p>",
+        "block_3_icon": "shopify://shop_images/svgviewer-png-output_2.png",
+        "block_3_icon_size": "large",
+        "block_4_heading": "",
+        "block_4_text": "",
+        "block_4_icon_size": "medium",
+        "block_5_heading": "",
+        "block_5_text": "",
+        "block_5_icon_size": "medium",
+        "block_6_heading": "",
+        "block_6_text": "",
+        "block_6_icon_size": "medium",
+        "form_heading": "",
+        "form_id": "QxKK4CpBnWXAvth0Zsyt5w",
+        "form_height": 700,
+        "form_color_scheme": "background-primary"
+      }
+    },
+    "ring_separator_x7yw9T": {
+      "type": "ring-separator",
+      "name": "Ring Separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "rich_text_DcPcbn": {
+      "type": "rich-text",
+      "blocks": {
+        "text_JFMMdm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At YOOU by PNG, your safety is of the highest priority.</p><p>To guarantee a risk-free and satisfying shopping experience for our customers, we take every effort possible to keep our shops clean, well-lit, and free of potentially dangerous conditions.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_JFMMdm"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "promotion_banner_dJLDDX",
+    "ring_separator_ima8KJ",
+    "two_column_content_kYmqaK",
+    "ring_separator_x7yw9T",
+    "rich_text_DcPcbn"
+  ]
+}

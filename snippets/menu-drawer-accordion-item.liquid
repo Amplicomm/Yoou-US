@@ -1,0 +1,146 @@
+{% comment %}
+  Renders a single top-level row of the mobile drawer's accordion menu, plus any
+  mobile menu banner block configured to show directly above it.
+
+  Accepts:
+  - link: {Object} a top-level menu link
+  - is_first: {Boolean} whether this row should render pre-opened
+
+  Usage:
+  {% render 'menu-drawer-accordion-item', link: link, is_first: is_first %}
+{% endcomment %}
+{%- liquid
+  assign link_title_key = link.title | strip | downcase
+  assign mobile_menu_banner = blank
+  for block in section.blocks
+    if block.type == 'mobile_menu_banner' and block.settings.before_menu_title != blank
+      assign banner_title_key = block.settings.before_menu_title | strip | downcase
+      if banner_title_key == link_title_key
+        assign mobile_menu_banner = block
+      endif
+    endif
+  endfor
+-%}
+{%- if mobile_menu_banner != blank and mobile_menu_banner.settings.image != blank -%}
+  {%- assign banner_image_alt = mobile_menu_banner.settings.image.alt | escape -%}
+  <li class="menu-drawer__banner">
+    <a
+      href="{{ mobile_menu_banner.settings.link | default: '#' }}"
+      class="menu-drawer__banner-link"
+      {% if mobile_menu_banner.settings.link == blank %}
+        tabindex="-1"
+        aria-hidden="true"
+      {% endif %}
+    >
+      {{
+        mobile_menu_banner.settings.image
+        | image_url: width: 600
+        | image_tag:
+          loading: 'lazy',
+          alt: banner_image_alt,
+          class: 'menu-drawer__banner-image',
+          sizes: '(min-width: 750px) 40rem, 100vw',
+          widths: '400, 600, 800'
+      }}
+    </a>
+  </li>
+{%- endif -%}
+<li>
+  {%- if link.links != blank -%}
+    <details
+      id="Details-menu-drawer-accordion-{{ link.handle }}"
+      class="menu-drawer__accordion-item"
+    >
+      <summary
+        id="HeaderDrawer-{{ link.handle }}"
+        class="menu-drawer__accordion-summary{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
+      >
+        <a
+          href="{{ link.url }}"
+          class="menu-drawer__accordion-summary-link focus-inset"
+          {% if link.current %}
+            aria-current="page"
+          {% endif %}
+        >
+          {{ link.title | escape }}
+        </a>
+        <span class="menu-drawer__accordion-icon">
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+        </span>
+      </summary>
+      <div class="menu-drawer__accordion-panel">
+        <ul class="menu-drawer__submenu-list list-unstyled" role="list">
+          {%- for childlink in link.links -%}
+            <li class="menu-drawer__submenu-item">
+              {%- if childlink.links != blank -%}
+                <details
+                  id="Details-menu-drawer-accordion-{{ link.handle }}-{{ childlink.handle }}"
+                  class="menu-drawer__accordion-item menu-drawer__accordion-item--nested"
+                >
+                  <summary
+                    id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
+                    class="menu-drawer__accordion-summary{% if childlink.child_active %} menu-drawer__menu-item--active{% endif %}"
+                  >
+                    <a
+                      href="{{ childlink.url }}"
+                      class="menu-drawer__accordion-summary-link focus-inset"
+                      {% if childlink.current %}
+                        aria-current="page"
+                      {% endif %}
+                    >
+                      {{ childlink.title | escape }}
+                    </a>
+                    <span class="menu-drawer__accordion-icon">
+                      {{- 'icon-caret.svg' | inline_asset_content -}}
+                    </span>
+                  </summary>
+                  <div class="menu-drawer__accordion-panel menu-drawer__accordion-panel--nested">
+                    <ul class="menu-drawer__subsubmenu-list list-unstyled" role="list">
+                      {%- for grandchildlink in childlink.links -%}
+                        <li>
+                          <a
+                            id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                            href="{{ grandchildlink.url }}"
+                            class="menu-drawer__subsubmenu-link link{% if grandchildlink.current %} menu-drawer__subsubmenu-link--active{% endif %}"
+                            {% if grandchildlink.current %}
+                              aria-current="page"
+                            {% endif %}
+                          >
+                            {{ grandchildlink.title | escape }}
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+                </details>
+              {%- else -%}
+                <a
+                  id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
+                  href="{{ childlink.url }}"
+                  class="menu-drawer__accordion-summary link link--text focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
+                  {% if childlink.current %}
+                    aria-current="page"
+                  {% endif %}
+                >
+                  {{ childlink.title | escape }}
+                </a>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+        {% render 'mega-menu-promo', link: link %}
+      </div>
+    </details>
+  {%- else -%}
+    <a
+      id="HeaderDrawer-{{ link.handle }}"
+      href="{{ link.url }}"
+      class="menu-drawer__accordion-summary link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
+      {% if link.current %}
+        aria-current="page"
+      {% endif %}
+    >
+      {{ link.title | escape }}
+    </a>
+  {%- endif -%}
+</li>

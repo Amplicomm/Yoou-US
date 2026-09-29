@@ -1,0 +1,170 @@
+{% comment %}
+  Renders the image + text content of a single "column" block for the
+  text-column-with-image section.
+  Accepts:
+  - block: {Block} the column block
+  - section: {Section} the parent section
+  - rounded_corners: {Boolean}
+  - check_padding_light: {Boolean}
+  - check_padding_dark: {Boolean}
+  Usage:
+  {% render 'text-column-with-image-card',
+    block: block,
+    section: section,
+    rounded_corners: rounded_corners,
+    check_padding_light: check_padding_light,
+    check_padding_dark: check_padding_dark
+  %}
+{% endcomment %}
+{%- liquid
+  assign base_size_heading = settings.heading_base_size | times: 0.0225
+  assign size_title = 2.4
+  assign columns_desktop = 1
+  if section.settings.column_layout_desktop == 'lg:w-1/2'
+    assign columns_desktop = 2
+  endif
+  if section.settings.column_layout_desktop == 'lg:w-1/3'
+    assign columns_desktop = 3
+  endif
+  if section.settings.column_layout_desktop == 'lg:w-1/4'
+    assign columns_desktop = 4
+  endif
+  assign columns_mobile = 1
+  if section.settings.column_layout_mobile == 'w-1/2'
+    assign columns_mobile = 2
+  endif
+  if section.settings.column_layout_mobile == 'w-1/3'
+    assign columns_mobile = 3
+  endif
+-%}
+{%- style -%}
+  .heading-{{ block.id }} {
+    font-size: {{ size_title | times: 0.8 }}rem;
+    margin: 0.4rem 0 0.4rem 0;
+    font-family:"lovan";
+  }
+  @media (min-width: 767px){
+    .heading-{{ block.id }} {
+      font-size: {{ size_title }}rem;
+    }
+  }
+{%- endstyle -%}
+<div
+  class="flex slide-border {% if section.settings.image_position_mobile == 'top' %}flex-col{% else %}flex-col-reverse{% endif %} {% if section.settings.image_position_desktop == 'top' %}md:flex-col{% else %}md:flex-col-reverse{% endif %} h-full{% if section.settings.secondary_background == "column" %} bg--{{ section.id }}{% endif %}{% if rounded_corners %} rounded-corners-{{ section.id }}{% endif %}"
+  {{ block.shopify_attributes }}
+>
+  <div
+    x-intersect.once.margin.-20px.0px.-20px.0px="$el.querySelector('.animate_transition_card__image')?.classList.add('active')"
+    class="x-block-twm-item-image overflow-hidden block h-0 relative w-full pb-[{{ section.settings.image_ratio }}] {% if section.settings.image_ratio == 'round' %} rounded-full pb-[100%]{% elsif rounded_corners %} rounded-corners-{{ section.id }}{% endif %}{% if section.settings.image_ratio == 'natural' and block.settings.image == blank %} pb-[100%]{% endif %}"
+    {% if section.settings.image_ratio == 'natural' and block.settings.image != blank %}
+      style="padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;"
+    {% endif %}
+  >
+    {% if block.settings.image_link %}
+      <a
+        href="{{ block.settings.image_link }}"
+        {% if block.settings.open_new_window_image %}
+          target="_blank"
+        {% endif %}
+        class="w-full h-full z-0 overflow-hidden absolute top-0 left-0 animate_transition_card__image animate-Xpulse skeleton-image"
+      >
+    {% else %}
+      <div
+        class="w-full h-full z-0 overflow-hidden absolute top-0 left-0{% if block.settings.image != blank %} animate_transition_card__image animate-Xpulse skeleton-image{% endif %}"
+      >
+    {% endif %}
+    {% if block.settings.image != blank %}
+      {% # theme-check-disable ImgLazyLoading %}
+      <img
+        srcset="
+          {{ block.settings.image | image_url: width: 225 }} 225w,
+          {{ block.settings.image | image_url: width: 375 }} 375w,
+          {{ block.settings.image | image_url: width: 450 }} 450w,
+          {{ block.settings.image | image_url: width: 750 }} 750w,
+          {{ block.settings.image | image_url: width: 900 }} 900w,
+          {{ block.settings.image | image_url: width: 1100 }} 1100w,
+          {{ block.settings.image | image_url: width: 1500 }} 1500w,
+          {{ block.settings.image | image_url: width: 1780 }} 1780w,
+          {{ block.settings.image | image_url: width: 2000 }} 2000w,
+          {{ block.settings.image | image_url }} {{ block.settings.image.width }}w
+        "
+        src="{{ block.settings.image | image_url: width: 1780 }}"
+        alt="{{ block.settings.image.alt | escape }}"
+        sizes="(min-width: 1024px){% if section.settings.full_width %} calc(100vw / {{ section.settings.column_layout_desktop }}){% else %} {{ settings.page_width | divided_by: columns_desktop }}px{% endif %}, (min-width: 768px) calc((100vw - 5rem) / 2), calc((100vw) / {{ columns_mobile }})"
+        class="animate_transition_image w-full h-full object-cover object-center image-hover absolute top-0 left-0{% if section.settings.image_ratio == 'round' %} rounded-full{% elsif rounded_corners %} rounded-corners-{{ section.id }}{% endif %}"
+        {% if settings.enable_lazy_loading_image %}
+          loading="lazy"
+        {% else %}
+          loading="eager"
+        {% endif %}
+        width="{{ block.settings.image.width }}"
+        height="{{ block.settings.image.height }}"
+        style="object-position: {{ block.settings.image.presentation.focal_point }}"
+        onload="
+          this?.classList.add('active');
+          this.closest('.animate_transition_card__image')?.classList.remove('animate-Xpulse', 'skeleton-image');
+          setTimeout(() => { this.closest('.animate_transition_card__image')?.classList.add('lazy_active', 'active'); }, 250);
+        "
+      >
+      {% # theme-check-enable ImgLazyLoading %}
+    {% else %}
+      {{ 'image' | placeholder_svg_tag: 'absolute w-full h-full bg-[#C9C9C9] text-[#acacac]' }}
+    {% endif %}
+    {% if block.settings.image_link %}
+      </a>
+    {% else %}
+      </div>
+    {% endif %}
+  </div>
+  {% if block.settings.sub_title != blank
+    or block.settings.title != blank
+    or block.settings.text != blank
+    or block.settings.button_label != blank
+  %}
+    <div class="grow x-block-twm-content text-[rgba(var(--colors-text))]{% if check_padding_light %} md:pl-7 md:pr-7 pl-5 pr-5{% else %}{% if section.settings.full_width_mobile %} pl-5 pr-5{% else %} pl-0 pr-0{% endif %} md:pl-0 md:pr-0{% endif %}{% if check_padding_dark %} dark:md:pl-7 dark:md:pr-7 dark:pl-5 dark:pr-5{% else %}{% if section.settings.full_width_mobile %} dark:pl-5 dark:pr-5{% else %} dark:pl-0 dark:pr-0{% endif %}  dark:md:pl-0 dark:md:pr-0{% endif %} mt-4 md:pb-3 pb-2">
+      {% if block.settings.sub_title != blank %}
+        <p class="custom-style-for-subheading empty:hidden pb-1 x-block-twm-item-subheading p-break-words text-{{ section.settings.column_content_alignment }} rtl:text-{% if section.settings.column_content_alignment == 'center' %}center{% elsif section.settings.column_content_alignment == 'start' %}right{% else %}left{% endif %}">
+          {{ block.settings.sub_title | escape }}
+        </p>
+      {% endif %}
+      {% if block.settings.title != blank %}
+        <p class="h3 empty:hidden x-block-twm-item-heading p-break-words heading-{{ block.id }} text-{{ section.settings.column_content_alignment }} rtl:text-{% if section.settings.column_content_alignment == 'center' %}center{% elsif section.settings.column_content_alignment == 'start' %}right{% else %}left{% endif %} leading-tight pb-1">
+          {% render 'heading-highlight',
+            headingId: block.id,
+            heading: block.settings.title,
+            highlight_type: block.settings.highlight_type,
+            color_heading_highlight_dark: section.settings.color_heading_highlight_dark,
+            color_heading_highlight_light: section.settings.color_heading_highlight_light
+          %}
+        </p>
+      {% endif %}
+      {% if block.settings.text != blank %}
+        <div class="rte x-block-twm-item-text multi-column-text text-{{ section.settings.column_content_alignment }} rtl:text-{% if section.settings.column_content_alignment == 'center' %}center{% elsif section.settings.column_content_alignment == 'start' %}right{% else %}left{% endif %}">
+          {{ block.settings.text }}
+        </div>
+      {% endif %}
+      {% if block.settings.button_label != blank %}
+        <div class="x-block-twm-item-button mb-3 text-{{ section.settings.column_content_alignment }} rtl:text-{% if section.settings.column_content_alignment == 'center' %}center{% elsif section.settings.column_content_alignment == 'start' %}right{% else %}left{% endif %}">
+          {% if block.settings.button_link != blank %}
+            <a
+              href="{{ block.settings.button_link }}"
+              {% if block.settings.open_new_window %}
+                target="_blank"
+              {% endif %}
+              class="disable-effect inline-block button {% if block.settings.show_button_style == 'secondary' %} button-outline{% elsif block.settings.show_button_style == 'text-link' %} button-text-link {% else %} button-solid{% endif %} empty:hidden p-break-words leading-normal text-center mt-2 lg:ml-0 lg:mr-0 h-full pl-4 pr-4 lg:pl-7 lg:pr-7 pt-2.5 pb-2.5 md:pt-3 md:pb-3{% unless block.settings.button_link != blank %} opacity-70 hover:cursor-not-allowed{% endunless %}"
+            >
+          {% else %}
+            <div
+              class="disable-effect inline-block button {% if block.settings.show_button_style == 'secondary' %} button-outline{% elsif block.settings.show_button_style == 'text-link' %} button-text-link {% else %} button-solid{% endif %} empty:hidden p-break-words leading-normal text-center mt-2 lg:ml-0 lg:mr-0 h-full pl-4 pr-4 lg:pl-7 lg:pr-7 pt-2.5 pb-2.5 md:pt-3 md:pb-3{% unless block.settings.button_link != blank %} opacity-70 disable-btn-animation hover:cursor-not-allowed{% endunless %}"
+            >
+          {% endif %}
+          {% render 'button-label',
+            button_label: block.settings.button_label,
+            show_button_style: block.settings.show_button_style
+          %}
+          {% if block.settings.button_link != blank %}</a>{% else %}</div>{% endif %}
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

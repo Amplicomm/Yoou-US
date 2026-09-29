@@ -1,0 +1,3114 @@
+product-info {
+  display: block;
+}
+
+.product {
+  margin: 0;
+}
+
+.product.grid {
+  gap: 0;
+}
+
+.product--no-media {
+  max-width: 57rem;
+  margin: 0 auto;
+}
+
+.product__media-wrapper {
+  padding-left: 0;
+}
+
+@media screen and (min-width: 750px) {
+  .product__column-sticky {
+    display: block;
+    position: sticky;
+    top: calc(var(--header-height, 0px) + var(--metal-price-bar-height, 0px) + var(--breadcrumb-height, 0px) + 2rem);
+    z-index: 2;
+  }
+
+  /* The gallery's sticky containing block is this wrap div (position:
+     relative, set in product-media-gallery.liquid), not the .grid__item
+     flex item around it - so even though the flex item stretches to match
+     the taller info column, this div otherwise stays sized to its own
+     content (the gallery's natural height), leaving zero room for the
+     sticky element to travel. Filling the stretched flex item's height
+     here gives it that room. */
+  .product-media-gallery-wrap {
+    height: 100%;
+  }
+
+  .product--thumbnail .thumbnail-list {
+    padding-right: var(--media-shadow-horizontal-offset);
+  }
+
+  .product__info-wrapper {
+    padding: 0 0 0 5rem;
+  }
+
+  .product__info-wrapper--extra-padding {
+    padding: 0 0 0 8rem;
+  }
+
+  .product--right .product__info-wrapper {
+    padding: 0 5rem 0 0;
+  }
+
+  .product--right .product__info-wrapper--extra-padding {
+    padding: 0 8rem 0 0;
+  }
+
+  .product--right .product__media-list {
+    margin-bottom: 2rem;
+  }
+
+  .product__media-container .slider-buttons {
+    display: none;
+  }
+
+  .product--right .product__media-wrapper {
+    order: 2;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .product--large:not(.product--no-media) .product__media-wrapper {
+    max-width: 65%;
+    width: calc(65% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+
+  .product--large:not(.product--no-media) .product__info-wrapper {
+    padding: 0 0 0 4rem;
+    max-width: 35%;
+    width: calc(35% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+
+  .product--large:not(.product--no-media).product--right .product__info-wrapper {
+    padding: 0 4rem 0 0;
+  }
+
+  .product--medium:not(.product--no-media) .product__media-wrapper,
+  .product--small:not(.product--no-media) .product__info-wrapper {
+    max-width: 55%;
+    width: calc(55% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+
+  .product--medium:not(.product--no-media) .product__info-wrapper,
+  .product--small:not(.product--no-media) .product__media-wrapper {
+    max-width: 45%;
+    width: calc(45% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+}
+
+/* Dynamic checkout */
+
+.shopify-payment-button__button {
+  font-family: inherit;
+  min-height: 4.6rem;
+}
+
+.shopify-payment-button__button [role='button'].focused {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5) !important;
+  outline-offset: 0.3rem;
+  box-shadow: 0 0 0 0.1rem rgba(var(--color-button), var(--alpha-button-border)),
+    0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3) !important;
+}
+
+.shopify-payment-button__button [role='button']:focus:not(:focus-visible) {
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.shopify-payment-button__button [role='button']:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5) !important;
+  box-shadow: 0 0 0 0.1rem rgba(var(--color-button), var(--alpha-button-border)),
+    0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3) !important;
+}
+
+.shopify-payment-button__button--unbranded {
+  background-color: rgba(var(--color-button), var(--alpha-button-background));
+  color: rgb(var(--color-button-text));
+  font-size: 1.4rem;
+  line-height: calc(1 + 0.2 / var(--font-body-scale));
+  letter-spacing: 0.07rem;
+}
+
+.shopify-payment-button__button--unbranded::selection {
+  background-color: rgba(var(--color-button-text), 0.3);
+}
+
+.shopify-payment-button__button--unbranded:hover,
+.shopify-payment-button__button--unbranded:hover:not([disabled]) {
+  background-color: rgba(var(--color-button), var(--alpha-button-background));
+}
+
+.shopify-payment-button__more-options {
+  margin: 1.6rem 0 1rem;
+  font-size: 1.2rem;
+  line-height: calc(1 + 0.5 / var(--font-body-scale));
+  letter-spacing: 0.05rem;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.shopify-payment-button__button + .shopify-payment-button__button--hidden {
+  display: none;
+}
+
+/* Product form */
+
+.product-form {
+  display: block;
+}
+
+.product-form__error-message-wrapper:not([hidden]) {
+  display: flex;
+  align-items: flex-start;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  letter-spacing: 0.04rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-form__error-message-wrapper .svg-wrapper {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.7rem;
+  margin-top: 0.25rem;
+}
+
+/* Form Elements */
+.product-form__input {
+  flex: 0 0 100%;
+  padding: 0;
+  margin: 0 0 1.2rem 0;
+  max-width: 44rem;
+  min-width: fit-content;
+  border: none;
+}
+
+.product-form__input .form__label {
+  padding-left: 0;
+}
+
+.product-form__input .select {
+  max-width: 100%;
+}
+
+.product-form__input .svg-wrapper {
+  right: 1.5rem;
+}
+
+/* Variant dropdowns: label with a colored underline, options laid out side
+   by side on every screen size, each shrunk to content width with a white
+   pill-shaped select. */
+.product__info-container variant-selects:has(> .product-form__input--dropdown) {
+  display: flex;
+  flex-wrap: nowrap;
+  column-gap: 1.2rem;
+}
+
+.product__info-container .product-form__input--dropdown {
+  flex: 1 1 0;
+  max-width: none;
+  min-width: 0;
+}
+
+.product__info-container .product-form__input--dropdown .form__label {
+  display: inline-block;
+  padding: 0 0 0.7rem;
+  border-bottom: 1px solid #E8702C;
+  font-weight: 500;
+  width: 100%;
+  color: rgb(var(--color-foreground));
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  text-align: center;
+  margin: 0;
+}
+
+.product__info-container .product-form__input--dropdown .select {
+  width: 100%;
+}
+
+.product__info-container .product-form__input--dropdown .select:before,
+.product__info-container .product-form__input--dropdown .select:after {
+  display: none;
+}
+
+.product__info-container .product-form__input--dropdown .select__select {
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: 0 0 1.4rem 1.4rem;
+  font-weight: 700;
+  padding: 1rem 3.2rem 1rem 1.4rem;
+  box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.06);
+  color: rgb(var(--color-foreground));
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.product__info-container .product-form__input--dropdown .select .svg-wrapper {
+  right: 1.2rem;
+  color: #3A2A20;
+}
+
+.product-form__submit[aria-disabled='true'] + .shopify-payment-button .shopify-payment-button__button[disabled],
+.product-form__submit[disabled] + .shopify-payment-button .shopify-payment-button__button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media screen and (forced-colors: active) {
+  .product-form__submit[aria-disabled='true'] {
+    color: Window;
+  }
+}
+
+/* Overrides */
+.shopify-payment-button__more-options {
+  color: rgb(var(--color-foreground));
+}
+
+.shopify-payment-button__button {
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+}
+
+/* Product info */
+
+.product__info-container > * + * {
+  margin: 2.4rem 0;
+}
+
+.product__info-container iframe {
+  max-width: 100%;
+}
+
+.product__info-container .product-form,
+.product__info-container .product__description,
+.product__info-container .icon-with-text {
+  margin: 2.5rem 0;
+}
+.product__info-container .product__description {
+  color:  #696061;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 0.48px;
+}
+
+.product__text {
+  margin-bottom: 0;
+}
+
+/* Price breakup accordion. Scoped under .product__info-container so these
+   rules win regardless of load order against component-accordion.css's
+   shared .accordion rules (border-top/bottom, margin-top) — that file loads
+   after this one, so an unscoped same-specificity override here would lose
+   the cascade tie. */
+.product__info-container .price-breakup {
+  border: none !important;
+  margin-top: 0;
+  border-radius: 1.6rem;
+  overflow: hidden;
+}
+
+.product__info-container .price-breakup summary {
+  padding: 1.4rem 0;
+}
+
+.product__info-container .price-breakup summary svg path {
+  fill: #757575;
+}
+
+.product__info-container .price-breakup__title {
+  max-width: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #484848;
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.56px;
+}
+
+.product__info-container .price-breakup__content {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 1.6rem;
+  background: #fff;
+  padding: 0.8rem;
+}
+
+.product__info-container .price-breakup__row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding:0;
+  margin: 0;
+  padding: 0 0.6rem;
+}
+
+.product__info-container .price-breakup__row:last-child {
+  border-bottom: none;
+}
+
+.product__info-container .price-breakup__row--total {
+  margin: 0.4rem -1.6rem -1.6rem;
+  padding: 0.8rem 1.4rem;
+  background-color: #F7E5DB;
+  border-radius: 1.2rem;
+  margin: 1rem 0 0 0;
+  position: relative;
+  margin-top: 1rem;
+}
+
+.product__info-container .price-breakup__label {
+  display: flex;
+  flex: 0 0 42%;
+  flex-direction: column;
+  color: #3F3B3C;
+  font-family: "Helvetica Neue";
+  font-size: 10px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.4px;
+}
+
+.product__info-container .price-breakup__sublabel {
+  color: #C0B9BA;
+  font-family: "Helvetica Neue";
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.32px;
+  line-height: 160%;
+}
+
+.product__info-container .price-breakup__dash {
+  flex: 0 0 auto;
+  color:#151414;
+}
+
+.product__info-container .price-breakup__value {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  text-align: right;
+  color: #3F3B3C;
+  font-family: "Helvetica Neue";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.4px;
+}
+
+.product__info-container .price-breakup__was {
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-decoration: line-through;
+  color: #C0B9BA;
+  font-family: "Helvetica Neue";
+  font-size: 8px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.32px;
+  text-decoration-line: line-through;
+}
+.price-breakup__row--total .price-breakup__was {
+  color: rgba(110, 48, 33, 0.43);
+  font-family: "Helvetica Neue";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  text-decoration-line: line-through;
+}
+
+.product__info-container .price-breakup__row--total .price-breakup__label,
+.product__info-container .price-breakup__row--total .price-breakup__value {
+  color: #7A3717;
+  font-family: "Helvetica Neue";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.4px;
+}
+.product__info-container .price-breakup__row--total .price-breakup__value {
+  color: #7A3717;
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.56px;
+}
+
+/* Trust badges row */
+.trust-badges {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+  border-radius: 1.6rem;
+  padding: 1.6rem 1rem;
+}
+
+.trust-badges__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
+}
+
+.trust-badges__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--trust-badge-icon-width, 3.2rem);
+  height: var(--trust-badge-icon-height, 3.2rem);
+  color: #E0652A;
+}
+
+.trust-badges__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.trust-badges__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.trust-badges__label {
+  color: rgb(var(--color-foreground));
+  text-align: center;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  max-width: 80%;
+}
+
+@media screen and (max-width: 479px) {
+  .trust-badges {
+    row-gap: 1.6rem;
+  }
+}
+
+/* App promo banner */
+.app-promo-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #C34700 0%, #E8702C 100%);  
+  padding: 0.8rem 0.8rem 0.8rem 2rem;
+}
+
+.app-promo-banner__amount {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding-right: 1.6rem;
+  border-right: 0.1rem solid #F2ECD0;
+  color: #fff;
+}
+
+.app-promo-banner__eyebrow {
+  font-family: "Helvetica Neue";
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #F2ECD0;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.app-promo-banner__value {
+  font-family: "Helvetica Neue";
+  color: #F2ECD0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.app-promo-banner__description {
+  flex: 1 1 auto;
+  margin: 0;
+  color: #F2ECD0;
+  font-family: "Helvetica Neue";
+  font-size: 10px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.app-promo-banner__button {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: "Helvetica Neue";
+  color: #7A3717;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.56px;
+  border-radius: 12px;
+  background: #FDF9F7;
+  padding: 1.2rem 1.8rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.app-promo-banner__button-arrow {
+  display: flex;
+  width: 0.9rem;
+  height: 0.9rem;
+  color: #E0652A;
+  transform: rotate(-90deg);
+}
+
+@media screen and (max-width: 989px) {
+  .app-promo-banner {
+    gap: 1rem;
+    padding: 1rem 1rem 1rem 1.4rem;
+  }
+
+  .app-promo-banner__amount {
+    padding-right: 1rem;
+  }
+
+  .app-promo-banner__value {
+    font-size: 18px;
+  }
+
+  .app-promo-banner__description {
+    min-width: 0;
+    font-size: 10px;
+  }
+
+  .app-promo-banner__button {
+    gap: 0.4rem;
+    font-size: 12px;
+    padding: 0.9rem 1.2rem;
+  }
+}
+
+/* Gold exchange banner */
+.gold-exchange-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  border-radius: 1.6rem;
+  padding: 1.6rem 2rem;
+  border-radius: var(--Size-size-16, 16px);
+  border: 1px solid #DDDADA;
+  background: rgba(245, 244, 244, 0.50);
+}
+
+.gold-exchange-banner__text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.gold-exchange-banner__heading {
+  margin: 0;
+  color: #151414;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.48px;
+}
+
+.gold-exchange-banner__description {
+  margin: 0.8rem 0 0;
+  color: #817676;
+  font-family: "Helvetica Neue";
+  font-size: 10px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.gold-exchange-banner__action {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.gold-exchange-banner__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  background-color: #7A3717;
+  color: #FFF;
+  font-family: "Helvetica Neue";
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 10rem;
+  padding: 1.1rem 2rem;
+}
+
+.gold-exchange-banner__button:hover {
+  background-color: #5F2A11;
+}
+
+.gold-exchange-banner__terms {
+  color: rgba(var(--color-foreground), 0.6);
+  font-family: "Helvetica Neue";
+  font-size: 1.1rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  color: #817676;
+  font-family: "Helvetica Neue";
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media screen and (max-width: 749px) {
+  .gold-exchange-banner {
+    padding: 1.6rem;
+    gap:0.5rem
+  }
+
+  .gold-exchange-banner__action {
+    flex: 1 1 100%;
+    justify-content: space-between;
+  }
+}
+
+/* Product details spec (SKU + summary + Gold/Dimensions/Diamond card grid) */
+.product-details-spec__heading {
+  margin: 0 0 0.4rem;
+  color: rgb(var(--color-foreground));
+  font-family: "Helvetica Neue";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.64px;
+}
+
+.product-details-spec__sku {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.6rem;
+  color: #E0652A;
+  font-family:"Helvetica Neue";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.48px;
+}
+
+.product-details-spec__copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.product-details-spec__copy svg {
+  width: 100%;
+  height: 100%;
+}
+
+.product-details-spec__copy--copied {
+  color: #2ecc71;
+}
+
+.product-details-spec__summary {
+  margin: 0 0 1.6rem;
+  font-family: "Helvetica Neue";
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: #4E555E;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.48px;
+}
+
+.product-details-spec__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #fff;
+  border-radius: 1.6rem;
+  overflow: hidden;
+}
+
+.product-details-spec__card {
+  padding: 2rem;
+  border-bottom: 0.2rem solid rgba(var(--color-foreground), 0.08);
+  border-right: 0.2rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.product-details-spec__card:nth-child(2n) {
+  border-right: none;
+}
+
+.product-details-spec__card:last-child {
+  border-bottom: none;
+}
+
+.product-details-spec__card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1.2rem;
+  color: #E8702C;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.4px;
+}
+
+.product-details-spec__icon {
+  display: flex;
+  flex-shrink: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.product-details-spec__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-details-spec__info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  font-size: 1rem;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.product-details-spec__info-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Live gold rate tooltip, shown below the Gold card's info icon on hover/focus. */
+.product-details-spec__tooltip {
+  position: absolute;
+  top: calc(100% + 0.8rem);
+  left: 50%;
+  transform: translate(-50%, -0.4rem);
+  z-index: 10;
+  min-width: 16rem;
+  background: #292020;
+  color: #fff;
+  border-radius: 0.8rem;
+  padding: 1.2rem 1.4rem;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0.15s;
+}
+
+.product-details-spec__info-wrapper:hover .product-details-spec__tooltip,
+.product-details-spec__info-wrapper:focus-within .product-details-spec__tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0s;
+}
+
+.product-details-spec__tooltip-title {
+  margin: 0 0 0.6rem;
+  font-family: "Helvetica Neue";
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.product-details-spec__tooltip-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product-details-spec__tooltip-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: 0.3rem 0;
+  font-family: "Helvetica Neue";
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.product-details-spec__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #4E555E;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 0.48px;
+}
+
+/* Making charge discount badge */
+.making-charge-discount {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.making-charge-discount:first-of-type {
+  margin-bottom: 0.8rem;
+}
+
+.making-charge-discount__icon {
+  display: flex;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+}
+
+.making-charge-discount__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.making-charge-discount__text {
+  margin: 0;
+  color: #7A3717;
+  font-family: "Helvetica Neue";
+  font-size: 1.3rem;
+  font-family: var(--Font-Paragraph, "Helvetica Neue");
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.48px;
+}
+
+.making-charge-discount__text strong {
+  color: #E8702C;
+  font-family: "Helvetica Neue";
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.52px;
+}
+
+/* Coupons */
+.coupon-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  background-color: #fff;
+  border-radius: 1.6rem;
+  padding: 1.6rem 2rem;
+  margin-bottom: 0.2rem;
+}
+
+.coupon-card__title {
+  margin: 0;
+  color: #E8702C;
+  font-family: "Helvetica Neue";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.64px;
+}
+
+.coupon-card__description {
+  margin: 0.2rem 0 0;
+  color: #696061;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.48px;
+}
+
+.coupon-card__copy {
+  flex-shrink: 0;
+  background: rgba(232, 112, 44, 0.25);
+  color: #7A3717;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  border: 0.1rem dashed #7A3717;
+  border-radius: 0.8rem;
+  padding: 0.8rem 1.8rem;
+  cursor: pointer;
+}
+
+.coupon-card__copy-label--copied {
+  display: none;
+}
+
+.coupon-card__copy--copied {
+  border-style: solid;
+}
+
+.coupon-card__copy--copied .coupon-card__copy-label:not(.coupon-card__copy-label--copied) {
+  display: none;
+}
+
+.coupon-card__copy--copied .coupon-card__copy-label--copied {
+  display: inline;
+}
+
+.coupons__view-all-wrapper {
+  display: block;
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+.coupons__view-all {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #3F3B3C;
+  text-align: center;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  cursor: pointer;
+}
+
+.coupons__view-all-label--less {
+  display: none;
+}
+
+.coupons__view-all--expanded .coupons__view-all-label--more {
+  display: none;
+}
+
+.coupons__view-all--expanded .coupons__view-all-label--less {
+  display: inline;
+}
+
+/* Inline expandable list rendered below the "View All Coupons" toggle;
+   [hidden] is set/cleared in coupons.js. */
+.coupons-list[hidden] {
+  display: none;
+}
+
+.coupons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 0.2rem;
+}
+
+.coupons-list .coupon-card {
+  box-shadow: none;
+}
+
+/* Product info accordions (collapsible tabs + the metaobject-driven FAQ
+   block below) — flat rows, no icon, a plain "+"/"−" toggle instead of the
+   default chevron, thin divider under each row instead of a bordered card.
+   Scoped under .product__info-container so this wins regardless of
+   component-accordion.css's load order (see the price-breakup fix above). */
+.product__info-container .product__accordion.accordion {
+  margin-top: 0;
+  border-top: none;
+  border-bottom: 1px solid #DDDADA;
+}
+
+.product__info-container .product__accordion summary {
+  padding: 1.6rem 0;
+}
+.product__info-container .product-info-faq {
+  margin: 0;
+}
+
+.product__info-container .product__accordion .summary__title {
+  gap: 0;
+}
+
+.product__info-container .product__accordion .summary__title > *:not(.accordion__title) {
+  display: none;
+}
+
+.product__info-container .product__accordion .accordion__title {
+  max-width: calc(100% - 3rem);
+  color: rgb(var(--color-foreground));
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.48px;
+}
+
+.product__info-container .product__accordion summary .icon-caret {
+  display: none;
+}
+
+.product__info-container .product__accordion .accordion__toggle-icon {
+  display: flex;
+  flex-shrink: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.product__info-container .product__accordion .accordion__toggle-icon--minus,
+.product__info-container .product__accordion details[open] .accordion__toggle-icon--plus {
+  display: none;
+}
+
+.product__info-container .product__accordion details[open] .accordion__toggle-icon--minus {
+  display: flex;
+}
+
+a.product__text {
+  display: block;
+  text-decoration: none;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.product__text.caption-with-letter-spacing {
+  text-transform: uppercase;
+}
+
+.product__title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.2rem;
+  word-break: break-word;
+  /* margin-bottom: 1.5rem; */
+  max-width: 80%;
+  margin-top: 1.2rem;
+  margin-bottom: -0.8rem;
+}
+
+.product__title h1 {
+  font-family: "Helvetica Neue";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.product__info-wrapper .price--on-sale .price__sale {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.product__info-wrapper .price .price-item {
+  color: #352925;
+  font-family: "Helvetica Neue";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.96px;
+  opacity: 1;
+  text-decoration-line: none;
+}
+
+.product__info-wrapper .price .price__sale .price-item--regular {
+  color: #352925;
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.56px;
+  text-decoration-line: line-through;
+  opacity: 0.5;
+}
+
+.product__title > * {
+  margin: 0;
+}
+
+.product__title > a {
+  display: none;
+}
+
+.product_utility_buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  flex-shrink: 0;
+  position: absolute;
+  right: 0;
+}
+
+.product-utility-button {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.product-utility-button--whatsapp {
+  position: relative;
+  padding: 1rem;
+  border-radius: 50%;
+  border: 1px solid #67C15E;
+  height: 4rem;
+  width: 4rem;
+}
+
+.product-utility-button--whatsapp::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 0.8rem);
+  transform: translateY(-50%) translateX(0.4rem);
+  white-space: nowrap;
+  background-color: #3A2A20;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.5rem 1.1rem;
+  border-radius: 0.6rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.product-utility-button--whatsapp::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 0.3rem);
+  transform: translateY(-50%);
+  border: 0.5rem solid transparent;
+  border-left-color: #3A2A20;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.product-utility-button--whatsapp:hover::after,
+.product-utility-button--whatsapp:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+.product-utility-button--whatsapp:hover::before,
+.product-utility-button--whatsapp:focus-visible::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.product-utility-button .svg-wrapper {
+  display: flex;
+}
+
+.share-button.product-utility-button .share-button__button {
+  padding: 0;
+  border: none;
+  background: none;
+  padding: 1rem;
+  border-radius: 50%;
+  border: 1px solid #C0B9BA;
+  height: 4rem;
+  width: 4rem;
+}
+
+.share-button.product-utility-button summary::-webkit-details-marker {
+  display: none;
+}
+
+.product__title + .product__text.caption-with-letter-spacing {
+  margin-top: -1.5rem;
+}
+
+.product__text.caption-with-letter-spacing + .product__title {
+  margin-top: 0;
+}
+
+.product__category {
+  color: #E8702C;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  margin-top: 0.5rem !important;
+}
+
+.product__accordion .accordion__content {
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+.product .price .badge {
+  margin-bottom: 0.5rem;
+}
+
+.product .price__container {
+  margin-bottom: 0.5rem;
+}
+
+.product .price dl {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.product .price--sold-out .price__badge-sale {
+  display: none;
+}
+
+@media screen and (min-width: 750px) {
+  .product__info-container {
+    max-width: 60rem;
+  }
+
+  .product__info-container .price--on-sale .price-item--regular {
+    font-size: 1.6rem;
+  }
+
+  .product__info-container > *:first-child {
+    margin-top: 0;
+  }
+}
+
+.product__description-title {
+  font-weight: 600;
+}
+
+.product--no-media .product__title,
+.product--no-media .product__text,
+.product--no-media .product__tax,
+.product--no-media .product__sku,
+.product--no-media shopify-payment-terms {
+  text-align: center;
+}
+
+.product--no-media .product__media-wrapper,
+.product--no-media .product__info-wrapper {
+  padding: 0;
+}
+
+.product__tax {
+  margin-top: -1.4rem;
+  color: #696061;
+  font-family: "Helvetica Neue";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.4px;
+}
+
+.product--no-media .share-button {
+  max-width: 100%;
+}
+
+.product--no-media .product-form__quantity,
+.product--no-media .share-button,
+.product--no-media .product__view-details,
+.product--no-media .product__pickup-availabilities,
+.product--no-media .product-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.product--no-media .product-form {
+  flex-direction: column;
+}
+
+.product--no-media .product-form > .form {
+  max-width: 30rem;
+  width: 100%;
+}
+
+.product--no-media .product-form__quantity {
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.product-form__quantity .form__label {
+  margin-bottom: 0.6rem;
+}
+
+.price-per-item__label.form__label {
+  margin-bottom: 0rem;
+}
+
+.product-form__quantity-top .form__label {
+  margin-bottom: 1.2rem;
+}
+
+.product-form__buttons {
+  max-width: 44rem;
+}
+
+/* Add to cart pill + wishlist icon button, side by side. */
+.product__info-container .product-form__buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  max-width: none;
+}
+
+.product__info-container .product-form__submit {
+  flex: 1 1 auto;
+  min-height: 5rem;
+  border-radius: 1.2rem;
+  background-color: #E8702C;
+  border-color: #E8702C;
+  color: #fff;
+  font-weight: 600;
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.56px;
+  text-transform: uppercase;
+}
+.product__info-container .product-form__submit::after {
+  display: none;
+}
+
+.product__info-container .product-form__submit:hover {
+  background-color: #C85A24;
+  border-color: #C85A24;
+  color: #fff;
+}
+
+.product--no-media .product__info-container > modal-opener {
+  display: block;
+  text-align: center;
+}
+
+.product--no-media .product-popup-modal__button {
+  padding-right: 0;
+}
+
+.product--no-media .price {
+  text-align: center;
+}
+
+/* Sticky add to cart — one component for both breakpoints, toggled via
+   sticky-add-to-cart.js once the main add-to-cart button scrolls out of
+   view. Anchored to the BOTTOM of the viewport on both desktop and
+   mobile. Desktop shows the rich bar (price/options/wishlist); mobile
+   hides those and shows just the button (see the max-width query below). */
+.sticky-add-to-cart {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: auto;
+  bottom: 0;
+  z-index: 10;
+  background-color: #fff;
+  border-bottom: none;
+  transform: translate3d(0, 100%, 0);
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+  transition: transform .2s ease, opacity .2s ease, visibility .2s;
+  padding: 1.6rem 2.4rem;
+  margin: 0 1rem 1rem 1rem;
+  border-radius: 1.6rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.sticky-add-to-cart--visible {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.sticky-add-to-cart__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.4rem;
+  width: 100%;
+  padding: 0;
+}
+
+.sticky-add-to-cart__price-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.sticky-add-to-cart__price {
+  font-family: "Helvetica Neue";
+  font-size: 22px;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.sticky-add-to-cart__price .price-item--regular {
+  color: #1A120B;
+  font-family: "Helvetica Neue";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.sticky-add-to-cart__emi-note {
+  margin: 0;
+  font-family: "Helvetica Neue";
+  font-size: 11px;
+  color: #6B6B6B;
+}
+
+.sticky-add-to-cart__emi-note a {
+  margin-left: 0.4rem;
+  color: #C0392B;
+  text-decoration: underline;
+}
+
+.sticky-add-to-cart__options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  gap: 2.4rem;
+  min-width: 0;
+}
+
+.sticky-add-to-cart__option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  position: relative;
+}
+.sticky-add-to-cart__option::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(-24px / 2);
+  width: 1px;
+  background: #e5e1db;
+}
+
+.sticky-add-to-cart__option-label {
+  color: #564E4E;
+  font-family: "Helvetica Neue";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.4px;
+}
+
+.sticky-add-to-cart__option-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.4rem;
+  padding: 0.8rem 1.6rem;
+  border: 0.1rem solid #D1D1D1;
+  border-radius: 999px;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  color: #4A000F;
+  white-space: nowrap;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.48px;
+}
+.sticky-add-to-cart__actions .wishlist-hero-custom-button.wishlisthero-floating:nth-of-type(2) {
+  display: none !important;
+}
+.sticky-add-to-cart__actions .wishlisthero-floating{
+  position: static!important;
+  border-radius: 50%;
+  border: 1px solid #E8702C;
+}
+.sticky-add-to-cart__actions .wishlisthero-floating .button {
+  min-width: unset;
+  min-height: unset;
+  width: 4rem !important;
+  height: 4rem !important;
+}
+.sticky-add-to-cart__actions .wishlisthero-floating .button::after {
+  box-shadow: none;
+}
+.sticky-add-to-cart__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-shrink: 0;
+}
+
+.sticky-add-to-cart__button {
+  width: auto;
+  min-width: 18rem;
+  min-height: 5rem;
+  padding: 0 3.2rem;
+  border-radius: 1.2rem;
+  background-color: #E8702C;
+  border-color: #E8702C;
+  color: #fff;
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 114.286% */
+  letter-spacing: 0.56px;
+}
+
+.sticky-add-to-cart__button::after {
+  display: none;
+}
+
+.sticky-add-to-cart__button:hover {
+  background-color: #C85A24;
+  border-color: #C85A24;
+  color: #fff;
+}
+
+@media screen and (max-width: 749px) {
+  .sticky-add-to-cart {
+    padding: 1rem 1.5rem calc(1rem + env(safe-area-inset-bottom));
+  }
+
+  .sticky-add-to-cart__price-block,
+  .sticky-add-to-cart__options,
+  .sticky-add-to-cart__actions .wishlist-hero-custom-button,
+  .sticky-add-to-cart__actions [data-wlh-id] {
+    display: none;
+  }
+
+  .sticky-add-to-cart__actions {
+    width: 100%;
+  }
+
+  .sticky-add-to-cart__button {
+    width: 100%;
+    min-width: 0;
+  }
+  .sticky-add-to-cart {
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
+/* Product media */
+.product__media-list video {
+  border-radius: calc(var(--media-radius) - var(--media-border-width));
+}
+
+@media screen and (max-width: 749px) {
+  .product__info-container .product__title {
+    margin-top: 1.4rem;
+    margin-bottom: 2rem;
+  }
+  /* No thumbnails on mobile, and no arrow/counter nav either — just the
+     plain swipeable carousel from the reference, with dots instead. */
+  .product__media-wrapper .slider-buttons {
+    display: none;
+  }
+
+  /* Each slide fills the full width instead of the default peek (where the
+     neighboring slide's edge shows) — !important because the peek rules in
+     base.css otherwise win the specificity/order fight on .product__media-item. */
+  .product--thumbnail .product__media-item {
+    width: 100% !important;
+    min-width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  /* "Constrain to viewport" caps the image height (see .constrain-height
+     further down this file) so tall images don't push content off-screen —
+     but that clamp crops the image via object-fit instead of just shrinking
+     it. On mobile we want the box to always match the image's own ratio. */
+  .product-media-container.constrain-height .media {
+    padding-top: var(--ratio-percent) !important;
+  }
+
+  .product__media-list {
+    margin-left: -2.5rem;
+    margin-bottom: 3rem;
+    width: calc(100% + 4rem);
+  }
+
+  .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide) {
+    margin-left: -2.4rem;
+    margin-right: -2.4rem;
+  }
+
+  .slider.product__media-list::-webkit-scrollbar {
+    height: 0.2rem;
+    width: 0.2rem;
+  }
+
+  .product__media-list::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--color-foreground));
+  }
+
+  .product__media-list::-webkit-scrollbar-track {
+    background-color: rgba(var(--color-foreground), 0.2);
+  }
+
+  /* Exactly one full slide per swipe, no peek of the neighbor. */
+  .product__media-list .product__media-item {
+    width: 100%;
+  }
+
+  /* .grid--peek.slider .grid__item:first-of-type (base.css, shared by
+     every peek slider site-wide) gives only the FIRST slide an extra
+     1.5rem left margin, for sliders that intentionally bleed full-width
+     but indent their first item to align with the page's normal padding.
+     With no peek here, that made the first slide sit offset from every
+     other slide - a visibly uneven first swipe. Zeroed here so all slides
+     in this gallery line up identically. */
+  .product__media-list.grid--peek.slider .product__media-item:first-of-type {
+    margin-left: 0;
+  }
+
+  .product--mobile-columns .product__media-item {
+    width: calc(50% - 1.5rem - var(--grid-mobile-horizontal-spacing));
+  }
+}
+
+/* Mobile pagination dots for the main gallery slider. */
+.slider-dots {
+  display: none;
+}
+
+@media screen and (max-width: 749px) {
+  .slider-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+  }
+
+  .slider-dot {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: rgba(var(--color-foreground), 0.2);
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color var(--duration-short) ease, transform var(--duration-short) ease;
+  }
+
+  .slider-dot--active {
+    background-color: #E0652A;
+    transform: scale(1.15);
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .product--thumbnail .product__media-list,
+  .product--thumbnail_slider .product__media-list {
+    padding-bottom: calc(var(--media-shadow-vertical-offset) * var(--media-shadow-visible));
+  }
+
+  .product__media-list {
+    padding-right: calc(var(--media-shadow-horizontal-offset) * var(--media-shadow-visible));
+  }
+
+  .product--thumbnail .product__media-item:not(.is-active),
+  .product--thumbnail_slider .product__media-item:not(.is-active) {
+    display: none;
+  }
+
+  .product-media-modal__content > .product__media-item--variant.product__media-item--variant {
+    display: none;
+  }
+
+  .product-media-modal__content > .product__media-item--variant:first-child {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .product__media-list .product__media-item:first-child {
+    padding-left: 0;
+  }
+
+  .product--thumbnail_slider .product__media-list {
+    margin-left: 0;
+  }
+
+  .product__media-list .product__media-item {
+    width: 100%;
+  }
+
+  /* Tablet: thumbnails scroll horizontally in a single row instead of
+     wrapping into a grid. */
+  .product--thumbnail .thumbnail-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-top: 1.5rem;
+  }
+
+  .product--thumbnail .thumbnail-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product--thumbnail .thumbnail-list__item {
+    flex: 0 0 calc(25% - 0.8rem);
+    scroll-snap-align: start;
+  }
+
+  /* Same rounded corners as desktop, on the main image and thumbnails —
+     mobile keeps the theme's default square corners. */
+  .product--thumbnail .thumbnail-list .thumbnail.global-media-settings img,
+  .product--thumbnail .thumbnail-list .thumbnail {
+    border-radius: 1.2rem;
+  }
+
+  .product--thumbnail .product__media-list .product__media {
+    border-radius: 2.4rem;
+  }
+}
+
+.product__media-icon .icon {
+  width: 1.2rem;
+  height: 1.4rem;
+}
+
+.product__media-icon,
+.thumbnail__badge {
+  background-color: rgb(var(--color-background));
+  border-radius: 50%;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  color: rgb(var(--color-foreground));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  width: 4rem;
+  position: absolute;
+  left: 1.2rem;
+  top: 1.2rem;
+  z-index: 1;
+  transition: color var(--duration-short) ease, opacity var(--duration-short) ease;
+}
+
+.product__media-video .product__media-icon {
+  opacity: 1;
+}
+
+.product__modal-opener--image .product__media-toggle:hover {
+  cursor: zoom-in;
+}
+
+.product__modal-opener:hover .product__media-icon {
+  border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+}
+
+@media screen and (min-width: 750px) {
+  .grid__item.product__media-item--full {
+    width: 100%;
+  }
+
+  .product--columns .product__media-item:not(.product__media-item--single):not(:only-child) {
+    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+
+  .product--large.product--columns .product__media-item--full .deferred-media__poster-button {
+    height: 5rem;
+    width: 5rem;
+  }
+
+  .product--medium.product--columns .product__media-item--full .deferred-media__poster-button {
+    height: 4.2rem;
+    width: 4.2rem;
+  }
+
+  .product--medium.product--columns .product__media-item--full .deferred-media__poster-button .icon {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .product--small.product--columns .product__media-item--full .deferred-media__poster-button {
+    height: 3.6rem;
+    width: 3.6rem;
+  }
+
+  .product--small.product--columns .product__media-item--full .deferred-media__poster-button .icon {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .product--stacked .product__media-item {
+    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+
+  .product:not(.product--columns) .product__media-list .product__media-item:first-child,
+  .product:not(.product--columns) .product__media-list .product__media-item--full {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product__modal-opener .product__media-icon {
+    opacity: 0;
+  }
+
+  .product__modal-opener:hover .product__media-icon,
+  .product__modal-opener:focus .product__media-icon {
+    opacity: 1;
+  }
+}
+
+.product__media-item > * {
+  display: block;
+  position: relative;
+}
+
+.product__media-toggle {
+  display: flex;
+  border: none;
+  background-color: transparent;
+  color: currentColor;
+  padding: 0;
+}
+
+.product__media-toggle::after {
+  content: '';
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: calc(var(--border-width) * -1);
+  right: calc(var(--border-width) * -1);
+  bottom: calc(var(--border-width) * -1);
+  left: calc(var(--border-width) * -1);
+  z-index: 2;
+}
+
+.product__media-toggle:focus-visible {
+  outline: 0;
+  box-shadow: none;
+}
+
+/* outline styling for Windows High Contrast Mode */
+@media (forced-colors: active) {
+  .product__media-toggle:focus-visible,
+  .product__media-toggle:focus-visible:after {
+    outline: transparent solid 1px;
+    outline-offset: 2px;
+  }
+}
+.product__media-toggle.focused {
+  outline: 0;
+  box-shadow: none;
+}
+
+.product__media-toggle:focus-visible:after {
+  box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0rem 0.5rem rgba(var(--color-foreground), 0.5);
+  border-radius: var(--media-radius);
+}
+
+.product__media-toggle.focused:after {
+  box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0rem 0.5rem rgba(var(--color-foreground), 0.5);
+  border-radius: var(--media-radius);
+}
+
+.product-media-modal {
+  background-color: rgb(var(--color-background));
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+}
+
+.product-media-modal[open] {
+  visibility: visible;
+  opacity: 1;
+  z-index: 101;
+}
+
+.product-media-modal__dialog {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.product-media-modal__content {
+  max-height: 100vh;
+  width: 100%;
+  overflow: auto;
+}
+
+.product-media-modal__content > *:not(.active),
+.product__media-list .deferred-media {
+  display: none;
+}
+
+.wishlisthero-product-page-button-container button.btn.product__form--add-to-cart.btn.btn--secondary-accent.button.button--full-width.product-form__buttons {
+  min-width: 46px!important;
+  padding: 0 15px !important;
+  background: #fff !important;
+  opacity: 1 !important;
+  display: flex !important;
+}
+
+button.btn.product__form--add-to-cart.btn.btn--secondary-accent.button.button--full-width.product-form__buttons svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .product-media-modal__content {
+    padding-bottom: 2rem;
+  }
+
+  .product-media-modal__content > *:not(.active) {
+    display: block;
+  }
+
+  .product__modal-opener:not(.product__modal-opener--image) {
+    display: none;
+  }
+
+  .product__media-list .deferred-media {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .product--thumbnail .is-active .product__modal-opener:not(.product__modal-opener--image),
+  .product--thumbnail_slider .is-active .product__modal-opener:not(.product__modal-opener--image) {
+    display: none;
+  }
+
+  .product--thumbnail .is-active .deferred-media,
+  .product--thumbnail_slider .is-active .deferred-media {
+    display: block;
+    width: 100%;
+  }
+  .product-media-modal__content img {
+    width: 100%;
+  }
+  /* Show every media item in the zoom modal, not just the one that was
+     tapped to open it, laid out as a horizontal swipe-through row instead
+     of the desktop modal's vertical stack (see the min-width: 750px block
+     below). */
+  .product-media-modal__content {
+    display: flex;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+  }
+
+  .product-media-modal__content > *:not(.active) {
+    display: block;
+  }
+
+  .product-media-modal__content > * {
+    flex: 0 0 100%;
+    max-width: 100%;
+    scroll-snap-align: center;
+  }
+  .wishlisthero-product-page-button-container button.btn.product__form--add-to-cart.btn.btn--secondary-accent.button.button--full-width.product-form__buttons {
+    height: 2rem !important;
+    width: 2rem;
+    min-width: 4rem !important;
+    min-height: 4rem; 
+    padding: 0 !important;
+  }
+}
+
+.product-media-modal__content > * {
+  display: block;
+  height: auto;
+  margin: auto;
+}
+
+.product-media-modal__content .media {
+  background: none;
+}
+
+.product-media-modal__model {
+  width: 100%;
+}
+
+.product-media-modal__toggle {
+  background-color: rgb(var(--color-background));
+  border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  border-radius: 50%;
+  color: rgba(var(--color-foreground), 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  right: 2rem;
+  padding: 1.2rem;
+  position: fixed;
+  z-index: 2;
+  top: 2rem;
+  width: 4rem;
+}
+
+.product-media-modal__content .deferred-media {
+  width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .product-media-modal__content {
+    padding: 2rem 15%;
+  }
+
+  .product-media-modal__content > * {
+    width: 100%;
+  }
+
+  .product-media-modal__content > * + * {
+    margin-top: 2rem;
+  }
+
+  .product-media-modal__toggle {
+    right: 5rem;
+    top: 2.2rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .product-media-modal__content {
+    padding: 2rem 15%;
+  }
+
+  .product-media-modal__content > * + * {
+    margin-top: 1.5rem;
+  }
+
+  .product-media-modal__content {
+    padding-bottom: 1.5rem;
+  }
+
+  .product-media-modal__toggle {
+    right: 5rem;
+  }
+}
+
+.product-media-modal__toggle:hover {
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.product-media-modal__toggle .icon {
+  height: auto;
+  margin: 0;
+  width: 2.2rem;
+}
+
+/* Product popup */
+
+.product-popup-modal {
+  box-sizing: border-box;
+  opacity: 0;
+  position: fixed;
+  visibility: hidden;
+  z-index: -1;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  width: 100%;
+  background: rgba(var(--color-foreground), 0.2);
+  height: 100%;
+}
+
+.product-popup-modal[open] {
+  opacity: 1;
+  visibility: visible;
+  z-index: 101;
+}
+
+.product-popup-modal__content {
+  border-radius: var(--popup-corner-radius);
+  background-color: rgb(var(--color-background));
+  overflow: auto;
+  height: 80%;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5rem;
+  width: 92%;
+  position: absolute;
+  top: 0;
+  padding: 0 1.5rem 0 3rem;
+  border-color: rgba(var(--color-foreground), var(--popup-border-opacity));
+  border-style: solid;
+  border-width: var(--popup-border-width);
+  box-shadow: var(--popup-shadow-horizontal-offset) var(--popup-shadow-vertical-offset) var(--popup-shadow-blur-radius)
+    rgba(var(--color-shadow), var(--popup-shadow-opacity));
+}
+
+.product-popup-modal__content.focused {
+  box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3),
+    var(--popup-shadow-horizontal-offset) var(--popup-shadow-vertical-offset) var(--popup-shadow-blur-radius)
+      rgba(var(--color-shadow), var(--popup-shadow-opacity));
+}
+
+.product-popup-modal__content:focus-visible {
+  box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3),
+    var(--popup-shadow-horizontal-offset) var(--popup-shadow-vertical-offset) var(--popup-shadow-blur-radius)
+      rgba(var(--color-shadow), var(--popup-shadow-opacity));
+}
+
+@media screen and (min-width: 750px) {
+  .product-popup-modal__content {
+    padding-right: 1.5rem;
+    margin-top: 10rem;
+    width: 70%;
+    padding: 0 3rem;
+  }
+
+  .product-media-modal__dialog .global-media-settings--no-shadow {
+    overflow: visible !important;
+  }
+}
+
+.product-popup-modal__content img {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 749px) {
+  .product-popup-modal__content table {
+    display: block;
+    max-width: fit-content;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .product-media-modal__dialog .global-media-settings,
+  .product-media-modal__dialog .global-media-settings video,
+  .product-media-modal__dialog .global-media-settings model-viewer,
+  .product-media-modal__dialog .global-media-settings iframe,
+  .product-media-modal__dialog .global-media-settings img {
+    border: none;
+    border-radius: 0;
+  }
+}
+
+.product-popup-modal__opener {
+  display: inline-block;
+}
+
+.product-popup-modal__button {
+  font-size: 1.6rem;
+  padding-right: 1.3rem;
+  padding-left: 0;
+  min-height: 4.4rem;
+  text-underline-offset: 0.3rem;
+  text-decoration-thickness: 0.1rem;
+  transition: text-decoration-thickness var(--duration-short) ease;
+}
+
+.product-popup-modal__button:hover {
+  text-decoration-thickness: 0.2rem;
+}
+
+.product-popup-modal__content-info {
+  padding-right: 4.4rem;
+}
+
+.product-popup-modal__content-info > * {
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 749px) {
+  .product-popup-modal__content-info > * {
+    max-height: 100%;
+  }
+}
+
+.product-popup-modal__toggle {
+  background-color: rgb(var(--color-background));
+  border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  border-radius: 50%;
+  color: rgba(var(--color-foreground), 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: sticky;
+  padding: 1.2rem;
+  z-index: 2;
+  top: 1.5rem;
+  width: 4rem;
+  margin: 0 0 0 auto;
+}
+
+.product-popup-modal__toggle:hover {
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.product-popup-modal__toggle .icon {
+  height: auto;
+  margin: 0;
+  width: 2.2rem;
+}
+
+.product__media-list .media > * {
+  overflow: hidden;
+}
+
+.thumbnail-list {
+  flex-wrap: wrap;
+  grid-gap: 1rem;
+}
+
+/* Fix to show some space at the end of our sliders in all browsers to be applied on thumbnails */
+.slider--mobile.thumbnail-list:after {
+  content: none;
+}
+
+@media screen and (min-width: 750px) {
+  .product--stacked .thumbnail-list {
+    display: none;
+  }
+
+  .thumbnail-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.thumbnail-list_item--variant:not(:first-child) {
+  display: none;
+}
+
+@media screen and (min-width: 990px) {
+  .thumbnail-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .product--medium .thumbnail-list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .product--large .thumbnail-list {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .product__media-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .product__modal-opener {
+    width: 100%;
+  }
+
+  .thumbnail-slider {
+    display: flex;
+    align-items: center;
+  }
+
+  .thumbnail-slider .thumbnail-list.slider {
+    display: flex;
+    padding: 0.5rem;
+    flex: 1;
+    scroll-padding-left: 0.5rem;
+  }
+
+  .thumbnail-list__item.slider__slide {
+    width: calc(33% - 0.6rem);
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .product--thumbnail_slider .thumbnail-slider {
+    display: flex;
+    align-items: center;
+  }
+
+  .thumbnail-slider .thumbnail-list.slider--tablet-up {
+    display: flex;
+    padding: 0.5rem;
+    flex: 1;
+    scroll-padding-left: 0.5rem;
+  }
+
+  .product__media-wrapper .slider-mobile-gutter .slider-button {
+    display: none;
+  }
+
+  .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
+    width: calc(25% - 0.8rem);
+  }
+
+  .product--thumbnail_slider .slider-mobile-gutter .slider-button {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .product--small .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
+    width: calc(25% - 0.8rem);
+  }
+
+  .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
+    width: calc(20% - 0.8rem);
+  }
+}
+
+/* Vertical thumbnail column to the left of the main image on desktop. */
+@media screen and (min-width: 990px) {
+  .product--thumbnail media-gallery {
+    display: flex;
+    /* flex-start (not stretch) so the main image sizes to its own natural
+       aspect-ratio height, unaffected by the thumbnail column's content
+       height — media-gallery.js then measures that true height in JS and
+       caps the thumbnail column to match it. */
+    align-items: flex-start;
+    gap: 1.6rem;
+  }
+
+  .product--thumbnail .product__media-list {
+    margin-bottom: 0;
+  }
+
+  .product--thumbnail media-gallery > slider-component:not(.thumbnail-slider) {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .product--thumbnail media-gallery > .thumbnail-slider {
+    order: -1;
+    flex: 0 0 8.8rem;
+    width: 8.8rem;
+    /* Flex items default to min-height: auto, which stops "stretch" from
+       actually shrinking this below its content's height — without this,
+       the column just grows taller than the main image instead of
+       clipping/scrolling internally to match it. */
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  .product--thumbnail media-gallery > .thumbnail-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product--thumbnail .thumbnail-slider .slider-button {
+    display: none;
+  }
+
+  .product--thumbnail .thumbnail-slider .thumbnail-list {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    gap: 1.6rem;
+    padding: 0;
+  }
+
+  .product--thumbnail .thumbnail-slider .thumbnail-list__item {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  .product--thumbnail .thumbnail-slider .thumbnail.global-media-settings img,
+  .product--thumbnail .thumbnail-slider .thumbnail {
+    border-radius: 1.2rem;
+  }
+
+  /* The theme's global media radius setting is 0, but this layout's
+     reference design calls for generously rounded corners on the main
+     image too, so it's set explicitly here rather than site-wide. */
+  .product--thumbnail .product__media-list .product__media {
+    border-radius: 2.4rem;
+  }
+}
+
+.thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  color: rgb(var(--color-foreground));
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.thumbnail:hover {
+  opacity: 0.7;
+}
+
+.thumbnail.global-media-settings img {
+  border-radius: 0;
+}
+
+.thumbnail[aria-current] {
+  border-color: rgb(var(--color-foreground));
+}
+
+.image-magnify-full-size {
+  cursor: zoom-out;
+  z-index: 1;
+  margin: 0;
+  border-radius: calc(var(--media-radius) - var(--media-border-width));
+}
+
+.image-magnify-hover {
+  cursor: zoom-in;
+}
+
+.product__modal-opener--image .product__media-zoom-none,
+.product__media-icon--none {
+  display: none;
+}
+
+.product__modal-opener > .loading__spinner {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  width: 48px;
+}
+
+.product__modal-opener .path {
+  stroke: rgb(var(--color-button));
+  opacity: 0.75;
+}
+
+@media (hover: hover) {
+  .product__media-zoom-hover,
+  .product__media-icon--hover {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .product__media-zoom-hover,
+  .product__media-icon--hover {
+    display: flex;
+  }
+}
+
+.js .product__media {
+  overflow: hidden !important;
+}
+
+
+.thumbnail[aria-current]:focus,
+.thumbnail.focused {
+  outline: 0;
+}
+
+/* outline styling for Windows High Contrast Mode */
+@media (forced-colors: active) {
+  .thumbnail[aria-current]:focus,
+  .thumbnail.focused {
+    outline: transparent solid 1px;
+  }
+}
+.thumbnail[aria-current]:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+.thumbnail img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.thumbnail__badge .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.thumbnail__badge .icon-3d-model {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.thumbnail__badge {
+  color: rgb(var(--color-foreground), 0.6);
+  height: 2rem;
+  width: 2rem;
+  left: auto;
+  right: calc(0.4rem + var(--media-border-width));
+  top: calc(0.4rem + var(--media-border-width));
+}
+
+@media screen and (min-width: 750px) {
+  .product:not(.product--small) .thumbnail__badge {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .product:not(.product--small) .thumbnail__badge .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .product:not(.product--small) .thumbnail__badge .icon-3d-model {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}
+
+.thumbnail-list__item {
+  position: relative;
+}
+
+.thumbnail-list__item::before {
+  content: '';
+  display: block;
+  /* --thumb-ratio (width/height) is set per-item inline in
+     product-media-gallery.liquid from that thumbnail's own image, so each
+     box matches its own photo's proportions instead of a fixed ratio -
+     0.8 fallback matches the default used there if it's ever missing. */
+  padding-bottom: calc(100% / var(--thumb-ratio, 0.8));
+}
+
+.product:not(.featured-product) .product__view-details {
+  display: none;
+}
+
+.product__view-details {
+  display: block;
+  text-decoration: none;
+}
+
+.product__view-details:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.product__view-details .icon {
+  width: 1.2rem;
+  margin-left: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Inventory status */
+
+.product__inventory {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.product__inventory .svg-wrapper,
+.product__inventory svg {
+  width: 15px;
+  height: 15px;
+}
+
+.product--no-media .product__inventory {
+  justify-content: center;
+}
+
+/* This keeps the container from getting display: none; applied to it and to make sure we're not introducing some layout shift when switching to an unavailable variant */
+.product__inventory.visibility-hidden:empty {
+  display: block;
+}
+
+.product__inventory.visibility-hidden:empty::after {
+  content: '#';
+}
+
+.product__inventory .icon-inventory-status circle:first-of-type {
+  opacity: .3;
+}
+
+/* Icon with text */
+.icon-with-text {
+  --icon-size: calc(var(--font-heading-scale) * 3rem);
+  --icon-spacing: calc(var(--font-heading-scale) * 1rem);
+}
+
+.icon-with-text--horizontal {
+  display: flex;
+  justify-content: center;
+  column-gap: 3rem;
+  flex-direction: row;
+}
+
+.icon-with-text--vertical {
+  --icon-size: calc(var(--font-heading-scale) * 2rem);
+}
+
+.icon-with-text .svg-wrapper {
+  fill: rgb(var(--color-foreground));
+  height: var(--icon-size);
+  width: var(--icon-size);
+}
+
+.icon-with-text--horizontal .svg-wrapper,
+.icon-with-text--horizontal img {
+  margin-bottom: var(--icon-spacing);
+}
+
+.icon-with-text--vertical .svg-wrapper {
+  min-height: var(--icon-size);
+  min-width: var(--icon-size);
+  margin-right: var(--icon-spacing);
+}
+
+.icon-with-text img {
+  height: var(--icon-size);
+  width: var(--icon-size);
+  object-fit: contain;
+}
+
+.icon-with-text--vertical img {
+  margin-right: var(--icon-spacing);
+}
+
+.icon-with-text--horizontal .h4 {
+  padding-top: calc(var(--icon-size) + var(--icon-spacing));
+  text-align: center;
+}
+
+.icon-with-text--horizontal .svg-wrapper + .h4,
+.icon-with-text--horizontal img + .h4,
+.icon-with-text--horizontal.icon-with-text--text-only .h4 {
+  padding-top: 0;
+}
+
+.icon-with-text__item {
+  display: flex;
+  align-items: center;
+}
+
+.icon-with-text--horizontal .icon-with-text__item {
+  flex-direction: column;
+  width: 33%;
+}
+
+.icon-with-text--vertical .icon-with-text__item {
+  margin-bottom: var(--icon-size);
+}
+
+/* SKU block */
+
+.product__sku.visibility-hidden::after {
+  content: '#';
+}
+
+/* Product-thumbnail snippet */
+
+.product-media-container {
+  --aspect-ratio: var(--preview-ratio);
+  --ratio-percent: calc(1 / var(--aspect-ratio) * 100%);
+  position: relative;
+  width: 100%;
+  max-width: calc(100% - calc(var(--media-border-width) * 2));
+}
+
+.product-media-container.constrain-height {
+  /* arbitrary offset value based on average theme spacing and header height */
+  --viewport-offset: 400px;
+  --constrained-min-height: 300px;
+  --constrained-height: max(var(--constrained-min-height), calc(100vh - var(--viewport-offset)));
+}
+
+.product-media-container.constrain-height.media-fit-contain {
+  --contained-width: calc(var(--constrained-height) * var(--aspect-ratio));
+  width: 100%;
+  border: none;
+}
+
+.product-media-container .media {
+  padding-top: var(--ratio-percent);
+}
+
+.product-media-container.constrain-height .media {
+  padding-top: min(var(--constrained-height), var(--ratio-percent));
+}
+
+@media screen and (max-width: 749px) {
+  .product-media-container.media-fit-cover {
+    display: flex;
+    align-self: stretch;
+  }
+
+  .product-media-container.media-fit-cover .media {
+    /* allow media img element to scale relative to modal-opener/product-media-container */
+    position: initial;
+  }
+
+  /* Remove the gap between slides. .grid--peek's built-in column-gap and
+     item-width formula (shared with every other peek slider site-wide) are
+     scoped down to just .product__media-list here rather than changed
+     globally; the "3rem" is kept so the next slide still peeks in from the
+     edge, just with no empty strip before it.
+
+     align-items: flex-start stops the flex row from stretching every slide
+     to the tallest one's height - each keeps its own natural aspect ratio,
+     no cropping. */
+  .product__media-list.grid--peek {
+    column-gap: 0;
+    align-items: flex-start;
+  }
+
+  /* .slider.slider--mobile (component-slider.css, shared by every mobile
+     slider site-wide) sets scroll-padding-left: 1.5rem, which snaps each
+     slide's left edge 1.5rem in from the true viewport edge - leaving a
+     1.5rem strip of the previous slide visible through that inset after
+     swiping. Zeroed here so this gallery's slides land flush.
+     component-slider.css loads AFTER this file (see main-product.liquid),
+     so equal-specificity selectors there would win by source order alone -
+     this combines all three of the track's classes for higher specificity
+     to override it regardless of load order. */
+  .slider.slider--mobile.product__media-list.grid--peek {
+    scroll-padding-left: 0;
+    /* Reverted to mandatory (the shared default) - proximity let a swipe
+       without quite enough momentum leave a slide resting half-transitioned
+       between two slides instead of always settling on one. The earlier
+       constant horizontal shake was actually the .product__media-wrapper
+       slider-component negative-margin overflow (fixed separately), not
+       snap jitter, so mandatory is safe here. */
+    scroll-snap-type: x mandatory;
+  }
+
+  /* Adaptive slider height: product-media-gallery.liquid's JS sets an
+     explicit height here to match whichever slide is currently active,
+     animating between them, and this clips a peeking neighbour slide where
+     it's taller than the active one. This wraps ONLY the <ul> track (not
+     the nav buttons/pagination dots that follow it in <slider-component>),
+     so those stay fully visible below regardless of the track's height.
+     It's also deliberately a separate element from #Slider-Gallery /
+     .product__media-list above - that element has its own ResizeObserver
+     (slider-component, in global.js) which would otherwise see our own
+     height changes and feed back into it. */
+  .product-gallery-track-wrap {
+    display: block;
+    overflow-y: hidden;
+    transition: height 0.3s ease;
+  }
+}
+
+.product__offer-communication {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: Helvetica Neue;
+}
+
+@media screen and (min-width: 750px) {
+  .product__offer-communication {
+    font-size: 1.4rem;
+  }
+  .product-media-container {
+    max-width: 100%;
+  }
+
+  .product-media-container:not(.media-type-image) {
+    /* override to use actual media ratio (not poster ratio) for video/models on desktop */
+    --aspect-ratio: var(--ratio);
+  }
+
+  .product-media-container.constrain-height {
+    --viewport-offset: 170px;
+    --constrained-min-height: 500px;
+  }
+
+  .product-media-container.media-fit-cover,
+  .product-media-container.media-fit-cover .product__modal-opener,
+  .product-media-container.media-fit-cover .media {
+    height: 100%;
+  }
+
+  .product-media-container.media-fit-cover .deferred-media__poster img {
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.product-media-container .product__modal-opener {
+  display: block;
+  position: relative;
+}
+
+@media screen and (min-width: 750px) {
+  .product-media-container .product__modal-opener:not(.product__modal-opener--image) {
+    display: none;
+  }
+}
+
+/* Recipient form */
+.recipient-form {
+  /* (2.88[line-height] - 1.6rem) / 2 */
+  --recipient-checkbox-margin-top: 0.64rem;
+
+  display: block;
+  position: relative;
+  max-width: 44rem;
+  margin-bottom: 2.5rem;
+}
+
+.recipient-form-field-label {
+  margin: 0.6rem 0;
+}
+
+.recipient-form-field-label--space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipient-checkbox {
+  flex-grow: 1;
+  font-size: 1.6rem;
+  display: flex;
+  word-break: break-word;
+  align-items: flex-start;
+  max-width: inherit;
+  position: relative;
+  cursor: pointer;
+}
+
+.recipient-form > input[type='checkbox'] {
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: var(--recipient-checkbox-margin-top) 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.recipient-fields__field {
+  margin: 0 0 2rem 0;
+}
+
+.recipient-fields .field__label {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 3.5rem);
+  overflow: hidden;
+}
+
+.recipient-checkbox > svg {
+  margin-top: var(--recipient-checkbox-margin-top);
+  margin-right: 1.2rem;
+  flex-shrink: 0;
+}
+
+.recipient-form .icon-checkmark {
+  visibility: hidden;
+  position: absolute;
+  left: 0.28rem;
+  z-index: 5;
+  top: 0.4rem;
+  width: 10px;
+  height: 9px;
+}
+
+.recipient-form > input[type='checkbox']:checked + label .icon-checkmark {
+  visibility: visible;
+}
+
+.js .recipient-fields {
+  display: none;
+}
+
+.recipient-fields hr {
+  margin: 1.6rem auto;
+}
+
+.recipient-form > input[type='checkbox']:checked ~ .recipient-fields {
+  display: block;
+  animation: animateMenuOpen var(--duration-default) ease;
+}
+.recipient-form > input[type='checkbox']:not(:checked, :disabled) ~ .recipient-fields,
+.recipient-email-label {
+  display: none;
+}
+
+.js .recipient-email-label.required {
+  display: inline;
+}
+
+.recipient-form ul {
+  line-height: calc(1 + 0.6 / var(--font-body-scale));
+  padding-left: 4.4rem;
+  text-align: left;
+}
+
+.recipient-form ul a {
+  display: inline;
+}
+
+.recipient-form .error-message::first-letter {
+  text-transform: capitalize;
+}
+
+.product__title + .shopify-app-block {
+  margin: 0;
+}
+.jdgm-preview-badge .jdgm-star.jdgm--on::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 11px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='11' viewBox='0 0 12 11' fill='none'%3E%3Cpath d='M5.7063 0L7.05338 4.1459H11.4126L7.88593 6.7082L9.23301 10.8541L5.7063 8.2918L2.17959 10.8541L3.52667 6.7082L-4.00543e-05 4.1459H4.35921L5.7063 0Z' fill='%23D1A360'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.jdgm-preview-badge .jdgm-star.jdgm--off::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 11px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='11' viewBox='0 0 12 11' fill='none'%3E%3Cpath d='M5.7063 0L7.05338 4.1459H11.4126L7.88593 6.7082L9.23301 10.8541L5.7063 8.2918L2.17959 10.8541L3.52667 6.7082L-4.00543e-05 4.1459H4.35921L5.7063 0Z' fill='none' stroke='%23D1A360' stroke-width='0.8' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+#swym-atw-pdp-button-text {
+  display: none;
+}
+.swym-atw-button-container.consent-given.default-position {
+  width: fit-content;
+  margin-top: 0;
+}
+#swym-atw-pdp-button {
+  border-radius: 50%;
+  border: 1px solid #7A3717;
+  background: transparent;
+}
+#swym-atw-pdp-button svg path {
+  stroke: #7A3717;
+}
+#swym-atw-pdp-button.atw-button-added svg path {
+  fill: #C70000;
+  stroke: #C70000;
+}
+span.jdgm-prev-badge__text {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 16px !important;
+}
+.quick-add-modal .clickpost-edd__container {
+  display:none;
+} 
+@media screen and (forced-colors: active) {
+  .recipient-fields > hr {
+    border-top: 0.1rem solid rgb(var(--color-background));
+  }
+
+  .recipient-checkbox > svg {
+    background-color: inherit;
+    border: 0.1rem solid rgb(var(--color-background));
+  }
+
+  .recipient-form > input[type='checkbox']:checked + label .icon-checkmark {
+    border: none;
+  }
+}

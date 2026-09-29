@@ -1,0 +1,655 @@
+{% schema %}
+{
+  "name": "Birthstone Tabs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "BIRTHSTONE OVERVIEW"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "light"
+    },
+    {
+      "type": "header",
+      "content": "Custom Colors",
+      "info": "Only applies when color scheme is set to 'Custom'"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "active_tab_color",
+      "label": "Active tab background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "content_background",
+      "label": "Content background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Image Sizing"
+    },
+    {
+      "type": "range",
+      "id": "tab_image_size",
+      "min": 40,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Tab image size",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "content_image_size",
+      "min": 100,
+      "max": 300,
+      "step": 20,
+      "unit": "px",
+      "label": "Content image size",
+      "default": 200
+    }
+  ],
+  "blocks": [
+    {
+      "type": "month",
+      "name": "Month",
+      "settings": [
+        {
+          "type": "text",
+          "id": "month_name",
+          "label": "Month Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "gemstone_image",
+          "label": "Gemstone Image"
+        },
+        {
+          "type": "text",
+          "id": "gemstone_name",
+          "label": "Gemstone Name"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Birthstone Tabs",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .birthstone-tabs {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px;
+  }
+  
+  {% if section.settings.color_scheme == 'light' %}
+    .birthstone-tabs {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --active-tab-bg: #f5f5f5;
+      --content-bg: #f5f5f5;
+    }
+  {% elsif section.settings.color_scheme == 'dark' %}
+    .birthstone-tabs {
+      --bg-color: #222222;
+      --text-color: #ffffff;
+      --active-tab-bg: #333333;
+      --content-bg: #333333;
+    }
+  {% else %}
+    .birthstone-tabs {
+      --bg-color: {{ section.settings.background_color }};
+      --text-color: {{ section.settings.text_color }};
+      --active-tab-bg: {{ section.settings.active_tab_color }};
+      --content-bg: {{ section.settings.content_background }};
+    }
+  {% endif %}
+  
+  .birthstone-tabs {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  .birthstone-tabs h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-color);
+  }
+  
+  .month-grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .month-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+  }
+  
+  .month-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    padding: 15px 10px;
+    border-radius: 8px;
+  }
+  
+  .month-tab:hover,
+  .month-tab.active {
+    opacity: 1;
+    background-color: var(--active-tab-bg);
+  }
+  
+  .month-tab-image {
+    width: {{ section.settings.tab_image_size }}px;
+    height: {{ section.settings.tab_image_size }}px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .month-tab-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .month-tab-name {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--text-color);
+  }
+  
+  .tab-content-wrapper {
+    display: none;
+    background: var(--content-bg);
+    padding: 30px;
+    border-radius: 8px;
+    animation: fadeIn 0.3s ease;
+    margin-top: 10px;
+    grid-column: 1 / -1;
+      position: relative;
+  }
+  .close-tab {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    z-index: 1;
+    line-height: 1;
+  }
+  
+  .close-tab:hover {
+    opacity: 0.8;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .tab-content-wrapper.active {
+    display: flex;
+    align-items: center;
+  }
+  
+  .gemstone-content {
+    display: grid;
+    grid-template-columns: 1fr minmax({{ section.settings.content_image_size }}px, 30%) 1fr;
+    gap: 30px;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .gemstone-month-info {
+    text-align: right;
+    min-width: 120px;
+  }
+  
+  .gemstone-month-info h3 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 24px;
+    color: var(--text-color);
+    font-weight: bold;
+    line-height: 1.2;
+  }
+  
+  .gemstone-month-info p {
+    margin: 5px 0 0;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: var(--text-color);
+    opacity: 0.8;
+  }
+  
+  .gemstone-image {
+    width: {{ section.settings.content_image_size }}px;
+    height: {{ section.settings.content_image_size }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  .gemstone-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+  
+  .gemstone-description {
+    color: var(--text-color);
+    line-height: 1.6;
+    opacity: 0.9;
+    min-width: 200px;
+  }
+  
+  /* Mobile Popup Styles */
+  .mobile-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .mobile-popup.active {
+    display: flex;
+  }
+  
+  .mobile-popup-content {
+    background: var(--content-bg);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    color: var(--text-color);
+    width: 100%;
+  }
+  
+  .mobile-popup-content .gemstone-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .mobile-popup-content .gemstone-month-info {
+    text-align: center;
+    order: 1;
+    
+  }
+  
+  .mobile-popup-content .gemstone-image {
+    order: 2;
+    width: {{ section.settings.content_image_size | times: 0.7 }}px;
+    height: {{ section.settings.content_image_size | times: 0.7 }}px;
+    margin: 0 auto;
+  }
+  
+  .mobile-popup-content .gemstone-description {
+    order: 3;
+    text-align: center;
+    color:white;
+  }
+  
+  .close-popup {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    z-index: 1;
+  }
+  
+  @media (max-width: 1024px) {
+    .month-row {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .gemstone-content {
+      grid-template-columns: 1fr minmax({{ section.settings.content_image_size | times: 0.8 }}px, 30%) 1fr;
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .month-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tab-content-wrapper {
+      display: none !important;
+    }
+    
+    .gemstone-content {
+      grid-template-columns: 1fr;
+      gap: 15px;
+      text-align: center;
+    }
+    
+    .gemstone-month-info {
+      text-align: center;
+      order: 1;
+      min-width: auto;
+    }
+    
+    .gemstone-image {
+      order: 2;
+      width: {{ section.settings.content_image_size | times: 0.7 }}px;
+      height: {{ section.settings.content_image_size | times: 0.7 }}px;
+    }
+    
+    .gemstone-description {
+      order: 3;
+      min-width: auto;
+    }
+    
+    .month-tab-image {
+      width: calc({{ section.settings.tab_image_size }}px * 0.8);
+      height: calc({{ section.settings.tab_image_size }}px * 0.8);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .birthstone-tabs {
+      padding: {{ section.settings.padding_top | divided_by: 2 }}px 15px {{ section.settings.padding_bottom | divided_by: 2 }}px;
+    }
+    
+    .gemstone-month-info h3 {
+      font-size: 20px;
+      color:white;
+    }
+    
+    .gemstone-month-info p {
+      font-size: 16px;
+      color:white;
+    }
+    
+    .gemstone-image {
+      width: {{ section.settings.content_image_size | times: 0.6 }}px;
+      height: {{ section.settings.content_image_size | times: 0.6 }}px;
+    }
+    
+    .mobile-popup-content {
+      padding: 20px;
+    }
+    
+    .close-popup {
+      top: 10px;
+      right: 10px;
+    }
+  }
+</style>
+
+<div class="birthstone-tabs">
+  <h2>{{ section.settings.title }}</h2>
+  
+  <div class="month-grid-container">
+    <!-- First Row (Jan-Jun) -->
+    <div class="month-row">
+      {% for block in section.blocks limit: 6 %}
+        <div class="month-tab" data-tab="{{ block.id }}">
+          <div class="month-tab-image">
+            {% if block.settings.gemstone_image %}
+              <img src="{{ block.settings.gemstone_image | img_url: '200x200' }}" alt="{{ block.settings.gemstone_name }}" loading="lazy">
+            {% endif %}
+          </div>
+          <div class="month-tab-name">{{ block.settings.month_name }}</div>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <!-- Content for first row -->
+    {% for block in section.blocks limit: 6 %}
+  <div class="tab-content-wrapper" id="content-{{ block.id }}">
+    <span class="close-tab">&times;</span>
+    <div class="gemstone-content">
+          <div class="gemstone-month-info">
+            <h3>{{ block.settings.month_name }}</h3>
+            <p>{{ block.settings.gemstone_name }}</p>
+          </div>
+          
+          {% if block.settings.gemstone_image %}
+            <div class="gemstone-image">
+              <img src="{{ block.settings.gemstone_image | img_url: '400x' }}" alt="{{ block.settings.gemstone_name }}" loading="lazy">
+            </div>
+          {% endif %}
+          
+          <div class="gemstone-description">
+            {{ block.settings.description }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    
+    <!-- Second Row (Jul-Dec) -->
+    <div class="month-row">
+      {% for block in section.blocks offset: 6 %}
+        <div class="month-tab" data-tab="{{ block.id }}">
+          <div class="month-tab-image">
+            {% if block.settings.gemstone_image %}
+              <img src="{{ block.settings.gemstone_image | img_url: '200x200' }}" alt="{{ block.settings.gemstone_name }}" loading="lazy">
+            {% endif %}
+          </div>
+          <div class="month-tab-name">{{ block.settings.month_name }}</div>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <!-- Content for second row -->
+   {% for block in section.blocks offset: 6 %}
+  <div class="tab-content-wrapper" id="content-{{ block.id }}">
+    <span class="close-tab">&times;</span>
+    <div class="gemstone-content">
+          <div class="gemstone-month-info">
+            <h3>{{ block.settings.month_name }}</h3>
+            <p>{{ block.settings.gemstone_name }}</p>
+          </div>
+          
+          {% if block.settings.gemstone_image %}
+            <div class="gemstone-image">
+              <img src="{{ block.settings.gemstone_image | img_url: '400x' }}" alt="{{ block.settings.gemstone_name }}" loading="lazy">
+            </div>
+          {% endif %}
+          
+          <div class="gemstone-description">
+            {{ block.settings.description }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Mobile Popup Container -->
+<div class="mobile-popup" id="mobilePopup">
+  <div class="mobile-popup-content">
+    <span class="close-popup">&times;</span>
+    <div id="mobilePopupContent"></div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.month-tab');
+    const mobilePopup = document.getElementById('mobilePopup');
+    const mobilePopupContent = document.getElementById('mobilePopupContent');
+    const closePopup = document.querySelector('.close-popup');
+    const closeTabButtons = document.querySelectorAll('.close-tab');
+    
+    function isMobile() {
+      return window.innerWidth <= 768;
+    }
+    
+    function showMobilePopup(content) {
+      mobilePopupContent.innerHTML = '';
+      const clonedContent = content.cloneNode(true);
+      mobilePopupContent.appendChild(clonedContent);
+      mobilePopup.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMobilePopup() {
+      mobilePopup.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    function closeActiveTab() {
+      const activeTab = document.querySelector('.month-tab.active');
+      if (activeTab) {
+        const tabId = activeTab.getAttribute('data-tab');
+        activeTab.classList.remove('active');
+        document.getElementById(`content-${tabId}`).classList.remove('active');
+      }
+    }
+    
+    function activateTab(tab) {
+      // Close any currently active tab first
+      closeActiveTab();
+      
+      const tabId = tab.getAttribute('data-tab');
+      const contentWrapper = document.getElementById(`content-${tabId}`);
+      const content = contentWrapper.querySelector('.gemstone-content');
+      
+      if (isMobile()) {
+        showMobilePopup(content);
+      } else {
+        // Activate current tab
+        tab.classList.add('active');
+        contentWrapper.classList.add('active');
+      }
+    }
+    
+    // Activate first tab on page load if not mobile
+    if (!isMobile() && tabs.length > 0) {
+      activateTab(tabs[0]);
+    }
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        activateTab(this);
+      });
+    });
+    
+    // Add click handlers for close buttons
+    closeTabButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent triggering the tab content click
+        closeActiveTab();
+      });
+    });
+    
+    closePopup.addEventListener('click', closeMobilePopup);
+    
+    mobilePopup.addEventListener('click', function(e) {
+      if (e.target === mobilePopup) {
+        closeMobilePopup();
+      }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobilePopup.classList.contains('active')) {
+        closeMobilePopup();
+      }
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768 && mobilePopup.classList.contains('active')) {
+        closeMobilePopup();
+      }
+    });
+  });
+</script>

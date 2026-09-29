@@ -1,0 +1,262 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "promotion_banner_tWKgKb": {
+      "type": "promotion-banner",
+      "name": "t:sections.promotion-banner.name",
+      "settings": {
+        "heading": "Promotion Banner",
+        "image": "shopify://shop_images/jewelcare.jpg",
+        "image_mobile": "shopify://shop_images/jewelcare.jpg",
+        "image_link": "",
+        "open_new_window": false,
+        "image_overlay_opacity": 0,
+        "content_position": "center",
+        "content_horizontal": 50,
+        "content_vertical": 50,
+        "position_content_mobile": "center",
+        "content_alignment": "center",
+        "show_hero": false,
+        "full_width": true,
+        "padding_full_width": false,
+        "adapt_corners_desktop": false,
+        "rounded_corner_image": false,
+        "desktop_height": "natural",
+        "padding_top": 0,
+        "padding_bottom": 28,
+        "full_width_mobile": true,
+        "adapt_corners_mobile": false,
+        "rounded_corner_image_mobile": false,
+        "mobile_height": "natural",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "image_with_text_6y9VDK": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_UGDpFw": {
+          "type": "heading",
+          "settings": {
+            "heading": "How to handle your fine jewellery?",
+            "heading_size": "h1"
+          }
+        },
+        "text_UCgXbT": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Put on your jewellery after you’ve applied your cosmetics like creams and perfumes.</li><li>Every piece of jewellery should be stored separately, preferably lined with cloth or velvet.</li><li>Get your jewellery washed to get rid of unwanted dirt from time to time.</li></ul>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UGDpFw",
+        "text_UCgXbT"
+      ],
+      "custom_css": [],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/jwelcare_1.png",
+        "make_image_half_width": true,
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_LmxQbU": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_yM7EjV": {
+          "type": "heading",
+          "settings": {
+            "heading": "Diamond & Gemstone Care",
+            "heading_size": "h1"
+          }
+        },
+        "text_zLxCLH": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Diamond can chip, break and crack on impact</li><li>Wear diamond jewellery cautiously to avoid losing the diamond.</li><li>Gemstones are softer than diamonds, thus needs extra care while wearing as well as storing.</li></ul>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_yM7EjV",
+        "text_zLxCLH"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/jewelcare2.png",
+        "make_image_half_width": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_X6LmGN": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_JPFNib": {
+          "type": "heading",
+          "settings": {
+            "heading": "Pearl Jewellery Care",
+            "heading_size": "h1"
+          }
+        },
+        "text_TFCThi": {
+          "type": "text",
+          "settings": {
+            "text": "<p>• Pearls are delicate and can get scratched easily, so avoid contact with hard surfaces and other jewellery.</p><p>• Keep pearl jewellery away from perfumes, cosmetics, hairsprays, and harsh chemicals, as these can damage its natural lustre.</p><p>• Keep pearls separately in a soft pouch or fabric-lined box to help retain their shine and prevent scratches.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JPFNib",
+        "text_TFCThi"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/jewelcare3.png",
+        "make_image_half_width": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_Yf9Lzx": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_nUCRqt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Gold Jewellery Care",
+            "heading_size": "h1"
+          }
+        },
+        "text_YFqHyX": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Plain gold jewellery, like all other jewellery products, needs to be stored separately, preferably lined with tissue or velvet.</li><li>Gold jewellery worn daily needs to be washed and cleaned regularly to maintain its shine and remove any accumulated dirt or sweat.</li><li>Enamels can chip off in course of time and need to be given to the concerned jeweller to fix.</li></ul>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nUCRqt",
+        "text_YFqHyX"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/jwlcar4.png",
+        "make_image_half_width": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_VniPLt": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_xjKhmm": {
+          "type": "heading",
+          "settings": {
+            "heading": "How to Wash Jewellery at Home?",
+            "heading_size": "h1"
+          }
+        },
+        "text_6qQVzp": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Luke warm water is best for cleaning jewellery, although it is complete NO for pearls, kundan and enamel jewellery.</li><li>Never put any piece of diamond, gemstone, kundan, polki or enamel jewellery in hot.</li><li>Store them in a cool dry place to avoid moisture or excessive heat.</li></ul>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xjKhmm",
+        "text_6qQVzp"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/jwelcare_5.png",
+        "make_image_half_width": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "promotion_banner_tWKgKb",
+    "image_with_text_6y9VDK",
+    "image_with_text_LmxQbU",
+    "image_with_text_X6LmGN",
+    "image_with_text_Yf9Lzx",
+    "image_with_text_VniPLt"
+  ]
+}

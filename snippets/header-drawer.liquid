@@ -1,0 +1,276 @@
+{% comment %}
+  Renders a header drawer menu for mobile and desktop.
+
+  Usage:
+  {% render 'header-drawer' %}
+{% endcomment %}
+
+<header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
+  <details id="Details-menu-drawer-container" class="menu-drawer-container">
+    <summary
+      class="header__icon header__icon--menu header__icon--summary link focus-inset"
+      aria-label="{{ 'sections.header.menu' | t }}"
+    >
+      <span>
+        {% render 'icons' icon:"hamburger" %}
+        {{- 'icon-close.svg' | inline_asset_content -}}
+      </span>
+    </summary>
+    <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
+      {%- liquid
+        assign mobile_menu_settings_block = blank
+        for block in section.blocks
+          if block.type == 'mobile_menu_settings'
+            assign mobile_menu_settings_block = block
+          endif
+        endfor
+
+        assign drawer_menu = mobile_menu_settings_block.settings.mobile_menu
+        if drawer_menu == blank
+          assign drawer_menu = section.settings.menu
+        endif
+
+        assign featured_link = blank
+        assign shop_for_link = blank
+        for link in drawer_menu.links
+          assign link_title_key = link.title | strip | downcase
+          if link_title_key == 'featured' and link.links != blank
+            assign featured_link = link
+          endif
+          if link_title_key == 'shop for' and link.links != blank
+            assign shop_for_link = link
+          endif
+        endfor
+
+        assign first_accordion_link = blank
+        for link in shop_for_link.links
+          if first_accordion_link == blank and link.links != blank
+            assign first_accordion_link = link
+          endif
+        endfor
+        for link in drawer_menu.links
+          assign is_extra_link = true
+          if featured_link != blank and link.handle == featured_link.handle
+            assign is_extra_link = false
+          endif
+          if shop_for_link != blank and link.handle == shop_for_link.handle
+            assign is_extra_link = false
+          endif
+          if first_accordion_link == blank and is_extra_link and link.links != blank
+            assign first_accordion_link = link
+          endif
+        endfor
+      -%}
+      <div class="menu-drawer__inner-container">
+        <div class="menu-drawer__navigation-container">
+          <div class="menu-drawer__topbar">
+            <div class="menu-drawer__topbar-icons">
+              <a
+                href="{{ routes.cart_url }}"
+                class="menu-drawer__icon-btn menu-drawer__icon-btn--circle menu-drawer__panel-close menu-drawer__cart-trigger"
+                aria-label="{{ 'templates.cart.cart' | t }}"
+              >
+                <span class="svg-wrapper">{% render 'icons' icon: 'cart-2' %}</span>
+                {%- if cart != empty -%}
+                  <span class="menu-drawer__cart-count" aria-hidden="true">{{ cart.item_count }}</span>
+                {%- endif -%}
+              </a>
+              <button
+                type="button"
+                class="menu-drawer__icon-btn menu-drawer__icon-btn--circle menu-drawer__panel-close"
+                aria-label="{{ 'accessibility.close' | t }}"
+              >
+                {{- 'icon-close.svg' | inline_asset_content -}}
+              </button>
+            </div>
+          </div>
+
+          {%- if featured_link != blank -%}
+            <div class="menu-drawer__featured">
+              <ul class="menu-drawer__featured-list list-unstyled" role="list">
+                {%- for childlink in featured_link.links -%}
+                  {%- assign featured_image = childlink.object.featured_image | default: childlink.object.image -%}
+                  <li class="menu-drawer__featured-item">
+                    <a href="{{ childlink.url }}" class="menu-drawer__featured-link">
+                      {%- if featured_image -%}
+                        {%- assign featured_alt = childlink.title | escape -%}
+                        <span class="menu-drawer__featured-image">
+                          {{
+                            featured_image
+                            | image_url: width: 320, height: 320, crop: 'center'
+                            | image_tag: width: 80, height: 80, loading: 'lazy', alt: featured_alt
+                          }}
+                        </span>
+                      {%- endif -%}
+                      <span class="menu-drawer__featured-label">{{ childlink.title | escape }}</span>
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+
+          <nav class="menu-drawer__navigation">
+            <ul class="menu-drawer__accordion list-unstyled" role="list">
+              {%- for link in shop_for_link.links -%}
+                {%- liquid
+                  assign is_first = false
+                  if first_accordion_link != blank and link.handle == first_accordion_link.handle
+                    assign is_first = true
+                  endif
+                -%}
+                {% render 'menu-drawer-accordion-item', link: link, is_first: is_first %}
+              {%- endfor -%}
+              {%- for link in drawer_menu.links -%}
+                {%- liquid
+                  assign is_extra_link = true
+                  if featured_link != blank and link.handle == featured_link.handle
+                    assign is_extra_link = false
+                  endif
+                  if shop_for_link != blank and link.handle == shop_for_link.handle
+                    assign is_extra_link = false
+                  endif
+                -%}
+                {%- if is_extra_link -%}
+                  {%- liquid
+                    assign is_first = false
+                    if first_accordion_link != blank and link.handle == first_accordion_link.handle
+                      assign is_first = true
+                    endif
+                  -%}
+                  {% render 'menu-drawer-accordion-item', link: link, is_first: is_first %}
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </nav>
+
+
+          <div class="menu-drawer__utility-links">
+            <div>
+              <a href="/pages/store-list" class="menu-drawer__account-link link link--text">
+                <span class="svg-wrapper">{% render 'icons' icon: 'store-locator' %}</span>
+                <span class="menu-drawer__account-label">Store Locator</span>
+              </a>
+            </div>
+
+
+            {%- if shop.customer_accounts_enabled -%}
+              <div>
+                <a
+                  href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+                  class="menu-drawer__account-link link link--text"
+                  rel="nofollow"
+                >
+                  <span class="svg-wrapper">{% render 'icons' icon: 'login' %}</span>
+                  {%- liquid
+                    if customer
+                      echo 'customer.account_fallback' | t
+                    else
+                      echo 'customer.log_in' | t
+                    endif
+                  -%}
+                </a>
+              </div>
+            {%- endif -%}
+          </div>
+
+          {%- liquid
+            assign has_utility_links = false
+            if mobile_menu_settings_block.settings.store_locator_url != blank or mobile_menu_settings_block.settings.franchise_url != blank or mobile_menu_settings_block.settings.metal_rates_url != blank
+              assign has_utility_links = true
+            endif
+          -%}
+          {%- if has_utility_links -%}
+            <ul class="menu-drawer__utility-pills list-unstyled" role="list">
+              {%- if mobile_menu_settings_block.settings.store_locator_url != blank -%}
+                <li>
+                  <a href="{{ mobile_menu_settings_block.settings.store_locator_url }}" class="menu-drawer__utility-pill">
+                    <span class="svg-wrapper">{% render 'icons' icon: 'store' %}</span>
+                    Store Locator
+                  </a>
+                </li>
+              {%- endif -%}
+              {%- if mobile_menu_settings_block.settings.franchise_url != blank -%}
+                <li>
+                  <a href="{{ mobile_menu_settings_block.settings.franchise_url }}" class="menu-drawer__utility-pill">
+                    <span class="svg-wrapper">{% render 'icons' icon: 'handshake' %}</span>
+                    Franchise
+                  </a>
+                </li>
+              {%- endif -%}
+              {%- if mobile_menu_settings_block.settings.metal_rates_url != blank -%}
+                <li>
+                  <a href="{{ mobile_menu_settings_block.settings.metal_rates_url }}" class="menu-drawer__utility-pill">
+                    <span class="svg-wrapper">{% render 'icons' icon: 'metal' %}</span>
+                    Metal rates
+                  </a>
+                </li>
+              {%- endif -%}
+            </ul>
+          {%- endif -%}
+
+          <ul class="menu-drawer__account-list list-unstyled" role="list">
+            {%- if mobile_menu_settings_block.settings.contact_url != blank -%}
+              <li>
+                <a href="{{ mobile_menu_settings_block.settings.contact_url }}" class="menu-drawer__account-link link link--text">
+                  <span class="svg-wrapper">{% render 'icons' icon: 'contact' %}</span>
+                  Contact Us
+                </a>
+              </li>
+            {%- endif -%}
+          </ul>
+
+          <div class="menu-drawer__utility-links">
+            {%- if localization.available_countries or localization.available_languages -%}
+              <div class="menu-drawer__localization header-localization">
+                {%- if localization.available_countries and localization.available_countries.size > 1 -%}
+                  <localization-form>
+                    {%- form 'localization', id: 'HeaderCountryMobileForm', class: 'localization-form' -%}
+                      <div>
+                        <h2 class="visually-hidden" id="HeaderCountryMobileLabel">
+                          {{ 'localization.country_label' | t }}
+                        </h2>
+                        {%- render 'country-localization', localPosition: 'HeaderCountryMobile' -%}
+                      </div>
+                    {%- endform -%}
+                  </localization-form>
+                {% endif %}
+
+                {%- if localization.available_languages and localization.available_languages.size > 1 -%}
+                  <localization-form>
+                    {%- form 'localization', id: 'HeaderLanguageMobileForm', class: 'localization-form' -%}
+                      <div>
+                        <h2 class="visually-hidden" id="HeaderLanguageMobileLabel">
+                          {{ 'localization.language_label' | t }}
+                        </h2>
+                        {%- render 'language-localization', localPosition: 'HeaderLanguageMobile' -%}
+                      </div>
+                    {%- endform -%}
+                  </localization-form>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+</header-drawer>
+
+<script>
+  document.querySelectorAll('.menu-drawer__accordion-item').forEach(function (details) {
+    details.addEventListener('toggle', function () {
+      details.querySelector(':scope > summary').setAttribute('aria-expanded', details.open);
+    });
+  });
+
+  document.querySelectorAll('.menu-drawer__cart-trigger').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      var headerCartIcon = document.querySelector('#cart-icon-bubble');
+      if (headerCartIcon) {
+        event.preventDefault();
+        headerCartIcon.click();
+      }
+    });
+  });
+</script>

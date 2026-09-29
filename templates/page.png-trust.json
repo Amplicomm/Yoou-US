@@ -1,0 +1,373 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_liquid_iXnYEx": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<script>\n  document.addEventListener(\"DOMContentLoaded\", function () {\n    let elements = {\n      \"cls-retuns\": \"returns\",\n      \"cls-freeshipping\": \"free-shipping\",\n      \"cls-certifications\": \"certifications\",\n      \"cls-lifetimbuyback\": \"lifetime-buyback\",\n      \"cls-lifetimeexchange\": \"lifetime-exchange\",\n      \"cls-fppdpp\": \"fppdpp\",\n      \"cls-goldexchange\": \"gold-exchange\",\n    };\n\n    for (const [className, idName] of Object.entries(elements)) {\n      let el = document.querySelector(`.${className}`);\n      if (el) {\n        el.setAttribute(\"id\", idName);\n      }\n    }\n  });\n</script>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_JeWqtA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dQKUXb": {
+          "type": "heading",
+          "settings": {
+            "heading": "PNG Trust",
+            "heading_size": "h1"
+          }
+        },
+        "text_7VMXFm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Incredible rationales to shop with us!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dQKUXb",
+        "text_7VMXFm"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 8
+      }
+    },
+    "image_with_text_GehWK8": {
+      "type": "image-with-text-png-trust",
+      "blocks": {
+        "heading_k9Gh4b": {
+          "type": "heading",
+          "settings": {
+            "heading": "14-Day Returns",
+            "heading_size": "h1"
+          }
+        },
+        "text_NEFFgU": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We offer a 14-day Return Policy on all jewellery purchases made from PNG Jewellers within India. The entire amount is refunded to the customer's account within 10 working days of receiving the return.<br/>To learn more about our return policy, please <a href=\"/pages/policies\" title=\"Policies\">click here</a>.<br/></p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_k9Gh4b",
+        "text_NEFFgU"
+      ],
+      "settings": {
+        "class_name": "cls-retuns",
+        "image": "shopify://shop_images/pngtrust-1.png",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "left",
+        "padding_top": 8,
+        "padding_bottom": 36
+      }
+    },
+    "ring_separator_XCGFn6": {
+      "type": "ring-separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "image_with_text_Uqzhzt": {
+      "type": "image-with-text-png-trust",
+      "blocks": {
+        "heading_LPWcdQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Free Shipping",
+            "heading_size": "h1"
+          }
+        },
+        "text_AcrQc9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We offer complimentary shipping on all your online purchases made from PNG Jewellers within India, and for any item you want to return or exchange within 14 days.<br/></p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LPWcdQ",
+        "text_AcrQc9"
+      ],
+      "settings": {
+        "class_name": "cls-freeshipping",
+        "image": "shopify://shop_images/pngtrust2.png",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ring_separator_DkYEGT": {
+      "type": "ring-separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "image_with_text_WGNQae": {
+      "type": "image-with-text-png-trust",
+      "blocks": {
+        "heading_MahH6Q": {
+          "type": "heading",
+          "settings": {
+            "heading": "Certifications",
+            "heading_size": "h1"
+          }
+        },
+        "text_cHMxYM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every jewellery item has a reputable certification, which guarantees the purity of the gold used in its manufacture. A certificate of authenticity accompanies the diamonds in our collections from <strong>GSI (Gemological Science International)</strong>. All PNG Jewellers solitaires come with a certificate of authenticity from <strong>GIA</strong>.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MahH6Q",
+        "text_cHMxYM"
+      ],
+      "settings": {
+        "class_name": "cls-certifications",
+        "image": "shopify://shop_images/Certifications.png",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ring_separator_RyzajW": {
+      "type": "ring-separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "image_with_text_Wph3DJ": {
+      "type": "image-with-text-png-trust",
+      "blocks": {
+        "heading_iyktPG": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lifetime Buyback",
+            "heading_size": "h1"
+          }
+        },
+        "text_bWaxmz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We offer a Lifetime Buyback Policy on all purchases made from PNG Jewellers within India. With the ever-changing trends and designs, our consumers get maximum freedom to upgrade their jewellery collection at a fair market rate.</p><p>To learn more about our Lifetime Buyback policy, please <a href=\"/pages/policies\" title=\"Policies\">click here</a>.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_iyktPG",
+        "text_bWaxmz"
+      ],
+      "settings": {
+        "class_name": "cls-lifetimbuyback",
+        "image": "shopify://shop_images/Lifetime_Buyback.png",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ring_separator_jyqGrE": {
+      "type": "ring-separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "image_with_text_PiWJLa": {
+      "type": "image-with-text-png-trust",
+      "blocks": {
+        "heading_nVaAep": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lifetime Exchange",
+            "heading_size": "h1"
+          }
+        },
+        "text_9Fjm6X": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We offer a Lifetime Buyback Policy on all purchases made from PNG Jewellers within India. The product, along with the original invoice copy and the original diamond certificate, can be exchanged based on its current market value, with deductions as per the policy.</p><p>To learn more about our Lifetime Exchange policy, please <a href=\"/pages/policies\" title=\"Policies\">click here</a>.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nVaAep",
+        "text_9Fjm6X"
+      ],
+      "settings": {
+        "class_name": "cls-lifetimeexchange",
+        "image": "shopify://shop_images/Lifetime_Exchange.png",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_6YW9YW": {
+      "type": "image-with-text-png-trust",
+      "blocks": {
+        "heading_tWTR9w": {
+          "type": "heading",
+          "settings": {
+            "heading": "FPP/DPP",
+            "heading_size": "h1"
+          }
+        },
+        "text_jx8bFV": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PNG Jewellers offer the most profitable gold schemes (FPP and DPP) of the era. Our customers accumulate lump sum amounts with us over a significant period and easily purchase the jewellery of their dreams.</p><p>For our detailed FPP/DPP scheme, please <a href=\"https://play.google.com/store/apps/details?id=com.redpin.planpng\">click here</a>.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tWTR9w",
+        "text_jx8bFV"
+      ],
+      "settings": {
+        "class_name": "cls-fppdpp",
+        "image": "shopify://shop_images/FPP_DPP.png",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ring_separator_aWTMJq": {
+      "type": "ring-separator",
+      "settings": {
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "image_with_text_8akJQa": {
+      "type": "image-with-text-png-trust",
+      "blocks": {
+        "heading_FCtTtd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Gold Exchange",
+            "heading_size": "h1"
+          }
+        },
+        "text_JjfBhe": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PNG Jewellers offers storewide best exchange value for 22KT old gold without any deductions. Our Karat Meter will give you 100% precise purity of the gold you have exchanged.</p><p>To exchange your old gold, locate your nearby <a href=\"https://yooubypng.myshopify.com/store-locator\">PNG Store.</a></p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FCtTtd",
+        "text_JjfBhe"
+      ],
+      "settings": {
+        "class_name": "cls-goldexchange",
+        "image": "shopify://shop_images/Gold_Exchange.png",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_liquid_iXnYEx",
+    "rich_text_JeWqtA",
+    "image_with_text_GehWK8",
+    "ring_separator_XCGFn6",
+    "image_with_text_Uqzhzt",
+    "ring_separator_DkYEGT",
+    "image_with_text_WGNQae",
+    "ring_separator_RyzajW",
+    "image_with_text_Wph3DJ",
+    "ring_separator_jyqGrE",
+    "image_with_text_PiWJLa",
+    "image_with_text_6YW9YW",
+    "ring_separator_aWTMJq",
+    "image_with_text_8akJQa"
+  ]
+}

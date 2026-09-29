@@ -1,0 +1,1085 @@
+
+    <style>
+      :root {
+        --primary: #E0652A;
+        --text-dark: #111;
+        --text-light: #555;
+        --bg-light: #f8f9fb;
+        --radius: 12px;
+      }
+
+      /* Loader */
+      #loader {
+        position: fixed;
+        inset: 0;
+        background: rgba(255, 255, 255, 1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.4s ease;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* --- Store Section --- */
+      .store-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 30px;
+        padding: 30px;
+      }
+
+      .store-left {
+        position: relative;
+      }
+
+      .store-photo {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        border-radius: var(--radius);
+      }
+
+      .store-right {
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 28px;
+        margin: 0 0 10px;
+      }
+
+      .address {
+        font-size: 15px;
+        color: var(--text-light);
+      }
+
+      .rating {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+      .rating span {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 4px 10px;
+        border-radius: 8px;
+        font-size: 13px;
+        color: #000;
+      }
+
+      /* Buttons */
+      .buttons {
+        margin-top: 20px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        filter: brightness(0.9);
+      }
+
+      .btn-outline {
+        background: #fff;
+        border: 1px solid var(--primary);
+        color: var(--primary);
+      }
+
+      .btn-outline:hover {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      /* --- Info Cards --- */
+      .info-section {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      .info-card {
+        background: var(--bg-light);
+        padding: 16px 20px;
+        border-radius: var(--radius);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 15px;
+        color: var(--text-dark);
+        margin-bottom: 10px;
+      }
+
+      .info-status {
+        font-weight: 500;
+      }
+
+      .info-status.open {
+        color: #00b894;
+      }
+
+      .info-status.closed {
+        color: #ff4757;
+      }
+
+      .info-time,
+      .info-details {
+        font-size: 14px;
+        color: var(--text-light);
+      }
+
+      /* --- PROMO SECTION (Reviews + Map) --- */
+      .promo-section {
+        max-width: 1200px;
+        margin: 40px auto;
+        display: grid;
+        grid-template-columns: 60% 30%;
+        gap: 24px;
+        padding: 25px;
+        align-items: start;
+      }
+
+      .promo-banner {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 25px;
+        animation: fadeIn 0.6s ease forwards;
+      }
+
+      .promo-banner h3 {
+        margin-bottom: 8px;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .promo-banner p {
+        color: var(--text-light);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      /* --- Reviews --- */
+      #reviews-container {
+        margin-top: 10px;
+      }
+
+      #reviews ,#nearByStores{
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        padding-top:20px;
+        padding-left:5px
+      }
+      #nearByStores{
+        margin-bottom:20px
+    }
+
+      #reviews::-webkit-scrollbar ,#nearByStores::-webkit-scrollbar{
+        height: 6px;
+      }
+
+      #reviews::-webkit-scrollbar-thumb, #nearByStores::-webkit-scrollbar {
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+      }
+
+      .review-card {
+        flex: 0 0 280px;
+        background: #fafbff;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        scroll-snap-align: start;
+      }
+      .nearby-stores-card{
+        flex: 0 0 350px;
+        background: white;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        scroll-snap-align: start;
+        
+    }
+
+      .review-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+
+      .review-header img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .review-author {
+        font-size: 15px;
+        color: var(--text-dark);
+      }
+
+      .review-rating {
+        color: #ffb400;
+        font-size: 14px;
+      }
+
+      .promo-map {
+        height: 100%;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        animation: fadeIn 0.6s ease forwards;
+      }
+      .storeWrapper{
+        padding:30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* --- Responsive --- */
+
+      /* Tablet breakpoint (keeps side-by-side layout till 768px) */
+      @media (max-width: 768px) {
+        .store-container {
+          grid-template-columns: 1fr;
+          padding: 20px;
+        }
+
+        .store-photo {
+          height: 350px;
+        }
+
+        .promo-section {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          padding: 20px;
+          grid-template-columns: 1fr;
+        }
+        .storeWrapper{
+          padding:20px;
+        }
+
+        .promo-map {
+          display: flex;
+          width: 100%;
+          min-height: 350px;
+        }
+
+        .info-section {
+          flex-direction: column;
+        }
+        .info-card {
+          width: 100% !important;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 600px) {
+        .store-container {
+          padding: 15px;
+        }
+        .storeWrapper{
+          padding:20px;
+        }
+
+        .store-right {
+          padding: 10px;
+        }
+
+        h1 {
+          font-size: 22px;
+        }
+
+        .store-photo {
+          height: 170px;
+        }
+
+        .buttons {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .promo-section {
+          padding: 15px;
+          gap: 18px;
+        }
+
+        #reviews,#nearByStores {
+          gap: 14px;
+          padding-right: 10px;
+        }
+
+        .review-card {
+          flex: 0 0 230px;
+          padding: 16px;
+        }
+
+        .promo-map {
+          display: flex;
+          width: 100%;
+          min-height: 300px;
+        }
+      }
+
+      /* --- Animations --- */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn 0.6s ease forwards;
+      }
+      .faq-item {
+        background: #fff;
+        margin-bottom: 25px;
+      }
+      .faq-head {
+        font-size: 18px;
+        font-weight: 600;
+        color: #222;
+        margin: 0 0 8px 0;
+      }
+
+      .faq-para {
+        font-size: 16px;
+        color: #444;
+        margin: 0;
+        line-height: 1.5;
+      }
+      #storeDescription ,#storeFAQ{
+        margin-bottom:25px
+      }
+    .descWrap,.faqWrap{
+        padding-top:15px;
+        color:red
+    }
+    .descWrap p{
+        color:black;
+        margin-bottom:8px
+    }
+     .descWrap ul{
+        color:black;
+        margin:20px 0 20px 20px;
+        list-style:disc
+    }
+     .descWrap ul li{
+        color:black;
+        margin-bottom:10px
+    }
+    </style>
+
+
+
+    <div id="loader"  >
+      <img width="100" height="100" src="https://img.icons8.com/carbon-copy/100/shop.png" alt="shop"/>
+      <p>Loading store details...</p>
+    </div>
+
+    <!-- Store Section -->
+    <div class="store-container" id="store-wrapper" style="display: none">
+      <div class="store-left">
+        <img
+          id="store-photo"
+          class="store-photo fade-in"
+          src="https://cdn.shopify.com/s/files/1/0773/3057/9503/files/Clip_path_group.png?v=1783402331"
+          alt="Store Image"
+        />
+        <div class="rating"><span id="store-rating">—</span></div>
+      </div>
+
+      <div class="store-right">
+        <h1 id="store-name">{{section.settings.store_name}}</h1>
+        <p class="address"><span id="store-address"></span></p>
+
+        <div class="info-section">
+          <div class="info-card" style="width: 30%" id="store-hours"></div>
+
+          {% if page.metafields.custom.services != blank %}
+            <div class="info-card" style="width: 60%" id="store-services">
+              <div class="info-header">
+                <span>Services</span>
+              </div>
+              <div class="info-details">
+                {{ page.metafields.custom.services }}
+              </div>
+            </div>
+          {% endif %}
+
+        </div>
+
+        <div class="buttons">
+          <!-- Book Appointment Button -->
+          <button class="btn btn-primary" id="btn-book-appointment">
+            Book Appointment
+          </button>
+
+          <!-- Directions Button -->
+          <button class="btn btn-outline" id="btn-directions">
+            📍 Direction
+          </button>
+
+          <!-- Call Button -->
+          <button class="btn btn-outline" id="btn-call">📞 Call</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Promo Section -->
+    <div class="promo-section">
+      <div class="promo-banner fade-in">
+        <div id="reviews-container" class="reviewsSection">
+          <div id="reviews"></div>
+        </div>
+        <div id="adCTA"></div>
+        
+        
+      </div>
+
+      <div class="promo-map" id="newPNGmap"></div>
+    </div>
+    <div class= "storeWrapper">
+      <div id="reviews-container" class="nearbySection">
+          <div id="nearByStores"></div>
+      </div>
+      <div id="storeDescription" class="store-description">
+      </div>
+      <div id="storeFAQ" class="store-faq-section"></div>
+    </div>
+   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
+
+<script>
+
+  const placeCache = new Map();        
+  const placeIdCache = new Map(); 
+  const MAX_CONCURRENT_GETDETAILS = 5;
+
+  const slugify = (s = '') =>
+    s.toString().trim().toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/[^a-z0-9-]/g, '');
+
+  // Display-only: renders "Litestyle" as "Yoou" in the UI without touching any
+  // matching/filtering logic, which still keys off the real Google/Excel name.
+  const getDisplayName = (name) => `${name || ""}`.replace(/litestyle/gi, "Yoou");
+
+  const getDistanceKm = (lat1, lon1, lat2, lon2) => {
+    const R = 6371;
+    const toRad = v => (v * Math.PI) / 180;
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon/2)**2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  };
+
+  let newPNGmap = null;
+  let newPNGmarker = null;
+  let newPNGinfoWindow = null;
+  let customService = null;
+  let storesExcel = [];
+
+
+  const storeData = {
+    name: `{{ page.metafields.custom.store_name  | escape }}`,
+    banner: `{{ page.metafields.custom.store_details_page_banner_url }}`,
+    about: `{{ page.metafields.custom.about_store | raw }}`,
+    faq: `{{ page.metafields.custom.faq | raw }}`,
+    services: `{{ page.metafields.custom.services | default: "Gold Jewellery, Diamond Sets, Silver Coins" }}`,
+    image: `{{ page.metafields.custom.store_image.value}}`
+  };
+
+  (function initDOMFromMetafields() {
+    try {
+      const adCTAContainer = document.getElementById("adCTA");
+      if (adCTAContainer && storeData.banner) {
+        const adImg = new Image();
+        adImg.src = storeData.banner;
+        adImg.alt = "Promotional Banner";
+        adImg.loading = "lazy";
+        adImg.style.cssText = "width:100%;border-radius:8px;";
+        adCTAContainer.appendChild(adImg);
+      }
+
+      const descContainer = document.getElementById("storeDescription");
+    // ABOUT SECTION
+      if (descContainer && storeData.about) {
+        const heading = document.createElement("h2");
+        heading.textContent = "About Store";
+
+        const descWrap = document.createElement("div");
+        descWrap.classList.add("descWrap");
+        descWrap.innerHTML = storeData.about;
+
+        descContainer.appendChild(heading);
+        descContainer.appendChild(descWrap);
+      }
+
+
+      // FAQ SECTION
+      const faqContainer = document.getElementById("storeFAQ");
+
+      if (faqContainer && storeData.faq) {
+
+        // Create section heading
+        const faqHeading = document.createElement("h2");
+        faqHeading.textContent = "Frequently Asked Questions";
+
+        // Wrap FAQ HTML
+        const faqWrap = document.createElement("div");
+        faqWrap.classList.add("faqWrap");
+        faqWrap.innerHTML = storeData.faq; 
+
+        // insert into container
+        faqContainer.appendChild(faqHeading);
+        faqContainer.appendChild(faqWrap);
+      }
+
+
+    } catch (e) {
+      console.error("DOM init error:", e);
+    }
+  })();
+
+
+  async function loadExcelData() {
+    const excelFileUrl = "{{ section.settings.excel_file_url | default: '' }}";
+    if (!excelFileUrl) {
+      console.warn("⚠️ No Excel file URL set in section settings.");
+      return;
+    }
+    try {
+      const res = await fetch(excelFileUrl, { cache: "force-cache" });
+      if (!res.ok) throw new Error(`Excel fetch failed ${res.status}`);
+      const data = await res.arrayBuffer();
+      const workbook = XLSX.read(data, { type: "array" });
+      const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+      // Read with column-letter keys so column I is always accessible as "I"
+      const rawByLetter = XLSX.utils.sheet_to_json(firstSheet, { header: "A", defval: "" });
+      if (rawByLetter.length > 1) {
+        const headerRow = rawByLetter[0];
+        const dataRows = rawByLetter.slice(1);
+        storesExcel = dataRows.map(row => {
+          const obj = {};
+          Object.entries(headerRow).forEach(([col, headerName]) => {
+            const key = String(headerName).trim();
+            if (key) obj[key] = row[col];
+          });
+          obj.name = String(obj.name || "").trim();
+          // Column I is always the phone column
+          const colIValue = row["I"];
+          obj.phone = (colIValue != null && colIValue !== "") ? String(colIValue).trim() : "";
+          return obj;
+        });
+      }
+      // no automatic filtering here; used later by highlightNearestStores
+    } catch (err) {
+      console.error("❌ Excel fetch/parse failed:", err);
+      storesExcel = [];
+    }
+  }
+
+
+  function findPlaceIdByName(name) {
+    return new Promise(resolve => {
+      if (!customService || !name) return resolve(null);
+      const wantsSons = name.toLowerCase().includes('son');
+      customService.findPlaceFromQuery({ query: name, fields: ["place_id", "name"] }, (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK && results?.length) {
+          // Reject a "Sons" result when we are looking for a PNG Jewellers store
+          const match = results.find(r => {
+            const hasSons = r.name?.toLowerCase().includes('sons');
+            return wantsSons ? hasSons : !hasSons;
+          }) || (wantsSons ? results[0] : null);
+          resolve(match?.place_id || null);
+        } else {
+          resolve(null);
+        }
+      });
+    });
+  }
+
+  function getPlaceDetailsById(placeId, fields = [
+    "name", "formatted_address", "geometry", "rating",
+    "user_ratings_total", "formatted_phone_number", "opening_hours", "photos", "reviews", "website"
+  ]) {
+    return new Promise(resolve => {
+      if (!customService || !placeId) return resolve(null);
+      customService.getDetails({ placeId, fields }, (place, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK && place) resolve(place);
+        else resolve(null);
+      });
+    });
+  }
+
+  async function getPlaceDetailsByName(name) {
+    if (!name) return null;
+    if (placeCache.has(name)) return placeCache.get(name);
+    // If placeId cached, use it
+    let pid = placeIdCache.get(name) || null;
+    if (!pid) {
+      pid = await findPlaceIdByName(name);
+      if (pid) placeIdCache.set(name, pid);
+    }
+    let place = null;
+    if (pid) place = await getPlaceDetailsById(pid);
+    if (!place && !pid) {
+      // fallback: try findPlaceFromQuery with more fields (rare)
+      const wantsSons = name.toLowerCase().includes('son');
+      place = await new Promise(resolve => {
+        customService.findPlaceFromQuery({ query: name, fields: ["place_id","name","geometry"] }, (results, status) => {
+          if (status === google.maps.places.PlacesServiceStatus.OK && results?.length) {
+            const match = results.find(r => {
+              const hasSons = r.name?.toLowerCase().includes('sons');
+              return wantsSons ? hasSons : !hasSons;
+            }) || (wantsSons ? results[0] : null);
+            if (match?.place_id) {
+              getPlaceDetailsById(match.place_id).then(p => {
+                if (p) { placeIdCache.set(name, match.place_id); resolve(p); }
+                else resolve(null);
+              });
+            } else resolve(null);
+          } else resolve(null);
+        });
+      });
+    }
+    if (place) placeCache.set(name, place);
+    return place;
+  }
+
+  async function mapWithConcurrencyLimit(items, workerFn, limit = MAX_CONCURRENT_GETDETAILS) {
+    const results = new Array(items.length);
+    let idx = 0;
+
+    return new Promise((resolve, reject) => {
+      let active = 0;
+      function next() {
+        if (idx >= items.length && active === 0) return resolve(results);
+        while (active < limit && idx < items.length) {
+          const currentIndex = idx++;
+          active++;
+          Promise.resolve(workerFn(items[currentIndex], currentIndex))
+            .then(res => { results[currentIndex] = res; })
+            .catch(err => { results[currentIndex] = null; console.error("worker error:", err); })
+            .finally(() => { active--; next(); });
+        }
+      }
+      next();
+    });
+  }
+
+
+  function initNewPNGMap() {
+    const mapEl = document.getElementById("newPNGmap");
+    if (!mapEl) {
+      console.error("❌ Map element not found (newPNGmap).");
+      return;
+    }
+    newPNGmap = new google.maps.Map(mapEl, {
+      zoom: 6,
+      center: { lat: 19.07, lng: 72.87 }
+    });
+    customService = new google.maps.places.PlacesService(newPNGmap);
+    newPNGinfoWindow = new google.maps.InfoWindow();
+  }
+
+  function customMapYS(finalData) {
+    try {
+      if (!newPNGmap) {
+        console.warn("Map not initialized yet. Aborting marker placement.");
+        return;
+      }
+      const lat = parseFloat(finalData?.location?.lat) || 19.07;
+      const lng = parseFloat(finalData?.location?.lng) || 72.87;
+      const safeLocation = { lat, lng };
+
+      // center map to the store
+      newPNGmap.setCenter(safeLocation);
+      newPNGmap.setZoom(14);
+
+      // clear previous marker
+      if (newPNGmarker) newPNGmarker.setMap(null);
+
+      newPNGmarker = new google.maps.Marker({
+        position: safeLocation,
+        map: newPNGmap,
+        title: getDisplayName(finalData.name) || "Store"
+      });
+
+      const infoHTML = `
+        <div style="font-size:14px;line-height:1.4;">
+          <strong>${getDisplayName(finalData.name) || "Store"}</strong><br/>
+          ${finalData.address || "No address"}<br/>
+          <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(finalData.name || '')}" target="_blank" style="color:#1a73e8;text-decoration:none;">View on Google Maps</a>
+        </div>`;
+
+      newPNGinfoWindow.setContent(infoHTML);
+      newPNGmarker.addListener("click", () => newPNGinfoWindow.open(newPNGmap, newPNGmarker));
+    } catch (e) {
+      console.error("customMapYS error:", e);
+    }
+  }
+
+  function displayStore(place) {
+    try {
+      document.getElementById("store-name").textContent = getDisplayName(place.name) || "N/A";
+      document.getElementById("store-address").textContent = place.address || "N/A";
+      document.getElementById("store-rating").textContent = (place.rating || "—") + " ★ (" + (place.total_ratings || 0) + " reviews)";
+
+      const imgEl = document.getElementById("store-photo");
+      if (imgEl) imgEl.src = "https://cdn.shopify.com/s/files/1/0773/3057/9503/files/Clip_path_group.png?v=1783402331";
+
+      renderHours(place.opening_hours);
+      renderButtons(place);
+      renderReviews(place);
+      hideLoader();
+    } catch (e) {
+      console.error("displayStore error:", e);
+    }
+  }
+
+
+  function renderHours(opening_hours) {
+    const hours = document.getElementById("store-hours");
+    if (!hours) return;
+    try {
+      if (!opening_hours?.periods) {
+        hours.innerHTML = '<div class="info-header"><span>Hours</span></div><div class="info-details">Opening hours not available</div>';
+        return;
+      }
+      const today = new Date().getDay();
+      const todayPeriod = opening_hours.periods.find(p => p.open.day === today);
+      const openNow = opening_hours.open_now;
+      if (todayPeriod) {
+        const formatTime = t => {
+          const h = parseInt(t.substring(0,2),10);
+          const m = t.substring(2);
+          const ampm = h >= 12 ? "PM" : "AM";
+          const h12 = h % 12 || 12;
+          return `${h12}:${m} ${ampm}`;
+        };
+        hours.innerHTML = `
+          <div class="info-header">
+            <span>Hours </span>
+            <span style="font-size:22px;color:#bfbfbf;">•</span>
+            <span class="info-status ${openNow ? "open" : "closed"}">${openNow ? "Open" : "Closed"}</span>
+          </div>
+          <div class="info-time">${formatTime(todayPeriod.open.time)}–${formatTime(todayPeriod.close.time)}</div>`;
+      } else {
+        hours.innerHTML = '<div class="info-header"><span>Hours</span><span class="info-status closed">Closed</span></div><div class="info-details">Today: Closed</div>';
+      }
+    } catch (e) {
+      console.error("renderHours error:", e);
+    }
+  }
+
+  function renderButtons(place) {
+    const btnDir = document.getElementById("btn-directions");
+    if (btnDir) btnDir.onclick = () => window.open(`https://www.google.com/maps/dir/?api=1&destination=${place.location?.lat},${place.location?.lng}`, "_blank");
+    const btnCall = document.getElementById("btn-call");
+    if (btnCall) btnCall.onclick = () => (window.location.href = place.phone ? `tel:${place.phone}` : "#");
+    const btnBook = document.getElementById("btn-book-appointment");
+    if (btnBook) btnBook.onclick = () => { window.location.href = "https://yooubypng.myshopify.com/pages/book-appointment"; };
+  }
+
+  function renderNearByStores(stores) {
+    const container = document.getElementById("nearByStores");
+    if (!container) return;
+    container.innerHTML = "";
+    if (!stores || stores.length === 0) {
+      return;
+    }
+    const section = document.querySelector(".nearbySection");
+    const heading = document.createElement("h2");
+    heading.textContent = "Nearby Stores";
+    section.insertBefore(heading, container);
+
+    stores.forEach(r => {
+      const card = document.createElement("div");
+              card.className = "nearby-stores-card";
+
+      card.onmouseover = () => { card.style.transform = "translateY(-2px)"; card.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)"; card.style.cursor="pointer"};
+      card.onmouseleave = () => { card.style.transform = "translateY(0)"; card.style.boxShadow = "0 2px 6px rgba(0,0,0,0.06)"; };
+
+      card.innerHTML = `
+        <div style="font-size:14px; font-weight:600; color:#1a1a3d; margin-bottom:6px;text-decoration:underline">${getDisplayName(r.name) || "Unnamed Store"}</div>
+        <div style="font-size:12px;color:#555;line-height:1.5;margin-bottom:14px;">${r.address || "Address not available"}</div>
+        <div style="display:flex;align-items:center;gap:18px;font-size:14px;color:#222;">
+          <a href="tel:${r.phone || ''}" style="text-decoration:none;color:#222;display:flex;align-items:center;gap:6px;"><span style="font-size:12px;">📞</span> Call</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=${r.location?.lat},${r.location?.lng}" target="_blank" style="text-decoration:none;color:#222;display:flex;align-items:center;gap:6px;"><span style="font-size:12px;">📍</span> ${r.distance ? r.distance.toFixed(1) : "?"} Km</a>
+        </div>
+      `;
+        card.onclick = () => {
+        const slug = r.name
+            .toLowerCase()
+            .replace(/by\s+/g, "by-")
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/-+/g, "-")
+            .replace(/^-|-$/g, "");
+
+        window.location.href = `https://yooubypng.myshopify.com/pages/${slug}`;
+        };
+
+      container.appendChild(card);
+    });
+  }
+
+  function renderReviews(place) {
+    const container = document.getElementById("reviews");
+    if (!container) return;
+
+    const section = document.querySelector(".reviewsSection");
+    const heading = document.createElement("h2");
+    heading.textContent = "Reviews";
+    section.insertBefore(heading, container);
+
+    container.innerHTML = "";
+    const summary = document.createElement("div");
+    summary.className = "review-card-google";
+    summary.innerHTML = `
+      <div style="height:100%;width:150px;display:flex;flex-direction:column;justify-content:center;padding:0 10px;">
+        <img src="https://www.lenskart.com/stores/svg/Google.svg" alt="Google" style="width:30px;height:30px;margin-bottom:5px;" />
+        <div style="display:flex;align-items:baseline;gap:10px;">
+          <div class="rating-number" style="font-size:32px;">${place.rating || "—"}</div>
+          <div class="rating-count" style="color:#666;">(${place.total_ratings || 0})</div>
+        </div>
+      </div>`;
+    container.appendChild(summary);
+    if (place.reviews?.length) {
+      place.reviews.forEach(r => {
+        const card = document.createElement("div");
+        card.className = "review-card";
+        card.innerHTML = `
+          <div class="review-header">
+            <img src="${r.profile_photo_url || 'https://via.placeholder.com/40'}" alt="${r.author_name}"/>
+            <div>
+              <div class="review-author">${r.author_name}</div>
+              <div class="review-rating">${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}</div>
+            </div>
+          </div>`;
+        container.appendChild(card);
+      });
+    } else {
+      container.innerHTML += "<p>No reviews available.</p>";
+    }
+  }
+
+
+  async function highlightNearestStores(stores, lat, lng, current) {
+    if (!stores || !stores.length) return;
+    const cleanExcelName = slugify(String(current || ""));
+    // Prepare worker that resolves each store to detailed info (cached)
+    const worker = async (row) => {
+      if (!row || !row.name) return null;
+      const name = String(row.name).trim();
+      try {
+        const place = await getPlaceDetailsByName(name);
+        if (!place) {
+          // fallback to original row
+          return {
+            name,
+            address: row.address || "",
+            phone: row.phone || "",
+            location: row.location || { lat: row.lat || null, lng: row.lng || null },
+            rating: row.rating || "N/A"
+          };
+        }
+        return {
+          name: place.name,
+          address: place.formatted_address,
+          phone: row.phone || place.formatted_phone_number,
+          location: {
+            lat: place.geometry?.location?.lat(),
+            lng: place.geometry?.location?.lng()
+          },
+          rating: place.rating || "N/A",
+          total_ratings: place.user_ratings_total || 0,
+          opening_hours: place.opening_hours || {},
+          photos: place.photos || [],
+        };
+      } catch (e) {
+        console.warn("worker error for", name, e);
+        return null;
+      }
+    };
+
+    const detailedStores = await mapWithConcurrencyLimit(stores, worker, MAX_CONCURRENT_GETDETAILS);
+
+    const nearby = (detailedStores || [])
+      .filter(Boolean)
+      .map(s => {
+        const lat2 = Number(s.location?.lat);
+        const lng2 = Number(s.location?.lng);
+        const distance = (!isNaN(lat2) && !isNaN(lng2)) ? getDistanceKm(lat, lng, lat2, lng2) : Infinity;
+        return { ...s, distance };
+      })
+      .filter(s => s.distance <= 5 && slugify(String(s.name || "")) !== cleanExcelName)
+      .sort((a,b) => (a.distance || Infinity) - (b.distance || Infinity));
+
+    // Render nearby list
+    renderNearByStores(nearby);
+  }
+
+
+  async function findStoreByName(name) {
+    if (!name) return showError("Invalid store name.");
+    if (!customService) {
+      console.warn("customService not ready; retrying shortly...");
+      // attempt a retry after a short delay
+      setTimeout(() => findStoreByName(name), 300);
+      return;
+    }
+    try {
+      const place = await getPlaceDetailsByName(name);
+      if (!place) return showError("Store not found on Google Places.");
+      const excelRow = storesExcel.find(r => slugify(String(r.name || '')) === slugify(String(place.name || storeData.name || '')));
+      const finalData = {
+        name: place.name || storeData.name,
+        address: place.formatted_address || "Address not available",
+        phone: (excelRow?.phone != null && excelRow?.phone !== '' ? String(excelRow.phone).trim() : '') || place.formatted_phone_number || "N/A",
+        rating: place.rating || "—",
+        total_ratings: place.user_ratings_total || 0,
+        opening_hours: place.opening_hours || {},
+        website: place.website || "N/A",
+        photos: place.photos || [],
+        reviews: place.reviews || [],
+        location: {
+          lat: place.geometry?.location?.lat() ?? 19.07,
+          lng: place.geometry?.location?.lng() ?? 72.87,
+        },
+      };
+      // map + UI flow
+      customMapYS(finalData);
+      displayStore(finalData);
+      if (storesExcel.length) {
+        highlightNearestStores(storesExcel, finalData.location.lat, finalData.location.lng, finalData.name);
+      }
+      hideLoader();
+    } catch (err) {
+      console.error("findStoreByName error:", err);
+      showError("Error fetching store details.");
+    }
+  }
+
+
+  function showError(msg) {
+    const el = document.getElementById("store-address");
+    if (el) el.textContent = msg;
+    hideLoader();
+  }
+
+  function hideLoader() {
+    const loader = document.getElementById("loader");
+    if (!loader) return;
+    loader.style.opacity = "0";
+    setTimeout(() => {
+      loader.style.display = "none";
+      const wrapper = document.getElementById("store-wrapper");
+      if (wrapper) wrapper.style.display = "grid";
+    }, 300);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // inject maps script only if google not present
+    if (typeof google === "undefined" || !google.maps) {
+        const mapsScript = document.createElement("script");
+        // NOTE: DO NOT hard-code API keys in production. Use theme setting or server-side injection.
+        // You may replace the following string with your dynamic key if required:
+        const apiKey = "{{ section.settings.api_key | default: '' }}";
+        mapsScript.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(apiKey)}&libraries=places&callback=onMapsReady`;
+        mapsScript.defer = true;
+        mapsScript.async = true;
+
+        window.onMapsReady = async () => {
+            try {
+            initNewPNGMap();
+            await loadExcelData();
+            // small delay to ensure map fully initialized
+            setTimeout(() => findStoreByName(storeData.name), 200);
+            } catch (e) {
+            console.error("onMapsReady error:", e);
+            }
+        };
+
+        document.head.appendChild(mapsScript);
+    } else {
+      // google already exists (e.g., loaded by theme). init directly
+        initNewPNGMap();
+        loadExcelData().then(() => setTimeout(() => findStoreByName(storeData.name), 200));
+    }
+  });
+</script>
+
+
+
+{% schema %}
+{
+  "name": "Store Details",
+  "settings": [
+    {
+      "type": "text",
+      "id": "api_key",
+      "label": "Google Maps API Key"
+    },
+    {
+      "type": "url",
+      "id": "excel_file_url",
+      "label": "Excel File URL",
+      "info": "Upload your .xlsx file under Content → Files → Upload file → paste the link here."
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Store Details",
+      "category": "Stores"
+    }
+  ]
+}
+{% endschema %}

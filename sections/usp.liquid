@@ -1,0 +1,294 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  #Usp-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
+    {%- if section.settings.image != blank -%}
+      background: linear-gradient(180deg, rgba(228, 122, 59, 0.85) 0%, #5B2605 100%),
+        url('{{ section.settings.image | image_url: width: 2400 }}') lightgray 50% / cover no-repeat;
+    {%- else -%}
+      background: linear-gradient(180deg, rgba(228, 122, 59, 0.85) 0%, #5B2605 100%);
+    {%- endif -%}
+  }
+
+  #Usp-{{ section.id }} .usp__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+  }
+
+  #Usp-{{ section.id }} .usp__eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    color: #FAD2BA;
+    font-family: "Helvetica Neue";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.56px;
+  }
+
+  #Usp-{{ section.id }} .usp__heading {
+    margin: 2.4rem 0 0 0 ;
+    color: #fff;
+    font-family: "Lovan";
+    font-size: 58px;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  #Usp-{{ section.id }} .usp__marquee {
+    position: relative;
+    z-index: 1;
+    margin-top: 3.2rem;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  }
+
+  #Usp-{{ section.id }} .usp__track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: usp-scroll-{{ section.id }} {{ section.settings.speed }}s linear infinite;
+  }
+
+  #Usp-{{ section.id }}.usp--paused .usp__track:hover {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #Usp-{{ section.id }} .usp__track {
+      animation: none;
+    }
+  }
+
+  @keyframes usp-scroll-{{ section.id }} {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-25%);
+    }
+  }
+
+  #Usp-{{ section.id }} .usp__item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-right: 4rem;
+  }
+
+  #Usp-{{ section.id }} .usp__item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 1.2rem;
+    overflow: hidden;
+  }
+
+  #Usp-{{ section.id }} .usp__item-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  #Usp-{{ section.id }} .usp__item-label {
+    color: #F2ECD0;
+    font-family:  "Helvetica Neue";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.64px;
+    max-width: 16rem;
+    white-space: normal;
+  }
+
+  @media screen and (max-width: 749px) {
+    #Usp-{{ section.id }} .usp__item {
+      gap: 1rem;
+      text-align: center;
+    }
+
+    #Usp-{{ section.id }} .usp__item-icon {
+      width: 4.8rem;
+      height: 4.8rem;
+    }
+
+    #Usp-{{ section.id }} .usp__item-label {
+      font-size: 1.2rem;
+      text-align:left;
+    }
+    #Usp-{{ section.id }} .usp__eyebrow {
+      font-size: 14px;
+    }
+    #Usp-{{ section.id }} .usp__heading {
+      font-size: 48px;
+      margin-top:1rem;
+    }
+    #Usp-{{ section.id }} .usp__marquee {
+      margin-top:6.4rem;
+    }
+    #Usp-{{ section.id }} .usp__item {
+      margin-right: 1.6rem;
+    }
+  }
+{%- endstyle -%}
+
+<div id="Usp-{{ section.id }}" class="usp section-{{ section.id }}-padding{% if section.settings.pause_on_hover %} usp--paused{% endif %}">
+  <div class="usp__content page-width">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="usp__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="usp__heading inline-richtext">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="usp__marquee">
+      <div class="usp__track">
+        {%- for i in (1..4) -%}
+          {%- for block in section.blocks -%}
+            <div class="usp__item" {% if i == 1 %}{{ block.shopify_attributes }}{% else %}aria-hidden="true"{% endif %}>
+              {%- if block.settings.icon != blank -%}
+                <span class="usp__item-icon">
+                  {{ block.settings.icon | image_url: width: 200 | image_tag: loading: 'eager', widths: '100, 200' }}
+                </span>
+              {%- endif -%}
+              {%- if block.settings.label != blank -%}
+                <span class="usp__item-label">{{ block.settings.label | escape }}</span>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "USP",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 12,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "The PNG Promise",
+      "label": "Eyebrow text"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Why YOOU Is Different",
+      "label": "Heading"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "default": 25,
+      "label": "Scroll speed",
+      "info": "Time for one full loop. Lower is faster."
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "default": "USP label",
+          "label": "Label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "USP",
+      "blocks": [
+        { "type": "usp", "settings": { "label": "Free Shipping" } },
+        { "type": "usp", "settings": { "label": "6 Lakh+ Buyers" } },
+        { "type": "usp", "settings": { "label": "1 Year Warranty" } },
+        { "type": "usp", "settings": { "label": "Hallmarked" } },
+        { "type": "usp", "settings": { "label": "Lifetime Exchange" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

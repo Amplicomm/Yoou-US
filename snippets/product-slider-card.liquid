@@ -1,0 +1,38 @@
+{% comment %}
+  Renders one card for the "Product slider" section.
+
+  Accepts:
+  - product: {Object} the product to render (required)
+  - section: {Object} the parent section, used for its settings + id (required)
+  - lazy_load: {Boolean} passed through to card-product (optional)
+  - skip_styles: {Boolean} passed through to card-product (optional)
+  - extra_class: {String} additional class on the swiper-slide wrapper (optional)
+  - is_decorative: {Boolean} when true, hides the slide from assistive tech and
+    keeps it out of the tab order. Used for the desktop-only "peek" duplicate of
+    the last card. (optional)
+
+  Usage:
+  {% render 'product-slider-card', product: product, section: section %}
+{% endcomment %}
+<div
+  class="swiper-slide swiper-component__slide{% if extra_class %} {{ extra_class }}{% endif %}"
+  {% if is_decorative %}
+    aria-hidden="true"
+    data-peek-slide="true"
+    inert
+  {% endif %}
+>
+  {% render 'card-product',
+    card_product: product,
+    media_aspect_ratio: section.settings.image_ratio,
+    image_shape: section.settings.image_shape,
+    show_secondary_image: section.settings.show_secondary_image,
+    show_vendor: section.settings.show_vendor,
+    show_rating: section.settings.show_rating,
+    section_id: section.id,
+    quick_add: section.settings.quick_add,
+    lazy_load: lazy_load,
+    skip_styles: skip_styles,
+    product_view_context: 'related',
+  %}
+</div>

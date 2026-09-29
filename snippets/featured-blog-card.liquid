@@ -1,0 +1,48 @@
+{% comment %}
+  Renders one card for the "Featured blog" section.
+
+  Accepts:
+  - article: {Object} Article object (required)
+  - section: {Object} the parent section, used for its settings (required)
+  - placeholder_index: {Number} used to vary the placeholder illustration (optional)
+
+  Usage:
+  {% render 'featured-blog-card', article: article, section: section %}
+{% endcomment %}
+{%- liquid
+  assign card_image = article.image
+  assign card_category = article.tags | first
+  assign placeholder_index = placeholder_index | default: 1
+-%}
+<div class="swiper-slide featured-blog__slide">
+  <a href="{{ article.url | default: '#' }}" class="featured-blog__card">
+    <div class="featured-blog__image-wrapper">
+      {%- if card_image != blank -%}
+        {{
+          card_image
+          | image_url: width: 700
+          | image_tag:
+            loading: 'lazy',
+            sizes: '(min-width: 990px) 30vw, 85vw',
+            widths: '375, 550, 700',
+            class: 'featured-blog__image'
+        }}
+      {%- else -%}
+        {{ 'blog-apparel-' | append: placeholder_index | placeholder_svg_tag: 'placeholder-svg featured-blog__image' }}
+      {%- endif -%}
+      {%- if card_category != blank -%}
+        <span class="featured-blog__badge">{{ card_category | escape }}</span>
+      {%- endif -%}
+    </div>
+    <div class="featured-blog__content">
+      {%- if section.settings.show_date -%}
+        <span class="featured-blog__date">{{ article.published_at | date: '%B %Y' }}</span>
+      {%- endif -%}
+      <h3 class="featured-blog__title">{{ article.title | truncate: 60 | escape }}</h3>
+      <span class="featured-blog__read">
+        Read
+        <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+      </span>
+    </div>
+  </a>
+</div>

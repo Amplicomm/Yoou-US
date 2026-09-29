@@ -1,0 +1,37 @@
+{% comment %}
+  Renders a 4-item row of icon + label trust badges (e.g. Lifetime Exchange,
+  Free Shipping, Certified Diamonds, 1 Year Warranty) for the product page.
+  Icons are merchant-uploaded only (no built-in defaults) — a slot with no
+  image set just skips the icon.
+
+  Accepts:
+  - block: {Object} block with image_1..4 (image_picker), label_1..4 (text), icon_width/icon_height (range, px) settings
+
+  Usage:
+  {% render 'trust-badges', block: block %}
+{% endcomment %}
+<div
+  class="quick-add-hidden trust-badges"
+  style="--trust-badge-icon-width: {{ block.settings.icon_width | default: 32 }}px; --trust-badge-icon-height: {{ block.settings.icon_height | default: 32 }}px;"
+  {{ block.shopify_attributes }}
+>
+  {%- for i in (1..4) -%}
+    {% capture image_key %}image_{{ i }}{% endcapture %}
+    {% capture label_key %}label_{{ i }}{% endcapture %}
+    {%- assign image = block.settings[image_key] -%}
+    {%- assign label = block.settings[label_key] -%}
+
+    {%- if label != blank or image != blank -%}
+      <div class="trust-badges__item">
+        {%- if image != blank -%}
+          <span class="trust-badges__icon">
+            {{ image | image_url: width: 64 | image_tag: loading: 'lazy', widths: '32, 64', alt: label }}
+          </span>
+        {%- endif -%}
+        {%- if label != blank -%}
+          <span class="trust-badges__label">{{ label }}</span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+</div>

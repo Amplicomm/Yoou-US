@@ -1,0 +1,133 @@
+{% comment %}
+  Renders the first 2 "coupon" blocks as always-visible cards (title,
+  description, Copy button) plus, if there are more, a "View All Coupons"
+  toggle that expands an inline list of the remaining coupon blocks below
+  them, using the same card UI. Rendered once by the FIRST coupon block
+  encountered in the section's block loop; every other coupon block is
+  skipped (see the {% when 'coupon' %} case in main-product.liquid), since
+  this snippet already loops over all of them.
+
+  Each coupon block can optionally be limited to products carrying one of
+  a comma-separated list of tags (settings.product_tags); a coupon with no
+  tags set is shown for every product. Only tag-matching coupons count
+  toward the first-2 / "View All" split below.
+
+  Accepts:
+  - coupon_blocks: {Array} all of the section's blocks with type "coupon"
+  - first_block: {Object} the first coupon block (for shopify_attributes / theme editor selection)
+  - section: {Object} the section these blocks belong to (for a unique list id)
+
+  Usage:
+  {% render 'coupons', coupon_blocks: coupon_blocks, first_block: first_block, section: section %}
+{% endcomment %}
+<script src="{{ 'coupons.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign product_tags_str = product.tags | join: '||' | downcase | prepend: '||' | append: '||'
+  assign visible_count = 2
+  assign matching_count = 0
+  for coupon in coupon_blocks
+    assign show_coupon = true
+    if coupon.settings.product_tags != blank
+      assign show_coupon = false
+      assign required_tags = coupon.settings.product_tags | split: ','
+      for tag in required_tags
+        assign tag_needle = tag | strip | downcase | prepend: '||' | append: '||'
+        if product_tags_str contains tag_needle
+          assign show_coupon = true
+        endif
+      endfor
+    endif
+    if show_coupon
+      assign matching_count = matching_count | plus: 1
+    endif
+  endfor
+-%}
+
+<div class="coupons quick-add-hidden" {{ first_block.shopify_attributes }}>
+  {%- assign shown_count = 0 -%}
+  {%- for coupon in coupon_blocks -%}
+    {%- assign show_coupon = true -%}
+    {%- if coupon.settings.product_tags != blank -%}
+      {%- assign show_coupon = false -%}
+      {%- assign required_tags = coupon.settings.product_tags | split: ',' -%}
+      {%- for tag in required_tags -%}
+        {%- assign tag_needle = tag | strip | downcase | prepend: '||' | append: '||' -%}
+        {%- if product_tags_str contains tag_needle -%}
+          {%- assign show_coupon = true -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {%- if show_coupon and shown_count < visible_count -%}
+      {%- assign shown_count = shown_count | plus: 1 -%}
+      <div class="coupon-card">
+        <div class="coupon-card__text">
+          {%- if coupon.settings.title != blank -%}
+            <p class="coupon-card__title">{{ coupon.settings.title }}</p>
+          {%- endif -%}
+          {%- if coupon.settings.description != blank -%}
+            <p class="coupon-card__description">{{ coupon.settings.description }}</p>
+          {%- endif -%}
+        </div>
+        {%- if coupon.settings.code != blank and coupon.settings.show_copy_button != false -%}
+          <button type="button" class="coupon-card__copy" data-copy-value="{{ coupon.settings.code }}">
+            <span class="coupon-card__copy-label">Copy</span>
+            <span class="coupon-card__copy-label coupon-card__copy-label--copied">Copied</span>
+          </button>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if matching_count > visible_count -%}
+    <div id="CouponsList-{{ section.id }}" class="coupons-list" hidden>
+      {%- assign hidden_index = 0 -%}
+      {%- for coupon in coupon_blocks -%}
+        {%- assign show_coupon = true -%}
+        {%- if coupon.settings.product_tags != blank -%}
+          {%- assign show_coupon = false -%}
+          {%- assign required_tags = coupon.settings.product_tags | split: ',' -%}
+          {%- for tag in required_tags -%}
+            {%- assign tag_needle = tag | strip | downcase | prepend: '||' | append: '||' -%}
+            {%- if product_tags_str contains tag_needle -%}
+              {%- assign show_coupon = true -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+        {%- if show_coupon -%}
+          {%- assign hidden_index = hidden_index | plus: 1 -%}
+          {%- if hidden_index > visible_count -%}
+            <div class="coupon-card">
+              <div class="coupon-card__text">
+                {%- if coupon.settings.title != blank -%}
+                  <p class="coupon-card__title">{{ coupon.settings.title }}</p>
+                {%- endif -%}
+                {%- if coupon.settings.description != blank -%}
+                  <p class="coupon-card__description">{{ coupon.settings.description }}</p>
+                {%- endif -%}
+              </div>
+              {%- if coupon.settings.code != blank and coupon.settings.show_copy_button != false -%}
+                <button type="button" class="coupon-card__copy" data-copy-value="{{ coupon.settings.code }}">
+                  <span class="coupon-card__copy-label">Copy</span>
+                  <span class="coupon-card__copy-label coupon-card__copy-label--copied">Copied</span>
+                </button>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="coupons__view-all-wrapper">
+      <button
+        type="button"
+        class="coupons__view-all link"
+        aria-expanded="false"
+        aria-controls="CouponsList-{{ section.id }}"
+      >
+        <span class="coupons__view-all-label coupons__view-all-label--more">View All Coupons</span>
+        <span class="coupons__view-all-label coupons__view-all-label--less">View Less</span>
+      </button>
+    </div>
+  {%- endif -%}
+</div>
