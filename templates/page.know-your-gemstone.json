@@ -22,8 +22,7 @@
       "name": "Promotion Banner",
       "settings": {
         "heading": "Promotion Banner",
-        "image": "shopify://shop_images/gemstone_banner.jpg",
-        "image_mobile": "shopify://shop_images/gemstone_banner.jpg",
+        "image": "shopify://shop_images/gemstone_banner_2.jpg",
         "image_link": "",
         "open_new_window": false,
         "image_overlay_opacity": 0,
@@ -32,6 +31,7 @@
         "content_vertical": 50,
         "position_content_mobile": "center",
         "content_alignment": "center",
+        "overlay_content_on_image": false,
         "show_hero": false,
         "full_width": true,
         "padding_full_width": false,
@@ -103,7 +103,7 @@
       ],
       "name": "t:sections.image-with-text.name",
       "settings": {
-        "image": "shopify://shop_images/diamond_know_2.png",
+        "image": "shopify://shop_images/diamond_know_2_1.png",
         "make_image_half_width": false,
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -133,7 +133,7 @@
         "column_4LcBGx": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/variety.webp",
+            "image": "shopify://shop_images/variety_1.webp",
             "image_link": "",
             "open_new_window_image": false,
             "sub_title": "",
@@ -150,7 +150,7 @@
         "column_xxrg77": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/variety_3.webp",
+            "image": "shopify://shop_images/variety_3_1.webp",
             "image_link": "",
             "open_new_window_image": false,
             "sub_title": "",
@@ -167,7 +167,7 @@
         "column_6fwrpD": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/variety_4.webp",
+            "image": "shopify://shop_images/variety_4_1.webp",
             "image_link": "",
             "open_new_window_image": false,
             "sub_title": "",
@@ -184,7 +184,7 @@
         "column_DdYdBH": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/variety_2.webp",
+            "image": "shopify://shop_images/variety_2_1.webp",
             "image_link": "",
             "open_new_window_image": false,
             "sub_title": "",
@@ -349,7 +349,7 @@
           "type": "month",
           "settings": {
             "month_name": "january",
-            "gemstone_image": "shopify://shop_images/January-Garnet-Small-3.png",
+            "gemstone_image": "shopify://shop_images/January-Garnet-Small-3_1.png",
             "gemstone_name": "garnet",
             "description": "<p>Birthstone Overview</p><p>Garnet, January’s birthstone, is one of the most diverse gemstones, as it comes in an extraordinary range of colors. The garnet birthstone is mined around the world and symbolizes many different positive emotions. Learn more about this unique birthstone.<a href=\"https://www.gia.edu/birthstones#gem-4\"><br/><br/></a></p>"
           }
@@ -358,7 +358,7 @@
           "type": "month",
           "settings": {
             "month_name": "February",
-            "gemstone_image": "shopify://shop_images/February-Amethyst-Small.png",
+            "gemstone_image": "shopify://shop_images/February-Amethyst-Small_1.png",
             "gemstone_name": "amethyst",
             "description": "<p>Birthstone Overview</p><p>Amethyst, the February birthstone, is the purple variety of quartz and is said to cure drunkenness and make you quick-witted in business. You once had to be rich to own this birthstone for February, but new finds have made it more affordable. Learn more about this stunning birthstone and where it can be found.</p>"
           }
@@ -367,7 +367,7 @@
           "type": "month",
           "settings": {
             "month_name": "March",
-            "gemstone_image": "shopify://shop_images/March-Aquamarine-Bloodstone-Small.png",
+            "gemstone_image": "shopify://shop_images/March-Aquamarine-Bloodstone-Small_2.png",
             "gemstone_name": "aquamarine and bloodstone",
             "description": "<p>Birthstone Overview</p><p>Aquamarine and bloodstone are the two birthstones for March. One evokes blue skies and calming waters while the other represents health and strength. Learn more about these two March birthstones and where they can be found.</p>"
           }
@@ -376,7 +376,7 @@
           "type": "month",
           "settings": {
             "month_name": "April",
-            "gemstone_image": "shopify://shop_images/April-Diamond-Small.png",
+            "gemstone_image": "shopify://shop_images/April-Diamond-Small_1.png",
             "gemstone_name": "diamond",
             "description": "<p>Birthstone Overview</p><p>Those born in the month of April are lucky enough to call the diamond, a scintillating stone, their birthstone. The April birthstone is also rich in history and can be found in many unique places. Learn more so that you can choose the perfect one yourself or a loved one.</p>"
           }
@@ -385,7 +385,7 @@
           "type": "month",
           "settings": {
             "month_name": "May",
-            "gemstone_image": "shopify://shop_images/May-Emerald-Small.png",
+            "gemstone_image": "shopify://shop_images/May-Emerald-Small_1.png",
             "gemstone_name": "emerald",
             "description": "<p>Birthstone Overview</p><p>Emerald is the May birthstone – and it’s a perfect choice. Its enchanting greens mirror the splendor of spring. Few places on earth have the geological conditions needed to produce the coveted May birthstone. Learn about the history of emeralds and the exotic locations where emeralds can be fo</p>"
           }
@@ -394,7 +394,7 @@
           "type": "month",
           "settings": {
             "month_name": "June",
-            "gemstone_image": "shopify://shop_images/June-Pearl-Moonstone-Alexandrite-Small.png",
+            "gemstone_image": "shopify://shop_images/June-Pearl-Moonstone-Alexandrite-Small_1.png",
             "gemstone_name": "pearl, alexandrite and moonstone",
             "description": "<p>Birthstone Overview</p><p>Pearl, alexandrite and moonstone are the three birthstones for June. Learn about their history and where these three June birthstones can be found, so that you can buy the perfect June birthstone for yourself or a loved one</p>"
           }
@@ -403,16 +403,16 @@
           "type": "month",
           "settings": {
             "month_name": "July",
-            "gemstone_image": "shopify://shop_images/July-Ruby-Small.png",
+            "gemstone_image": "shopify://shop_images/July-Ruby-Small_1.png",
             "gemstone_name": "ruby",
-            "description": "<p>Birthstone Overview</p><p>Ruby, the king of precious gems represents passion, love and success. Shopping for ruby, the July birthstone? Learn about its history, origins, care and cleaning, and where they can be found in order to help you pick the right one for yourself or a loved one. </p>"
+            "description": "<p>Birthstone Overview</p><p>Ruby, the king of precious gems represents passion, love and success. Shopping for ruby, the July birthstone? Learn about its history, origins, care and cleaning, and where they can be found in order to help you pick the right one for yourself or a loved one.&nbsp;</p>"
           }
         },
         "month_4MD9aF": {
           "type": "month",
           "settings": {
             "month_name": "August",
-            "gemstone_image": "shopify://shop_images/August-Peridot-Spinel-Small.png",
+            "gemstone_image": "shopify://shop_images/August-Peridot-Spinel-Small_1.png",
             "gemstone_name": "peridot, spinel and sardonyx",
             "description": "<p>Birthstone Overview</p><p>If you were born in August then you have a plethora of birthstones to choose from. Peridot, spinel and sardonyx are the three birthstones for August and they come in a variety of shapes and colors. Learn more about these three august birthstones and discover their meanings and where they can be found in the world.</p>"
           }
@@ -421,7 +421,7 @@
           "type": "month",
           "settings": {
             "month_name": "September",
-            "gemstone_image": "shopify://shop_images/September-Sapphire-Small.png",
+            "gemstone_image": "shopify://shop_images/September-Sapphire-Small_1.png",
             "gemstone_name": "sapphire",
             "description": "<p>Birthstone Overview</p><p>Sapphire, the September birthstone comes in all the colors of the rainbow – except red. Learn more about the birthstone of wisdom, loyalty and nobility and discover its history and where it can be foun</p>"
           }
@@ -430,7 +430,7 @@
           "type": "month",
           "settings": {
             "month_name": "October",
-            "gemstone_image": "shopify://shop_images/October-Opal-Tourmaline-Small.png",
+            "gemstone_image": "shopify://shop_images/October-Opal-Tourmaline-Small_1.png",
             "gemstone_name": "opal and tourmaline",
             "description": "<p>Birthstone Overview</p><p>Opal and tourmaline are the two birthstones for October. Both of these gemstones are known for their endless color combinations and are believed to have been created from rainbows. Learn more about these two birthstones for October and discover their meanings and where they can be found.</p>"
           }
@@ -439,7 +439,7 @@
           "type": "month",
           "settings": {
             "month_name": "November",
-            "gemstone_image": "shopify://shop_images/November-Topaz-Citrine-Small.png",
+            "gemstone_image": "shopify://shop_images/November-Topaz-Citrine-Small_1.png",
             "gemstone_name": "topaz and citrine",
             "description": "<p>Birthstone Overview</p><p>Topaz and citrine are the two birthstones for November. Both are fairly abundant making them affordably priced. These two November birthstones are known for their calming energies and can be found around the world. Learn more about these birthstones so that you can pick the perfect one for yourself or a loved one</p>"
           }
@@ -448,7 +448,7 @@
           "type": "month",
           "settings": {
             "month_name": "December",
-            "gemstone_image": "shopify://shop_images/December-Turquoise-Tanzanite-Zircon-Small.png",
+            "gemstone_image": "shopify://shop_images/December-Turquoise-Tanzanite-Zircon-Small_1.png",
             "gemstone_name": "tanzanite, turquoise and zircon",
             "description": "<p>Birthstone Overview</p><p>Turquoise, tanzanite and zircon are the three birthstones for December. These December birthstones are mined around the world and all have their own unique take on the color blue, allowing you to choose the birthstone that best fits your style. Learn more about their history and where they can be found</p>"
           }
