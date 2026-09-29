@@ -102,6 +102,7 @@
         },
         "price_breakup": {
           "type": "price_breakup",
+          "disabled": true,
           "settings": {
             "heading": "View price breakup"
           }
