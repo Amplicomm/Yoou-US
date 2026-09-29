@@ -109,7 +109,8 @@
       "settings": {
         "color_scheme": "scheme-10d2c5f8-7f85-4f13-9cae-f9976f533afa",
         "show_line_separator": true,
-        "logo_url": "https://www.pngjewellers.com/",
+        "logo_image": "shopify://shop_images/PNG_logo_50x_3.png",
+        "logo_url": "#",
         "prices_label": "Metal Rates",
         "marquee_speed": 25,
         "updated_at": "",
