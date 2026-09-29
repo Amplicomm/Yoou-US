@@ -15,8 +15,7 @@
         "slide_DTBeTw": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Season_Style_all_KV_adapts_2026-24_jpg.jpg",
-            "image_mobile": "shopify://shop_images/Mobile_new_jpg.jpg",
+            "image": "shopify://shop_images/1__New_website_Desktop_banner-05_jpg_11e9cdbb-5c75-42b1-9b73-0b204498fe5f.webp",
             "alt_text": "",
             "link": "shopify://collections/younique-offer"
           }
@@ -24,8 +23,6 @@
         "slide_wCKWC7": {
           "type": "slide",
           "settings": {
-            "video_desktop": "shopify://files/videos/1920x 1040.mp4",
-            "video_mobile": "shopify://files/videos/1080 x 1400_1.mp4",
             "alt_text": "",
             "link": ""
           }
@@ -34,7 +31,6 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "video_desktop": "shopify://files/videos/PNG LITESTYLE FILM 60 SEC 2560X1440 (1).mp4",
             "alt_text": "",
             "link": ""
           }
@@ -64,7 +60,6 @@
         "tab_UqHWRX": {
           "type": "tab",
           "settings": {
-            "image": "shopify://shop_images/1__1-_DATE_NIGHT.png",
             "label": "Date night",
             "collection": "main-homepage-date-night"
           }
@@ -72,7 +67,6 @@
         "tab_RPBdmq": {
           "type": "tab",
           "settings": {
-            "image": "shopify://shop_images/1__2-_OFFICE_WEAR.png",
             "label": "Office Wear",
             "collection": "main-homepage-office-wear"
           }
@@ -80,7 +74,6 @@
         "tab_aeqFey": {
           "type": "tab",
           "settings": {
-            "image": "shopify://shop_images/1__3-_DAILY_WEAR.png",
             "label": "Daily Wear",
             "collection": "main-homepage-daily-wear"
           }
@@ -88,7 +81,6 @@
         "tab_LDAtPU": {
           "type": "tab",
           "settings": {
-            "image": "shopify://shop_images/1__4_-_PARTY_WEAR.png",
             "label": "Party Wear",
             "collection": "main-homepage-party-wear"
           }
@@ -96,7 +88,6 @@
         "tab_8Ynbak": {
           "type": "tab",
           "settings": {
-            "image": "shopify://shop_images/1__5_-_KITTY_PARTY.png",
             "label": "Brunch",
             "collection": "main-homepage-brunch"
           }
@@ -153,7 +144,6 @@
         "category_XEjkeR": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/1__4-_NECKLACES.png",
             "caption_prefix": "",
             "title": "Necklaces",
             "link": "shopify://collections/shop-by-category-necklaces"
@@ -162,7 +152,6 @@
         "category_Ktep7x": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/1__3-_BRACELETS.png",
             "caption_prefix": "",
             "title": "Bracelets",
             "link": "shopify://collections/shop-by-category-bracelets"
@@ -171,7 +160,6 @@
         "category_WfGk8j": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/1__2-_EARRINGS.png",
             "caption_prefix": "",
             "title": "Earrings",
             "link": "shopify://collections/shop-by-category-earrings"
@@ -180,7 +168,6 @@
         "category_afGqix": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/1__5-_Pendant.png",
             "caption_prefix": "",
             "title": "Pendant",
             "link": "shopify://collections/shop-by-category-pendant"
@@ -189,7 +176,6 @@
         "category_MXrGgz": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/1__1-_RINGS.png",
             "caption_prefix": "",
             "title": "Rings",
             "link": "shopify://collections/shop-by-category-rings"
@@ -198,7 +184,6 @@
         "category_fJthfn": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/27379d1c-2ca2-4e08-9da3-a7d9a998c868.png",
             "caption_prefix": "",
             "title": "Mangalsutra",
             "link": "shopify://collections/shop-by-category-mangalsutra"
@@ -235,7 +220,6 @@
           "disabled": true,
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/Container_6.png",
             "title": "For Her",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           }
@@ -245,7 +229,6 @@
           "disabled": true,
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/Container_8.png",
             "title": "For Him",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           }
@@ -255,7 +238,6 @@
           "disabled": true,
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/Container_7.png",
             "title": "For Kids",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           }
@@ -311,7 +293,6 @@
         "tab_xRbH36": {
           "type": "tab",
           "settings": {
-            "image": "shopify://shop_images/1__1-_FESTIVE-JEWELLERY.png",
             "label": "New Beginning",
             "collection": "new-beginning"
           }
@@ -319,7 +300,6 @@
         "tab_cPFP4P": {
           "type": "tab",
           "settings": {
-            "image": "shopify://shop_images/1__2-_ANNIVERSARY.png",
             "label": "Anniversary",
             "collection": "gifting-anniversary"
           }
@@ -327,7 +307,6 @@
         "tab_y4xzgL": {
           "type": "tab",
           "settings": {
-            "image": "shopify://shop_images/1__3-_BIRTHDAY.png",
             "label": "Birthday",
             "collection": "gifting-birthday"
           }
@@ -335,7 +314,6 @@
         "tab_6c9RA9": {
           "type": "tab",
           "settings": {
-            "image": "shopify://shop_images/1__5-_for_her.png",
             "label": "For Her",
             "collection": "gifting-for-her"
           }
@@ -343,7 +321,6 @@
         "tab_4WUciX": {
           "type": "tab",
           "settings": {
-            "image": "shopify://shop_images/1__6-_for_him.png",
             "label": "For Him",
             "collection": "for-him"
           }
@@ -351,7 +328,6 @@
         "tab_4x7RzD": {
           "type": "tab",
           "settings": {
-            "image": "shopify://shop_images/1__4-_First_Salary.png",
             "label": "First Salary",
             "collection": "gifting-first-salary"
           }
@@ -372,7 +348,6 @@
         "banner_subheading": "<p>Find jewellery they'll love in just a few steps. Choose an occasion, add a personal note, and send a gift they'll remember.</p>",
         "banner_button_label": "Explore our Curated Gifting Collection",
         "banner_button_link": "shopify://collections/under-40k",
-        "banner_image": "shopify://shop_images/1644623e-4b80-4b7d-bd51-44ad873f8240.png",
         "color_scheme": "scheme-9deb5abd-45b6-4ecf-80bf-ed358be93e71",
         "tab_label_position": "outside",
         "tab_label_color": "",
@@ -409,7 +384,6 @@
         "category_yPFBRx": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/1__1-_UNDER-_20K.png",
             "caption_prefix": "",
             "title": "",
             "link": "shopify://collections/under-20k"
@@ -418,7 +392,6 @@
         "category_erFhYH": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/1__2-_UNDER-_40K.png",
             "caption_prefix": "",
             "title": "",
             "link": "shopify://collections/under-40k"
@@ -427,7 +400,6 @@
         "category_c4t44F": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/1__3-_UNDER-_60K.png",
             "caption_prefix": "",
             "title": "",
             "link": "shopify://collections/under-60k"
@@ -436,7 +408,6 @@
         "category_xFtPtJ": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/1__4-_UNDER-_1L.png",
             "caption_prefix": "",
             "title": "",
             "link": "shopify://collections/under-1lac"
@@ -498,7 +469,6 @@
           "type": "collection",
           "settings": {
             "collection": "9-to-5-collections",
-            "image": "shopify://shop_images/1__1-_9_TO_5_THE_Collection.png",
             "title": ""
           }
         },
@@ -506,7 +476,6 @@
           "type": "collection",
           "settings": {
             "collection": "party-glam-collections",
-            "image": "shopify://shop_images/1__2-_Glam_THE_Collection.png",
             "title": ""
           }
         },
@@ -514,7 +483,6 @@
           "type": "collection",
           "settings": {
             "collection": "everyday-collections",
-            "image": "shopify://shop_images/1__3-_Everyday_The_Collection.png",
             "title": ""
           }
         },
@@ -522,7 +490,6 @@
           "type": "collection",
           "settings": {
             "collection": "festive-luxe-collections",
-            "image": "shopify://shop_images/1__4-_The-_Luxe_Collection.png",
             "title": ""
           }
         }
@@ -558,7 +525,6 @@
         "video_R9DBC4": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/Litestyle Size adapts .mp4",
             "video_link": "#",
             "product": ""
           }
@@ -566,7 +532,6 @@
         "video_NQtQdQ": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/Litestyle Size adapts 3 .mp4",
             "video_link": "",
             "product": ""
           }
@@ -574,7 +539,6 @@
         "video_fhB8mN": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/jewellery 2.mp4",
             "video_link": "",
             "product": ""
           }
@@ -583,7 +547,6 @@
           "type": "video",
           "disabled": true,
           "settings": {
-            "video": "shopify://files/videos/Litestyle Size adapts 5 .mp4",
             "video_link": "",
             "product": ""
           }
@@ -591,7 +554,6 @@
         "video_hAgEL6": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/Litestyle Size adapts 2 .mp4",
             "video_link": "",
             "product": ""
           }
@@ -624,28 +586,24 @@
         "usp_3wJxBH": {
           "type": "usp",
           "settings": {
-            "icon": "shopify://shop_images/1-_Free_Shipping.png",
             "label": "Free Shipping"
           }
         },
         "usp_tHyeBJ": {
           "type": "usp",
           "settings": {
-            "icon": "shopify://shop_images/1-_100_Certified.png",
             "label": "100% Certified"
           }
         },
         "usp_CGNPRY": {
           "type": "usp",
           "settings": {
-            "icon": "shopify://shop_images/1-_14_Day_Easy-Returns.png",
             "label": "14 Day Easy Returns"
           }
         },
         "usp_3xipxw": {
           "type": "usp",
           "settings": {
-            "icon": "shopify://shop_images/1-_Lifetime_Exchange.png",
             "label": "Lifetime Exchange"
           }
         },
@@ -653,7 +611,6 @@
           "type": "usp",
           "disabled": true,
           "settings": {
-            "icon": "shopify://shop_images/Product_Image.svg",
             "label": "Product by PNG Jewellers"
           }
         }
@@ -667,7 +624,6 @@
       ],
       "name": "USP",
       "settings": {
-        "image": "shopify://shop_images/Frame_2147223556_ef3cade1-d3fd-4136-a652-25c447d53614.png",
         "eyebrow": "",
         "heading": "What Makes YOOU Different",
         "speed": 25,
@@ -720,7 +676,6 @@
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Clip_path_group.png",
         "disclaimer_text": "You can unsubscribe anytime. For more details read our",
         "color_scheme": "scheme-9deb5abd-45b6-4ecf-80bf-ed358be93e71",
         "padding_top": 40,

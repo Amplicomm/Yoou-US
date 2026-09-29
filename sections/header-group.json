@@ -18,7 +18,7 @@
           "type": "metal_rate",
           "settings": {
             "label": "24K Gold",
-            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_24k.value }}",
+            "price": "",
             "unit": "/ g"
           }
         },
@@ -26,7 +26,7 @@
           "type": "metal_rate",
           "settings": {
             "label": "22K Gold",
-            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_22k.value }}",
+            "price": "",
             "unit": "/ g"
           }
         },
@@ -34,7 +34,7 @@
           "type": "metal_rate",
           "settings": {
             "label": "18K Gold",
-            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_18k.value }}",
+            "price": "",
             "unit": "/ g"
           }
         },
@@ -42,7 +42,7 @@
           "type": "metal_rate",
           "settings": {
             "label": "14K Gold",
-            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_14k.value }}",
+            "price": "",
             "unit": "/ g"
           }
         },
@@ -50,7 +50,7 @@
           "type": "metal_rate",
           "settings": {
             "label": "9K Gold",
-            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].gold_9k.value }}",
+            "price": "",
             "unit": "/ g"
           }
         },
@@ -58,7 +58,7 @@
           "type": "metal_rate",
           "settings": {
             "label": "Platinum",
-            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].platinum.value }}",
+            "price": "",
             "unit": "/ g"
           }
         },
@@ -66,7 +66,7 @@
           "type": "metal_rate",
           "settings": {
             "label": "Silver",
-            "price": "₹{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].silver.value }}",
+            "price": "",
             "unit": "/ g"
           }
         },
@@ -113,7 +113,6 @@
         "logo_url": "https://www.pngjewellers.com/",
         "prices_label": "Metal Rates",
         "marquee_speed": 25,
-        "updated_at": "{{ metaobjects.metal_rates[\"metal-rates-suugdmps\"].updated_date_with_time.value }}",
         "announcement_speed": 8,
         "show_live_badge": false,
         "live_badge_text": "Live"
@@ -122,21 +121,6 @@
     "header": {
       "type": "header",
       "blocks": {
-        "wishlist_hero_header_icon_nJRf3p": {
-          "type": "shopify://apps/wishlist-hero/blocks/header-icon/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
-          "settings": {
-            "customThemeName": "~",
-            "useCustomHeaderColor": false,
-            "customHeaderColor": "",
-            "useCustomHeaderSize": true,
-            "customHeaderIconSize": 17,
-            "additionalIconCssClassNames": "",
-            "additionalIconStyle": "",
-            "additionalContainerClasses": "",
-            "additionalContainerStyle": "",
-            "replaceExistingClasses": false
-          }
-        },
         "mobile_menu_settings_niFNLV": {
           "type": "mobile_menu_settings",
           "settings": {
@@ -149,7 +133,6 @@
         }
       },
       "block_order": [
-        "wishlist_hero_header_icon_nJRf3p",
         "mobile_menu_settings_niFNLV"
       ],
       "settings": {
