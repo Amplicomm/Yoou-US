@@ -18,40 +18,9 @@
             "whatsapp_button_link": "https://wa.me/+919822051832"
           }
         },
-        "judge_me_reviews_preview_badge_eWbi9X": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        },
         "price": {
           "type": "price",
           "settings": {}
-        },
-        "estimated_delivery_date_cp_clickpost_edd_9WD3Uq": {
-          "type": "shopify://apps/estimated-delivery-date-cp/blocks/clickpost-edd/052d4955-0ec2-4e86-8e1f-f971acb44560",
-          "settings": {
-            "heading": "",
-            "color": "#C85A24",
-            "submit_color": "#fff",
-            "submit": "Check",
-            "edd_text": "Delivery between",
-            "edd_color": "#008000",
-            "fail_color": "#ff0000",
-            "cod_text": "Cash on delivery",
-            "unservicable_text": "Pincode not servicable",
-            "cod": true,
-            "date_range": true,
-            "only_min": false,
-            "month": false,
-            "placeholder": "Enter your pincode",
-            "date_format": "1",
-            "enable_countdown": false,
-            "invalid_text": "Please enter a valid pincode",
-            "extra_text": "",
-            "max_date_additional_text": "",
-            "helping_text": "",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
         },
         "dispatch_days": {
           "type": "dispatch_days",
@@ -64,7 +33,6 @@
         "making_charge_discount": {
           "type": "making_charge_discount",
           "settings": {
-            "icon": "shopify://shop_images/Frame_136_1.svg",
             "prefix_text": "Flat",
             "suffix_text": "on making charge",
             "prefix_text_2": "Flat",
@@ -118,10 +86,7 @@
         "product_details_spec": {
           "type": "product_details_spec",
           "settings": {
-            "heading": "Product Details",
-            "gold_icon": "shopify://shop_images/Gold_Ingots.svg",
-            "dimensions_icon": "shopify://shop_images/Measure.svg",
-            "diamond_icon": "shopify://shop_images/Diamond.svg"
+            "heading": "Product Details"
           }
         },
         "app_promo_banner": {
@@ -145,13 +110,9 @@
           "type": "trust_badges",
           "disabled": true,
           "settings": {
-            "image_1": "shopify://shop_images/Store.svg",
             "label_1": "Lifetime Exchange",
-            "image_2": "shopify://shop_images/Free_delivery.svg",
             "label_2": "Free Shipping",
-            "image_3": "shopify://shop_images/Diamond_ring.svg",
             "label_3": "Certified Diamonds",
-            "image_4": "shopify://shop_images/Warranty.svg",
             "label_4": "1 Year Warranty",
             "icon_width": 32,
             "icon_height": 32
@@ -201,13 +162,9 @@
         "trust_badges_646YLc": {
           "type": "trust_badges",
           "settings": {
-            "image_1": "shopify://shop_images/1-_14_Day_Easy-Returns.png",
             "label_1": "14 Day Easy Returns",
-            "image_2": "shopify://shop_images/1-_Free_Shipping.png",
             "label_2": "Free Shipping",
-            "image_3": "shopify://shop_images/1-_Lifetime_Exchange.png",
             "label_3": "Lifetime Exchange",
-            "image_4": "shopify://shop_images/1-_100_Certified.png",
             "label_4": "100% Certified Products",
             "icon_width": 60,
             "icon_height": 60
@@ -216,9 +173,7 @@
       },
       "block_order": [
         "title",
-        "judge_me_reviews_preview_badge_eWbi9X",
         "price",
-        "estimated_delivery_date_cp_clickpost_edd_9WD3Uq",
         "dispatch_days",
         "making_charge_discount",
         "variant_picker",
@@ -285,20 +240,6 @@
     },
     "178350998516a396da": {
       "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_cmKfnB": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_cmKfnB"
-      ],
       "disabled": true,
       "custom_css": [],
       "settings": {
@@ -313,8 +254,6 @@
         "color_scheme": "scheme-77f10f6b-8da7-4200-9128-74b2e00ec75d",
         "heading": "Crafted With YOOU Intention",
         "description": "<p>Every piece in the collection is designed to be a permanent companion. We work exclusively with certified 14K recycled gold and ethically sourced sterling silver, ensuring that beauty never comes at the cost of the earth.</p>",
-        "image_1": "shopify://shop_images/03d1f134f3c2b44c5eb84c412b3d42e5b0b6fa15.png",
-        "image_2": "shopify://shop_images/1455e1fab73fb23ec6afcb45c79f03d5e89628ad.png",
         "padding_top": 40,
         "padding_bottom": 40
       }
@@ -349,46 +288,6 @@
     },
     "apps_Nf8EBY": {
       "type": "apps",
-      "blocks": {
-        "judge_me_reviews_cards_carousel_GpdGmM": {
-          "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "show_sample_reviews": true,
-            "reviews_selection": "all",
-            "products": [],
-            "filter_pinned": false,
-            "filter_featured": false,
-            "filter_custom_tags": "",
-            "star_rating": "all",
-            "show_review_media": false,
-            "display_order": "most_recent",
-            "no_image_fallback": "review_text_only",
-            "max_reviews": 20,
-            "review_length": "medium",
-            "text_size": "medium",
-            "image_ratio": "1",
-            "reviews_shown": 4,
-            "show_reviewer_name": true,
-            "show_product_name": true,
-            "hide_arrows_mobile": true,
-            "arrows_position": "sides",
-            "max_width": 1100,
-            "corner_styling": "soft",
-            "header_text_color": "#000000",
-            "text_color": "#f2ecd0",
-            "card_color": "#7a3717",
-            "stars_color": "#fecd5b",
-            "arrows_color": "#000000",
-            "transition_speed": 6,
-            "header_text": "Families Who Chose YOOU",
-            "show_average_rating": true,
-            "rating_display": "default"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_cards_carousel_GpdGmM"
-      ],
       "disabled": true,
       "settings": {
         "include_margins": true
@@ -422,7 +321,6 @@
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Clip_path_group.png",
         "disclaimer_text": "You can unsubscribe anytime. For more details read our",
         "color_scheme": "scheme-9deb5abd-45b6-4ecf-80bf-ed358be93e71",
         "padding_top": 40,
