@@ -23,6 +23,8 @@
         "slide_wCKWC7": {
           "type": "slide",
           "settings": {
+            "video_desktop": "shopify://files/videos/1920x 1040.mp4",
+            "video_mobile": "shopify://files/videos/1920x 1040 (1).mp4",
             "alt_text": "",
             "link": ""
           }
