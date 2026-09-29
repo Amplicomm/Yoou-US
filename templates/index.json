@@ -8,6 +8,694 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {},
-  "order": []
+  "sections": {
+    "hero_slider_WeiLVi": {
+      "type": "hero-slider",
+      "blocks": {
+        "slide_DTBeTw": {
+          "type": "slide",
+          "settings": {
+            "alt_text": "",
+            "link": "shopify://collections/younique-offer"
+          }
+        },
+        "slide_wCKWC7": {
+          "type": "slide",
+          "settings": {
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "slide_kgCdRt": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "alt_text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_DTBeTw",
+        "slide_wCKWC7",
+        "slide_kgCdRt"
+      ],
+      "name": "Hero slider",
+      "settings": {
+        "full_width": true,
+        "loop": true,
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "show_navigation": true,
+        "show_pagination": false,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "collection_tab_qYF99w": {
+      "type": "collection-tab",
+      "blocks": {
+        "tab_UqHWRX": {
+          "type": "tab",
+          "settings": {
+            "label": "Date night",
+            "collection": "main-homepage-date-night"
+          }
+        },
+        "tab_RPBdmq": {
+          "type": "tab",
+          "settings": {
+            "label": "Office Wear",
+            "collection": "main-homepage-office-wear"
+          }
+        },
+        "tab_aeqFey": {
+          "type": "tab",
+          "settings": {
+            "label": "Daily Wear",
+            "collection": "main-homepage-daily-wear"
+          }
+        },
+        "tab_LDAtPU": {
+          "type": "tab",
+          "settings": {
+            "label": "Party Wear",
+            "collection": "main-homepage-party-wear"
+          }
+        },
+        "tab_8Ynbak": {
+          "type": "tab",
+          "settings": {
+            "label": "Brunch",
+            "collection": "main-homepage-brunch"
+          }
+        }
+      },
+      "block_order": [
+        "tab_UqHWRX",
+        "tab_RPBdmq",
+        "tab_aeqFey",
+        "tab_LDAtPU",
+        "tab_8Ynbak"
+      ],
+      "custom_css": [],
+      "name": "Collection tab",
+      "settings": {
+        "enable_page_width": false,
+        "banner_heading": "",
+        "banner_subheading": "",
+        "banner_button_label": "",
+        "banner_button_link": "",
+        "color_scheme": "scheme-9deb5abd-45b6-4ecf-80bf-ed358be93e71",
+        "tab_label_position": "inside",
+        "tab_label_color": "#000000",
+        "tab_image_shape": "wide",
+        "tab_image_overlay_color": "rgb(0,0,0,0)",
+        "tabs_space_between": 12,
+        "tabs_space_between_desktop": 24,
+        "show_tabs_navigation": false,
+        "show_tabs_pagination": false,
+        "products_to_show": 8,
+        "cards_desktop": 4,
+        "peek_width": 100,
+        "loop": false,
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "show_navigation": true,
+        "show_pagination": false,
+        "show_explore_button": true,
+        "explore_button_label": "Explore All",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "overlap_top": 30,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "shop_by_category_KXCKpy": {
+      "type": "shop-by-category",
+      "blocks": {
+        "category_XEjkeR": {
+          "type": "category",
+          "settings": {
+            "caption_prefix": "",
+            "title": "Necklaces",
+            "link": "shopify://collections/shop-by-category-necklaces"
+          }
+        },
+        "category_Ktep7x": {
+          "type": "category",
+          "settings": {
+            "caption_prefix": "",
+            "title": "Bracelets",
+            "link": "shopify://collections/shop-by-category-bracelets"
+          }
+        },
+        "category_WfGk8j": {
+          "type": "category",
+          "settings": {
+            "caption_prefix": "",
+            "title": "Earrings",
+            "link": "shopify://collections/shop-by-category-earrings"
+          }
+        },
+        "category_afGqix": {
+          "type": "category",
+          "settings": {
+            "caption_prefix": "",
+            "title": "Pendant",
+            "link": "shopify://collections/shop-by-category-pendant"
+          }
+        },
+        "category_MXrGgz": {
+          "type": "category",
+          "settings": {
+            "caption_prefix": "",
+            "title": "Rings",
+            "link": "shopify://collections/shop-by-category-rings"
+          }
+        },
+        "category_fJthfn": {
+          "type": "category",
+          "settings": {
+            "caption_prefix": "",
+            "title": "Mangalsutra",
+            "link": "shopify://collections/shop-by-category-mangalsutra"
+          }
+        }
+      },
+      "block_order": [
+        "category_XEjkeR",
+        "category_Ktep7x",
+        "category_WfGk8j",
+        "category_afGqix",
+        "category_MXrGgz",
+        "category_fJthfn"
+      ],
+      "name": "Shop by category",
+      "settings": {
+        "heading": "Shop By Category",
+        "subheading": "",
+        "layout_style": "overlay",
+        "image_ratio": "portrait",
+        "columns_desktop": 6,
+        "columns_mobile": 3,
+        "color_scheme": "scheme-ea10b67f-9ce3-47a9-814f-19f843254853",
+        "block_text_color": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 20
+      }
+    },
+    "featured_collection_grid_BfFAM8": {
+      "type": "featured-collection-grid",
+      "blocks": {
+        "collection_card_akXfYk": {
+          "type": "collection_card",
+          "disabled": true,
+          "settings": {
+            "collection": "",
+            "title": "For Her",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          }
+        },
+        "collection_card_hP9JqN": {
+          "type": "collection_card",
+          "disabled": true,
+          "settings": {
+            "collection": "",
+            "title": "For Him",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          }
+        },
+        "collection_card_itaTDh": {
+          "type": "collection_card",
+          "disabled": true,
+          "settings": {
+            "collection": "",
+            "title": "For Kids",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          }
+        }
+      },
+      "block_order": [
+        "collection_card_akXfYk",
+        "collection_card_hP9JqN",
+        "collection_card_itaTDh"
+      ],
+      "name": "Featured collection grid",
+      "settings": {
+        "heading": "",
+        "heading_size": "h0",
+        "columns_desktop": 3,
+        "columns_mobile": 3,
+        "color_scheme": "scheme-ea10b67f-9ce3-47a9-814f-19f843254853",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "product_slider_MwxqBt": {
+      "type": "product-slider",
+      "name": "Product slider",
+      "settings": {
+        "collection": "signature-9kt",
+        "products_to_show": 10,
+        "heading": "Signature 9KT",
+        "subheading": "",
+        "button_label": "Explore all",
+        "button_link": "",
+        "cards_desktop": 5,
+        "peek_width": 190,
+        "loop": true,
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "show_navigation": true,
+        "show_pagination": false,
+        "color_scheme": "scheme-ea10b67f-9ce3-47a9-814f-19f843254853",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collection_tab_Pg8b8X": {
+      "type": "collection-tab",
+      "blocks": {
+        "tab_xRbH36": {
+          "type": "tab",
+          "settings": {
+            "label": "New Beginning",
+            "collection": "new-beginning"
+          }
+        },
+        "tab_cPFP4P": {
+          "type": "tab",
+          "settings": {
+            "label": "Anniversary",
+            "collection": "gifting-anniversary"
+          }
+        },
+        "tab_y4xzgL": {
+          "type": "tab",
+          "settings": {
+            "label": "Birthday",
+            "collection": "gifting-birthday"
+          }
+        },
+        "tab_6c9RA9": {
+          "type": "tab",
+          "settings": {
+            "label": "For Her",
+            "collection": "gifting-for-her"
+          }
+        },
+        "tab_4WUciX": {
+          "type": "tab",
+          "settings": {
+            "label": "For Him",
+            "collection": "for-him"
+          }
+        },
+        "tab_4x7RzD": {
+          "type": "tab",
+          "settings": {
+            "label": "First Salary",
+            "collection": "gifting-first-salary"
+          }
+        }
+      },
+      "block_order": [
+        "tab_xRbH36",
+        "tab_cPFP4P",
+        "tab_y4xzgL",
+        "tab_6c9RA9",
+        "tab_4WUciX",
+        "tab_4x7RzD"
+      ],
+      "name": "Collection tab",
+      "settings": {
+        "enable_page_width": true,
+        "banner_heading": "Gifting Made Effortless",
+        "banner_subheading": "<p>Find jewellery they'll love in just a few steps. Choose an occasion, add a personal note, and send a gift they'll remember.</p>",
+        "banner_button_label": "Explore our Curated Gifting Collection",
+        "banner_button_link": "shopify://collections/under-40k",
+        "color_scheme": "scheme-9deb5abd-45b6-4ecf-80bf-ed358be93e71",
+        "tab_label_position": "outside",
+        "tab_label_color": "",
+        "tab_image_shape": "circle",
+        "tab_image_overlay_color": "",
+        "tabs_space_between": 20,
+        "tabs_space_between_desktop": 48,
+        "show_tabs_navigation": true,
+        "show_tabs_pagination": true,
+        "products_to_show": 8,
+        "cards_desktop": 3.6,
+        "peek_width": 40,
+        "loop": false,
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "show_navigation": true,
+        "show_pagination": false,
+        "show_explore_button": true,
+        "explore_button_label": "Explore",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "overlap_top": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "shop_by_category_zirUWA": {
+      "type": "shop-by-category",
+      "blocks": {
+        "category_yPFBRx": {
+          "type": "category",
+          "settings": {
+            "caption_prefix": "",
+            "title": "",
+            "link": "shopify://collections/under-20k"
+          }
+        },
+        "category_erFhYH": {
+          "type": "category",
+          "settings": {
+            "caption_prefix": "",
+            "title": "",
+            "link": "shopify://collections/under-40k"
+          }
+        },
+        "category_c4t44F": {
+          "type": "category",
+          "settings": {
+            "caption_prefix": "",
+            "title": "",
+            "link": "shopify://collections/under-60k"
+          }
+        },
+        "category_xFtPtJ": {
+          "type": "category",
+          "settings": {
+            "caption_prefix": "",
+            "title": "",
+            "link": "shopify://collections/under-1lac"
+          }
+        }
+      },
+      "block_order": [
+        "category_yPFBRx",
+        "category_erFhYH",
+        "category_c4t44F",
+        "category_xFtPtJ"
+      ],
+      "name": "Shop by category",
+      "settings": {
+        "heading": "Shop by Price",
+        "subheading": "",
+        "layout_style": "circle",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "columns_mobile": 2,
+        "color_scheme": "scheme-ea10b67f-9ce3-47a9-814f-19f843254853",
+        "block_text_color": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "product_slider_nUdi4m": {
+      "type": "product-slider",
+      "name": "Product slider",
+      "settings": {
+        "collection": "made-for-yoou",
+        "products_to_show": 10,
+        "heading": "Made for YOOU",
+        "subheading": "",
+        "button_label": "Explore all",
+        "button_link": "",
+        "cards_desktop": 5,
+        "peek_width": 190,
+        "loop": true,
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "show_navigation": true,
+        "show_pagination": false,
+        "color_scheme": "scheme-ea10b67f-9ce3-47a9-814f-19f843254853",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_slider_a4PFTx": {
+      "type": "featured-collection-slider",
+      "blocks": {
+        "collection_X9MPDm": {
+          "type": "collection",
+          "settings": {
+            "collection": "9-to-5-collections",
+            "title": ""
+          }
+        },
+        "collection_Me7GBp": {
+          "type": "collection",
+          "settings": {
+            "collection": "party-glam-collections",
+            "title": ""
+          }
+        },
+        "collection_8VCheP": {
+          "type": "collection",
+          "settings": {
+            "collection": "everyday-collections",
+            "title": ""
+          }
+        },
+        "collection_VgRNdT": {
+          "type": "collection",
+          "settings": {
+            "collection": "festive-luxe-collections",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_X9MPDm",
+        "collection_Me7GBp",
+        "collection_8VCheP",
+        "collection_VgRNdT"
+      ],
+      "name": "Collection slider",
+      "settings": {
+        "heading": "Our Curated Collections",
+        "heading_size": "h1",
+        "subheading": "",
+        "button_label": "Explore All",
+        "button_link": "",
+        "cards_desktop": 2.5,
+        "peek_width": 190,
+        "loop": true,
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "show_navigation": true,
+        "show_pagination": false,
+        "color_scheme": "scheme-ea10b67f-9ce3-47a9-814f-19f843254853",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "shopable_videos_cGJpEh": {
+      "type": "shopable-videos",
+      "blocks": {
+        "video_R9DBC4": {
+          "type": "video",
+          "settings": {
+            "video_link": "#",
+            "product": ""
+          }
+        },
+        "video_NQtQdQ": {
+          "type": "video",
+          "settings": {
+            "video_link": "",
+            "product": ""
+          }
+        },
+        "video_fhB8mN": {
+          "type": "video",
+          "settings": {
+            "video_link": "",
+            "product": ""
+          }
+        },
+        "video_nrkez9": {
+          "type": "video",
+          "disabled": true,
+          "settings": {
+            "video_link": "",
+            "product": ""
+          }
+        },
+        "video_hAgEL6": {
+          "type": "video",
+          "settings": {
+            "video_link": "",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_R9DBC4",
+        "video_NQtQdQ",
+        "video_fhB8mN",
+        "video_nrkez9",
+        "video_hAgEL6"
+      ],
+      "name": "Shopable videos",
+      "settings": {
+        "heading": "Styled in YOOU",
+        "color_scheme": "scheme-ea10b67f-9ce3-47a9-814f-19f843254853",
+        "cards_desktop": 4,
+        "loop": false,
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "show_navigation": true,
+        "product_card_position": "outside",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "usp_pTdtgL": {
+      "type": "usp",
+      "blocks": {
+        "usp_3wJxBH": {
+          "type": "usp",
+          "settings": {
+            "label": "Free Shipping"
+          }
+        },
+        "usp_tHyeBJ": {
+          "type": "usp",
+          "settings": {
+            "label": "100% Certified"
+          }
+        },
+        "usp_CGNPRY": {
+          "type": "usp",
+          "settings": {
+            "label": "14 Day Easy Returns"
+          }
+        },
+        "usp_3xipxw": {
+          "type": "usp",
+          "settings": {
+            "label": "Lifetime Exchange"
+          }
+        },
+        "usp_app4QQ": {
+          "type": "usp",
+          "disabled": true,
+          "settings": {
+            "label": "Product by PNG Jewellers"
+          }
+        }
+      },
+      "block_order": [
+        "usp_3wJxBH",
+        "usp_tHyeBJ",
+        "usp_CGNPRY",
+        "usp_3xipxw",
+        "usp_app4QQ"
+      ],
+      "name": "USP",
+      "settings": {
+        "eyebrow": "",
+        "heading": "What Makes YOOU Different",
+        "speed": 25,
+        "pause_on_hover": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "featured_blog_Fm9Hjb": {
+      "type": "featured-blog",
+      "disabled": true,
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "yoou",
+        "post_limit": 4,
+        "heading": "Editorial & Stories",
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "show_date": true,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "newsletter_Ykmpag": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_784MmN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join YOOU Today",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_abiqre": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p><br/>Stay in the loop with our latest collections, offers, and updates - straight to your inbox.</p>"
+          }
+        },
+        "email_form_A4B9tf": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_784MmN",
+        "paragraph_abiqre",
+        "email_form_A4B9tf"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "disclaimer_text": "You can unsubscribe anytime. For more details read our",
+        "color_scheme": "scheme-9deb5abd-45b6-4ecf-80bf-ed358be93e71",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "footer_overlap": 28
+      }
+    }
+  },
+  "order": [
+    "hero_slider_WeiLVi",
+    "collection_tab_qYF99w",
+    "shop_by_category_KXCKpy",
+    "featured_collection_grid_BfFAM8",
+    "product_slider_MwxqBt",
+    "collection_tab_Pg8b8X",
+    "shop_by_category_zirUWA",
+    "product_slider_nUdi4m",
+    "featured_collection_slider_a4PFTx",
+    "shopable_videos_cGJpEh",
+    "usp_pTdtgL",
+    "featured_blog_Fm9Hjb",
+    "newsletter_Ykmpag"
+  ]
 }
