@@ -66,8 +66,10 @@
           "settings": {
             "parent_tab": "ring",
             "step_title": "Procedure #1",
+            "step_image1": "shopify://shop_images/Procedure_1_1.webp",
             "step_description1": "<h6>Step 1</h6><ul><li>Cut a thin strip of paper or thread</li><li>Wrap the paper/thread around your finger.</li><li>Mark the spot where the paper/thread meets</li></ul>",
-            "step_description2": "<h6>Step 2</h6><ul><li>Measure the length of the thread with your ruler.</li><li> Use the following chart to determine your ring size.</li></ul>"
+            "step_image2": "shopify://shop_images/Procedure_1_step_2_1.webp",
+            "step_description2": "<h6>Step 2</h6><ul><li>Measure the length of the thread with your ruler.</li><li>&nbsp;Use the following chart to determine your ring size.</li></ul>"
           }
         },
         "section_heading_NBzyAd": {
@@ -94,6 +96,7 @@
           "settings": {
             "parent_tab": "ring",
             "step_title": "Procedure #2",
+            "step_image": "shopify://shop_images/Step_1_1.webp",
             "step_description": "<h3><strong>Step 1</strong></h3><ul><li>Take a ring you already own. Make sure that you are choosing the correct finger.<br/></li><li>Keep it on the ruler, and measure its inner diameter.<br/></li><li>Use the following chart to determine your ring size.</li></ul>"
           }
         },
@@ -138,7 +141,9 @@
           "settings": {
             "parent_tab": "bangle",
             "step_title": "Procedure #1",
+            "step_image1": "shopify://shop_images/Step_1_cdbbbca67c_1.webp",
             "step_description1": "<h6>Step 1</h6><p>Cut a thin strip of paper or thread - Bring your thumb and little finger together and measure where your hand is the widest. - Mark the spot where the thread meets.</p>",
+            "step_image2": "shopify://shop_images/Step_1_cdbbbca67c_2.webp",
             "step_description2": "<h6>Step 2</h6><p>Measure the length of the thread with your ruler. - Use the following chart to determine your bangle size.</p>"
           }
         },
@@ -166,7 +171,8 @@
           "settings": {
             "parent_tab": "bangle",
             "step_title": "Procedure #2",
-            "step_description": "<h2>Step 1</h2><ul><li>Take a Bangle you already own. Make sure that you are choosing the correct hand.<br/></li><li> Keep it on the ruler, and measure its inner diameter.<br/></li><li> Use the following chart to determine your bangle size.</li></ul>"
+            "step_image": "shopify://shop_images/Step_1_2.webp",
+            "step_description": "<h2>Step 1</h2><ul><li>Take a Bangle you already own. Make sure that you are choosing the correct hand.<br/></li><li>&nbsp;Keep it on the ruler, and measure its inner diameter.<br/></li><li>&nbsp;Use the following chart to determine your bangle size.</li></ul>"
           }
         },
         "size_chart_BfnPqB": {
