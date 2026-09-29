@@ -24,6 +24,7 @@
       "settings": {
         "heading": "Promotion Banner",
         "image": "shopify://shop_images/book_appintment.jpg",
+        "image_mobile": "shopify://shop_images/book_appintment.jpg",
         "image_link": "",
         "open_new_window": false,
         "image_overlay_opacity": 0,
