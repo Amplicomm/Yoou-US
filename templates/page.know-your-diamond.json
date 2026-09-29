@@ -44,7 +44,7 @@
       "name": "Promotion Banner",
       "settings": {
         "heading": "Promotion Banner",
-        "image": "shopify://shop_images/diamond_banner.png",
+        "image": "shopify://shop_images/diamond_banner_2.png",
         "image_link": "",
         "open_new_window": false,
         "image_overlay_opacity": 0,
@@ -94,7 +94,7 @@
       ],
       "name": "t:sections.image-with-text.name",
       "settings": {
-        "image": "shopify://shop_images/diamond_know_2.png",
+        "image": "shopify://shop_images/diamond_know_2_1.png",
         "make_image_half_width": false,
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -143,7 +143,7 @@
       ],
       "name": "t:sections.image-with-text.name",
       "settings": {
-        "image": "shopify://shop_images/500x500_Diamond_Cut_f0ffa04c-4131-42df-9bbc-4b54c8b345d7.png",
+        "image": "shopify://shop_images/500x500_Diamond_Cut_f0ffa04c-4131-42df-9bbc-4b54c8b345d7_1.png",
         "make_image_half_width": false,
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -200,7 +200,7 @@
       ],
       "name": "t:sections.image-with-text.name",
       "settings": {
-        "image": "shopify://shop_images/1_b2e31edb-5895-48b5-bd87-27140a4084e5.jpg",
+        "image": "shopify://shop_images/1_b2e31edb-5895-48b5-bd87-27140a4084e5_1.jpg",
         "make_image_half_width": false,
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -257,7 +257,7 @@
       ],
       "name": "t:sections.image-with-text.name",
       "settings": {
-        "image": "shopify://shop_images/2_2ca39475-8118-4d1d-904d-fbfd060c0e47.jpg",
+        "image": "shopify://shop_images/2_2ca39475-8118-4d1d-904d-fbfd060c0e47_1.jpg",
         "make_image_half_width": false,
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -314,7 +314,7 @@
       ],
       "name": "t:sections.image-with-text.name",
       "settings": {
-        "image": "shopify://shop_images/3_1b2e74fe-7ee7-44a2-b13d-726adf76963f.jpg",
+        "image": "shopify://shop_images/3_1b2e74fe-7ee7-44a2-b13d-726adf76963f_1.jpg",
         "make_image_half_width": false,
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -335,7 +335,7 @@
       "name": "t:sections.promotion-banner.name",
       "settings": {
         "heading": "Promotion Banner",
-        "image": "shopify://shop_images/1800x300_everything-you-must-know-about-lab-diamond-carats.png",
+        "image": "shopify://shop_images/1800x300_everything-you-must-know-about-lab-diamond-carats_1.png",
         "image_link": "",
         "open_new_window": false,
         "image_overlay_opacity": 0,
