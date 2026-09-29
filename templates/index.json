@@ -16,12 +16,14 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/1__New_website_Desktop_banner-05_jpg_11e9cdbb-5c75-42b1-9b73-0b204498fe5f.webp",
+            "image_mobile": "shopify://shop_images/1__New_website-Mobile_banner-06_jpg_b09ddf7e-e9d4-4995-8241-8ff4c94b537e.webp",
             "alt_text": "",
-            "link": "shopify://collections/younique-offer"
+            "link": "shopify://collections/all-jewellery"
           }
         },
         "slide_wCKWC7": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "alt_text": "",
             "link": ""
@@ -60,36 +62,41 @@
         "tab_UqHWRX": {
           "type": "tab",
           "settings": {
+            "image": "shopify://shop_images/1__1-_DATE_NIGHT.avif",
             "label": "Date night",
-            "collection": "main-homepage-date-night"
+            "collection": "all-jewellery"
           }
         },
         "tab_RPBdmq": {
           "type": "tab",
           "settings": {
+            "image": "shopify://shop_images/1__2-_OFFICE_WEAR.webp",
             "label": "Office Wear",
-            "collection": "main-homepage-office-wear"
+            "collection": "all-jewellery"
           }
         },
         "tab_aeqFey": {
           "type": "tab",
           "settings": {
+            "image": "shopify://shop_images/1__3-_DAILY_WEAR.avif",
             "label": "Daily Wear",
-            "collection": "main-homepage-daily-wear"
+            "collection": "all-jewellery"
           }
         },
         "tab_LDAtPU": {
           "type": "tab",
           "settings": {
+            "image": "shopify://shop_images/1__4_-_PARTY_WEAR.avif",
             "label": "Party Wear",
-            "collection": "main-homepage-party-wear"
+            "collection": "all-jewellery"
           }
         },
         "tab_8Ynbak": {
           "type": "tab",
           "settings": {
+            "image": "shopify://shop_images/1__5_-_KITTY_PARTY.avif",
             "label": "Brunch",
-            "collection": "main-homepage-brunch"
+            "collection": "all-jewellery"
           }
         }
       },
@@ -144,49 +151,55 @@
         "category_XEjkeR": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/1__4-_NECKLACES.webp",
             "caption_prefix": "",
             "title": "Necklaces",
-            "link": "shopify://collections/shop-by-category-necklaces"
+            "link": "shopify://collections/all-jewellery"
           }
         },
         "category_Ktep7x": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/1__3-_BRACELETS.webp",
             "caption_prefix": "",
             "title": "Bracelets",
-            "link": "shopify://collections/shop-by-category-bracelets"
+            "link": "shopify://collections/all-jewellery"
           }
         },
         "category_WfGk8j": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/1__2-_EARRINGS.webp",
             "caption_prefix": "",
             "title": "Earrings",
-            "link": "shopify://collections/shop-by-category-earrings"
+            "link": "shopify://collections/all-jewellery"
           }
         },
         "category_afGqix": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/1__5-_Pendant.webp",
             "caption_prefix": "",
             "title": "Pendant",
-            "link": "shopify://collections/shop-by-category-pendant"
+            "link": "shopify://collections/all-jewellery"
           }
         },
         "category_MXrGgz": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/1__1-_RINGS.webp",
             "caption_prefix": "",
             "title": "Rings",
-            "link": "shopify://collections/shop-by-category-rings"
+            "link": "shopify://collections/all-jewellery"
           }
         },
         "category_fJthfn": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/27379d1c-2ca2-4e08-9da3-a7d9a998c868.webp",
             "caption_prefix": "",
             "title": "Mangalsutra",
-            "link": "shopify://collections/shop-by-category-mangalsutra"
+            "link": "shopify://collections/all-jewellery"
           }
         }
       },
@@ -263,7 +276,7 @@
       "type": "product-slider",
       "name": "Product slider",
       "settings": {
-        "collection": "signature-9kt",
+        "collection": "all-jewellery",
         "products_to_show": 10,
         "heading": "Signature 9KT",
         "subheading": "",
@@ -293,43 +306,49 @@
         "tab_xRbH36": {
           "type": "tab",
           "settings": {
+            "image": "shopify://shop_images/1__1-_FESTIVE-JEWELLERY.avif",
             "label": "New Beginning",
-            "collection": "new-beginning"
+            "collection": "all-jewellery"
           }
         },
         "tab_cPFP4P": {
           "type": "tab",
           "settings": {
+            "image": "shopify://shop_images/1__2-_ANNIVERSARY.avif",
             "label": "Anniversary",
-            "collection": "gifting-anniversary"
+            "collection": "all-jewellery"
           }
         },
         "tab_y4xzgL": {
           "type": "tab",
           "settings": {
+            "image": "shopify://shop_images/1__3-_BIRTHDAY.avif",
             "label": "Birthday",
-            "collection": "gifting-birthday"
+            "collection": "all-jewellery"
           }
         },
         "tab_6c9RA9": {
           "type": "tab",
           "settings": {
+            "image": "shopify://shop_images/1__5-_for_her.avif",
             "label": "For Her",
-            "collection": "gifting-for-her"
+            "collection": "all-jewellery"
           }
         },
         "tab_4WUciX": {
           "type": "tab",
           "settings": {
+            "image": "shopify://shop_images/1__6-_for_him_1.avif",
             "label": "For Him",
-            "collection": "for-him"
+            "collection": "all-jewellery"
           }
         },
         "tab_4x7RzD": {
           "type": "tab",
           "settings": {
+            "image": "shopify://shop_images/1__4-_First_Salary.avif",
             "label": "First Salary",
-            "collection": "gifting-first-salary"
+            "collection": "all-jewellery"
           }
         }
       },
@@ -347,7 +366,8 @@
         "banner_heading": "Gifting Made Effortless",
         "banner_subheading": "<p>Find jewellery they'll love in just a few steps. Choose an occasion, add a personal note, and send a gift they'll remember.</p>",
         "banner_button_label": "Explore our Curated Gifting Collection",
-        "banner_button_link": "shopify://collections/under-40k",
+        "banner_button_link": "shopify://collections/all-jewellery",
+        "banner_image": "shopify://shop_images/1644623e-4b80-4b7d-bd51-44ad873f8240.webp",
         "color_scheme": "scheme-9deb5abd-45b6-4ecf-80bf-ed358be93e71",
         "tab_label_position": "outside",
         "tab_label_color": "",
@@ -384,33 +404,37 @@
         "category_yPFBRx": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/1__1-_UNDER-_20K.webp",
             "caption_prefix": "",
             "title": "",
-            "link": "shopify://collections/under-20k"
+            "link": "shopify://collections/all-jewellery"
           }
         },
         "category_erFhYH": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/1__2-_UNDER-_40K.webp",
             "caption_prefix": "",
             "title": "",
-            "link": "shopify://collections/under-40k"
+            "link": "shopify://collections/all-jewellery"
           }
         },
         "category_c4t44F": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/1__2-_UNDER-_40K_bbb7656c-0b50-4514-b3fb-d931a4e141d2.webp",
             "caption_prefix": "",
             "title": "",
-            "link": "shopify://collections/under-60k"
+            "link": "shopify://collections/all-jewellery"
           }
         },
         "category_xFtPtJ": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/1__4-_UNDER-_1L.webp",
             "caption_prefix": "",
             "title": "",
-            "link": "shopify://collections/under-1lac"
+            "link": "shopify://collections/all-jewellery"
           }
         }
       },
@@ -438,7 +462,7 @@
       "type": "product-slider",
       "name": "Product slider",
       "settings": {
-        "collection": "made-for-yoou",
+        "collection": "all-jewellery",
         "products_to_show": 10,
         "heading": "Made for YOOU",
         "subheading": "",
@@ -468,28 +492,32 @@
         "collection_X9MPDm": {
           "type": "collection",
           "settings": {
-            "collection": "9-to-5-collections",
+            "collection": "all-jewellery",
+            "image": "shopify://shop_images/1__1-_9_TO_5_THE_Collection.webp",
             "title": ""
           }
         },
         "collection_Me7GBp": {
           "type": "collection",
           "settings": {
-            "collection": "party-glam-collections",
+            "collection": "all-jewellery",
+            "image": "shopify://shop_images/1__2-_Glam_THE_Collection.webp",
             "title": ""
           }
         },
         "collection_8VCheP": {
           "type": "collection",
           "settings": {
-            "collection": "everyday-collections",
+            "collection": "all-jewellery",
+            "image": "shopify://shop_images/1__3-_Everyday_The_Collection.webp",
             "title": ""
           }
         },
         "collection_VgRNdT": {
           "type": "collection",
           "settings": {
-            "collection": "festive-luxe-collections",
+            "collection": "all-jewellery",
+            "image": "shopify://shop_images/1__4-_The-_Luxe_Collection.webp",
             "title": ""
           }
         }
@@ -525,22 +553,25 @@
         "video_R9DBC4": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/dea99870ba6544929a46a84e6be57db5.HD-1080p-7.2Mbps-88384934.mp4",
             "video_link": "#",
-            "product": ""
+            "product": "gleaming-lustre-band-yellow-gold-diamond-ring"
           }
         },
         "video_NQtQdQ": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/dea99870ba6544929a46a84e6be57db5.HD-1080p-7.2Mbps-88384934.mp4",
             "video_link": "",
-            "product": ""
+            "product": "luxe-apex-casual-yellow-gold-diamond-ring"
           }
         },
         "video_fhB8mN": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/dea99870ba6544929a46a84e6be57db5.HD-1080p-7.2Mbps-88384934.mp4",
             "video_link": "",
-            "product": ""
+            "product": "luxe-crossover-fashion-yellow-gold-diamond-ring"
           }
         },
         "video_nrkez9": {
@@ -554,8 +585,9 @@
         "video_hAgEL6": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/dea99870ba6544929a46a84e6be57db5.HD-1080p-7.2Mbps-88384934.mp4",
             "video_link": "",
-            "product": ""
+            "product": "majestic-chevron-fashion-rose-gold-diamond-ring"
           }
         }
       },
@@ -586,24 +618,28 @@
         "usp_3wJxBH": {
           "type": "usp",
           "settings": {
+            "icon": "shopify://shop_images/1-_Free_Shipping.avif",
             "label": "Free Shipping"
           }
         },
         "usp_tHyeBJ": {
           "type": "usp",
           "settings": {
+            "icon": "shopify://shop_images/1-_100_Certified.avif",
             "label": "100% Certified"
           }
         },
         "usp_CGNPRY": {
           "type": "usp",
           "settings": {
+            "icon": "shopify://shop_images/1-_14_Day_Easy-Returns.avif",
             "label": "14 Day Easy Returns"
           }
         },
         "usp_3xipxw": {
           "type": "usp",
           "settings": {
+            "icon": "shopify://shop_images/1-_Lifetime_Exchange.avif",
             "label": "Lifetime Exchange"
           }
         },
@@ -676,6 +712,7 @@
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
+        "image": "shopify://shop_images/Clip_path_group.webp",
         "disclaimer_text": "You can unsubscribe anytime. For more details read our",
         "color_scheme": "scheme-9deb5abd-45b6-4ecf-80bf-ed358be93e71",
         "padding_top": 40,

@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/updated_Yoou_Logo.png",
+    "logo": "shopify://shop_images/updated_Yoou_Logo.avif",
     "logo_width": 140,
     "favicon": "shopify://shop_images/Yoou_Eng_Logo_orange_bg_1x1_cd8b9f67-d199-4c86-8875-8c0c1517c81a.png",
     "type_header_font": "assistant_n4",
@@ -143,6 +143,21 @@
     "swym_header_icon_show_count": true,
     "swym_header_icon_custom_html": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"15\" viewbox=\"0 0 17 15\" fill=\"none\">\n  <path d=\"M13.4952 8.99658C14.6123 7.90197 15.7444 6.58993 15.7444 4.87305C15.7444 3.77942 15.3099 2.73058 14.5366 1.95727C13.7633 1.18395 12.7145 0.749512 11.6209 0.749512C10.3013 0.749512 9.37166 1.12438 8.24706 2.24898C7.12246 1.12438 6.19279 0.749512 4.87326 0.749512C3.77963 0.749512 2.73079 1.18395 1.95748 1.95727C1.18417 2.73058 0.749725 3.77942 0.749725 4.87305C0.749725 6.59743 1.87433 7.90946 2.99893 8.99658L8.24706 14.2447L13.4952 8.99658Z\" stroke=\"#FCF2F2\" stroke-width=\"1.49947\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
     "swym_header_icon_custom_css": ".swym-advanced-header-icon { position: relative; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; color: inherit; cursor: pointer; transition: opacity 0.2s ease;    padding-left: 10px; } .swym-header-icon-html { position: relative; display: inline-flex; align-items: center; justify-content: center; } .swym-header-icon-svg { width: 24px; height: 24px; display: block; } .swym-header-icon-count-bubble { position: absolute; top: -7px; right: -7px; display: flex; align-items: center; justify-content: center; } .swym-header-icon-count { padding: 0 5px; font-size: 11px; font-weight: 600; line-height: 18px; text-align: center; color: #fff; background-color: #5C2E91; border-radius: 50%; } .swym-header-icon-count:empty, .swym-header-icon-count[data-count='0'] { display: none; } @media (prefers-reduced-motion: reduce) { .swym-advanced-header-icon { transition: none; } }",
+    "sections": {
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
+      }
+    },
+    "content_for_index": [],
     "color_schemes": {
       "scheme-1": {
         "settings": {
@@ -276,22 +291,7 @@
           "shadow": "#e47a3b"
         }
       }
-    },
-    "sections": {
-      "main-password-header": {
-        "type": "main-password-header",
-        "settings": {
-          "color_scheme": "scheme-1"
-        }
-      },
-      "main-password-footer": {
-        "type": "main-password-footer",
-        "settings": {
-          "color_scheme": "scheme-1"
-        }
-      }
-    },
-    "content_for_index": []
+    }
   },
   "presets": {
     "Dawn": {

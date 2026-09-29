@@ -33,6 +33,7 @@
         "making_charge_discount": {
           "type": "making_charge_discount",
           "settings": {
+            "icon": "shopify://shop_images/Frame_136_1.svg",
             "prefix_text": "Flat",
             "suffix_text": "on making charge",
             "prefix_text_2": "Flat",
@@ -86,7 +87,10 @@
         "product_details_spec": {
           "type": "product_details_spec",
           "settings": {
-            "heading": "Product Details"
+            "heading": "Product Details",
+            "gold_icon": "shopify://shop_images/Gold_Ingots.svg",
+            "dimensions_icon": "shopify://shop_images/Diamond.svg",
+            "diamond_icon": "shopify://shop_images/Measure.svg"
           }
         },
         "app_promo_banner": {
@@ -163,9 +167,13 @@
         "trust_badges_646YLc": {
           "type": "trust_badges",
           "settings": {
+            "image_1": "shopify://shop_images/1-_14_Day_Easy-Returns.avif",
             "label_1": "14 Day Easy Returns",
+            "image_2": "shopify://shop_images/1-_Free_Shipping.avif",
             "label_2": "Free Shipping",
+            "image_3": "shopify://shop_images/1-_Lifetime_Exchange.avif",
             "label_3": "Lifetime Exchange",
+            "image_4": "shopify://shop_images/1-_100_Certified.avif",
             "label_4": "100% Certified Products",
             "icon_width": 60,
             "icon_height": 60
@@ -263,7 +271,7 @@
       "type": "product-slider",
       "name": "Product slider",
       "settings": {
-        "collection": "yoou",
+        "collection": "all-jewellery",
         "products_to_show": 10,
         "heading": "Explore Similar Products",
         "subheading": "",
@@ -322,6 +330,7 @@
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
+        "image": "shopify://shop_images/Clip_path_group.webp",
         "disclaimer_text": "You can unsubscribe anytime. For more details read our",
         "color_scheme": "scheme-9deb5abd-45b6-4ecf-80bf-ed358be93e71",
         "padding_top": 40,
