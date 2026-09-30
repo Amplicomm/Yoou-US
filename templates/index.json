@@ -553,25 +553,25 @@
         "video_R9DBC4": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/dea99870ba6544929a46a84e6be57db5.HD-1080p-7.2Mbps-88384934.mp4",
+            "video": "shopify://files/videos/e31c2e5cf94e49c6aaff31782eef710d.HD-720p-4.5Mbps-90332533.mp4",
             "video_link": "#",
-            "product": "gleaming-lustre-band-yellow-gold-diamond-ring"
+            "product": ""
           }
         },
         "video_NQtQdQ": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/dea99870ba6544929a46a84e6be57db5.HD-1080p-7.2Mbps-88384934.mp4",
+            "video": "shopify://files/videos/5ff3699aec444ad5be60b757408942ce.HD-720p-4.5Mbps-90332534.mp4",
             "video_link": "",
-            "product": "luxe-apex-casual-yellow-gold-diamond-ring"
+            "product": ""
           }
         },
         "video_fhB8mN": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/dea99870ba6544929a46a84e6be57db5.HD-1080p-7.2Mbps-88384934.mp4",
+            "video": "shopify://files/videos/8fae993353dd4793a294dc24b938d7ea.HD-720p-4.5Mbps-90609149.mp4",
             "video_link": "",
-            "product": "luxe-crossover-fashion-yellow-gold-diamond-ring"
+            "product": ""
           }
         },
         "video_nrkez9": {
@@ -585,9 +585,9 @@
         "video_hAgEL6": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/dea99870ba6544929a46a84e6be57db5.HD-1080p-7.2Mbps-88384934.mp4",
+            "video": "shopify://files/videos/a47e22c14c9841f4b81335c8b4111b6e.HD-720p-4.5Mbps-90332535.mp4",
             "video_link": "",
-            "product": "majestic-chevron-fashion-rose-gold-diamond-ring"
+            "product": ""
           }
         }
       },
@@ -660,6 +660,7 @@
       ],
       "name": "USP",
       "settings": {
+        "image": "shopify://shop_images/Frame_2147223556_ef3cade1-d3fd-4136-a652-25c447d53614.webp",
         "eyebrow": "",
         "heading": "What Makes YOOU Different",
         "speed": 25,
