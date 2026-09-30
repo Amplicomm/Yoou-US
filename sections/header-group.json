@@ -14,69 +14,6 @@
     "metal-price-bar": {
       "type": "metal-price-bar",
       "blocks": {
-        "metal-price-bar-0": {
-          "type": "metal_rate",
-          "settings": {
-            "label": "24K Gold",
-            "price": "",
-            "unit": "/ g"
-          }
-        },
-        "metal-price-bar-1": {
-          "type": "metal_rate",
-          "settings": {
-            "label": "22K Gold",
-            "price": "",
-            "unit": "/ g"
-          }
-        },
-        "metal_rate_iK68AN": {
-          "type": "metal_rate",
-          "settings": {
-            "label": "18K Gold",
-            "price": "",
-            "unit": "/ g"
-          }
-        },
-        "metal_rate_3GQgLq": {
-          "type": "metal_rate",
-          "settings": {
-            "label": "14K Gold",
-            "price": "",
-            "unit": "/ g"
-          }
-        },
-        "metal_rate_NnACyz": {
-          "type": "metal_rate",
-          "settings": {
-            "label": "9K Gold",
-            "price": "",
-            "unit": "/ g"
-          }
-        },
-        "metal_rate_kxkwMc": {
-          "type": "metal_rate",
-          "settings": {
-            "label": "Platinum",
-            "price": "",
-            "unit": "/ g"
-          }
-        },
-        "metal_rate_FdWRWX": {
-          "type": "metal_rate",
-          "settings": {
-            "label": "Silver",
-            "price": "",
-            "unit": "/ g"
-          }
-        },
-        "metal-price-bar-3": {
-          "type": "link",
-          "settings": {
-            "label": "Store Locator",
-            "url": "shopify://pages/store-list"
-          }
-        },
         "announcement_4DaxCe": {
           "type": "announcement",
           "disabled": true,
@@ -95,14 +32,6 @@
         }
       },
       "block_order": [
-        "metal-price-bar-0",
-        "metal-price-bar-1",
-        "metal_rate_iK68AN",
-        "metal_rate_3GQgLq",
-        "metal_rate_NnACyz",
-        "metal_rate_kxkwMc",
-        "metal_rate_FdWRWX",
-        "metal-price-bar-3",
         "announcement_4DaxCe",
         "announcement_8z3RKU"
       ],

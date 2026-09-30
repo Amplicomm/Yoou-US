@@ -72,7 +72,6 @@
         "category_MXrGgz": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/Frame_2147223591.png",
             "caption_prefix": "",
             "title": "Rings",
             "link": ""
@@ -81,7 +80,6 @@
         "category_WfGk8j": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/Frame_2147223592_1.png",
             "caption_prefix": "",
             "title": "Earrings",
             "link": ""
@@ -90,7 +88,6 @@
         "category_Ktep7x": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/Frame_2147223593.png",
             "caption_prefix": "",
             "title": "Bracelets",
             "link": ""
@@ -99,7 +96,6 @@
         "category_XEjkeR": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/Frame_2147223594.png",
             "caption_prefix": "",
             "title": "Necklaces",
             "link": ""
@@ -108,7 +104,6 @@
         "category_afGqix": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/Frame_2147223595.png",
             "caption_prefix": "",
             "title": "Solitaires",
             "link": ""
@@ -117,7 +112,6 @@
         "category_fJthfn": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/Frame_2147223596_2.png",
             "caption_prefix": "",
             "title": "Gifting",
             "link": ""
@@ -154,7 +148,6 @@
           "type": "collection_card",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/Container_6.png",
             "title": "For Her",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           }
@@ -163,7 +156,6 @@
           "type": "collection_card",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/Container_8.png",
             "title": "For Him",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           }
@@ -172,7 +164,6 @@
           "type": "collection_card",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/Container_7.png",
             "title": "For Kids",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           }
@@ -201,35 +192,30 @@
         "usp_3wJxBH": {
           "type": "usp",
           "settings": {
-            "icon": "shopify://shop_images/Free_delivery_icon_8b9b7f22-3168-4a56-aa6c-213dae436097.svg",
             "label": "Free Shipping"
           }
         },
         "usp_tHyeBJ": {
           "type": "usp",
           "settings": {
-            "icon": "shopify://shop_images/Container_6.svg",
             "label": "6 Lakh+  Buyers"
           }
         },
         "usp_CGNPRY": {
           "type": "usp",
           "settings": {
-            "icon": "shopify://shop_images/Icon_Container.svg",
             "label": "1 Year Warranty"
           }
         },
         "usp_app4QQ": {
           "type": "usp",
           "settings": {
-            "icon": "shopify://shop_images/Product_Image.svg",
             "label": "Product by    PNG Jewellers"
           }
         },
         "usp_3xipxw": {
           "type": "usp",
           "settings": {
-            "icon": "shopify://shop_images/Icon_12.svg",
             "label": "Lifetime Exchangein 100+ YOOU Stores"
           }
         }
@@ -244,7 +230,6 @@
       "disabled": true,
       "name": "USP",
       "settings": {
-        "image": "shopify://shop_images/Frame_2147223556_ef3cade1-d3fd-4136-a652-25c447d53614.png",
         "eyebrow": "The PNG Promise",
         "heading": "Why YOOU Is Different",
         "speed": 25,
@@ -257,7 +242,7 @@
       "type": "product-slider",
       "name": "Product slider",
       "settings": {
-        "collection": "made-for-yoou",
+        "collection": "all-jewellery",
         "products_to_show": 10,
         "heading": "Curated for YOOU",
         "subheading": "",
@@ -288,7 +273,6 @@
           "type": "collection",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/image_4.png",
             "title": ""
           }
         },
@@ -296,7 +280,6 @@
           "type": "collection",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/image_6_28c217b9-3595-4b60-9055-e521a8d0c26d.png",
             "title": ""
           }
         },
@@ -304,7 +287,6 @@
           "type": "collection",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/image_3.png",
             "title": ""
           }
         },
@@ -312,7 +294,6 @@
           "type": "collection",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/image_6_28c217b9-3595-4b60-9055-e521a8d0c26d.png",
             "title": ""
           }
         },
@@ -320,7 +301,6 @@
           "type": "collection",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/image_3.png",
             "title": ""
           }
         }
@@ -380,7 +360,7 @@
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Clip_path_group.png",
+        "image": "shopify://shop_images/Clip_path_group.webp",
         "disclaimer_text": "You can unsubscribe anytime. For more details read our",
         "color_scheme": "scheme-9deb5abd-45b6-4ecf-80bf-ed358be93e71",
         "padding_top": 40,

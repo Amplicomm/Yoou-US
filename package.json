@@ -1,0 +1,17 @@
+{
+  "name": "yoou-home-page",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+   "start": "npm run dev",
+   "dev": "shopify theme dev --store=yoou-us.myshopify.com",
+   "pull": "shopify theme pull -d",
+   "download": "shopify theme pull --store=yoou-us.myshopify.com",
+   "deploy:unsafe":"shopify theme push --store=yoou-us.myshopify.com",
+   "deploy:safe": "shopify theme push --store=yoou-us.myshopify.com --ignore \"templates/.json\" --ignore \"locales/.json\" --ignore \"config/settings_data.json\" --ignore \"sections/*.json\""
+  }
+}

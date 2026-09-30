@@ -18,40 +18,9 @@
             "whatsapp_button_link": "https://wa.me/+919822051832"
           }
         },
-        "judge_me_reviews_preview_badge_eWbi9X": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        },
         "price": {
           "type": "price",
           "settings": {}
-        },
-        "estimated_delivery_date_cp_clickpost_edd_D3GL3H": {
-          "type": "shopify://apps/estimated-delivery-date-cp/blocks/clickpost-edd/052d4955-0ec2-4e86-8e1f-f971acb44560",
-          "settings": {
-            "heading": "Delivery Details",
-            "color": "#263238",
-            "submit_color": "#fff",
-            "submit": "Check",
-            "edd_text": "Delivery between",
-            "edd_color": "#008000",
-            "fail_color": "#ff0000",
-            "cod_text": "Cash on delivery",
-            "unservicable_text": "Pincode not servicable",
-            "cod": true,
-            "date_range": true,
-            "only_min": false,
-            "month": false,
-            "placeholder": "Enter your pincode",
-            "date_format": "1",
-            "enable_countdown": false,
-            "invalid_text": "Please enter a valid pincode",
-            "extra_text": "",
-            "max_date_additional_text": "",
-            "helping_text": "",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
         },
         "dispatch_days": {
           "type": "dispatch_days",
@@ -216,9 +185,7 @@
       },
       "block_order": [
         "title",
-        "judge_me_reviews_preview_badge_eWbi9X",
         "price",
-        "estimated_delivery_date_cp_clickpost_edd_D3GL3H",
         "dispatch_days",
         "making_charge_discount",
         "variant_picker",
@@ -285,20 +252,6 @@
     },
     "178350998516a396da": {
       "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_cmKfnB": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_cmKfnB"
-      ],
       "disabled": true,
       "custom_css": [],
       "settings": {
@@ -349,46 +302,6 @@
     },
     "apps_Nf8EBY": {
       "type": "apps",
-      "blocks": {
-        "judge_me_reviews_cards_carousel_GpdGmM": {
-          "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "show_sample_reviews": true,
-            "reviews_selection": "all",
-            "products": [],
-            "filter_pinned": false,
-            "filter_featured": false,
-            "filter_custom_tags": "",
-            "star_rating": "all",
-            "show_review_media": false,
-            "display_order": "most_recent",
-            "no_image_fallback": "review_text_only",
-            "max_reviews": 20,
-            "review_length": "medium",
-            "text_size": "medium",
-            "image_ratio": "1",
-            "reviews_shown": 4,
-            "show_reviewer_name": true,
-            "show_product_name": true,
-            "hide_arrows_mobile": true,
-            "arrows_position": "sides",
-            "max_width": 1100,
-            "corner_styling": "soft",
-            "header_text_color": "#000000",
-            "text_color": "#f2ecd0",
-            "card_color": "#7a3717",
-            "stars_color": "#fecd5b",
-            "arrows_color": "#000000",
-            "transition_speed": 6,
-            "header_text": "Families Who Chose YOOU",
-            "show_average_rating": true,
-            "rating_display": "default"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_cards_carousel_GpdGmM"
-      ],
       "disabled": true,
       "settings": {
         "include_margins": true
