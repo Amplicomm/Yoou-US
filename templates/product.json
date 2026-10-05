@@ -24,6 +24,7 @@
         },
         "dispatch_days": {
           "type": "dispatch_days",
+          "disabled": true,
           "settings": {
             "in_stock_text": "Dispatch in 2 days",
             "out_of_stock_text": "Dispatch in 21 days",
