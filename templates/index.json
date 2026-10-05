@@ -23,10 +23,9 @@
         },
         "slide_wCKWC7": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "video_desktop": "shopify://files/videos/1920x 1040.mp4",
-            "video_mobile": "shopify://files/videos/1920x 1040 (1).mp4",
+            "video_mobile": "shopify://files/videos/54e5bec5c700469cabc3a03fab415f83.HD-1080p-3.3Mbps-93061008.mp4",
             "alt_text": "",
             "link": ""
           }
@@ -368,7 +367,7 @@
         "banner_heading": "Gifting Made Effortless",
         "banner_subheading": "<p>Find jewellery they'll love in just a few steps. Choose an occasion, add a personal note, and send a gift they'll remember.</p>",
         "banner_button_label": "Explore our Curated Gifting Collection",
-        "banner_button_link": "shopify://collections/under-40k",
+        "banner_button_link": "shopify://collections/all-jewellery",
         "banner_image": "shopify://shop_images/1644623e-4b80-4b7d-bd51-44ad873f8240.png",
         "color_scheme": "scheme-9deb5abd-45b6-4ecf-80bf-ed358be93e71",
         "tab_label_position": "outside",
