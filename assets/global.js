@@ -1568,6 +1568,16 @@ class SwiperComponent extends HTMLElement {
       },
     });
 
+    // A fast drag/fling backwards can land on the very first slide in the
+    // DOM, leaving nothing before it to fill the desktop peek offset (a blank
+    // gap). Swiper only re-pads the loop on the next interaction, so do it as
+    // soon as the transition settles; loopFix keeps the visual position.
+    if (hasPeekSlide && this.swiper.params.loop) {
+      this.swiper.on('transitionEnd', (swiper) => {
+        if (swiper.activeIndex < swiper.loopedSlides) swiper.loopFix();
+      });
+    }
+
     // The "Collection tab" section's tab row can be scrolled/dragged
     // independently of which tab is active (clicking a tab doesn't recenter
     // it), so the active-tab progress indicator below the row can't be
