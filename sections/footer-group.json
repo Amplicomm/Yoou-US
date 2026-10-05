@@ -60,7 +60,7 @@
         "payment_enable": false,
         "show_policy": true,
         "copyright_text": "© 2026 YOOU by PNG Jewellers Pvt. Ltd. · All rights reserved.",
-        "bottom_menu": "",
+        "bottom_menu": "policy",
         "show_app_download": false,
         "app_heading": "Get The App",
         "app_store_link": "#",
