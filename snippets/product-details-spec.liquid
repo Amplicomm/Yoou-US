@@ -17,7 +17,8 @@
     the same "metal_rates" metaobject entry.
   - Dimensions card: width/height are merchant-set block settings (not
     variant data); gross weight is metafields.custom.net_weight +
-    metafields.custom.silver_weight + metafields.custom.platinum_weight.
+    metafields.custom.silver_weight + metafields.custom.platinum_weight (the card
+    is hidden when metafields.custom.net_weight is blank).
   - Diamond card: diamond count, total weight, and size from the
     metafields.custom.dia_type_1_dia_pc_1, metafields.custom.dia_type_1_dia_wt_1,
     and metafields.custom.dia_type_1_dsizeid_1 metafields (the card only shows
@@ -244,25 +245,25 @@
       </div>
     {%- endif -%}
 
-    <div class="product-details-spec__card">
-      <div class="product-details-spec__card-title">
-        {%- if block.settings.dimensions_icon != blank -%}
-          <span class="product-details-spec__icon">
-            {{
-              block.settings.dimensions_icon
-              | image_url: width: 64
-              | image_tag: loading: 'lazy', widths: '32, 64'
-            }}
-          </span>
-        {%- endif -%}
-        <span>Dimensions</span>
-      </div>
-      <ul class="product-details-spec__list">
-        {%- if gross_weight != blank -%}
+    {%- if gross_weight != blank -%}
+      <div class="product-details-spec__card">
+        <div class="product-details-spec__card-title">
+          {%- if block.settings.dimensions_icon != blank -%}
+            <span class="product-details-spec__icon">
+              {{
+                block.settings.dimensions_icon
+                | image_url: width: 64
+                | image_tag: loading: 'lazy', widths: '32, 64'
+              }}
+            </span>
+          {%- endif -%}
+          <span>Dimensions</span>
+        </div>
+        <ul class="product-details-spec__list">
           <li>{{ gross_weight }} g (Gross wt)</li>
-        {%- endif -%}
-      </ul>
-    </div>
+        </ul>
+      </div>
+    {%- endif -%}
 
     {%- if show_diamond_card -%}
       <div class="product-details-spec__card">

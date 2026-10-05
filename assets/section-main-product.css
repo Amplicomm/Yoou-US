@@ -776,13 +776,13 @@ product-info {
 .product-details-spec__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: #fff;
   border-radius: 1.6rem;
   overflow: hidden;
 }
 
 .product-details-spec__card {
   padding: 2rem;
+  background-color: #fff;
   border-bottom: 0.2rem solid rgba(var(--color-foreground), 0.08);
   border-right: 0.2rem solid rgba(var(--color-foreground), 0.08);
 }
@@ -793,6 +793,15 @@ product-info {
 
 .product-details-spec__card:last-child {
   border-bottom: none;
+}
+
+.product-details-spec__card:last-child:nth-child(odd) {
+  border-right: none;
+  border-bottom-right-radius: 1.6rem;
+}
+
+.product-details-spec__card:only-child {
+  border-top-right-radius: 1.6rem;
 }
 
 .product-details-spec__card-title {
